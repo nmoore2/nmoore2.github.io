@@ -1,0 +1,59 @@
+/*My Styles*/
+
+.jumbotron, #about  {
+	background: url('../assets/texture-low.jpg');	
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+	#main-nav {
+		background: transparent;
+	
+	}
+
+}
+#contact {
+	background: rgba(0,0,0,0);
+	color: black;
+}
+
+.bl_form input, .bl_form textarea {
+	color: #000;
+}
+
+.top {
+	color: 000;
+
+} 
+
+.lb_label.active {
+	color: #000;
+	font-weight: normal;
+}
+
+#main-nav.scrolled {
+	color: #F78F39;
+}
+
+.modal-body {
+	background: #1D2026;
+}
+
+.project-item .hover-mask {
+	border-top: 1px solid #ffaf67;
+	border-bottom: 1px solid #ffaf67;
+}
+
+.project-item .hover-mask .project-title {
+	color: inherit;
+}
+
+.project-item .hover-mask p {
+	visibility: hidden;
+
+}
+
+#project-modal .close {
+	color: #000;
+}

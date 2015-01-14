@@ -748,7 +748,7 @@
 					</div>
 					
 					<div class="col-sm-6 text-right scrollimation fade-in">
-						<p>&copy;2014 <a href="">Juna Design</a></p>
+						<p>&copy; <?php echo date("Y") ?> Juna Design</p>
 					</div>
 					
 				</div>

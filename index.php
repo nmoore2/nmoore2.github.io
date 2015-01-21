@@ -46,11 +46,10 @@
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<!-- ==============================================
-		JS Change logo on scroll
-		=============================================== -->
-		<script type="text/javascript">
-		
-		// Google Analytics
+		GOOGLE ANALYTICS 
+		================================================-->
+
+		<script>
 
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -60,28 +59,9 @@
 		  ga('create', 'UA-58635435-1', 'auto');
 		  ga('send', 'pageview');
 
+		</script>
 
-
-		// End Google Analytics
-
-
-	// 	var 
-	// 	$(window).scroll(function () {
- //   		 if ($(document).scrollTop() !== 0) {
- //        	$('li#logo.img').removeClass('logoimg');
- // //        	$('img').addClass('orangelogo');
- // //        	$('orangelogo').attr('src', 'assets/logoblack.png');
- // //    	}  else {
- // //        	// $('#header').addClass('tiny');
- // //        	// $('#menu-spacing').removeClass('nav-margin-top');
- // //        	$('img.logoimg').attr('src', 'assets/logo2.png');
- // //    	}
-	// // }); 
-	// 	// $(window).scroll(function() {
- //  // 			$( "#main-nav.a" ).append( "<img src="assets/logo1.png">" );
-	// 	// });
-
-// 		</script>
+	</head>
 
   
 	<body data-spy="scroll" data-target="#main-nav" data-offset="400">

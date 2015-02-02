@@ -742,7 +742,7 @@
 					</div>
 					
 					<div class="col-sm-6 text-right scrollimation fade-in">
-						<p>&copy; <?php echo date("Y") ?> Juna Design</p>
+						<p>&copy; <?php echo date("Y") ?> Juna, Inc.</p>
 					</div>
 					
 				</div>

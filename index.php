@@ -360,7 +360,7 @@
 						<img class="img-responsive project-image" src="assets/mockup-thumb.png"  alt="JD website mockup"><!--Project thumb -->
 						
 						<div class="hover-mask">
-							<h2 class="project-title">Website Mockups</h2><!--Project Title -->
+							<h2 class="project-title">Websites</h2><!--Project Title -->
 							<p>Subtitle</p><!--Project Subtitle -->
 						</div>
 						

@@ -161,7 +161,7 @@
 				<header class="section-header text-center">
 				
 					<h1 class="scrollimation scale-in">What We Do</h1>
-					<p>We create stunning designs and extraordinary user experiences.
+					<p>We create stunning designs and remarkable user experiences.
 				
 				</header>
 			
@@ -332,7 +332,7 @@
 							<a href="#" data-filter="*">All</a>
 						</li>
 						<li class="scrollimation fade-right">
-							<a href="#" data-filter=".web">Web Design</a>
+							<a href="#" data-filter=".web">Websites</a>
 						</li>
 						<li class="scrollimation fade-left">
 							<a href="#" data-filter=".graphic">Graphic Design</a>
@@ -357,10 +357,10 @@
 					=============================================== -->	
 					<article class="project-item web">
 						
-						<img class="img-responsive project-image" src="assets/mockup-thumb.png"  alt="JD website mockup"><!--Project thumb -->
+						<img class="img-responsive project-image" src="assets/toddsitethumb.png"  alt="Todd Oltmann Website"><!--Project thumb -->
 						
 						<div class="hover-mask">
-							<h2 class="project-title">Websites</h2><!--Project Title -->
+							<h2 class="project-title">ToddOltmann.com</h2><!--Project Title -->
 							<p>Subtitle</p><!--Project Subtitle -->
 						</div>
 						
@@ -368,14 +368,16 @@
 						
 						<div class="sr-only project-description" 
 							data-category="Web Design" 
-							data-date="11/15/2014" 
-							data-link="www.julianamariano.com,http://www.julianamariano.com"
-							data-images="assets/mockup-slide1.png, assets/mockup-slide2.png, assets/mockup-slide3.png, assets/mockup-slide4.png, assets/mockup-slide5.png"
-							data-url="assets/mockup-slide1.png, assets/mockup-slide2.png, assets/mockup-slide3.png, assets/mockup-slide4.png, assets/mockup-slide5.png"
+							data-date="March 2015" 
+							data-link="www.toddoltmann.com, http://www.toddoltmann.com"
+							data-images="assets/todd-large.png, assets/todd-large2.png, assets/todd-large3.png, assets/todd-large4.png, assets/todd-large5.png"
+							data-url="http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com"
 						>
-							<p>This is a mock-up for julianamariano.com, a site which is currently construction :)</p>
-							
-							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://julianamariano.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
+							<p>This is a website for musician Todd Oltmann.</p> 
+							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
+							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
+			
+							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
 						</div>
 						
 					</article>
@@ -406,7 +408,7 @@
 							<p>The first item, titled "Roots and Wings" was insipired by Juliana's mother. She's keen to remind Juli that even though she's free to fly around and see the world, she shouldn't forget where her roots are, in Brazil. </p>
 
 							<p>The second slide is a collection of images inspired by a night we camped in the Amazon Rainforest. As the sounds of the jungle heightened at night, we struggled to fall asleep.Juli remembers "seeing" a mysterious indeginous man walking around our campsite. The image of the hammocks is an actual picture of where we slept.</p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 						
 					</article><!--End Project Item -->
@@ -436,7 +438,7 @@
 							<p>Ultimately, we went a fairly straightforward design, using transparent circles to highlight how the circles are interlocking.</p>
 
 							<p>The remaining logos were done for friends who run their own businesses.</p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 						
 					</article><!--End Project Item -->

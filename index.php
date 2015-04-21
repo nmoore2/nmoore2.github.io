@@ -135,7 +135,7 @@
 										<img src="assets/girl.png" alt="poster"/>
 									</li>
 									<li>
-										<img src="assets/montage.png" alt="montage"/>
+										<img src="assets/bird-slide.png" alt="bird slide thumbnail"/>
 									</li>
 									<li>
 										<img src="assets/poster-thumb.png" alt="cook book thumbnail"/>
@@ -415,7 +415,7 @@
 
 					<article class="project-item illustration">
 						
-						<img class="img-responsive project-image" src="assets/logo1-thumb.png"  alt="logo thumbnail"><!--Project thumb -->
+						<img class="img-responsive project-image" src="assets/gunnison-logo-thumb.png"  alt="logo thumbnail"><!--Project thumb -->
 						
 						<div class="hover-mask">
 							<h2 class="project-title">Logos</h2><!--Project Title -->
@@ -424,20 +424,23 @@
 						
 						<!--==== Project Preview HTML ====-->
 						
-						<div class="sr-only project-description" 
-							data-category="Logos" 
-							data-date="11/10/2014" 
-							data-client="Juna Design" 
-							data-link="www.junadesign.com,http://junadesign.com" 
-							data-descr="Alternative designs for our logo" 
-							data-images="assets/logo-slide1.png,assets/logo-slide2.png, assets/logo-slide3.png, assets/logo-slide4.png, assets/logo-slide5.png, assets/logo-slide6.png, assets/logo-slide7.png, assets/logo-slide8.png, assets/pv-slide.png, assets/pv-slide2.png, assets/pv-slide3.png"
-							data-url="assets/logo-slide1.png,assets/logo-slide2.png, assets/logo-slide3.png, assets/logo-slide4.png, assets/logo-slide5.png, assets/logo-slide6.png, assets/logo-slide7.png, assets/logo-slide8.png, assets/pv-slide.png, assets/pv-slide2.png, assets/pv-slide3.png"
+						<div class="sr-only project-description"
+						  data-category="Custom Logo Designs"
+							data-client="Various Clients" 
+							data-images=" assets/gunnisonaggroup.png, assets/logo-slide8.png, assets/pv-slide2.png, assets/pv-slide3.png"
+							data-url="assets/gunnisonaggroup.png, assets/logo-slide8.png, assets/pv-slide2.png, assets/pv-slide3.png"
 						>
-							<p>We considered a few different options when designing our logo. Since our name "Juna" is derived from the first two letters of our first names - Juliana and Nathan - we wanted to incorporate a concept of dualism into the logo. The two circles, each with the first two letters of our names inside, reperesent this idea. </p>
-							
-							<p>Ultimately, we went a fairly straightforward design, using transparent circles to highlight how the circles are interlocking.</p>
+							<p>When we design logos we consider a few things:</p>
+							<br>
 
-							<p>The remaining logos were done for friends who run their own businesses.</p>
+							<p><strong>1. How can we convey what the business is about?</strong><p>
+							<p>    We want the logo to clearly represent the company's message, products and services without any distracting features.</p>
+							
+							<p><strong>2. How can it be versatile?</strong></p>
+							<p>    The logo needs to look good in a variety of sizes and still be easy to depict and recognize, even for those whose vision is not so 20/20.</p>  
+							
+							<p><strong>3. Is it simple yet stylish?</strong></p>
+							<p>    Sure, we know how to make stylish and unique things, but it's important that the logo still be simple enough to be used for both digital and print media.</p>
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 						
@@ -568,7 +571,7 @@
 						>
 							<p>These brochures were done as part of a re-branding campaign for a small company.</p>
 							
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://newhound.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://newhound.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 						
 					</article><!--End Project Item -->
@@ -595,7 +598,7 @@
 							<p>This project gives a tour of the 12 host cities for the 2014 World Cup in Brazil. 
 							<p>For each city there are 3 pages: one with information about the city, one describing the stadium, and a one listing the matches.</p>
 							<p>Click on any of the slides to open the project. Make sure your speaker volume isn't turned up too loud! </p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 						
 					</article><!--End Project Item -->

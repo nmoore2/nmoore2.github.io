@@ -265,7 +265,8 @@
 					
 						<img class="img-responsive img-center img-circle scrollimation fade-left" src="assets/aboutboat.png" alt="Juli and I on a boat" />
 				
-						<p class="text-center scrollimation fade-in">Design is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert, and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside in Glenwood Springs, Colorado.</p>
+						<p class="text-center scrollimation fade-in">Design is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert, 
+							and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places.</p>
 					
 					</div>
 					

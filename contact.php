@@ -5,7 +5,7 @@ $siteTitle = 'Juna Design';
 error_reporting(E_ALL ^ E_NOTICE); // hide all basic notices from PHP
 
 //If the form is submitted
-if(isset($_POST['submitted'])) {
+if(isset($_POST['submitted'])) && (isset($_POST['url']) && $_POST['url'] == '') {
 	
 	// require a name from user
 	if(trim($_POST['contactName']) === '') {
@@ -37,6 +37,7 @@ if(isset($_POST['submitted'])) {
 			$comments = trim($_POST['comments']);
 		}
 	}
+
 		
 	// upon no failure errors let's email now!
 	if(!isset($hasError)) {
@@ -59,4 +60,10 @@ if(isset($_POST['submitted'])) {
 		$emailSent = true;
 	}
 }
+
+//let the spammer think the email went through
 ?>
+
+<h1>Thanks!</h1>
+
+We will respond as soon as possible.

@@ -17,41 +17,38 @@
 		<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
-		
+
 		<!-- ==============================================
 		CSS
-		=============================================== -->  
+		=============================================== -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/font-awesome.css">
 		<link rel="stylesheet" href="css/flexslider.css">
 		<link rel="stylesheet" href="css/meflat-orange.css">
-		<link rel="stylesheet" href="css/mystyles.css">  
-		
-		
+		<link rel="stylesheet" href="css/mystyles.css">
+
 		<!-- ==============================================
 		Fonts
 		=============================================== -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,200,400italic,600,600italic' rel='stylesheet' type='text/css'>
-		
+
 		<!-- ==============================================
 		JS
 		=============================================== -->
-			
+
 			<!--[if lt IE 9]>
 				<script src="js/respond.min.js"></script>
 			<![endif]-->
-		
+
 		<script type="text/javascript" src="js/libs/modernizr.min.js"></script>
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<!-- ==============================================
-		GOOGLE ANALYTICS 
+		GOOGLE ANALYTICS
 		================================================-->
-
 		<script>
-
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -63,27 +60,27 @@
 
 	</head>
 
-  
+
 	<body data-spy="scroll" data-target="#main-nav" data-offset="400">
 		<!-- ==============================================
 		MAIN NAV
 		=============================================== -->
 		<div id="main-nav" class="navbar navbar-fixed-top">
 			<div class="container">
-			
+
 				<div class="navbar-header">
-				
+
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
 						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 					</button>
-					
+
 					<!-- ======= LOGO (for small screens)========-->
 					<a class="navbar-brand visible-xs scrollto" href="#home">
 						<img class="logoimg" src='assets/logoblack.png' height = "60">
 					</a>
-					
+
 				</div>
-				
+
 				<div id="site-nav" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li>
@@ -105,27 +102,27 @@
 						</li>
 					</ul>
 				</div><!--End navbar-collapse -->
-				
+
 			</div><!--End container -->
-			
+
 		</div><!--End main-nav -->
-		
+
 		<!-- ==============================================
 		HEADER
 		=============================================== -->
 		<header id="home" class="jumbotron jumbo-image">
-		
+
 			<div class="container">
-			
+
 				<div class="row">
-				
+
 					<div class="col-sm-6 text-col">
-					
+
 						<h1>Welcome to Juna Design!</h1>
 						<p>Thanks for stopping by</p>
-						
+
 					</div>
-					
+
 					<div class="col-sm-6">
 						<div class="imac-frame">
 							<img class="img-responsive img-center" src="assets/imac.png" alt=""/>
@@ -144,152 +141,152 @@
 							</div>
 						</div>
 					</div>
-				
+
 				</div>
-			
+
 			</div>
-			
+
 		</header><!--End header -->
-			
+
 		<!-- ==============================================
 		SERVICES
 		=============================================== -->
 		<section id="services" class="dark-bg padding-top-bottom">
-		
+
 			<div class="container">
-				
+
 				<header class="section-header text-center">
-				
+
 					<h1 class="scrollimation scale-in">What We Do</h1>
 					<p>We create stunning designs and remarkable user experiences.
-				
+
 				</header>
-			
+
 				<div class="row services">
-				
+
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up">
-					
+
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/service1.png" alt="" />
 						</div>
 						<h2>Web Design</h2>
 						<p>We love building your ideas into a digital experience. Whether it's a large e-commerce site, or just a simple personal site - we create designs you'll love.</p>
 					</div>
-					
+
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
-					
+
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/service2.png" alt="" />
 						</div>
-						
+
 						<h2>Web Development</h2>
 						<p>Need a website? We craft custom websites from scratch, and use various content management systems to fit your needs. We'll build a website that exceeds your expectations.</p>
-					
+
 					</div>
-					
+
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up d2">
-					
+
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/repair.png" alt="" />
 						</div>
-						
+
 						<h2>Web Repair</h2>
 						<p>Have a site in need of some TLC? We're happy to help. Whether it's fixing code, adding a new feature, or giving it a design makeover.</p>
-					
+
 					</div>
-					
+
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up d3">
-					
+
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/service4.png" alt="" />
 						</div>
-						
+
 						<h2>Branding</h2>
 						<p>Need a logo? Brochure? Business Card? Crafting your visual identity is our specialty. Let us know what we can design for you.</p>
-					
+
 					</div>
-				
+
 				</div>
-			
+
 			</div>
-		
+
 		</section>
-		
+
 		<!-- ==============================================
 		FEATURED PROJECT
-		=============================================== -->	
+		=============================================== -->
 		<!-- <section id="feat-project" class="gray-bg padding-top">
-		
+
 			<div class="container">
-			
+
 				<header class="section-header text-center">
-				
+
 					<h1 class="scrollimation scale-in">Featured Project</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.</p>
-				
+
 				</header>
-				
+
 				<div class="scrollimation fade-up">
 					<img class="img-responsive img-center" src="assets/girl.png" alt="big girl">
-					
+
 					<div class="img-wrapper">
-						
+
 						<img class="img-responsive img-center" src="assets/placeholder-800x500.jpg" alt="" />
-						
+
 						<p class="text-center on-hover"><a class="btn btn-meflat icon-right" href="#external">Visit Website<i class="fa fa-arrow-right"></i></a></p>
-					
+
 					</div>
 				</div>
-				
+
 			</div>
-		
+
 		</section>
 		 -->
-		
+
 		<!-- ==============================================
 		ABOUT
-		=============================================== -->	
+		=============================================== -->
 		<section id="about" class="dark-bg light-typo padding-top-bottom">
-		
+
 			<div class="container">
-			
+
 				<header class="section-header text-center">
-				
+
 					<h1 class="scrollimation scale-in">About Us</h1>
-				
+
 				</header>
-				
+
 				<div class="row">
-				
+
 					<div class="col-sm-8 col-sm-offset-2">
-					
+
 						<img class="img-responsive img-center img-circle scrollimation fade-left" src="assets/aboutboat.png" alt="Juli and I on a boat" />
-				
-						<p class="text-center scrollimation fade-in">Design is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert, 
+
+						<p class="text-center scrollimation fade-in">Design is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert,
 							and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places.</p>
-					
+
 					</div>
-					
+
 				</div>
-					
-				
-				
+
+
+
 				<p class="text-center"><a class="btn btn-meflat scrollto white icon-left" href="#contact"><i class="fa fa-arrow-down"></i>Hire Us</a></p>
-				
+
 			</div>
-		
+
 		</section>
 		<!-- ==============================================
 		SKILLS
-		=============================================== -->	
+		=============================================== -->
 <!-- 		<section id="skills" class="white-bg">
-		
+
 			<div class="container">
-			
+
 				<div class="row skills">
-					
+
 					<h1 class="text-center scrollimation fade-in">We Got the Skills</h1>
-					
+
 					<div class="col-sm-6 col-md-3 text-center">
 						<span class="chart" data-percent="80"><span class="percent">80</span></span>
 						<h2 class="text-center">Flash</h2>
@@ -306,26 +303,26 @@
 						<span class="chart" data-percent="90"><span class="percent">90</span></span>
 						<h2 class="text-center">Photoshop</Pho>
 					</div>
-					
+
 				</div><
-			
+
 			</div>
-		
-		
+
+
 		</section> -->
  		<!-- ==============================================
 		PORTFOLIO
-		=============================================== -->	
+		=============================================== -->
 		<section id="portfolio" class="dark-bg padding-top-bottom">
-			
+
 			<div class="container">
-			
+
 				<header class="section-header text-center">
-				
+
 					<h1 class="scrollimation scale-in">Our Works</h1>
-				
+
 				</header>
-				
+
 				<!--==== Portfolio Filters ====-->
 				<div id="filter-works">
 					<ul>
@@ -346,88 +343,88 @@
 						</li>
 					</ul>
 				</div><!--End portfolio filters -->
-				
+
 			</div><!--End portfolio header -->
-			
+
 			<div class="container masonry-wrapper scrollimation fade-in">
-			
+
 				<div id="projects-container">
-				
+
 					<!-- ==============================================
 					SINGLE PROJECT ITEM
-					=============================================== -->	
+					=============================================== -->
 					<article class="project-item web">
-						
+
 						<img class="img-responsive project-image" src="assets/toddsitethumb.png"  alt="Todd Oltmann Website"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">ToddOltmann.com</h2><!--Project Title -->
 							<p>Subtitle</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Web Design" 
-							data-date="March 2015" 
+
+						<div class="sr-only project-description"
+							data-category="Web Design"
+							data-date="March 2015"
 							data-link="www.toddoltmann.com, http://www.toddoltmann.com"
 							data-images="assets/todd-large.png, assets/todd-large2.png, assets/todd-large3.png, assets/todd-large4.png, assets/todd-large5.png"
 							data-url="http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com"
 						>
-							<p>This is a website for musician Todd Oltmann.</p> 
+							<p>This is a website for musician Todd Oltmann.</p>
 							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
 							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
-			
+
 							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
 						</div>
-						
+
 					</article>
 					<!-- ==============================================
 					END PROJECT ITEM
-					=============================================== -->						
-					
+					=============================================== -->
+
 					<article class="project-item graphic">
-						
+
 						<img class="img-responsive project-image" src="assets/girl-thumb.png"  alt="girl thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Photo Montages</h2><!--Project Title -->
 							<p>Graphic Design</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Print" 
-							data-date="10/02/2013" 
-							data-descr="Using Photoshop to Blend Images" 
+
+						<div class="sr-only project-description"
+							data-category="Print"
+							data-date="10/02/2013"
+							data-descr="Using Photoshop to Blend Images"
 							data-images="assets/girl-slide.png, assets/amazon.png"
 							data-url="assets/girl-slide-o.png, assets/amazon-o.png"
 						>
 							<p>For these projects Juli created a photo composition by joining and editing images.</p>
-							
+
 							<p>The first item, titled "Roots and Wings" was insipired by Juliana's mother. She's keen to remind Juli that even though she's free to fly around and see the world, she shouldn't forget where her roots are, in Brazil. </p>
 
 							<p>The second slide is a collection of images inspired by a night we camped in the Amazon Rainforest. As the sounds of the jungle heightened at night, we struggled to fall asleep.Juli remembers "seeing" a mysterious indeginous man walking around our campsite. The image of the hammocks is an actual picture of where we slept.</p>
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item illustration">
-						
+
 						<img class="img-responsive project-image" src="assets/gunnison-logo-thumb.png"  alt="logo thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Logos</h2><!--Project Title -->
 							<p>Illustration</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
+
 						<div class="sr-only project-description"
 						  data-category="Custom Logo Designs"
-							data-client="Various Clients" 
+							data-client="Various Clients"
 							data-images=" assets/gunnisonaggroup.png, assets/logo-slide8.png, assets/pv-slide2.png, assets/pv-slide3.png"
 							data-url="assets/gunnisonaggroup.png, assets/logo-slide8.png, assets/pv-slide2.png, assets/pv-slide3.png"
 						>
@@ -436,57 +433,57 @@
 
 							<p><strong>1. How can we convey what the business is about?</strong><p>
 							<p>    We want the logo to clearly represent the company's message, products and services without any distracting features.</p>
-							
+
 							<p><strong>2. How can it be versatile?</strong></p>
-							<p>    The logo needs to look good in a variety of sizes and still be easy to depict and recognize, even for those whose vision is not so 20/20.</p>  
-							
+							<p>    The logo needs to look good in a variety of sizes and still be easy to depict and recognize, even for those whose vision is not so 20/20.</p>
+
 							<p><strong>3. Is it simple yet stylish?</strong></p>
 							<p>    Sure, we know how to make stylish and unique things, but it's important that the logo still be simple enough to be used for both digital and print media.</p>
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item illustration">
-						
+
 						<img class="img-responsive project-image" src="assets/stamps-thumb.png"  alt="stamps thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">World Cup Stamps</h2><!--Project Title -->
 							<p>Illustrator</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Illustration" 
-							data-date="03/15/2014" 
-							data-client="MiraCosta College"  
+
+						<div class="sr-only project-description"
+							data-category="Illustration"
+							data-date="03/15/2014"
+							data-client="MiraCosta College"
 							data-images="assets/stamps.png"
 							data-url="assets/stamps-o.png"
 						>
 							<p>These stamps were done for an Illustrator project in one of Juli's courses at MiraCosta College. The assignment was to design four stamps on any subject. Since Juli is from Brazil, and the 2014 World Cup was just months away in Brazil, a World Cup theme seemed appropriate.</p>
-							
+
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item graphic">
-						
+
 						<img class="img-responsive project-image" src="assets/book-thumb.png"  alt="girl dancing postcard"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Print Media</h2><!--Project Title -->
 							<p>In Design</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Print Media" 
-							data-date="01/29/2014" 
-							data-descr="A small description goes here." 
+
+						<div class="sr-only project-description"
+							data-category="Print Media"
+							data-date="01/29/2014"
+							data-descr="A small description goes here."
 							data-images="assets/book.png, assets/dancer.png, assets/poster2.png"
 							data-url="assets/book.png, assets/dancer-o.png, assets/poster2-o.png"
 						>
@@ -496,133 +493,133 @@
 							<p>The second image, titled "Shapes and Reflections" is a poster advertising a dance performance at MiraCosta College.</p>
 							<p>The third image is a poster for the 2014 Media Arts Competition in which all community colleges in California competed across a variety of media fields.</p>
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item illustration">
-						
+
 						<img class="img-responsive project-image" src="assets/poster-thumb.png"  alt="dance festival thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Event Posters</h2><!--Project Title -->
 							<p>Illustrator</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Illustration" 
-							data-date="02/16/2014" 
-							data-descr="Poster for dance festival" 
+
+						<div class="sr-only project-description"
+							data-category="Illustration"
+							data-date="02/16/2014"
+							data-descr="Poster for dance festival"
 							data-images="assets/poster.png"
 							data-url="assets/poster-o.pdf"
 						>
 							<p>This poster is a vector version of the poster for the dance performance at MiraCosta college. The original was a photo montage with no illustration.</p>
-							
+
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item graphic">
-						
+
 						<img class="img-responsive project-image" src="assets/banner-thumb.png"  alt="banner thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Website Banners</h2><!--Project Title -->
 							<p>Photoshop</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Category" 
-							data-date="Date" 
-							data-client="Mira Costa College"  
-							data-descr="Banner for religious studies page." 
+
+						<div class="sr-only project-description"
+							data-category="Category"
+							data-date="Date"
+							data-client="Mira Costa College"
+							data-descr="Banner for religious studies page."
 							data-images="assets/banner.png, assets/banner2.png, assets/banner3.png"
 							data-url="assets/banner-test1.png, assets/banner1-o.png, assets/banner3.png"
 						>
 							<p>Theses banners are a composition of photos using effects in photoshop. The first of the three was used as the banner for the Religious Studies page at MiraCosta College.</p>
-							
+
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item graphic">
-						
+
 						<img class="img-responsive project-image" src="assets/folder-thumb.png"  alt="newhound thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">Branding</h2><!--Project Title -->
 							<p>In Design</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Graphic Design" 
-							data-date="02/2014" 
-							data-client="NewHound" 
-							data-link="www.newhound.com,http://www.newhound.com" 
-							data-descr="Brochure and trifold flyer for Newhound" 
+
+						<div class="sr-only project-description"
+							data-category="Graphic Design"
+							data-date="02/2014"
+							data-client="NewHound"
+							data-link="www.newhound.com,http://www.newhound.com"
+							data-descr="Brochure and trifold flyer for Newhound"
 							data-images="assets/folder-slide.png, assets/folder-slide2.png, assets/folder-slide3.png, assets/trifold1.png, assets/trifold2.png"
 							data-url="assets/folder-slide.png, assets/folder-slide2.png, assets/folder-slide3.png, assets/trifold1.png, assets/trifold2.png"
 						>
 							<p>These brochures were done as part of a re-branding campaign for a small company.</p>
-							
+
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://newhound.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
 
 					<article class="project-item animation">
-						
+
 						<img class="img-responsive project-image" src="assets/flash-thumb.png"  alt="World Cup Thumbnail"><!--Project thumb -->
-						
+
 						<div class="hover-mask">
 							<h2 class="project-title">World Cup Brazil</h2><!--Project Title -->
 							<p>Photoshop</p><!--Project Subtitle -->
 						</div>
-						
+
 						<!--==== Project Preview HTML ====-->
-						
-						<div class="sr-only project-description" 
-							data-category="Animation" 
-							data-date="03/2014" 
-							data-descr="World Cup Host Cities in Flash" 
+
+						<div class="sr-only project-description"
+							data-category="Animation"
+							data-date="03/2014"
+							data-descr="World Cup Host Cities in Flash"
 							data-images="assets/wc-slide1.png, assets/wc-slide2.png, assets/wc-slide3.png, assets/wc-slide4.png"
 							data-url="flash/mariano-fp.html, flash/mariano-fp.html, flash/mariano-fp.html, flash/mariano-fp.html, flash/mariano-fp.html"
 						>
-							
-							<p>This project gives a tour of the 12 host cities for the 2014 World Cup in Brazil. 
+
+							<p>This project gives a tour of the 12 host cities for the 2014 World Cup in Brazil.
 							<p>For each city there are 3 pages: one with information about the city, one describing the stadium, and a one listing the matches.</p>
 							<p>Click on any of the slides to open the project. Make sure your speaker volume isn't turned up too loud! </p>
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
-						
+
 					</article><!--End Project Item -->
-						
-				</div><!-- End projects --> 
-				
-			</div><!-- End container --> 
-			
+
+				</div><!-- End projects -->
+
+			</div><!-- End container -->
+
 			<!-- ==============================================
 			PROJECT PREVIEW MODAL (Do not alter this markup)
-			=============================================== -->	
+			=============================================== -->
 			<div id="project-modal" class="modal fade">
-			
+
 				<div class="modal-dialog">
-				
+
 					<div class="modal-content">
-					
+
 						<div class="modal-header">
-						
+
 							<div class="container">
-							
+
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								
+
 								<h1 id="hdr-title" class="text-center"></h1>
 								<div class="row">
 									<div class="col-md-8 col-md-offset-2">
@@ -634,9 +631,9 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
-						
+
 						<div class="modal-body">
 							<div class="container">
 								<div class="row">
@@ -651,20 +648,20 @@
 									<div id="project-content" class="col-md-8 col-md-offset-1">
 									</div>
 								</div>
-								
+
 							</div>
 						</div><!-- End modal-body -->
-						
+
 					</div><!-- End modal-content -->
-					
+
 				</div><!-- End modal-dialog -->
-				
+
 			</div><!-- End modal -->
-			
+
 		</section>
 		<!-- ==============================================
-		DRIBBLE 
-		=============================================== -->	
+		DRIBBLE
+		=============================================== -->
 <!-- 		<section id="dribbble">
 			<h1 class="dribbble-button"><a href="#" target="_blank">My Dribbble Shots</a></h1>
 				<div class="row">
@@ -690,18 +687,18 @@
 		</section> -->
 		<!-- ==============================================
 		CONTACT
-		=============================================== -->	
+		=============================================== -->
 		<section id="contact" class="dark-bg light-typo padding-top">
-		
+
 			<div class="container">
-			
+
 				<header class="section-header text-center">
-				
+
 					<h1 class="scrollimation scale-in">Drop Us a Line</h1>
 					<p>We're available for freelance! Let us know what we can do for you.</p>
-				
+
 				</header>
-				
+
 				<form  id="contact-form" class="bl_form text-center" action="contact.php" method="post" novalidate>
 					<span class="field-wrap scrollimation fade-right">
 						<label class="control-label" for="contact-name">Name</label>
@@ -711,32 +708,33 @@
 						<label class="control-label" for="contact-mail">Email</label>
 						<input id="contact-mail" name="email" type="email" class="label_better requiredField" data-new-placeholder="Email Address" placeholder="Email Address" data-error-empty="*Enter your email" data-error-invalid="x Invalid email address">
 					</span>
+					<span class="antispam"> <p>Leave this empty: <input type="text" name="url" /></p></span>
 					<span class="field-wrap scrollimation fade-left">
 						<label class="control-label" for="contact-message">Message</label>
 						<textarea id="contact-message" name="comments" rows="1" class="label_better requiredField" data-new-placeholder="Message" placeholder="Message" data-error-empty="*Enter your message"></textarea>
 					</span>
-					
+
 					<p class="text-center"><button  name="submit" type="submit" class="btn btn-meflat icon-left" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-location-arrow"></i>Send Message</button></p>
 					<input type="hidden" name="submitted" id="submitted" value="true" />
-					
+
 				</form>
-				
+
 			</div>
-		
+
 		</section>
-		
+
 		<!-- ==============================================
 		FOOTER
-		=============================================== -->	
-		
+		=============================================== -->
+
 		<footer id="main-footer" class="dark-bg light-typo">
-		
+
 			<div class="container">
-			
+
 				<hr>
-				
+
 				<div class="row">
-				
+
 					<div class="col-sm-6">
 						<ul class="social-links">
 							<li class="scrollimation fade-right d4"><a href="https://twitter.com/junadesign"><i class="fa fa-twitter fa-fw"></i></a></li>
@@ -746,24 +744,24 @@
 							<!-- <li class="scrollimation fade-right"><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li> -->
 						</ul>
 					</div>
-					
+
 					<div class="col-sm-6 text-right scrollimation fade-in">
-						<p>&copy; <?php echo date("Y") ?> Juna, Inc.</p>
+						<p>&copy; <?php echo date("Y")?> Juna, Inc.</p>
 					</div>
-					
+
 				</div>
-				
+
 			</div>
-			
+
 		</footer>
-		
-		
+
+
 		<!-- ==============================================
 		SCRIPTS
-		=============================================== -->	
+		=============================================== -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.2.min.js">\x3C/script>')</script>
-		
+
 		<script src="js/libs/bootstrap.min.js"></script>
 		<script src='js/jquery.easing.1.3.min.js'></script>
 		<script src='js/jquery.scrollto.js'></script>
@@ -778,7 +776,7 @@
 		<script src="js/contact.js"></script>
 		<script src="js/meflat.js"></script>
 		<script src="js/myjs.js"></script>
-		
+
 	</body>
-	
+
 </html>

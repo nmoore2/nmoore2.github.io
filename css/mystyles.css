@@ -57,3 +57,7 @@
 #project-modal .close {
 	color: #000;
 }
+
+.antispam {
+	display: none;
+}

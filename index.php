@@ -170,18 +170,7 @@
 							<img class="img-responsive img-center" src="assets/service1.png" alt="" />
 						</div>
 						<h2>Web Design</h2>
-						<p>We love building your ideas into a digital experience. Whether it's a large e-commerce site, or just a simple personal site - we create designs you'll love.</p>
-					</div>
-
-					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
-
-						<div class="icon">
-							<img class="img-responsive img-center" src="assets/service2.png" alt="" />
-						</div>
-
-						<h2>Web Development</h2>
-						<p>Need a website? We craft custom websites from scratch, and use various content management systems to fit your needs. We'll build a website that exceeds your expectations.</p>
-
+						<p>Need a website? We craft beautiful, custom-made websites from scratch. Whether it's a large e-commerce site, or just a simple personal site - we'll build a website you'll love.</p>
 					</div>
 
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up d2">
@@ -191,7 +180,18 @@
 						</div>
 
 						<h2>Web Repair</h2>
-						<p>Have a site in need of some TLC? We're happy to help. Whether it's fixing code, adding a new feature, or giving it a design makeover.</p>
+						<p>Have an existing website in need of some TLC? We're happy to help. Whether it's fixing code, adding a new feature, or giving it a design makeover, you can count on us to get it done.</p>
+
+					</div>
+
+					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
+
+						<div class="icon">
+							<img class="img-responsive img-center" src="assets/service2.png" alt="" />
+						</div>
+
+						<h2>Online Marketing</h2>
+						<p>Getting you customers is our favorite thing to do. Not only do we optimize each site for success on Google, we run and manage ad campaigns that will generate more leads for you business.</p>
 
 					</div>
 
@@ -262,8 +262,8 @@
 
 						<img class="img-responsive img-center img-circle scrollimation fade-left" src="assets/aboutboat.png" alt="Juli and I on a boat" />
 
-						<p class="text-center scrollimation fade-in">Design is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert,
-							and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places.</p>
+						<p class="text-center scrollimation fade-in">Helping small businesses is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert,
+							and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places<span style="display:none;">, but mostly in Glenwood Springs, Colorado</span>.</p>
 
 					</div>
 
@@ -768,11 +768,9 @@
 		<script src="js/jquery.fittext.js"></script>
 		<script src='js/jquery.flexslider.min.js'></script>
 		<script src='js/jquery.masonry.js'></script>
-		<script src='js/twitterFetcher_v10_min.js'></script>
 		<script src="js/waypoints.min.js"></script>
 		<script src="js/jquery.label_better.min.js"></script>
 		<script src="js/jquery.easypiechart.js"></script>
-		<script src="js/grid.js"></script>
 		<script src="js/contact.js"></script>
 		<script src="js/meflat.js"></script>
 		<script src="js/myjs.js"></script>

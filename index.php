@@ -173,7 +173,7 @@
 						<p>Need a website? We craft beautiful, custom-made websites from scratch. Whether it's a large e-commerce site, or just a simple personal site - we'll build a website you'll love.</p>
 					</div>
 
-					<div class="col-md-3 col-sm-6 item scrollimation fade-up d2">
+					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
 
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/repair.png" alt="" />
@@ -184,7 +184,7 @@
 
 					</div>
 
-					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
+					<div class="col-md-3 col-sm-6 item scrollimation fade-up d2">
 
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/service2.png" alt="" />

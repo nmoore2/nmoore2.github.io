@@ -20,5 +20,21 @@
 	$('.navbar-toggle').click(function(){
 		$('#main-nav').css('background', 'rgba(0,0,0,.8)');
 		$('.logoimg').attr('src', orangelogo);
-
 	});	
+
+// Slide-in Contact Box 
+
+	$(function() {
+		$(window).scroll(function(){
+			var distanceTop = $('#last').offset().top - $(window).height();
+
+			if  ($(window).scrollTop() > distanceTop)
+				$('#slidebox').animate({'bottom':'81px'},600);
+			else
+				$('#slidebox').stop(true).animate({'bottom':'-400px'},100);
+		});
+
+		$('#slidebox .close').bind('click',function(){
+			$(this).parent().remove();
+		});
+	});

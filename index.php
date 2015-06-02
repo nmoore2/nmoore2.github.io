@@ -269,13 +269,19 @@
 
 				</div>
 
-
-
 				<p class="text-center"><a class="btn btn-meflat scrollto white icon-left" href="#contact"><i class="fa fa-arrow-down"></i>Hire Us</a></p>
 
 			</div>
-
+			<!-- <div id="slidebox" class="text-center">
+				<a class="close"></a>
+				<h1>Let's Talk</h1>
+				<h2>We'd love to hear from you!</h2>
+				<h1>619-892-8265</h1>
+				<a href="#contact" class="more">Send us a Message</a>
+			</div> -->
 		</section>
+
+
 		<!-- ==============================================
 		SKILLS
 		=============================================== -->
@@ -375,7 +381,44 @@
 							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
 							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
 
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/toms-thumb.png"  alt="Tom's Carpet Care Website"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">Tom's Carpet Care</h2><!--Project Title -->
+							<p>Subtitle</p><!--Project Subtitle -->
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-category="Web Design"
+							data-date="May 2015"
+							data-link="www.tomscarpetcare.net, http://www.tomscarpetcare.net"
+							data-images="assets/toms-1.png, assets/toms-2.png, assets/toms-3.png, assets/toms-4.png"
+							data-url="http://www.tomscarpetcare.net, http://www.tomscarpetcare.net, http://www.tomscarpetcare.net, http://www.tomscarpetcare.net, http://www.tomscarpetcare.net"
+						>
+							<p>This is a website for Tom's Carpet Care &amp; Restoration.</p>
+
+							<p>As with most small business sites, we like to find what makes the business different from the competition, and put it right in front of the viewer. This sparks the viewer's interest in the business, and then drives the viewer to take action.</p>
+
+							<p>What differentiates this business from the competition is the father and son dynamic, and their unique cleaning process.</p>
+
+							<p>This is a PHP site built on the Bootstrap framework.</p>
+
+							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://tomscarpetcare.net">Visit Website<i class="fa fa-arrow-right"></i></a></p>
 						</div>
 
 					</article>
@@ -406,10 +449,18 @@
 							<p>The first item, titled "Roots and Wings" was insipired by Juliana's mother. She's keen to remind Juli that even though she's free to fly around and see the world, she shouldn't forget where her roots are, in Brazil. </p>
 
 							<p>The second slide is a collection of images inspired by a night we camped in the Amazon Rainforest. As the sounds of the jungle heightened at night, we struggled to fall asleep.Juli remembers "seeing" a mysterious indeginous man walking around our campsite. The image of the hammocks is an actual picture of where we slept.</p>
-							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
 					</article><!--End Project Item -->
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item illustration">
 
@@ -439,10 +490,18 @@
 
 							<p><strong>3. Is it simple yet stylish?</strong></p>
 							<p>    Sure, we know how to make stylish and unique things, but it's important that the logo still be simple enough to be used for both digital and print media.</p>
-							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item illustration">
 
@@ -467,7 +526,14 @@
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item graphic">
 
@@ -494,7 +560,15 @@
 							<p>The third image is a poster for the 2014 Media Arts Competition in which all community colleges in California competed across a variety of media fields.</p>
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item illustration">
 
@@ -516,36 +590,18 @@
 						>
 							<p>This poster is a vector version of the poster for the dance performance at MiraCosta college. The original was a photo montage with no illustration.</p>
 
-							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
 
-					<article class="project-item graphic">
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
 
-						<img class="img-responsive project-image" src="assets/banner-thumb.png"  alt="banner thumbnail"><!--Project thumb -->
-
-						<div class="hover-mask">
-							<h2 class="project-title">Website Banners</h2><!--Project Title -->
-							<p>Photoshop</p><!--Project Subtitle -->
-						</div>
-
-						<!--==== Project Preview HTML ====-->
-
-						<div class="sr-only project-description"
-							data-category="Category"
-							data-date="Date"
-							data-client="Mira Costa College"
-							data-descr="Banner for religious studies page."
-							data-images="assets/banner.png, assets/banner2.png, assets/banner3.png"
-							data-url="assets/banner-test1.png, assets/banner1-o.png, assets/banner3.png"
-						>
-							<p>Theses banners are a composition of photos using effects in photoshop. The first of the three was used as the banner for the Religious Studies page at MiraCosta College.</p>
-
-							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
-						</div>
-
-					</article><!--End Project Item -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item graphic">
 
@@ -572,7 +628,15 @@
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="http://newhound.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
 
 					<article class="project-item animation">
 
@@ -599,7 +663,11 @@
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
-					</article><!--End Project Item -->
+					</article>
+
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
 
 				</div><!-- End projects -->
 
@@ -690,7 +758,7 @@
 		=============================================== -->
 		<section id="contact" class="dark-bg light-typo padding-top">
 
-			<div class="container">
+			<div class="container" id="last" >
 
 				<header class="section-header text-center">
 

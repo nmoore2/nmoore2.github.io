@@ -489,7 +489,7 @@
 							<p>    The logo needs to look good in a variety of sizes and still be easy to depict and recognize, even for those whose vision is not so 20/20.</p>
 
 							<p><strong>3. Is it simple yet stylish?</strong></p>
-							<p>    Sure, we know how to make stylish and unique things, but it's important that the logo still be simple enough to be used for both digital and print media.</p>
+							<p>    Sure, we know how to make stylish and unique designs, but it's important that the logo be simple enough to be used for both digital and print media.</p>
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://www.junadesign.com">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
@@ -549,7 +549,7 @@
 						<div class="sr-only project-description"
 							data-category="Print Media"
 							data-date="01/29/2014"
-							data-descr="A small description goes here."
+
 							data-images="assets/book.png, assets/dancer.png, assets/poster2.png"
 							data-url="assets/book.png, assets/dancer-o.png, assets/poster2-o.png"
 						>
@@ -558,6 +558,7 @@
 							<p>The first image is a cover for a cook book which has some of our favorite brazilian recipes. Oh how we miss Brazilian food!</p>
 							<p>The second image, titled "Shapes and Reflections" is a poster advertising a dance performance at MiraCosta College.</p>
 							<p>The third image is a poster for the 2014 Media Arts Competition in which all community colleges in California competed across a variety of media fields.</p>
+							<p>Click on any of the images to see a full resolution version.</p>
 						</div>
 
 					</article>
@@ -586,9 +587,9 @@
 							data-date="02/16/2014"
 							data-descr="Poster for dance festival"
 							data-images="assets/poster.png"
-							data-url="assets/poster-o.pdf"
+							data-url="assets/poster.png"
 						>
-							<p>This poster is a vector version of the poster for the dance performance at MiraCosta college. The original was a photo montage with no illustration.</p>
+							<p>This poster was created for a dance performance at MiraCosta college.</p>
 
 							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>

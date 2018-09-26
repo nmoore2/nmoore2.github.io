@@ -1177,13 +1177,12 @@ a:focus,
 .social-links li a {
     display:block;
     color:#fff;
-    color:rgba(255,255,255,0.3);
     font-size:18px;
     width:40px;
     height:40px;
     line-height:40px;
     text-align:center;
-    background:rgba(0,0,0,0.2);
+    background: #1D2026;
     border-radius:50%;
     -webkit-transition:all .3s ease-out;
     transition:all .3s ease-out;

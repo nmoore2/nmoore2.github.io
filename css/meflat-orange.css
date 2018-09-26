@@ -243,12 +243,12 @@ a:focus,
 }
 
 #main-nav .navbar-toggle{
-    color:#777;
-    border-color:#777;
+    color:#fff;
+    border-color:#fff;
 }
 
 #main-nav .navbar-toggle .icon-bar{
-    background:#777;
+    background:#fff;
 }
 
 #main-nav .container{
@@ -1340,6 +1340,12 @@ a:focus,
     .navbar {
         padding:0 20px;
     }
+		#main-nav.scrolled .container {
+			padding: 15px 0 0;
+		}
+		.navbar-brand h1 {
+			color: #fff;
+		}
 
     #main-nav {
         background:#fff;
@@ -1368,12 +1374,26 @@ a:focus,
 	#main-nav .nav a:hover{
         color:#BEEF98;
     }
+		.jumbotron {
+			background-position: 59% !important;
+		}
+		.jumbotron .text-col h1 {
+			font-size: 30px !important;
+			text-align: left;
+		}
+		.jumbotron .text-col p {
+			text-align: left;
+		}
 
     .jumbotron .text-col{
         text-align:center;
         margin-bottom:30px;
         margin-top:0;
+				max-width:52%;
+				top: 220px;
+				right: 10px;
     }
+
 
     #main-footer [class*=row],
     #main-footer .text-right{

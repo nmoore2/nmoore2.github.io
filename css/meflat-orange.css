@@ -1388,7 +1388,8 @@ a:focus,
         text-align:center;
         margin-bottom:30px;
         margin-top:0;
-				max-width:52%;
+				width: 56%;
+				min-width: 210px;
 				top: 220px;
 				right: 10px;
     }

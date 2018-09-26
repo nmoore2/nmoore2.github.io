@@ -1,6 +1,6 @@
 <?php
-$emailTo = 'support@junadesign.com';
-$siteTitle = 'Juna Design';
+$emailTo = 'nate@nmoore.net';
+$siteTitle = 'Nathan Moore | Web Developer';
 
 error_reporting(E_ALL ^ E_NOTICE); // hide all basic notices from PHP
 
@@ -65,4 +65,4 @@ if (isset($_POST['submitted']) && (isset($_POST['url']) && $_POST['url'] == ''))
 
 <h1>Thanks!</h1>
 
-We will respond as soon as possible.
+I will respond as soon as possible.

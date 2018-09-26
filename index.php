@@ -6,7 +6,7 @@
 		Title and Meta Tags
 		=============================================== -->
 		<meta charset="utf-8">
-		<title>Juna Design</title>
+		<title>Nathan Moore | Web Development</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -76,7 +76,10 @@
 
 					<!-- ======= LOGO (for small screens)========-->
 					<a class="navbar-brand visible-xs scrollto" href="#home">
-						<img class="logoimg" src='assets/logoblack.png' height = "60">
+						<h1>N
+							<span>M</span>
+						</h1>
+						<!-- <img class="logoimg" src='assets/logoblack.png' height = "60"> -->
 					</a>
 
 				</div>
@@ -84,21 +87,22 @@
 				<div id="site-nav" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="#services" class="scrollto">What We Do</a>
+							<a href="#services" class="scrollto">What I Do</a>
 						</li>
 						<li>
-							<a href="#about" class="scrollto">About Us</a>
+							<a href="#about" class="scrollto">About</a>
 						</li>
 						<li id="logo">
 							<a href="#home" class="scrollto">
-								<img class="logoimg" src="assets/logoblack.png" height = "100">
+								<!-- <img class="logoimg" src="assets/logoblack.png" height = "100"> -->
+								<h1>N<span>M</span></h1>
 							</a>
 						</li>
 						<li>
-							<a href="#portfolio" class="scrollto">Our Works</a>
+							<a href="#portfolio" class="scrollto">My Work</a>
 						</li>
 						<li>
-							<a href="#contact" class="scrollto">Contact Us</a>
+							<a href="#contact" class="scrollto">Contact Me</a>
 						</li>
 					</ul>
 				</div><!--End navbar-collapse -->
@@ -114,16 +118,18 @@
 
 			<div class="container">
 
-				<div class="row">
 
-					<div class="col-sm-6 text-col">
+					<div class="text-col hero-text">
 
-						<h1>Welcome to Juna Design!</h1>
-						<p>Thanks for stopping by</p>
+						<h1>Hi, I'm Nathan Moore</h1>
+						<p style="line-height: 100%;">Web development is my passion
+							<!-- and developing custom websites and web applications. -->
+
+</p>
 
 					</div>
 
-					<div class="col-sm-6">
+					<!-- <div class="col-sm-6">
 						<div class="imac-frame">
 							<img class="img-responsive img-center" src="assets/imac.png" alt=""/>
 							<div class="imac-screen flexslider">
@@ -140,9 +146,8 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-				</div>
 
 			</div>
 
@@ -157,8 +162,8 @@
 
 				<header class="section-header text-center">
 
-					<h1 class="scrollimation scale-in">What We Do</h1>
-					<p>We create stunning designs and remarkable user experiences.
+					<h1 class="scrollimation scale-in">What I Do</h1>
+					<p>I specialize in designing and developing custom websites and web applications.</p>
 
 				</header>
 
@@ -169,8 +174,8 @@
 						<div class="icon">
 							<img class="img-responsive img-center" src="assets/service1.png" alt="" />
 						</div>
-						<h2>Web Design</h2>
-						<p>Need a website? We craft beautiful, custom-made websites from scratch. Whether it's a large e-commerce site, or just a simple personal site - we'll build a website you'll love.</p>
+						<h2>Web Development</h2>
+						<p>Need a website or help on an existing website or web app? Whether it's a small personal site, a large e-commerce site, or an web enterprise application - I'll make it something you'll love.</p>
 					</div>
 
 					<div class="col-md-3 col-sm-6 item scrollimation fade-up d1">
@@ -179,8 +184,8 @@
 							<img class="img-responsive img-center" src="assets/repair.png" alt="" />
 						</div>
 
-						<h2>Web Repair</h2>
-						<p>Have an existing website in need of some TLC? We're happy to help. Whether it's fixing code, adding a new feature, or giving it a design makeover, you can count on us to get it done.</p>
+						<h2>Consulting</h2>
+						<p>Have an existing website or web app in need of some TLC? I'm happy to help. Whether it's fixing code, adding a new feature, or giving it a design makeover, you can count on me to get it done.</p>
 
 					</div>
 
@@ -191,7 +196,7 @@
 						</div>
 
 						<h2>Online Marketing</h2>
-						<p>Getting you customers is our favorite thing to do. Not only do we optimize each site for success on Google, we run and manage ad campaigns that will generate more leads for you business.</p>
+						<p>Getting you customers is my favorite thing to do. Not only do I optimize each site for success on Google, I can run and manage ad campaigns that will generate more leads for you business.</p>
 
 					</div>
 
@@ -202,7 +207,7 @@
 						</div>
 
 						<h2>Branding</h2>
-						<p>Need a logo? Brochure? Business Card? Crafting your visual identity is our specialty. Let us know what we can design for you.</p>
+						<p>Need a logo? Brochure? Business Card? I work closely with designers to craft your visual identity. Let me know what we can design for you.</p>
 
 					</div>
 
@@ -252,7 +257,7 @@
 
 				<header class="section-header text-center">
 
-					<h1 class="scrollimation scale-in">About Us</h1>
+					<h1 class="scrollimation scale-in">About Me</h1>
 
 				</header>
 
@@ -260,16 +265,19 @@
 
 					<div class="col-sm-8 col-sm-offset-2">
 
-						<img class="img-responsive img-center img-circle scrollimation fade-left" src="assets/aboutboat.png" alt="Juli and I on a boat" />
+						<img class="img-responsive img-center img-circle scrollimation fade-left" src="assets/uni-onsie.jpg" style="max-height: 400px;" alt="" />
 
-						<p class="text-center scrollimation fade-in">Helping small businesses is our passion, and we put our all of our energy into each and every project. Juliana is our graphics expert,
-							and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places<span style="display:none;">, but mostly in Glenwood Springs, Colorado</span>.</p>
+						<p class="text-center scrollimation fade-in">I have over 5 years of experience building websites and web applications. Over that time I've worked on a variety of projects - from large, enterprise web applications to custom websites for small businesses. Helping businesses succeed is one of my passions, and I put all of my energy into each and every project. I love traveling and producing music, and currently reside in Denver, Colorado.
+
+							<!-- Helping small businesses is my passion, and we put our all of our energy into each and every project. Juliana is our graphics expert, and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places. -->
+
+						</p>
 
 					</div>
 
 				</div>
 
-				<p class="text-center"><a class="btn btn-meflat scrollto white icon-left" href="#contact"><i class="fa fa-arrow-down"></i>Hire Us</a></p>
+				<p class="text-center"><a class="btn btn-meflat scrollto icon-left" href="#contact"><i class="fa fa-arrow-down"></i>Hire Me</a></p>
 
 			</div>
 			<!-- <div id="slidebox" class="text-center">
@@ -285,7 +293,7 @@
 		<!-- ==============================================
 		SKILLS
 		=============================================== -->
-<!-- 		<section id="skills" class="white-bg">
+		<!-- <section id="skills" class="white-bg">
 
 			<div class="container">
 
@@ -310,9 +318,11 @@
 						<h2 class="text-center">Photoshop</Pho>
 					</div>
 
-				</div><
+				</div>
 
 			</div>
+
+
 
 
 		</section> -->
@@ -325,12 +335,12 @@
 
 				<header class="section-header text-center">
 
-					<h1 class="scrollimation scale-in">Our Works</h1>
+					<h1 class="scrollimation scale-in">My Work</h1>
 
 				</header>
 
 				<!--==== Portfolio Filters ====-->
-				<div id="filter-works">
+				<!-- <div id="filter-works">
 					<ul>
 						<li class="active scrollimation fade-right d1">
 							<a href="#" data-filter="*">All</a>
@@ -348,7 +358,8 @@
 							<a href="#" data-filter=".animation">Animation</a>
 						</li>
 					</ul>
-				</div><!--End portfolio filters -->
+				</div> -->
+				<!--End portfolio filters -->
 
 			</div><!--End portfolio header -->
 
@@ -356,6 +367,274 @@
 
 				<div id="projects-container">
 
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/mathews/mathews-thumb.jpg"  alt="Mathews Inc homepage"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">Mathews, Inc</h2><!--Project Title -->
+							<?xml version="1.0" encoding="utf-8"?>
+							<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+							<svg version="1.1" id="Mathews_2c-on_Y" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+								 y="0px" viewBox="0 0 91.2 35.6" style="enable-background:new 0 0 91.2 35.6;" xml:space="preserve">
+							<g>
+								<g>
+									<path fill="white" d="M45.5,0.9C21,0.9,1,8.5,1,17.8C1,27.1,21,34.7,45.5,34.7c24.6,0,44.5-7.5,44.5-16.9C90,8.5,70.1,0.9,45.5,0.9z M45.5,33.4
+										c-23.8,0-43.1-7-43.1-15.6C2.5,9.2,21.7,2,45.5,2c23.8,0,43.1,7.2,43.1,15.8C88.6,26.4,69.3,33.4,45.5,33.4z"/>
+								</g>
+								<g>
+									<path fill="white" d="M82.3,12.6c-1.6-3.7-9.9-4.8-23.9-0.8c-0.7,0.2-1.3,0.4-1.8,0.5c0.8-1.1,0.9-2.1-0.1-2.7c-1.8-1.1-4,1.2-5.4,4
+										c-0.8,0.1-1.5,0.2-2.2,0.2c0.1-0.3,0.4-0.8,0.5-0.9c0.3-0.4,0.6-0.5,1.4-1.3c0.8-0.8,0.9-1.3,0.6-1.6c-0.3-0.3-0.8,0-1.2,0.2
+										c-0.8,0.3-1.5,0-1.6,0.2c-0.2,0.2,0.1,1-1.1,3.3c-0.4,0-0.9-0.1-1.3-0.1c-1.2-0.1-1.7-0.8-2-1.2c-3.4,1.1-1.9,2-1.5,2.1
+										c1.2,0.4,2.6,0.6,4.1,0.6c-1.3,2.5-2,2.9-2.5,3.3c-0.2,0.2-0.4,0.3-0.5,0.2c-0.1-0.1-0.1-0.2,0.1-0.5c0.2-0.3,1.1-2.1,1.1-2.1
+										c-1.9-0.7-3.9-1-5.7,0.7c-1.2,1.1-2,2.7-1,3.7c0.5,0.5,1,0.6,1.7,0.3c0.6-0.3,1-0.5,1.3-0.7c0.2-0.1,0.4-0.2,0.4,0.1
+										c0,0.4,0.3,1,0.9,0.8c0.6-0.2,1.4-0.8,2.2-1.8c-0.1,0.3-0.7,1.7,0.1,1.8c1.1,0.1,2.6-1.1,2.7-1.3c0.3-0.3,0,0.3,0.1,0.5
+										c0.3,1,1.3,0.8,1.7,0.1c0.2-0.4,0.5-0.8,0.8-1.5c0.3-0.6,1.6-1.7,2.2-1.8c-1,1.4-1.9,3.4-1.3,3.7c0.4,0.2,0.9,0.1,1.4,0
+										c0.4-0.1,1.2-0.5,2-1.1c0.1,0.6,0.6,1.2,1.2,1.2c0.6,0.1,1.1-0.1,2-0.4c1.8-0.7,1.8-0.9,2-0.9c0.1,0,0.1,0.3,0.1,0.5
+										c0,0.2,0.1,0.7,0.4,0.8c0.4,0.2,0.7,0,0.9-0.1c0.3-0.1,0.7-0.3,1-0.5c0.2-0.2,0.4-0.2,0.5-0.2c0.1,0,0.3,0.1,0.2,0.3
+										c-0.1,0.2,0,0.5,0.2,0.5c2,0.5,4.6-2.4,5.7-3.4c0.2,0.1,0.6,0.1,0.7,0.1c0.4,0,0.3,0.2,0.1,0.4c-1.2,0.9-2.1,1.7-1,2.7
+										c0.8,0.8,3.1,0.1,4.6-1.3C77.7,22.7,84.4,17.3,82.3,12.6z M41.5,18.5c-0.2,0.2-0.8,0.7-1.5,0.6c-0.4-0.1-0.3-0.8,0.5-1.5
+										c0.9-0.7,1.5-0.8,1.8-0.8C42.9,16.9,41.6,18.3,41.5,18.5z M46.8,18.7c-0.1-0.1-0.1-0.3,0.1-0.6c0.5-1.3,0.9-2.2,1.4-3
+										c0.7-0.1,1.5-0.1,2.3-0.3C48.9,17.8,47,18.8,46.8,18.7z M55.1,11c0.2,0.1,0.6,0.8-0.3,1.8c-0.8,0.2-1.5,0.4-2.2,0.5
+										C53.6,11.6,54.6,10.8,55.1,11z M51.5,15.5c0.1-0.1,0.5-0.9,0.5-1c0.4-0.1,0.9-0.2,1.3-0.2C52.6,14.8,51.8,15.6,51.5,15.5z
+										 M71.2,18.9c-0.4,0.3-0.8,0.4-1,0.2c-0.3-0.2,0-0.6,0.4-0.9c0.3-0.2,0.8-0.4,0.8-0.5C71.4,17.7,71.8,18.5,71.2,18.9z M73.8,17.5
+										c0.1-0.4,0.2-0.9,0.1-1.4c-0.1-0.6-0.2-1.3-1-1.8c-0.4,0.3-1.8,1.5-2.2,1.8c-0.4,0.3-1.2,0.4-1.2-0.2c0-0.6-0.5-0.6-0.8-0.6
+										c-0.3,0-0.4,0-0.8,0c-0.4-0.1-0.8-0.2-1,0c-0.2,0.2,0,0.4,0,0.7c0.2,0.8-1.3,1.9-1.7,2.1c-0.4,0.2-0.5,0.2-0.4-0.2
+										c0.1-0.4,0.6-1.2,1.3-1.7c0.7-0.5,0.5-1-0.2-1.1c-1,0-1.7,0.6-1.8,0.9c-0.1,0.3-0.7,1.5-1.4,1.9c-0.8,0.5-1,0.3-0.7-0.3
+										c0.7-1.5,1.3-1.2,1.7-1.8c0.5-0.6-0.1-1.1-0.6-1c-0.5,0.1-0.8,0.1-1.1,0.1c-0.3,0-0.5-0.3-0.8,0.6c-0.7,2.4-3.3,3.3-4.4,3.5
+										c-1,0.2-0.6-0.6-0.6-0.6c3.6-0.5,4.4-2,4.1-3c-0.3-0.8-1.5-1.1-3.6-0.1c-2,1-2.3,3.1-2.3,3.1c-0.6,0.3-1.4,0.6-1.6,0.5
+										c-0.1-0.1-0.1-0.2,0.1-0.4c0.3-0.5,1.1-1.6,1.7-2.1c0.6-0.5,0.6-0.9,0.5-1.1c-0.1-0.2-1.1-0.3-1.8-0.2c0.7-0.5,1.3-0.9,1.9-1.5
+										c1.8-0.4,3.5-0.8,5-1.1c16.3-3.4,19.9-1.1,20.6,0.9C82,16.8,78.2,21.1,73.8,17.5z M57.8,16.1c0.5-0.2,0.9-0.1,1,0
+										c0.1,0.2-0.1,0.5-0.7,0.8c-0.5,0.2-1,0.2-1.1,0.1C56.9,16.8,57.3,16.3,57.8,16.1z"/>
+									<path fill="white" d="M82.2,20.3c-0.5,1.5-2.8,4.9-9.6,4.7c-7.8-0.3-11.4-1.7-19.3-2c-5.8-0.2-9.7,2.2-9.7,2.2c-2.3-1.3-5.5-1.8-8.7-1.7
+										c-8,0.2-16.3,3.2-19.3,3.1c-3-0.1-4.5-1.2-4.9-1.6c-0.6-0.6-0.3-0.7,0.3-0.4c0.7,0.4,2.5,1.2,4.5,1.1c4.6-0.2,11.3-3.7,19.3-3.8
+										c4.6,0,6.9,0.7,8.6,2.1c3-1.7,6.8-2.7,13.8-2.5c5.5,0.2,10.1,1.5,15.5,1.9c5,0.3,7.3-0.7,9-3.2C82.2,19.5,82.4,19.6,82.2,20.3z"/>
+									<g>
+										<path fill="white" d="M75,13.8c-0.5,0-0.9,0.4-0.9,0.9c0,0.5,0.4,0.9,0.9,0.9c0.5,0,0.9-0.4,0.9-0.9C75.9,14.1,75.5,13.8,75,13.8z M75,15.4
+											c-0.4,0-0.7-0.3-0.7-0.7c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C75.7,15.1,75.4,15.4,75,15.4z"/>
+										<path fill="white" d="M75.1,14.7c0.1,0,0.3-0.1,0.3-0.3c0-0.2-0.1-0.3-0.4-0.3h-0.4v1h0.2v-0.4H75l0.3,0.4h0.2L75.1,14.7z M74.8,14.6v-0.3H75
+											c0.1,0,0.2,0,0.2,0.1c0,0.2-0.1,0.2-0.2,0.2H74.8z"/>
+									</g>
+									<path fill="white" d="M40.3,8.2c-0.9-0.3-2.2,0.2-3.4,1c-0.2-0.4-0.5-0.7-1-0.9c-0.8-0.3-2.3,0.3-3.7,1.2c-0.2-0.5-0.6-1-1.2-1.5
+										c-1.2-0.9-4.2-1.3-7.7,1.1c-1,0.7-1.8,1.4-2.3,2.2c-1.6-0.2-3.9,0.1-6.7,1.5c-6.4,3.2-6.4,8-4.9,9.5c2.6,2.7,12.9,4,21.2-8.1
+										c0.1-0.2,0.2-0.3,0.3-0.5c2.1-3.1,2.9-3.8,3.4-3.6c0.5,0.3-0.5,1.7-2.4,5.1c-2,3.4-3.6,5.4-3.5,5.6c0.1,0.2,0.8,0,1.5-0.1
+										c0.7-0.1,1.5-0.1,1.6-0.4c0.2-0.8,2-3.8,3.5-6.3c2.2-3.5,3.3-4.4,3.8-4.2c0.5,0.3-0.6,1.6-2.4,5.1c-1.8,3.4-2.4,4.3-2.3,5.2
+										c0,0.2,0.7,0.2,1.4,0.2c0.7,0,1.3,0.2,1.3-0.1c-0.1-1.3,0.6-3.4,3.7-8.6C41.6,10.1,42,8.8,40.3,8.2z M21.8,12.8
+										c1.1,0.3,1.3,1,0.6,2.2c-0.2,0-0.5-0.1-0.6-0.3C21.4,14.3,21.3,13.7,21.8,12.8z M28.4,13.4C21.7,23.9,14.8,23.9,12.2,22
+										c-3.5-2.4,1.6-7.8,5.6-9.1c0.6-0.2,1.6-0.4,2.6-0.4c-0.5,1.3-0.3,2.4,0.3,3.1c0.2,0.2,0.7,0.6,0.8,0.6c-0.5,0.6-1.8,1.7-1.7,1.9
+										c0.2,0.2,1.6-0.2,3.2-1.9c3.1-0.3,4.7-2.9,4.4-3.1c-0.3-0.2-1.7,1.2-3.4,1.6c0.3-1,0.1-1.8-0.6-2.4c-0.2-0.2-0.5-0.4-1-0.5
+										c0.4-0.5,1-1,1.7-1.5c3-2,4.5-1.6,5-1.2C29.8,9.5,30.3,10.5,28.4,13.4z"/>
+								</g>
+							</g>
+							</svg>
+
+							<p>Website</p><!--Project Subtitle -->
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-link="www.mathewsinc.com, http://www.mathewsinc.com"
+							data-images="assets/mathews/mathews-home.jpg, assets/mathews/mathews-bb.jpg, assets/mathews/mathews-triax.jpg, assets/mathews/mathews-blog.jpg, assets/mathews/mathews-hunting.jpg"
+							data-url="https://www.mathewsinc.com"						>
+							<p>Mathews designs and sell the most technologically advanced bows on the market. I worked closely with a design team to bring a site to life that matches the attention to detail they take in building their bows.
+								<br />
+								<br />
+							I provided:
+							</p>
+							<ul>
+								<li>
+									Web Development
+								</li>
+								<li>
+									User Experience Design
+								</li>
+								<li>
+									Custom CMS Development
+								</li>
+							</ul>
+							<p class="text-right"><a class="btn btn-meflat icon-right" arget="_blank" href="http://mathewsinc.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/fwi/fwi-thumb.jpg"  alt="Mathews Inc homepage"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">Four Winds Interactive</h2><!--Project Title -->
+							<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.48 45.7"><defs><style>.cls-1{opacity:0.5;}.cls-2{fill:#fff;}</style></defs><title>FWI_Logomark_White</title><g class="cls-1"><polygon class="cls-2" points="43.05 45.7 54.81 0 67.89 0 56.14 45.7 43.05 45.7"/><polygon class="cls-2" points="66.56 45.7 78.32 0 91.41 0 79.65 45.7 66.56 45.7"/></g><rect class="cls-2" x="91.41" width="13.07" height="45.7"/><polygon class="cls-2" points="31.29 11.51 31.29 0 3.74 0 3.74 0 0 0 0 45.7 13.07 45.7 13.07 30.36 31.29 30.36 31.29 18.85 13.07 18.85 13.07 11.51 31.29 11.51"/><polygon class="cls-2" points="56.14 45.7 44.38 0 31.29 0 43.05 45.7 56.14 45.7"/><polygon class="cls-2" points="79.65 45.7 67.9 0 54.81 0 66.56 45.7 79.65 45.7"/>
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-link="www.mathewsinc.com, http://www.fourwindsinteractive.com"
+							data-images="assets/fwi/fwi-01.jpg, assets/fwi/fwi-02.jpg, assets/fwi/fwi-03.jpg, assets/fwi/fwi-04.jpg"
+							data-url="http://www.fourwindsinteractive.com">
+							<p>Four Winds Interactive (FWI), based in Denver, CO, is the leading enterprise software company for building, deploying and managing digital signage and interactive kiosk applications. Working closely with designers, I built a site that encompasses and portrays the FWI's wide array of products.
+								<br />
+								<br />
+							I provided:
+							</p>
+							<ul>
+								<li>
+									Web Development
+								</li>
+								<li>
+									User Experience Design
+								</li>
+								<li>
+									Custom CMS Development
+								</li>
+							</ul>
+							<p class="text-right"><a class="btn btn-meflat icon-right" arget="_blank" href="http://fourwindsinteractive.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/fwi/fwi-thumb.jpg"  alt="Mathews Inc homepage"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">Seriesfest</h2><!--Project Title -->
+							<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1062.94 301.82"><defs><style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:#91a5b9;}.cls-3{fill:#fff;}</style><linearGradient id="linear-gradient" x1="8.52" y1="120.9" x2="234.16" y2="120.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#bfc4cd"/><stop offset="1" stop-color="#5b5f5f"/></linearGradient></defs><title>SeriesFest_Logo_2019</title><path class="cls-1" d="M48.26,53.62h0m0,0h0m0,0h0m0,0h0m0,0h0m0,0h0m0,0h0m0,0A100.46,100.46,0,0,1,121.64,21.7c2.67,0,5.34.11,8,.33A99.27,99.27,0,0,1,168.49,33.6l.53.29,1.42.79a101.19,101.19,0,0,1,23.65,18.71h0a99.23,99.23,0,0,1,.34,134.8c-.11.13-.23.25-.35.37v-.31a99.1,99.1,0,0,1-24.82,19.5A100.63,100.63,0,0,1,121,220.11c-2.67,0-5.34-.11-8-.34a99.09,99.09,0,0,1-38.86-11.56l-.55-.3-1.39-.78a101.08,101.08,0,0,1-23.66-18.72v0a99.24,99.24,0,0,1-.34-134.81M121.34,8.08A112.76,112.76,0,0,0,48.59,207v0A112.75,112.75,0,1,0,194.09,34.77v0A113,113,0,0,0,121.34,8.08"/><path class="cls-2" d="M205,96.49A87.19,87.19,0,0,0,96.82,37.1,83.94,83.94,0,0,0,48.91,72.87V73l3.94,2.58A80,80,0,0,1,98.2,41.84a82.31,82.31,0,1,1-44,126.85l-4.09,2.76a87.63,87.63,0,0,0,71.12,36.67A87.29,87.29,0,0,0,205,96.49Z"/><path class="cls-2" d="M90.9,193.22l.43.18,1.08.43a77.74,77.74,0,0,0,24.29,5.28c1.33.07,2.67.1,4,.1a79,79,0,0,0,8.3-.44l0-.26h0l-1.21-10.75a68.7,68.7,0,0,1-7.71.43c-1.47,0-2.94,0-4.41-.14l.27-2.92a66.87,66.87,0,0,1-47.77-27l-2.51,1.81q-1.52-2.13-2.87-4.38a67.24,67.24,0,0,1-9.48-37.38l2.47.13a65.91,65.91,0,0,1,44.4-58.75l-.85-2.41a70.1,70.1,0,0,1,22.36-3.68c1.72,0,3.44.06,5.15.19l-.13,1.49a66.85,66.85,0,0,1,47.76,27l1.36-1a66.47,66.47,0,0,1,8.32,15.16,67.27,67.27,0,0,1,4.44,27.11l-1.55-.09a65.89,65.89,0,0,1-44.39,58.75l1.67,4.79a72.15,72.15,0,0,0,35.75-27.59l6.74,4.39A78.31,78.31,0,0,0,143.71,45.84a77.18,77.18,0,0,0-22.18-3.22,80.44,80.44,0,0,0-13.91,1.22,81.81,81.81,0,0,0-8.36,2A78.47,78.47,0,0,0,74.42,58.07l5,6.79a72.41,72.41,0,0,0-17,17.94L55,77.93A78.28,78.28,0,0,0,90.9,193.22Z"/><path class="cls-3" d="M121,241.94c-.91,0-1.82,0-2.72,0l.08-3.63,2.64,0A117.34,117.34,0,0,0,213.82,49.23,118,118,0,0,0,152.05,7.8l1-3.51A121.8,121.8,0,0,1,216.7,47a121,121,0,0,1-10.19,159.51A120.16,120.16,0,0,1,121,241.94Z"/><path class="cls-3" d="M88,237.4a121.77,121.77,0,0,1-63-42.83A121,121,0,0,1,121,0c1,0,2.1,0,3.15,0L124,3.68c-1,0-2,0-3,0A117.34,117.34,0,0,0,27.85,192.36,118.16,118.16,0,0,0,89,233.9Z"/><path class="cls-3" d="M121.9,182.09a61.19,61.19,0,0,1-56-36.49c-.7-1.58-1.34-3.22-1.9-4.85-.4-1.17-.76-2.36-1.09-3.55l6.51-1.8c.29,1.06.62,2.12,1,3.15.5,1.46,1.07,2.92,1.69,4.33a54.21,54.21,0,1,0-4.61-21.08l-6.76.1a60.25,60.25,0,0,1,.92-11.45,61.11,61.11,0,1,1,60.27,71.64Z"/><path class="cls-3" d="M282.31,159.42a28.91,28.91,0,0,0,9.5,11.32,39.37,39.37,0,0,0,14.29,6,81.36,81.36,0,0,0,17.65,1.83,49.71,49.71,0,0,0,11.71-1.54,40.68,40.68,0,0,0,11.8-4.89,30.13,30.13,0,0,0,9.11-8.63A21.9,21.9,0,0,0,360,150.79a18.69,18.69,0,0,0-2.59-10,23.65,23.65,0,0,0-6.71-7.1,39.81,39.81,0,0,0-9.11-4.7,88.84,88.84,0,0,0-9.79-3l-30.51-7.49a91.57,91.57,0,0,1-11.6-3.83,33,33,0,0,1-9.88-6.14,29,29,0,0,1-6.81-9.4,32.12,32.12,0,0,1-2.59-13.63,43.41,43.41,0,0,1,1.91-11.7,32.53,32.53,0,0,1,7.2-12.66A42,42,0,0,1,294,51.12Q303.22,47,317.61,47A68.9,68.9,0,0,1,337,49.68a48,48,0,0,1,16.12,8,38.8,38.8,0,0,1,15.15,31.85h-13a31.77,31.77,0,0,0-3.55-13.71,30.63,30.63,0,0,0-8.25-9.79,36.26,36.26,0,0,0-11.71-5.95,47.6,47.6,0,0,0-13.91-2,57.44,57.44,0,0,0-12.95,1.44,32.44,32.44,0,0,0-10.93,4.6,23.75,23.75,0,0,0-7.58,8.35,26.15,26.15,0,0,0-2.88,12.85,19.81,19.81,0,0,0,1.63,8.35,17.58,17.58,0,0,0,4.51,6,23.67,23.67,0,0,0,6.62,4,49.66,49.66,0,0,0,8,2.5l33.39,8.25a95.14,95.14,0,0,1,13.71,4.7,45.13,45.13,0,0,1,11.32,6.9,29.21,29.21,0,0,1,7.68,10.08,33.82,33.82,0,0,1,2.78,14.39,52.13,52.13,0,0,1-.48,6.14,31.13,31.13,0,0,1-2.3,8.15,41.08,41.08,0,0,1-5.18,8.73,32.6,32.6,0,0,1-9.21,8,53.25,53.25,0,0,1-14.49,5.76,84.66,84.66,0,0,1-20.72,2.2,86.43,86.43,0,0,1-22.44-2.78,48.23,48.23,0,0,1-17.66-8.54,37.54,37.54,0,0,1-11.22-14.77q-3.93-9-3.36-21.68h13.05Q278.86,152.33,282.31,159.42Z"/><path class="cls-3" d="M392.92,154.14a36.91,36.91,0,0,0,5.85,12.57,33.35,33.35,0,0,0,10.17,9.21,28.41,28.41,0,0,0,14.77,3.65q13.25,0,20.72-6.91t10.36-18.42h12.09q-3.84,16.89-14.1,26.09t-29.07,9.21q-11.7,0-20.24-4.12a37.23,37.23,0,0,1-13.91-11.32,49.17,49.17,0,0,1-8-16.69,75.78,75.78,0,0,1-2.59-20,71.78,71.78,0,0,1,2.59-19.19,51.55,51.55,0,0,1,8-16.79,40,40,0,0,1,13.91-11.89Q412,85,423.71,85q11.9,0,20.34,4.8a40.5,40.5,0,0,1,13.72,12.56,52.12,52.12,0,0,1,7.57,17.85,77.85,77.85,0,0,1,1.92,20.43H391.09A53.33,53.33,0,0,0,392.92,154.14Zm59.86-36.93A36.33,36.33,0,0,0,446.54,106a31,31,0,0,0-9.78-7.87,28.06,28.06,0,0,0-13.05-3,28.47,28.47,0,0,0-13.24,3,30.92,30.92,0,0,0-9.78,7.87,39,39,0,0,0-6.43,11.32,55.25,55.25,0,0,0-3.17,13.14h64.08A43.48,43.48,0,0,0,452.78,117.21Z"/><path class="cls-3" d="M491.05,87.86v23.21h.39Q496,99,505.73,92.46t23.12-5.95V98.6a36.56,36.56,0,0,0-15,2.21,33.07,33.07,0,0,0-19.18,18.8A38.18,38.18,0,0,0,492,134.1v52.76H479.92v-99Z"/><path class="cls-3" d="M549,49.87V69.25H536.9V49.87Zm0,38v99H536.9v-99Z"/><path class="cls-3" d="M577.29,154.14a37.1,37.1,0,0,0,5.85,12.57,33.58,33.58,0,0,0,10.17,9.21,28.43,28.43,0,0,0,14.77,3.65q13.24,0,20.73-6.91t10.36-18.42h12.08q-3.84,16.89-14.1,26.09t-29.07,9.21q-11.7,0-20.24-4.12a37.23,37.23,0,0,1-13.91-11.32,49.36,49.36,0,0,1-8-16.69,75.78,75.78,0,0,1-2.59-20A71.78,71.78,0,0,1,566,118.17a51.75,51.75,0,0,1,8-16.79,40,40,0,0,1,13.91-11.89Q596.38,85,608.08,85q11.89,0,20.34,4.8a40.41,40.41,0,0,1,13.72,12.56,52.13,52.13,0,0,1,7.58,17.85,78.71,78.71,0,0,1,1.92,20.43H575.47A53.31,53.31,0,0,0,577.29,154.14Zm59.86-36.93A36.3,36.3,0,0,0,630.92,106a31.07,31.07,0,0,0-9.79-7.87,28.06,28.06,0,0,0-13-3,28.43,28.43,0,0,0-13.23,3,31.07,31.07,0,0,0-9.79,7.87,39.28,39.28,0,0,0-6.43,11.32,55.23,55.23,0,0,0-3.16,13.14h64.08A43.79,43.79,0,0,0,637.15,117.21Z"/><path class="cls-3" d="M721.09,107.14a19.69,19.69,0,0,0-5.66-6.81,23.85,23.85,0,0,0-8.15-3.94,37.41,37.41,0,0,0-9.79-1.24,40,40,0,0,0-8.15.86,25.24,25.24,0,0,0-7.58,2.88,16.3,16.3,0,0,0-5.57,5.28,14.49,14.49,0,0,0-2.11,8,11.24,11.24,0,0,0,2,6.81,17.78,17.78,0,0,0,5.08,4.71,32.41,32.41,0,0,0,6.72,3.16c2.43.83,4.66,1.51,6.71,2l16.12,3.64A46.26,46.26,0,0,1,721,135.34a33.4,33.4,0,0,1,9,5.28,26,26,0,0,1,6.43,8.06A24.26,24.26,0,0,1,738.93,160a24.85,24.85,0,0,1-3.64,13.71,29.65,29.65,0,0,1-9.31,9.21A39.59,39.59,0,0,1,713.22,188a66.3,66.3,0,0,1-14,1.53q-17.46,0-28.3-8.25t-12.38-26.47h12.09q.76,12.27,8.92,18.51t20.24,6.24a45.63,45.63,0,0,0,9.12-1,29.49,29.49,0,0,0,8.73-3.26,20.91,20.91,0,0,0,6.61-5.86,14.36,14.36,0,0,0,2.59-8.73,13.83,13.83,0,0,0-1.82-7.38,15.93,15.93,0,0,0-4.89-5,31.33,31.33,0,0,0-7-3.36c-2.63-.89-5.28-1.66-8-2.3l-15.54-3.45a89.37,89.37,0,0,1-10.93-3.55,35.12,35.12,0,0,1-8.73-5,20.76,20.76,0,0,1-5.85-7.29A24.09,24.09,0,0,1,662,112.8a23.78,23.78,0,0,1,3.35-12.86,26.38,26.38,0,0,1,8.73-8.63,40.92,40.92,0,0,1,12-4.8A58.31,58.31,0,0,1,699.22,85a48.42,48.42,0,0,1,13.91,1.92,32,32,0,0,1,11.32,5.95,29.23,29.23,0,0,1,7.77,10,35.93,35.93,0,0,1,3.26,14H723.39A22.76,22.76,0,0,0,721.09,107.14Z"/><polygon class="cls-3" points="834.91 49.87 834.91 61 766.21 61 766.21 110.5 827.24 110.5 827.24 121.63 766.21 121.63 766.21 186.86 754.08 186.86 754.08 49.87 834.91 49.87"/><path class="cls-3" d="M843.39,154.14a36.91,36.91,0,0,0,5.85,12.57,33.35,33.35,0,0,0,10.17,9.21,28.41,28.41,0,0,0,14.77,3.65q13.23,0,20.72-6.91t10.36-18.42h12.09q-3.84,16.89-14.1,26.09t-29.07,9.21q-11.7,0-20.24-4.12A37.15,37.15,0,0,1,840,174.1a49.19,49.19,0,0,1-8-16.69,76.19,76.19,0,0,1-2.58-20,72.18,72.18,0,0,1,2.58-19.19,51.57,51.57,0,0,1,8-16.79,39.87,39.87,0,0,1,13.91-11.89Q862.47,85,874.18,85q11.9,0,20.34,4.8a40.47,40.47,0,0,1,13.71,12.56,51.94,51.94,0,0,1,7.58,17.85,77.85,77.85,0,0,1,1.92,20.43H841.56A53.33,53.33,0,0,0,843.39,154.14Zm59.86-36.93A36.33,36.33,0,0,0,897,106a31.14,31.14,0,0,0-9.78-7.87,28.06,28.06,0,0,0-13.05-3,28.47,28.47,0,0,0-13.24,3,30.92,30.92,0,0,0-9.78,7.87,39,39,0,0,0-6.43,11.32,55.25,55.25,0,0,0-3.17,13.14h64.08A44.09,44.09,0,0,0,903.25,117.21Z"/><path class="cls-3" d="M987.38,107.14a19.69,19.69,0,0,0-5.66-6.81,23.81,23.81,0,0,0-8.16-3.94,37.33,37.33,0,0,0-9.78-1.24,40.13,40.13,0,0,0-8.16.86A25.45,25.45,0,0,0,948,98.89a16.27,16.27,0,0,0-5.56,5.28,14.49,14.49,0,0,0-2.11,8,11.3,11.3,0,0,0,2,6.81,18,18,0,0,0,5.09,4.71,32.08,32.08,0,0,0,6.71,3.16c2.43.83,4.67,1.51,6.72,2L977,132.56a46.2,46.2,0,0,1,10.27,2.78,33.55,33.55,0,0,1,9,5.28,25.78,25.78,0,0,1,6.42,8.06,24.14,24.14,0,0,1,2.5,11.32,24.77,24.77,0,0,1-3.65,13.71,29.62,29.62,0,0,1-9.3,9.21A39.68,39.68,0,0,1,979.51,188a66.32,66.32,0,0,1-14,1.53q-17.46,0-28.3-8.25t-12.37-26.47h12.09q.76,12.27,8.92,18.51t20.24,6.24a45.46,45.46,0,0,0,9.11-1,29.29,29.29,0,0,0,8.73-3.26,21,21,0,0,0,6.62-5.86,14.36,14.36,0,0,0,2.59-8.73,13.92,13.92,0,0,0-1.82-7.38,15.93,15.93,0,0,0-4.89-5,31.41,31.41,0,0,0-7-3.36q-3.93-1.34-8-2.3l-15.54-3.45A89.54,89.54,0,0,1,945,135.73a35.48,35.48,0,0,1-8.73-5,21,21,0,0,1-5.85-7.29,24.09,24.09,0,0,1-2.11-10.65,23.79,23.79,0,0,1,3.36-12.86,26.38,26.38,0,0,1,8.73-8.63,40.92,40.92,0,0,1,12-4.8A58.16,58.16,0,0,1,965.5,85a48.37,48.37,0,0,1,13.91,1.92,31.88,31.88,0,0,1,11.32,5.95,29.23,29.23,0,0,1,7.77,10,35.75,35.75,0,0,1,3.26,14H989.68A22.91,22.91,0,0,0,987.38,107.14Z"/><path class="cls-3" d="M1054.52,87.86V98h-20.14v66.76q0,6,1.63,9.31c1.09,2.24,3.8,3.49,8.15,3.74a92.11,92.11,0,0,0,10.36-.58v10.17c-1.79,0-3.58.07-5.37.19s-3.58.2-5.37.2q-12.09,0-16.88-4.7t-4.61-17.37V98H1005V87.86h17.27V58.12h12.09V87.86Z"/><path class="cls-2" d="M268.57,231.33h7.84l5.48,45.22h.16l6.09-45.22h10.35l5,45.22h.16l6.54-45.22h7.16l-9.9,55h-9.29l-5.1-46h-.15l-6.47,46h-9.21Z"/><path class="cls-2" d="M328,231.33h7.61v23.6h10.12v-23.6h7.62v55h-7.62v-25H335.64v25H328Z"/><path class="cls-2" d="M365.86,231.33h20.71v6.4h-13.1v17.2h12.34v6.4H373.47V279.9h13.1v6.4H365.86Z"/><path class="cls-2" d="M396.69,231.33h11.8c11.11,0,12.26,3,12.26,15,0,7.38-1,10.58-7.24,12.48V259c5.18.53,6.93,3.19,6.93,8.37v12a37.53,37.53,0,0,0,.46,7h-7.16a9.46,9.46,0,0,1-.91-4.95V268.94c0-5.18-.91-6.55-5.94-6.55H404.3V286.3h-7.61ZM404.3,256h2c6,0,6.85-1.15,6.85-9.37s-.45-8.9-5.17-8.9H404.3Z"/><path class="cls-2" d="M433.15,231.33h20.71v6.4H440.77v17.2H453.1v6.4H440.77V279.9h13.09v6.4H433.15Z"/><path class="cls-2" d="M485,231.33h12.25c12.33,0,13.32,4.11,13.32,20.1V267.8c0,14.08-2.51,18.5-14.54,18.5H485Zm7.61,48.57h3.65c5.64,0,6.7-3,6.7-12.41V248.61c0-8.14-.84-10.88-7.31-10.88h-3Z"/><path class="cls-2" d="M522.6,231.33h7.61v55H522.6Z"/><path class="cls-2" d="M541.63,270.39h7.62v4.49c0,3.65,1.37,5.93,4.41,5.93,4,0,5-2.74,5-6.31,0-4.65-.23-6.17-8.15-14-4.87-4.87-8.91-9.29-8.91-16.75,0-9,4.19-12.86,12.49-12.86a12.94,12.94,0,0,1,8.9,3c1.3,1.22,2.21,3.12,2.21,7v5.18h-7.15v-4.34c0-3.12-1.3-4.95-4.27-4.95s-4.56,1.75-4.56,6c0,3.73.76,6,7.76,13.32,7.46,7.76,8.83,10.43,8.83,17.05,0,8.6-3.35,13.55-12.41,13.55-7,0-11.8-3-11.8-9.82Z"/><path class="cls-2" d="M576.65,245.34c0-7.69,2.51-14.46,12.87-14.46,7.53,0,11,3.8,11,10v5.48H593.4v-3.81c0-3.5-1.22-5.71-4.42-5.71-4,0-4.72,2.82-4.72,9.44V273.2c0,6.47,2.06,7.61,4.5,7.61,2.81,0,4.64-2,4.64-6.54v-3.81h7.16v6.09c0,5.79-2.37,10.2-11.2,10.2-9.59,0-12.71-5.1-12.71-13.62Z"/><path class="cls-2" d="M610.91,245.34c0-7.69,2.51-14.46,12.86-14.46,9.82,0,12.94,5.1,12.94,13.62v27.79c0,7.69-2.51,14.46-12.94,14.46-9.74,0-12.86-5.1-12.86-13.62Zm7.61,28.24c0,4.72,2.13,7.23,5.25,7.23s5.33-2.51,5.33-7.23V244.73c0-5.4-1.83-7.92-5.33-7.92s-5.25,2.52-5.25,7.92Z"/><path class="cls-2" d="M644.94,231.33h7.61l7.92,43.7h.15l7.92-43.7h7.61L665,286.3h-8.83Z"/><path class="cls-2" d="M686.43,231.33h20.7v6.4H694v17.2h12.33v6.4H694V279.9h13.09v6.4h-20.7Z"/><path class="cls-2" d="M717.26,231.33h11.8c11.11,0,12.25,3,12.25,15,0,7.38-1,10.58-7.23,12.48V259c5.18.53,6.93,3.19,6.93,8.37v12a38.35,38.35,0,0,0,.45,7h-7.15a9.46,9.46,0,0,1-.91-4.95V268.94c0-5.18-.92-6.55-5.94-6.55h-2.59V286.3h-7.61ZM724.87,256h2c6,0,6.85-1.15,6.85-9.37s-.46-8.9-5.18-8.9h-3.65Z"/><path class="cls-2" d="M748.7,231.33h7.61l6.62,23.15h.15l7.62-23.15h6.7l-10.58,32.43V286.3H759.2V263.76Z"/><path class="cls-2" d="M809.22,231.33h7.61v23.6H827v-23.6h7.62v55H827v-25H816.83v25h-7.61Z"/><path class="cls-2" d="M857.18,231.33H866l11.19,55h-7.62l-2.51-14H855.2l-2.52,14h-7.61Zm-.84,34.56H866l-4.72-26.49h-.16Z"/><path class="cls-2" d="M887.7,231.33h12.56c10.36,0,12.34,2.82,12.34,15.53s-2,15.53-12.34,15.53h-4.94V286.3H887.7ZM895.32,256h3.95c5.18,0,5.71-.84,5.71-9.14s-.53-9.13-5.71-9.13h-3.95Z"/><path class="cls-2" d="M924.17,231.33h12.56c10.35,0,12.33,2.82,12.33,15.53s-2,15.53-12.33,15.53h-5V286.3h-7.61ZM931.78,256h4c5.17,0,5.71-.84,5.71-9.14s-.54-9.13-5.71-9.13h-4Z"/><path class="cls-2" d="M960.63,231.33h20.71v6.4h-13.1v17.2h12.33v6.4H968.24V279.9h13.1v6.4H960.63Z"/><path class="cls-2" d="M991.46,231.33H1002l9,45.68h.15V231.33h7.16v55h-11l-9-46.9h-.15v46.9h-6.7Z"/><path class="cls-2" d="M1029.9,270.39h7.62v4.49c0,3.65,1.37,5.93,4.41,5.93,4,0,5-2.74,5-6.31,0-4.65-.23-6.17-8.15-14-4.87-4.87-8.91-9.29-8.91-16.75,0-9,4.19-12.86,12.49-12.86a13,13,0,0,1,8.91,3c1.29,1.22,2.2,3.12,2.2,7v5.18h-7.15v-4.34c0-3.12-1.3-4.95-4.27-4.95s-4.56,1.75-4.56,6c0,3.73.76,6,7.76,13.32,7.46,7.76,8.83,10.43,8.83,17.05,0,8.6-3.35,13.55-12.41,13.55-7,0-11.8-3-11.8-9.82Z"/></svg>
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-link="www.seriesfest.com, http://www.seriesfest.com"
+							data-images="assets/fwi/fwi-01.jpg, assets/fwi/fwi-02.jpg, assets/fwi/fwi-03.jpg, assets/fwi/fwi-04.jpg"
+							data-url="http://www.seriesfest.com">
+							<p>SeriesFest is an award-winning festival dedicated to showcasing the best and boldest in episodic storytelling from around the world. Seriesfest needed a website that not only provided pertinent festival information to it's attendees (ike a schedule, lineup, and pilot trailers, but also a way to for creators to submit their television series.
+								<br />
+								<br />
+							I provided:
+							</p>
+							<ul>
+								<li>
+									Web Development
+								</li>
+								<li>
+									User Experience Design
+								</li>
+								<li>
+									Custom CMS Development
+								</li>
+							</ul>
+							<p class="text-right"><a class="btn btn-meflat icon-right" arget="_blank" href="http://seriesfest.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<!-- <article class="project-item web"> -->
+
+						<img class="img-responsive project-image" src="assets/toddsitethumb.png"  alt="Todd Oltmann Website"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">ToddOltmann.com</h2><!--Project Title -->
+							<p>Subtitle</p><!--Project Subtitle -->
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-category="Web Design"
+							data-date="March 2015"
+							data-link="www.toddoltmann.com, http://www.toddoltmann.com"
+							data-images="assets/todd-large.png, assets/todd-large2.png, assets/todd-large3.png, assets/todd-large4.png, assets/todd-large5.png"
+							data-url="http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com"
+						>
+							<p>This is a website for musician Todd Oltmann.</p>
+							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
+							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
+
+							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/toddsitethumb.png"  alt="Todd Oltmann Website"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">ToddOltmann.com</h2><!--Project Title -->
+							<p>Subtitle</p><!--Project Subtitle -->
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-category="Web Design"
+							data-date="March 2015"
+							data-link="www.toddoltmann.com, http://www.toddoltmann.com"
+							data-images="assets/todd-large.png, assets/todd-large2.png, assets/todd-large3.png, assets/todd-large4.png, assets/todd-large5.png"
+							data-url="http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com"
+						>
+							<p>This is a website for musician Todd Oltmann.</p>
+							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
+							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
+
+							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
+					<!-- ==============================================
+					SINGLE PROJECT ITEM
+					=============================================== -->
+					<article class="project-item web">
+
+						<img class="img-responsive project-image" src="assets/toddsitethumb.png"  alt="Todd Oltmann Website"><!--Project thumb -->
+
+						<div class="hover-mask">
+							<h2 class="project-title">ToddOltmann.com</h2><!--Project Title -->
+							<p>Subtitle</p><!--Project Subtitle -->
+						</div>
+
+						<!--==== Project Preview HTML ====-->
+
+						<div class="sr-only project-description"
+							data-category="Web Design"
+							data-date="March 2015"
+							data-link="www.toddoltmann.com, http://www.toddoltmann.com"
+							data-images="assets/todd-large.png, assets/todd-large2.png, assets/todd-large3.png, assets/todd-large4.png, assets/todd-large5.png"
+							data-url="http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com, http://www.toddoltmann.com"
+						>
+							<p>This is a website for musician Todd Oltmann.</p>
+							<p>Our approach here was to create a simple yet elegant site, connecting the musician with his style of music. The feel and color scheme is centered around one of our favorite pictures of him.</p>
+							<p>This is a Wordpress site built on the Bootstrap 3 framework.</p>
+
+							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://toddoltmann.com">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+						</div>
+
+					</article>
+					<!-- ==============================================
+					END PROJECT ITEM
+					=============================================== -->
 					<!-- ==============================================
 					SINGLE PROJECT ITEM
 					=============================================== -->
@@ -412,13 +691,13 @@
 						>
 							<p>This is a website for Tom's Carpet Care &amp; Restoration.</p>
 
-							<p>As with most small business sites, we like to find what makes the business different from the competition, and put it right in front of the viewer. This sparks the viewer's interest in the business, and then drives the viewer to take action.</p>
+							<p>As with most small business sites, I like to find what makes the business different from the competition, and put it right in front of the viewer. This sparks the viewer's interest in the business, and then drives the viewer to take action.</p>
 
 							<p>What differentiates this business from the competition is the father and son dynamic, and their unique cleaning process.</p>
 
 							<p>This is a PHP site built on the Bootstrap framework.</p>
 
-							<p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://tomscarpetcare.net">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<!-- <p class="text-right"><a class="btn btn-meflat icon-right" data-target="_blank" href="http://tomscarpetcare.net">Visit Website<i class="fa fa-arrow-right"></i></a></p> -->
 						</div>
 
 					</article>
@@ -763,8 +1042,8 @@
 
 				<header class="section-header text-center">
 
-					<h1 class="scrollimation scale-in">Drop Us a Line</h1>
-					<p>We're available for freelance! Let us know what we can do for you.</p>
+					<h1 class="scrollimation scale-in">Drop Me a Line</h1>
+					<p>I'm available for freelance! Let us know what I can do for you.</p>
 
 				</header>
 
@@ -806,16 +1085,17 @@
 
 					<div class="col-sm-6">
 						<ul class="social-links">
-							<li class="scrollimation fade-right d4"><a href="https://twitter.com/junadesign"><i class="fa fa-twitter fa-fw"></i></a></li>
-							<li class="scrollimation fade-right d3"><a href="https://www.facebook.com/junadesign1"><i class="fa fa-facebook fa-fw"></i></a></li>
+							<!-- <li class="scrollimation fade-right d4"><a href="https://twitter.com/junadesign"><i class="fa fa-twitter fa-fw"></i></a></li> -->
+							<li class="scrollimation fade-right d3"><a href="https://www.facebook.com/nathan.moore.1441810"><i class="fa fa-facebook fa-fw" target="_blank"></i></a></li>
+							<li class="scrollimation fade-right d3"><a href="https://www.linkedin.com/in/nateisgreat/" target="blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
 							<!-- <li class="scrollimation fade-right d2"><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li> -->
-							<li class="scrollimation fade-right d1"><a href="https://dribbble.com/julimariano"><i class="fa fa-dribbble fa-fw"></i></a></li>
+							<!-- <li class="scrollimation fade-right d1"><a href="https://dribbble.com/julimariano"><i class="fa fa-dribbble fa-fw"></i></a></li> -->
 							<!-- <li class="scrollimation fade-right"><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li> -->
 						</ul>
 					</div>
 
 					<div class="col-sm-6 text-right scrollimation fade-in">
-						<p>&copy; <?php echo date("Y")?> Juna, Inc.</p>
+						<p>&copy; <?php echo date("Y")?> Nathan Moore</p>
 					</div>
 
 				</div>

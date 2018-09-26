@@ -4,7 +4,7 @@
 body{
 	font-family: 'Titillium Web', sans-serif;
 	font-size:18px;
-	color:#ffaf67;
+	color:#fff;
 	font-weight:300;
 	overflow-x:hidden;
 }
@@ -45,13 +45,13 @@ a:focus {
 }
 
 a {
-  color:#F78F39;
+  color:#BEEF98;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color:#F78F39;
+  color:#BEEF98;
   text-decoration: underline;
 }
 
@@ -72,7 +72,7 @@ a:focus,
 }
 
 .primary {
-	color:#F78F39;
+	color:#BEEF98;
 }
 
 /*----------------------
@@ -124,8 +124,8 @@ a:focus,
 	height:52px;
 	outline: none;
 	position: relative;
-	background: #F78F39;
-	color: #fff;
+	background: #BEEF98;
+	color: #000;
 	box-shadow: none;
 	border-radius: 52px;
 	opacity:0.8;
@@ -137,7 +137,7 @@ a:focus,
 .btn-meflat:hover,
 .btn-meflat:focus,
 .btn-meflat:active {
-	color: #fff;
+	color: #000;
 	opacity:1;
 	text-decoration: none;
 }
@@ -179,7 +179,7 @@ a:focus,
 }
 
 .color-bg{
-    background:#F78F39;
+    background:#BEEF98;
 }
 
 .dark-bg{
@@ -213,6 +213,7 @@ a:focus,
 
 #main-nav .navbar-nav li {
     display:inline-block;
+		text-shadow: 1px 1px 2px #000;
     float:none;
 }
 
@@ -257,8 +258,7 @@ a:focus,
 }
 
 #main-nav.scrolled {
-    background-color: black;
-    background-color: rgba(0,0,0,.85);
+    background-color: #1D2026;
     color: #c;
     box-shadow:0 1px 2px rgba(0,0,0,0.1);
 }
@@ -282,17 +282,16 @@ a:focus,
     letter-spacing:0.01em;
     text-transform:uppercase;
     background:transparent;
-    color: black; 
+    color: #fff;
 }
 
 #main-nav.scrolled .nav a{
-    color:inherit; 
+    color:inherit;
 }
 
 #main-nav li{
     background:transparent;
     margin:0 20px;
-    opacity:0.7;
     vertical-align:middle;
     -webkit-transition:opacity 0.2s ease-out;
     transition:opacity 0.2s ease-out;
@@ -361,11 +360,11 @@ a:focus,
     display:none;
 }
 
-#main-nav.scrolled .nav #logo a:hover {
-    color:#F78F39;
+/* #main-nav.scrolled .nav #logo a:hover {
+    color:#BEEF98;
     -webkit-transition:color .2s ease-out;
     transition:color .2s ease-out;
-}
+} */
 /*----------------------
 -----Header Styles------
 ------------------------*/
@@ -468,7 +467,7 @@ a:focus,
 
 .flex-direction-nav .flex-prev,
 .flex-direction-nav .flex-next{
-    background:#F78F39;
+    background:#82cf45;
     background-image:none;
     display:inline;
     text-indent:0;
@@ -500,11 +499,11 @@ a:focus,
     text-decoration:none;
 }
 
-.flex-direction-nav a:hover {  
+.flex-direction-nav a:hover {
     background:#363B46;
 }
 
-.flex-direction-nav .flex-disabled {  
+.flex-direction-nav .flex-disabled {
     display:none;
 }
 
@@ -513,7 +512,7 @@ a:focus,
 
 /*----------------------
 -----Services Styles----
-------------------------*/  
+------------------------*/
 .services .item {
     text-align:center;
     margin-bottom:30px;
@@ -532,7 +531,7 @@ a:focus,
 }
 
 .services .item:hover h2{
-    color:#F78F39;
+    color:#BEEF98;
 }
 
 .services .item:hover .icon{
@@ -543,7 +542,7 @@ a:focus,
 }
 /*----------------------
 -----Featured Project----
-------------------------*/  
+------------------------*/
 .img-wrapper {
     position:relative;
     width:100%;
@@ -586,7 +585,7 @@ a:focus,
 
 /*----------------------
 -----About Styles----
-------------------------*/  
+------------------------*/
 
 #about .section-header{
     margin-bottom:40px;
@@ -644,14 +643,14 @@ a:focus,
 
 /*----------------------
 -----Portfolio Styles----
-------------------------*/ 	
+------------------------*/
 #filter-works ul {
     list-style:none;
     padding:0;
     margin:0;
     margin-bottom:40px;
     text-align:center;
-    
+
 }
 
 #filter-works ul li{
@@ -774,7 +773,7 @@ a:focus,
 
 .project-item .hover-mask .project-title {
     color:#fff;
-    margin:30px 0 0;
+    margin:20px 0 0;
     padding:10px;
     font-family:"Titillium Web",sans-serif;
     font-size:21px;
@@ -785,7 +784,7 @@ a:focus,
 }
 
 .project-item .hover-mask p {
-    color:#F78F39;
+    color:#BEEF98;
     margin:0;
     font-size:16px;
     line-height:24px;
@@ -813,8 +812,8 @@ a:focus,
       -ms-transition-duration: 0.7s;
        -o-transition-duration: 0.7s;
           transition-duration: 0.7s;
-          
-   transition-timing-function:ease-in-out;    
+
+   transition-timing-function:ease-in-out;
 }
 
 .masonry {
@@ -887,7 +886,7 @@ a:focus,
     margin:0;
     padding:0;
     padding-top:40px;
-    background:#F78F39;
+    background: linear-gradient(rgba(70,148,16, 0.7)  28%, rgba(129,207,69, .3) 83% );
     color:#fff;
     border:none;
     text-align:center;
@@ -922,7 +921,7 @@ a:focus,
 
 .modal-body .project-descr{
     margin:0 0 24px;
-    
+
 }
 
 .modal-header .loader {
@@ -1007,7 +1006,7 @@ a:focus,
 }
 /*----------------------
 -----Dribbble Styles----
-------------------------*/    
+------------------------*/
 .dribbble-button {
     display:block;
     text-align:center;
@@ -1018,7 +1017,7 @@ a:focus,
 .dribbble-button a{
     display:block;
     color:#fff;
-    background:#F78F39;
+    background:#BEEF98;
     text-decoration:none;
     padding:25px 0;
     -webkit-transition:background .3s ease-out;
@@ -1066,7 +1065,7 @@ a:focus,
     .bl_form {
       margin: 0 0 40px;
     }
-    
+
     .bl_form input,
     .bl_form textarea{
       padding-top: 15px;
@@ -1108,7 +1107,7 @@ a:focus,
       color: #FFF;
 	  z-index:1;
     }
-	
+
 .no-placeholder .lb_label {
 	display:none;
 }
@@ -1132,7 +1131,7 @@ a:focus,
     width:100%;
     font-size:16px;
     text-align:center;
-    color:#F78F39;
+    color:#BEEF98;
 }
 
 #contact-form .field-wrap .control-label{
@@ -1147,7 +1146,7 @@ a:focus,
 }
 /*----------------------
 -----Footer Styles------
-------------------------*/    
+------------------------*/
 
 #main-footer p{
     font-size:16px;
@@ -1191,8 +1190,8 @@ a:focus,
 }
 
 .social-links li a:hover {
-    color:#fff;
-    background:#F78F39;
+    color:#000;
+    background:#BEEF98;
 }
 
 /*------------------------
@@ -1335,13 +1334,13 @@ a:focus,
 
 /*----------------------
 -----Media Queries------
-------------------------*/    
+------------------------*/
 @media (max-width: 767px) {
-	
+
     .navbar {
         padding:0 20px;
     }
-    
+
     #main-nav {
         background:#fff;
         box-shadow:0 1px 2px rgba(0,0,0,0.1);
@@ -1351,36 +1350,36 @@ a:focus,
 		display:block;
         text-align:center;
 	}
-	
+
 	#main-nav .nav a:before {
 		display:none;
 	}
-	
+
 	#main-nav .navbar-nav #logo{
 		display:none;
 	}
-	
+
     #main-nav .nav a{
-        color: inherit; 
+        color: inherit;
         transition:color .2s ease-out;
     }
 
 	#main-nav .nav .active a,
 	#main-nav .nav a:hover{
-        color:#F78F39; 
+        color:#BEEF98;
     }
-    
+
     .jumbotron .text-col{
         text-align:center;
         margin-bottom:30px;
         margin-top:0;
     }
-    
+
     #main-footer [class*=row],
     #main-footer .text-right{
         text-align:center;
     }
-    
+
     .section-header h1{
         font-size:38px;
     }

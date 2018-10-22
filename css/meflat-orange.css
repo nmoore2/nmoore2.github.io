@@ -1176,13 +1176,13 @@ a:focus,
 
 .social-links li a {
     display:block;
-    color:#fff;
+    color:#000;
     font-size:18px;
     width:40px;
     height:40px;
     line-height:40px;
     text-align:center;
-    background: #1D2026;
+    background: #fff;
     border-radius:50%;
     -webkit-transition:all .3s ease-out;
     transition:all .3s ease-out;

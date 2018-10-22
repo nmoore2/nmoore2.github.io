@@ -45,8 +45,8 @@
 }
 
 #contact {
-	background: rgba(0,0,0,0);
-	color: black;
+	/* background: rgba(0,0,0,0);
+	color: black; */
 }
 
 .bl_form input, .bl_form textarea {
@@ -95,6 +95,8 @@
 .antispam {
 	display: none;
 }
+
+
 
 /*** SLIDE-IN CONTACT BOX ***/
 

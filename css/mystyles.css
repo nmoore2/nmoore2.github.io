@@ -19,7 +19,7 @@
 }
 
 .jumbotron h1 {
-	font-size: 53px !important;
+	font-size: 48px !important;
 }
 .jumbotron p {
 	font-size: 27px !important;
@@ -29,7 +29,7 @@
 	position: absolute;
 	right: 60px;
 	top: 300px;
-	max-width:500px;
+	max-width:600px;
 	/* transform: translateY(-50%); */
 }
 

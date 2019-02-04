@@ -2,7 +2,7 @@
 -----Main Styles------
 ----------------------*/
 body{
-	font-family: 'Titillium Web', sans-serif;
+		font-family: 'Nunito', sans-serif;
 	font-size:18px;
 	color:#fff;
 	font-weight:300;
@@ -15,7 +15,7 @@ h3,
 h4,
 h5,
 h6{
-	font-family: 'Roboto Slab',serif;
+		font-family: 'Nunito', sans-serif;
     font-weight:400;
     letter-spacing:0.02em;
     margin:0 0 20px;
@@ -45,14 +45,14 @@ a:focus {
 }
 
 a {
+	/* color: ##57FF04 */
   color:#BEEF98;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color:#BEEF98;
-  text-decoration: underline;
+  color: #D8F7C0;
 }
 
 a:focus,

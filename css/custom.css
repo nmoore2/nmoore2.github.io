@@ -1,6 +1,3 @@
-html {
-	scroll-behavior: smooth;
-}
 .hero-text {
 	position: sticky;
 	text-align: center;
@@ -265,12 +262,12 @@ a.close:hover{
 	text-align: center;
 }
 .animated-arrow img {
-	height: 8px;
+	height: 30px;
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
 	margin-left: -11px;
-	width: 22px;
+	/* width: 22px; */
 	-webkit-animation: 3s ease-in-out infinite fadebottom;
 	animation: 3s ease-in-out infinite fadebottom;
 }
@@ -316,6 +313,7 @@ a.close:hover{
 	}
 	#about {
 		text-align: center;
+		position: relative;
 	}
 	.about-text a {
 		margin-right: 0;

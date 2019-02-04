@@ -64,23 +64,24 @@ html {
 		max-width: 1000px;
 		margin: 0 auto;
 }
+
 #about img {
 	border-radius: 30%;
 }
 .about-text {
 	/* height: 400px; */
 	position: relative;
+	text-align: right;
 }
 .about-text p {
 	margin-top: 70px;
 	margin-right: 0;
 	width: 90%;
-	text-align: right;
 }
-#about a {
-	float: right;
+.about-text a {
 	margin-right: 45px;
 }
+
 
 .abs-center {
 	position: absolute;
@@ -305,10 +306,19 @@ a.close:hover{
 	.about-text {
 		height: auto;
 	}
+	.about-text p, .about-text {
+		text-align: center;
+	}
 	.about-text p {
-		position: initial;
-		transform: none;
+		padding: 0 20px;
 		width: 100%;
+		margin-to: 0;
+	}
+	#about {
+		text-align: center;
+	}
+	.about-text a {
+		margin-right: 0;
 	}
 	.about img {
 		border-radius: 50%;

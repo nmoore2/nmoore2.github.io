@@ -33,6 +33,7 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/flexslider.css">
 		<link rel="stylesheet" href="css/meflat-orange.css">
+		<link rel="stylesheet" href="css/terrain.css">
 		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- ==============================================
@@ -51,6 +52,17 @@
 	</head>
 
 	<body data-spy="scroll" data-target="#main-nav" data-offset="400">
+
+
+	<div id="container">
+
+	</div>
+	<div id="info">Left click: forward, Right click: backward
+
+	</div>
+	<!-- <div class="got-lost">
+		I got lost. Reset Me
+	</div> -->
 		<!-- ==============================================
 		MAIN NAV
 		=============================================== -->
@@ -94,11 +106,21 @@
 			</div>
 		</div>
 -->
-	<div class="hero-text typed">
-		<h1>Hi, I'm Nate Moore
+<div class="hero-text">
+		<h1 class="typing">Hi, I'm Nate Moore
 		</h1>
-
-		<p class="subtext typing">
+		<div class="navigation">
+			<a href="#portfolio" class="nav-item">
+				Work
+			</a>
+			<a href="#about" class="nav-item">
+				About
+			</a>
+			<a href="#contact" class="nav-item">
+				Contact
+			</a>
+		</div>
+		<!-- <p class="subtext typing">
 			<span class="text-wrapper">
 			<span class="">
 				<a href="#portfolio" class="smooth-scroll">Web Developer by day.</a>
@@ -107,10 +129,10 @@
 			</span>
 		</span>
 
-		</p>
+		</p> -->
 	</div>
 
-	<div class="sphere-wrapper">
+	<!-- <div class="sphere-wrapper">
 		<div class="animation-body">
 			<div class="animation-wrapper">
   		<div class="sphere-animation">
@@ -146,7 +168,7 @@
     		</svg>
 		  </div>
 		</div>
-		</div>
+	</div> -->
 		<a href="#portfolio" class="animated-arrow smooth-scroll">
 			<img class="down-arrow" src="assets/down-arrow.svg" alt="Downbluearrow">
 		</a>
@@ -569,7 +591,7 @@
 				<!-- ==============================================
 				ABOUT
 				=============================================== -->
-				<section id="about" class="dark-bg light-typo padding-top-bottom">
+				<section id="about" class="light-typo padding-top-bottom">
 
 
 						<header class="section-header text-center">
@@ -580,13 +602,13 @@
 
 						<div class="row">
 
-							<div class="col-sm-6 col-sm-push-6">
+							<div class="col-sm-6">
 
-								<img class="img-responsive text-center img-center scrollimation fade-left" src="assets/cabo.jpg" style="max-height: 400px;" alt="" />
+								<img class="img-responsive text-center img-center scrollimation fade-left" src="assets/nate_captain.jpg" style="max-height: 500px;" alt="" />
 							</div>
 
 
-							<div class="col-sm-6 col-sm-pull-6">
+							<div class="col-sm-6">
 								<div class="about-text">
 									<p class="scrollimation  fade-in">I've been building custom websites and web applications for over 5 years. Over that time I've worked on a variety of projects - from large, enterprise web applications to custom websites for small businesses. I love traveling and producing music, and currently reside in Denver, Colorado.
 										<!-- Helping small businesses is my passion, and we put our all of our energy into each and every project. Juliana is our graphics expert, and I - Nathan - write the code. We hail from Colorado and Brazil, and currently reside a few different places. -->
@@ -650,7 +672,7 @@
 
 				</form> --->
 
-			</a>
+			</>
 
 		</section>
 
@@ -707,8 +729,15 @@
 		<script src="js/jquery.easypiechart.js"></script>
 		<script src="js/contact.js"></script>
 		<script src="js/meflat.js"></script>
-		<script src="js/anime.min.js"></script>
+		<!-- <script src="js/anime.min.js"></script> -->
 		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+		<script src="js/three/three.js"></script>
+
+		<script src="js/three/FirstPersonControls.js"></script>
+		<script src="js/three/stats.min.js"></script>
+		<script src="js/three/ImprovedNoise.js"></script>
+		<script src="js/three/WebGl.js"></script>
+		<script src="js/terrain.js"></script>
 		<script src="js/custom.js"></script>
 	</body>
 

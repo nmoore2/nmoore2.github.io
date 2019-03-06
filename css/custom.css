@@ -319,12 +319,16 @@ a.close:hover{
 	#main-nav {
 		background: transparent;
 	}
+	#info {
+		display: none;
+	}
 	.hero-text {
-		left: 20px;
-		top: 20px;
+		width: 100%;
+		padding: 0 20px;
 	}
 	.hero-text h1 {
-		font-size: 42px;
+		font-size: 34px;
+		text-align: center;
 	}
 	.hero-text p {
 		font-size: 20px;
@@ -356,6 +360,7 @@ a.close:hover{
 	}
 	.about img {
 		border-radius: 50%;
+		max-width: 
 	}
 }
 

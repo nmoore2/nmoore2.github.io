@@ -20,8 +20,10 @@
 
   var clock = new THREE.Clock();
 
-  init();
-  animate();
+  if ($(window).width() > 767) {
+    init();
+    animate();
+  }
 
   function init() {
 
@@ -102,7 +104,7 @@
       .delay(5000)
       .slideUp(0, function() {
         $('#info')
-        .html("<span id='#inner-text'>Now click and hold to fly around!</span> <br><a href='' style='color: #6d6d6dfc; font-size: 17px;'> I don't see anything, let's try again.</a>")
+        .html("<span id='#inner-text'>Now click and hold to fly around!</span> <br><a href='' style='color: #000; opacity:  0.8; font-size: 16px;'> I don't see anything, let's try again.</a>")
         .delay(1000)
         .css('bottom', '-10vh')
         .show(0)

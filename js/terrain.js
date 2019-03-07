@@ -22,7 +22,7 @@ function showInstructions() {
         .delay(8000)
         .fadeOut(500, function() {
           $('#info')
-          .html("<span class='text-left'>Lost?</span><br><a href='javascript:showInstructions()' class='inst-link' onClick='showInstructions()'>Show me the instructions again</span> | <a href='' class='inst-link'> Start over.</a>")
+          .html("<span class='text-left'>Lost?</span><br><a href='javascript:showInstructions()' class='inst-link'> <a href='' class='inst-link'> Start over.</a>")
           .delay(1000)
           .css('bottom', '-10vh')
           .show(0)

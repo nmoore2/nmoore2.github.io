@@ -95,6 +95,33 @@
         }
     });
 
+    $('#info')
+      .delay(2000)
+      .show(0)
+      .animate({bottom: "25vh"})
+      .delay(5000)
+      .slideUp(0, function() {
+        $('#info')
+        .html("<span id='#inner-text'>Now click and hold to fly around!</span> <br><a href='' style='color: #6d6d6dfc; font-size: 17px;'> I don't see anything, let's try again.</a>")
+        .delay(1000)
+        .css('bottom', '-10vh')
+        .show(0)
+        .animate({bottom: "25vh"})
+      });
+
+
+
+
+    const $mouseMessage = $('#mouse-message');
+
+    $('#container, .hero-text').on('mousemove', function(e){
+      $mouseMessage.css({
+        left:  e.pageX + 150,
+       	top:   e.pageY + 30
+      });
+    });
+
+    $mouseMessage.text('to fly forward, click and hold the mouse').delay(3000).fadeIn();
   }
 
   resetButton = document.getElementsByClassName('got-lost');

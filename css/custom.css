@@ -3,12 +3,25 @@
 }
 #info {
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 20px;
+	bottom: -10vh;
+	right: 5vw;
 	color: #000;
+	max-width: 400px;
 	text-align: center;
+	display: none;
+	font-size: 20px;
 }
+
+#mouse-message {
+  font-size: 16px;
+	color: #000;
+	display: none;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 
 /* .navigation {
 	position: absolute;
@@ -319,9 +332,10 @@ a.close:hover{
 	#main-nav {
 		background: transparent;
 	}
-	#info {
-		display: none;
+	#info, #mouse-message {
+		display: none !important;
 	}
+
 	.hero-text {
 		width: 100%;
 		padding: 0 20px;
@@ -360,7 +374,7 @@ a.close:hover{
 	}
 	.about img {
 		border-radius: 50%;
-		max-width: 
+		max-width:
 	}
 }
 

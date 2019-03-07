@@ -1,3 +1,38 @@
+function showInstructions() {
+
+  $('#info')
+    .delay(1000)
+    .show(0)
+    .animate({bottom: "25vh"})
+    .delay(8000)
+    .fadeOut(500, function() {
+      $('#info')
+      .html("<span id='#inner-text'>Now click and hold to fly around. <br>Keep your mouse near the middle of the page to make more subtle turns.</span> <br><a href='' class='inst-link'> I don't see anything, let's try again.</a>")
+      .css('bottom', '-10vh')
+      .show(0)
+      .animate({bottom: "25vh"})
+      .delay(8000)
+      .fadeOut(500, function() {
+        $('#info').
+        html("You can right click to fly in reverse <br> <small>(but why would you do that?)</small>")
+        .delay(1000)
+        .css('bottom', '-10vh')
+        .show(0)
+        .animate({bottom: "25vh"})
+        .delay(8000)
+        .fadeOut(500, function() {
+          $('#info')
+          .html("<span class='text-left'>Lost?</span><br><a href='javascript:showInstructions()' class='inst-link' onClick='showInstructions()'>Show me the instructions again</span> | <a href='' class='inst-link'> Start over.</a>")
+          .delay(1000)
+          .css('bottom', '-10vh')
+          .show(0)
+          .animate({bottom: "10vh"})
+        })
+      });
+    });
+
+  }
+
   if ( WEBGL.isWebGLAvailable() === false ) {
 
     document.body.appendChild( WEBGL.getWebGLErrorMessage() );
@@ -97,21 +132,7 @@
         }
     });
 
-    $('#info')
-      .delay(2000)
-      .show(0)
-      .animate({bottom: "25vh"})
-      .delay(5000)
-      .slideUp(0, function() {
-        $('#info')
-        .html("<span id='#inner-text'>Now click and hold to fly around!</span> <br><a href='' style='color: #000; opacity:  0.8; font-size: 16px;'> I don't see anything, let's try again.</a>")
-        .delay(1000)
-        .css('bottom', '-10vh')
-        .show(0)
-        .animate({bottom: "25vh"})
-      });
-
-
+    showInstructions();
 
 
     const $mouseMessage = $('#mouse-message');

@@ -80,6 +80,9 @@
   to { width: 100% }
 }
 
+#portfolio {
+	margin-top: -7px;
+}
 .ml7 {
   position: relative;
   font-weight: 900;
@@ -385,7 +388,9 @@ a.close:hover{
 		max-width: 80vw !important;
 	}
 }
-
+.hover-mask:after {
+	display: none !important;
+}
 @keyframes fadebottom {
 	0% {
 	    opacity: 1;

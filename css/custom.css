@@ -111,7 +111,9 @@
 		margin: 0 auto;
 		color: #000;
 }
-
+#about:focus {
+	outline: none;
+}
 #about img {
 	border-radius: 30%;
 }
@@ -329,6 +331,10 @@ a.close:hover{
 }
 
 @media (max-width: 767px) {
+	#container {
+		background: url(../assets/mobile-bg-2.jpg) no-repeat center center;
+		background-size: cover;
+	}
 	#main-nav {
 		background: transparent;
 	}
@@ -368,13 +374,15 @@ a.close:hover{
 	#about {
 		text-align: center;
 		position: relative;
+		max-width: 100vw;
+		overflow-x: hidden;
 	}
 	.about-text a {
 		margin-right: 0;
 	}
-	.about img {
+	#about img {
 		border-radius: 50%;
-		max-width:
+		max-width: 80vw !important;
 	}
 }
 

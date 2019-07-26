@@ -4,7 +4,7 @@ function showInstructions() {
     .delay(1000)
     .show(0)
     .animate({bottom: "25vh"})
-    .delay(8000)
+    .delay(5000)
     .fadeOut(500, function() {
       $('#info')
       .html("<span id='#inner-text'>Now click and hold to fly around. <br>Keep your mouse near the middle of the page to make more subtle turns.</span> <br><a href='' class='inst-link'> I don't see anything, let's try again.</a>")

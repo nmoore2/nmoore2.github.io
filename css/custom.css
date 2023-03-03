@@ -189,7 +189,7 @@
 }
 .project-item .hover-mask svg, .project-item .hover-mask img {
 	max-height: 50px;
-	margin-top: 10px;
+	margin-top: 25px;
 }
 
 #project-modal .close {

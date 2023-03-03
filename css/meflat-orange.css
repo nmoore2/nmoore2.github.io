@@ -121,7 +121,7 @@ a:focus,
 	letter-spacing: 1px;
 	font-weight: 400;
 	line-height:28px;
-	height:52px;
+	/* height:52px; */
 	outline: none;
 	position: relative;
 	background: #BEEF98;

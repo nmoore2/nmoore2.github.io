@@ -10,10 +10,10 @@
   let manual = null;
   try { manual = localStorage.getItem('nm-motion'); } catch {}
   function apply() {
-    const reduced = preference.matches || manual === 'reduced';
+    const reduced = manual === 'full' ? false : manual === 'reduced' ? true : preference.matches;
     document.documentElement.dataset.motion = reduced ? 'reduced' : 'full';
     const button=document.querySelector('[data-motion-toggle]');
-    if(button){button.textContent=reduced?'Motion paused':'Pause motion';button.setAttribute('aria-pressed',String(reduced));button.disabled=preference.matches;button.title=preference.matches?'Your device prefers reduced motion':'';}
+    if(button){button.textContent=reduced?'Play motion':'Pause motion';button.setAttribute('aria-pressed',String(reduced));button.disabled=false;button.title=reduced?'Play animations':'Pause animations';}
     document.dispatchEvent(new CustomEvent('motionchange',{detail:{reduced}}));
   }
   document.querySelector('[data-motion-toggle]')?.addEventListener('click',()=>{manual=document.documentElement.dataset.motion==='reduced'?'full':'reduced';try{localStorage.setItem('nm-motion',manual);}catch{}apply();});

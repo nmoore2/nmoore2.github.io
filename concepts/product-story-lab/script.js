@@ -23,7 +23,7 @@
       paths: [[145,180,190,180,240,180,300,180],[340,180,385,180,440,180,485,180],[530,180,565,180,620,180,690,180],[750,180,800,180,850,97,985,97],[750,180,800,180,850,180,985,180],[750,180,800,180,850,263,985,263]]
     }
   };
-  const reduced = () => media.matches || document.documentElement.dataset.motion === 'reduced';
+  const reduced = () => document.documentElement.dataset.motion ? document.documentElement.dataset.motion === 'reduced' : media.matches;
   let paused = false;
   let frame = null;
   let rendered = modes.explain.paths.map(path => [...path]);

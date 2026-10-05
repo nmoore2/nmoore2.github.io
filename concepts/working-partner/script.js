@@ -15,7 +15,7 @@
   let current = 2;
   let manuallyPaused = false;
   let timer;
-  const isReduced = () => media.matches || document.documentElement.dataset.motion === 'reduced';
+  const isReduced = () => document.documentElement.dataset.motion ? document.documentElement.dataset.motion === 'reduced' : media.matches;
   function show(stage, announce = false) {
     current = stages.indexOf(stage);
     demo.dataset.stage = stage;

@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let reduced = media.matches || document.documentElement.dataset.motion === 'reduced';
+  let reduced = document.documentElement.dataset.motion ? document.documentElement.dataset.motion === 'reduced' : media.matches;
   const desk = document.querySelector('.desk');
   const cards = [...document.querySelectorAll('[data-project]')];
   const benchStatus = document.querySelector('[data-bench-status]');
@@ -136,7 +136,7 @@
     });
   }
   function updateMotion(value) {
-    reduced = value || media.matches;
+    reduced = Boolean(value);
     if (reduced) { entranceAnimations.forEach(animation => animation.cancel()); if (running) finishLoop(); }
   }
   document.addEventListener('motionchange', event => updateMotion(Boolean(event.detail?.reduced)));

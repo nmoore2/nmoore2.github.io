@@ -3,7 +3,7 @@
   const comparison = document.querySelector('.comparison');
   if (!comparison) return;
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let reduced = media.matches || document.documentElement.dataset.motion === 'reduced';
+  let reduced = document.documentElement.dataset.motion ? document.documentElement.dataset.motion === 'reduced' : media.matches;
   let explanation = 'what';
   let state = 'after';
   const animations = new Set();
@@ -62,7 +62,7 @@
   }
   document.querySelectorAll('[data-layout]').forEach(button => button.addEventListener('click', () => setLayout(button.dataset.layout)));
   document.querySelectorAll('[data-explanation]').forEach(button => button.addEventListener('click', () => { explanation = button.dataset.explanation; updateNote(); }));
-  function updateMotion(value) { reduced = value || media.matches; if (reduced) stopAnimations(); }
+  function updateMotion(value) { reduced = Boolean(value); if (reduced) stopAnimations(); }
   document.addEventListener('motionchange', event => updateMotion(Boolean(event.detail?.reduced)));
   media.addEventListener('change', () => updateMotion(document.documentElement.dataset.motion === 'reduced'));
 })();

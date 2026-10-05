@@ -29,8 +29,7 @@
     const paused = manuallyPaused || isReduced();
     pause.setAttribute('aria-pressed', String(paused));
     pause.innerHTML = paused ? 'Play <span aria-hidden="true">▷</span>' : 'Pause <span aria-hidden="true">Ⅱ</span>';
-    pause.disabled = isReduced();
-    if (isReduced()) pause.innerHTML = 'Still mode <span aria-hidden="true">○</span>';
+    pause.disabled = false;
     if (!paused && !document.hidden) timer = setInterval(() => show(stages[(current + 1) % stages.length]), 4800);
   }
   buttons.forEach(button => button.addEventListener('click', () => {
@@ -38,9 +37,9 @@
     show(button.dataset.stageSelect, true);
     sync();
   }));
-  pause.addEventListener('click', () => { manuallyPaused = !manuallyPaused; sync(); });
+  pause.addEventListener('click', () => window.nmMotion.set(manuallyPaused || isReduced() ? 'full' : 'reduced'));
   media.addEventListener('change', sync);
-  document.addEventListener('motionchange', sync);
+  document.addEventListener('motionchange', event => { if (!event.detail.reduced) manuallyPaused = false; sync(); });
   document.addEventListener('visibilitychange', sync);
   sync();
 

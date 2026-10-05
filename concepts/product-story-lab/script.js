@@ -24,7 +24,6 @@
     }
   };
   const reduced = () => document.documentElement.dataset.motion ? document.documentElement.dataset.motion === 'reduced' : media.matches;
-  let paused = false;
   let frame = null;
   let rendered = modes.explain.paths.map(path => [...path]);
   let active = 'explain';
@@ -39,7 +38,7 @@
   }
   function animatePaths(target) {
     cancelAnimationFrame(frame);
-    if (reduced() || paused) { draw(target.map(path => [...path])); return; }
+    if (reduced()) { draw(target.map(path => [...path])); return; }
     const from = rendered.map(path => [...path]);
     const start = performance.now();
     function step(now) {
@@ -70,15 +69,15 @@
     animatePaths(mode.paths);
   }
   function syncMotion() {
-    const isPaused = paused || reduced() || document.hidden;
+    const isPaused = reduced() || document.hidden;
     lab.classList.toggle('is-paused', isPaused);
     toggle.setAttribute('aria-pressed', String(isPaused));
-    toggle.disabled = reduced();
-    toggle.innerHTML = reduced() ? 'Still mode <span aria-hidden="true">○</span>' : paused ? 'Play motion <span aria-hidden="true">▷</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
+    toggle.disabled = false;
+    toggle.innerHTML = reduced() ? 'Play motion <span aria-hidden="true">▷</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
     if (isPaused) { cancelAnimationFrame(frame); draw(modes[active].paths.map(path => [...path])); }
   }
   buttons.forEach(button => button.addEventListener('click', () => setMode(button.dataset.modeSelect)));
-  toggle.addEventListener('click', () => { paused = !paused; syncMotion(); });
+  toggle.addEventListener('click', () => window.nmMotion.toggle());
   document.addEventListener('motionchange', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   media.addEventListener('change', syncMotion);

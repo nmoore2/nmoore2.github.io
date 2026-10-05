@@ -16,7 +16,16 @@
     if(button){button.textContent=reduced?'Play motion':'Pause motion';button.setAttribute('aria-pressed',String(reduced));button.disabled=false;button.title=reduced?'Play animations':'Pause animations';}
     document.dispatchEvent(new CustomEvent('motionchange',{detail:{reduced}}));
   }
-  document.querySelector('[data-motion-toggle]')?.addEventListener('click',()=>{manual=document.documentElement.dataset.motion==='reduced'?'full':'reduced';try{localStorage.setItem('nm-motion',manual);}catch{}apply();});
+  function setMotion(value) {
+    manual = value === 'full' ? 'full' : 'reduced';
+    try { localStorage.setItem('nm-motion', manual); } catch {}
+    apply();
+  }
+  function toggleMotion() {
+    setMotion(document.documentElement.dataset.motion === 'reduced' ? 'full' : 'reduced');
+  }
+  window.nmMotion = { set: setMotion, toggle: toggleMotion };
+  document.querySelector('[data-motion-toggle]')?.addEventListener('click', toggleMotion);
   preference.addEventListener('change',apply);
   apply();
 })();

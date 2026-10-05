@@ -1,0 +1,480 @@
+[
+  {
+    "slug": "b2b-website-agency-contractor-in-house",
+    "title": "Agency, contractor, or in-house: who should own your B2B website?",
+    "description": "Choose a website agency, independent partner, or in-house hire by matching your backlog, coordination needs, and ongoing responsibilities to the right model.",
+    "category": "Website strategy",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "Before comparing portfolios or hourly rates, write down the work your website needs over the next three months. A launch with six simultaneous workstreams is a different problem from a steady queue of product pages and fixes. The right delivery model depends on the shape of that work and how much coordination your team can provide.",
+    "sections": [
+      {
+        "heading": "Separate the project from the operating responsibility",
+        "bodyHtml": "<p>Start with two lists. The first contains bounded deliverables: a redesigned homepage, a product launch, a set of comparison pages. The second contains continuing responsibilities: publishing, form monitoring, technical maintenance, measurement, and deciding what happens next.</p><p>A proposal can cover the first list beautifully while leaving the second without an owner. Ask who will answer a request three months after launch, who can publish an urgent correction, and who maintains the system when the original builder is unavailable. These questions reveal whether you are purchasing an asset, ongoing capacity, or both.</p><p>Include your own time in the comparison. A lower invoice is not necessarily a lower total commitment if the marketing leader must write every ticket, reconcile conflicting feedback, and coordinate every handoff.</p>"
+      },
+      {
+        "heading": "Use four questions to narrow the choice",
+        "bodyHtml": "<ol><li><strong>How much work must happen at once?</strong> Identify deadlines that genuinely overlap. Three tasks in a backlog do not automatically require three people, but a simultaneous brand rollout, migration, and content program may.</li><li><strong>How many specialties are essential?</strong> Distinguish capabilities needed every week from expertise needed for one review.</li><li><strong>How much context must the owner retain?</strong> List the product knowledge, internal relationships, and recurring decisions that matter.</li><li><strong>Who will manage the work?</strong> Name the person who sets priorities, approves scope, and resolves disagreements. Outside help still needs an internal decision maker.</li></ol><p>Write answers in sentences rather than scoring everything with invented precision. The useful output is a visible constraint, such as needing two production tracks during a launch while having only one weekly review slot.</p>"
+      },
+      {
+        "heading": "Choose an agency when the team structure earns its cost",
+        "bodyHtml": "<p>An agency is worth considering when the assignment needs several specialties working concurrently, formal project management, or coverage beyond one person's availability. Verify that the proposed team actually supplies those things. The agency category alone guarantees none of them.</p><p>Ask who will do the work, how much access you have to those people, and which responsibilities are subcontracted. Request a sample delivery plan for your actual brief. Look for dependencies, review points, content responsibilities, and post-launch ownership.</p><p>Clarify whether your everyday requests will reach the original team or a separate support queue. A strong launch process and a suitable ongoing service are separate buying decisions.</p>"
+      },
+      {
+        "heading": "Choose an independent partner when continuity matters",
+        "bodyHtml": "<p>An independent partner can fit a focused backlog where design, implementation, and day-to-day judgment benefit from staying with one person. This arrangement is especially useful when your team has a marketing owner but needs someone to turn priorities into working pages.</p><p>Evaluate the person's actual range. Someone who builds excellent interfaces may still need help with positioning, complex integrations, or specialist accessibility evaluation. Defined boundaries are useful information, not a weakness.</p><p>Ask about reserved capacity, planned absences, documentation, and access ownership. Confirm what happens when two urgent requests arrive together. If the answer depends on an unlimited amount of one person's time, the operating model needs revision.</p>"
+      },
+      {
+        "heading": "Choose an employee for a sustained internal role",
+        "bodyHtml": "<p>An in-house hire deserves consideration when you have enough durable work to support the role and the person needs to participate deeply in planning across teams. Describe a normal month after the initial redesign. If you cannot, the immediate need may be a project rather than a permanent position.</p><p>Plan for management and specialist support. Hiring one web owner does not remove the need for prioritization, feedback, or occasional outside expertise. Write a realistic role around the responsibilities that dominate, instead of combining a brand designer, developer, analyst, content strategist, and marketing operations team into one job description.</p>"
+      },
+      {
+        "heading": "Test the relationship with a bounded assignment",
+        "bodyHtml": "<p><strong>Hypothetical example:</strong> a software startup needs two product pages each month, quarterly launch support, and a functioning inquiry path. Its marketing director owns positioning, while an internal engineer can review unusual integrations. An independent partner could be a reasonable starting model. If the company adds a simultaneous rebrand and platform migration, a separately staffed project may be appropriate.</p><p>Use a paid pilot with a concrete deliverable, an agreed review process, and a definition of done. Evaluate whether the partner surfaces risks, translates feedback, and leaves maintainable work. Judge the working relationship as well as the final screen.</p><p>Before extending the engagement, turn what you learned into a <a href=\"/insights/website-retainer-scope/\">clear retainer scope</a> or a revised internal role. The decision should follow the work you can actually observe.</p>"
+      }
+    ],
+    "takeaway": "Buy the delivery model your backlog requires, and explicitly assign the ongoing responsibilities that remain after launch.",
+    "sources": [],
+    "relatedSlugs": [
+      "website-retainer-scope",
+      "b2b-website-project-brief",
+      "first-30-days-inherited-b2b-website"
+    ]
+  },
+  {
+    "slug": "first-30-days-inherited-b2b-website",
+    "title": "Your first 30 days with an inherited B2B website",
+    "description": "A first-month plan for marketing leaders inheriting a website: establish access, test the inquiry path, preserve evidence, and choose a useful first fix.",
+    "category": "Website strategy",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A new marketing leader inherits more than a website. There are vendor accounts, unfinished requests, disputed messaging, and assumptions about what works. Use the first month to establish control, learn where the site helps or obstructs buyers, and ship one defensible improvement. A redesign decision can wait until those facts are visible.",
+    "sections": [
+      {
+        "heading": "Days 1–5: establish ownership and access",
+        "bodyHtml": "<p>Create an ownership register for the domain, hosting, content system, source files, analytics, search reporting, forms, and customer relationship management system. For each, record the business owner, administrator, renewal responsibility, and recovery route. Keep credentials in the company's approved password manager rather than in the register.</p><p>Confirm that someone on the current team can publish and restore a change. Ask the outgoing owner or vendor to demonstrate the process. A folder of design files does not explain how the production website is maintained.</p><p>Collect existing agreements and identify what support remains available. Resolve access gaps before starting a new build. Record unknowns plainly so they become assigned tasks instead of background anxiety.</p>"
+      },
+      {
+        "heading": "Days 6–10: follow one inquiry all the way through",
+        "bodyHtml": "<p>Choose a priority audience and enter the site through a page that audience actually encounters. Read the page, follow the main action, submit an authorized test inquiry, and check the receiving system with its owner. Mark test records clearly and remove them according to your team's process.</p><p>Check what the visitor sees after submission, where the inquiry arrives, who is notified, and how the next response happens. Test a mistake as well as a successful submission. A confirmation screen alone does not prove that the lead reached the right person.</p><p>Write the journey as a short sequence with evidence attached. For example: campaign page, demo form, confirmation, CRM record, assigned sales owner. A broken link in that sequence is a more immediate priority than a disagreement about the homepage photograph.</p>"
+      },
+      {
+        "heading": "Days 11–15: build a baseline you can explain",
+        "bodyHtml": "<p>Save a dated snapshot of the priority pages, current messaging, available traffic reports, known inquiries, and open technical issues. Describe what each metric counts. A form submission, a sales-accepted inquiry, and an opportunity belong in different columns.</p><p>Review the previous period for campaign changes, outages, and missing tracking. If collection is unreliable, label the baseline incomplete. You can improve instrumentation now without inventing a historical comparison.</p><p>For loading and responsiveness, separate controlled diagnostics from real visitor measurements. <a href=\"https://web.dev/articles/vitals\">Google's Web Vitals documentation</a> distinguishes field and lab approaches. A local test helps investigate a problem; it should not be presented as the experience of every visitor.</p><p>Ask sales and customer-facing colleagues for recurring questions, then trace each question to the page intended to answer it. Treat their observations as leads for investigation, not a representative survey of all buyers.</p>"
+      },
+      {
+        "heading": "Days 16–20: choose one useful first change",
+        "bodyHtml": "<p>Sort candidate work into three groups: failures that stop a task, confusion that blocks a decision, and improvements whose value is still uncertain. Put evidence beside each item and name the smallest change that addresses it.</p><p><strong>Hypothetical example:</strong> a product page invites visitors to see a demo, but the destination is a general contact form with no explanation of the meeting. A first change could align the button, form introduction, and confirmation message around that specific request. It does not require replacing the entire site.</p><p>Choose a change you can finish, verify, and explain within the available time. Define success initially in terms you can observe, such as correct routing and a clear next step. Any claim of improved conversion requires additional evidence.</p>"
+      },
+      {
+        "heading": "Days 21–30: ship, verify, and establish a working rhythm",
+        "bodyHtml": "<p>Give the selected improvement a brief owner, a content approver, a delivery owner, and an acceptance checklist. Walk through it in staging, then verify the live experience after release. Capture the date so later reporting can distinguish the periods.</p><p>Create a single backlog with the next few priorities. Each item should include the buyer problem, supporting evidence, dependency, estimated effort, and intended observation after release. Avoid a long undifferentiated list of everyone else's preferences.</p><p>Agree how new requests enter the queue and when priorities change. A small team can use a short weekly review: what shipped, what is blocked, what changed, and which decision is needed. The meeting should produce an ordered queue.</p>"
+      },
+      {
+        "heading": "Leave the month with a one-page decision record",
+        "bodyHtml": "<ul><li><strong>Control:</strong> accounts and publishing responsibilities are assigned; remaining access gaps have owners.</li><li><strong>Buyer path:</strong> one priority journey has been tested through receipt and follow-up.</li><li><strong>Evidence:</strong> the baseline lists its definitions and known gaps.</li><li><strong>Delivery:</strong> one completed improvement has a release date and verification record.</li><li><strong>Next decision:</strong> the team knows whether it needs targeted work, ongoing help, or a broader rebuild.</li></ul><p>If a rebuild is justified, the month has produced better inputs for a <a href=\"/insights/b2b-website-project-brief/\">website project brief</a>. If it is not, you have avoided making a major commitment before understanding the operating problem.</p>"
+      }
+    ],
+    "takeaway": "Use the first month to secure ownership, verify the buyer journey, establish an honest baseline, and complete one useful improvement.",
+    "sources": [
+      {
+        "title": "Web Vitals: field and lab measurement",
+        "url": "https://web.dev/articles/vitals"
+      }
+    ],
+    "relatedSlugs": [
+      "b2b-website-project-brief",
+      "measure-low-traffic-b2b-website",
+      "b2b-website-launch-qa"
+    ]
+  },
+  {
+    "slug": "b2b-website-project-brief",
+    "title": "A B2B website brief that makes launch more predictable",
+    "description": "Build a website brief around buyer decisions, approved claims, scope boundaries, dependencies, and acceptance criteria so your team can plan a realistic launch.",
+    "category": "Planning and delivery",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A useful website brief lets the team make decisions without repeatedly returning to the marketing leader. It explains the buyer, the intended action, the evidence available, and the constraints that matter. Visual references help, but they cannot answer who supplies product screenshots or what happens when the form is submitted.",
+    "sections": [
+      {
+        "heading": "Start with the decision the page must support",
+        "bodyHtml": "<p>Replace a broad objective such as making the website feel modern with a specific buyer task. A product page might help an operations leader understand a workflow, check whether it fits an existing system, and decide whether a conversation is worthwhile.</p><p>Identify the audience's starting point. Someone arriving from a targeted campaign may already know the category. A referral visitor may need basic context. State which situation the brief serves first, and what the page can reasonably assume.</p><p>Choose a primary action and define its meaning. Requesting a demo, starting a trial, and contacting a specialist imply different experiences. List useful secondary actions without allowing them to obscure the main task.</p>"
+      },
+      {
+        "heading": "Give every important claim an evidence owner",
+        "bodyHtml": "<p>Create a claims list before copy becomes layout. For each statement, identify the supporting source, the person responsible for accuracy, and any necessary qualification. Product capabilities, compatibility, customer quotes, and performance statements deserve explicit review.</p><p>If evidence does not exist, decide whether to remove the claim, narrow it, or gather support. Do not leave an impressive placeholder for someone to question the day before launch.</p><p>Include the assets that make the story credible: approved screenshots, diagrams, customer permissions, product documentation, and demonstrations. Record which assets are ready and which require work. This turns content production into a visible part of the schedule.</p>"
+      },
+      {
+        "heading": "Define the smallest complete launch",
+        "bodyHtml": "<p>List the pages, components, and states included in the assignment. A form is not one rectangle on a design file. It includes empty, invalid, submitting, successful, and failed states, plus the destination of submitted information.</p><p>State what can be reused and what must be new. Identify the content system, integrations, required languages, and any URL changes. Define the supported device and browser checks appropriate to your audience.</p><p>Write down exclusions and the process for changing scope. If a new calculator appears halfway through a product-page project, the team should be able to estimate it and trade off timing or other work. Silent expansion makes the original deadline meaningless.</p>"
+      },
+      {
+        "heading": "Use a brief that can fit on one working page",
+        "bodyHtml": "<p><strong>Hypothetical example: a launch page for an approval-workflow product.</strong></p><ul><li><strong>Buyer:</strong> operations managers coordinating approvals across several departments.</li><li><strong>Question:</strong> can this product make ownership and status visible without replacing the existing record system?</li><li><strong>Primary action:</strong> request a workflow walkthrough; the confirmation explains the next response.</li><li><strong>Proof:</strong> approved interface captures and a product-owner-verified explanation of the integration.</li><li><strong>Scope:</strong> one page using existing navigation and footer, one interactive sequence, one inquiry form, and associated confirmation and error states.</li><li><strong>Dependencies:</strong> product owner supplies sanitized screenshots; marketing approves copy; operations confirms form routing.</li><li><strong>Acceptance:</strong> the sequence explains the workflow, controls work on mobile and keyboard, and a test request reaches the assigned destination.</li><li><strong>Deferred:</strong> pricing calculator, translations, and a wider navigation redesign.</li></ul><p>The example is deliberately specific enough to estimate. A list of visual adjectives would leave most of these decisions unresolved.</p>"
+      },
+      {
+        "heading": "Schedule approvals around things people can judge",
+        "bodyHtml": "<p>Review the message and content outline before judging detailed visuals. Review the intended interaction with a simple prototype before polishing every transition. Review a working page before the final release. Each stage should answer a different question.</p><p>Name one person who consolidates feedback and one person who makes the final decision. Specialists can still review accuracy or compliance within their responsibility. Conflicting comments should be resolved before they become instructions to the builder.</p><p>Attach approval dates to the schedule and explain what slips if an input is late. A launch date without dependency dates is a wish. Reserve time for corrections after the first complete build instead of treating QA as a ceremonial last step.</p>"
+      },
+      {
+        "heading": "Define done as a working experience",
+        "bodyHtml": "<p>Acceptance criteria should be observable. The page contains approved content. Important links resolve. The form handles errors and reaches the intended system. The mobile layout supports the same task. Measurement records the intended event under the agreed conditions. The content owner can make expected edits.</p><p>Also specify who receives the handoff and what they need: account access, publishing instructions, asset locations, known limitations, and the process for future changes. Ownership should not depend on a private conversation that disappears after launch.</p><p>Use the <a href=\"/insights/b2b-website-launch-qa/\">launch QA guide</a> to turn these criteria into a release checklist. A brief cannot guarantee a deadline, but it can make the decisions and dependencies behind that deadline inspectable.</p>"
+      }
+    ],
+    "takeaway": "A strong brief defines the buyer's task, the evidence, the complete scope, the approval path, and the observable conditions for launch.",
+    "sources": [],
+    "relatedSlugs": [
+      "b2b-website-launch-qa",
+      "interactive-product-demos",
+      "website-retainer-scope"
+    ]
+  },
+  {
+    "slug": "interactive-product-demos",
+    "title": "When an interactive product demo earns its place on a B2B website",
+    "description": "Decide whether an interactive product demo will clarify a buyer's question, then scope the interaction, accessible alternatives, maintenance, and measurement.",
+    "category": "Product storytelling",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "An interactive product demo is useful when a buyer needs to understand a change: an input producing an output, a decision affecting a workflow, or several roles handing work to one another. Start with that explanation. If the visitor only needs to read a fact or inspect a screen, a simpler format may do the job.",
+    "sections": [
+      {
+        "heading": "Name the question before choosing the format",
+        "bodyHtml": "<p>Write the question the demonstration should answer in the buyer's language. Examples include who handles an exception, what changes after a review, or how two systems share information. Avoid objectives such as showing innovation or making the page engaging. Those objectives do not specify what someone should learn.</p><p>Then write the answer as a plain paragraph. If that paragraph remains vague, adding motion will not resolve the missing product explanation. Ask the product owner to confirm the sequence and its limits before design begins.</p><p>The demonstration needs a defined starting condition and an understandable result. Decide which details are essential to that result and which can be left for documentation or a sales conversation.</p>"
+      },
+      {
+        "heading": "Match the interaction to the kind of explanation",
+        "bodyHtml": "<ul><li><strong>A change over time:</strong> use a short sequence with clearly identified stages and controls for moving between them.</li><li><strong>A choice with consequences:</strong> let the visitor select a relevant option and show the resulting change beside it.</li><li><strong>A relationship among systems:</strong> reveal the connection when the visitor selects a component, while keeping the overall structure visible.</li><li><strong>A detailed interface:</strong> provide an annotated screen or guided tour if the interface itself answers the question.</li><li><strong>A numerical estimate:</strong> use a calculator only when you can explain the inputs, assumptions, and limits.</li></ul><p>These are design choices, not a hierarchy of sophistication. Prefer the format that lets a reader reach an accurate understanding with the fewest unnecessary steps.</p>"
+      },
+      {
+        "heading": "Make every state change explain something",
+        "bodyHtml": "<p><strong>Hypothetical example:</strong> a review tool routes a flagged item to an owner, receives feedback, and updates its recommendation. The useful interaction is a three-stage sequence showing the flag, the handoff, and the changed recommendation. A numerical count should update when the represented feedback arrives, because that is the event the count describes.</p><p>A decorative orbit of logos would communicate a different idea, perhaps connected systems, but would not explain this feedback loop. A polished animation can still be the wrong explanation.</p><p>Keep labels close to the changing elements. Show what the visitor selected, what changed, and why. If several effects compete for attention, remove the ones that do not carry part of the explanation.</p>"
+      },
+      {
+        "heading": "Preserve a complete reading path",
+        "bodyHtml": "<p>Make the central explanation available without completing the interaction. A concise text summary and a meaningful initial state help someone who is scanning, using a different input method, or choosing not to play a sequence.</p><p>Use ordinary, clearly labeled controls with visible focus. Plan keyboard behavior, mobile layout, and a reduced-motion presentation during design. Avoid making a drag gesture or an elaborate scroll sequence the only route to important information.</p><p>Continuous movement also needs specific review. <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html\">W3C's guidance on pausing, stopping, or hiding content</a> explains the requirement for certain automatically moving content that lasts more than five seconds alongside other content, unless the movement is essential. Treat playback controls as part of the experience rather than an accessory added at the end.</p>"
+      },
+      {
+        "heading": "Scope the demo as a small product",
+        "bodyHtml": "<p>Agree on the states, permitted actions, content owner, loading behavior, and failure state. Decide whether the demo uses real product data, sanitized captures, or illustrative data. Label simulations clearly and do not imply that a scripted example is a live product session.</p><p>Set a maintenance trigger. An interface tour may need revision after a product release; a conceptual workflow may survive longer. Assign someone to review its accuracy and identify what happens if the embedded service becomes unavailable.</p><p>Include implementation and review time in the estimate. A visually small interaction can require substantial work when it has many possible states. Reduce the number of choices before compromising the clarity or reliability of the core path.</p>"
+      },
+      {
+        "heading": "Evaluate understanding before celebrating engagement",
+        "bodyHtml": "<p>Watch a few people from the intended audience use the demonstration. Ask them to explain the workflow and identify its limits in their own words. Record where they hesitate and what they misunderstand. These sessions can uncover problems; they do not establish a population-wide success rate.</p><p>After launch, distinguish loading, starting, completing, and taking a next step. A play count does not demonstrate understanding, and a longer session can mean either interest or confusion. Pair behavioral observations with relevant follow-up questions.</p><p>Decide in advance what would justify revision or removal. If the demonstration adds maintenance and loading cost without explaining the buyer's question, replace it with a clearer format. Use the <a href=\"/insights/measure-low-traffic-b2b-website/\">low-traffic measurement guide</a> to keep the evaluation proportionate to the evidence available.</p>"
+      }
+    ],
+    "takeaway": "Build an interaction around one buyer question, synchronize visual changes to their meaning, and verify understanding before claiming a business effect.",
+    "sources": [
+      {
+        "title": "W3C: Understanding Pause, Stop, Hide",
+        "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html"
+      }
+    ],
+    "relatedSlugs": [
+      "b2b-website-project-brief",
+      "measure-low-traffic-b2b-website",
+      "b2b-website-launch-qa"
+    ]
+  },
+  {
+    "slug": "b2b-landing-page-inquiry-checklist",
+    "title": "A B2B landing-page checklist for the complete inquiry path",
+    "description": "Review the full path from campaign promise to sales handoff, including proof, calls to action, form fields, errors, confirmations, and inquiry ownership.",
+    "category": "Conversion and measurement",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A landing page is only the visible beginning of an inquiry. The visitor has to recognize a relevant offer, decide it is credible, understand the next step, and complete it. Your team then has to receive and act on the request. Review that entire path before spending another round of effort on the button color.",
+    "sections": [
+      {
+        "heading": "1. Carry the arrival promise onto the page",
+        "bodyHtml": "<p>Place the campaign, email, search result, or partner link beside the destination page. Check whether the same audience, problem, and offer are apparent in both. A visitor should not need to translate a specific promise into a generic corporate headline.</p><p><strong>Hypothetical example:</strong> an ad offers a walkthrough of invoice approvals. A destination headed with a broad claim about transforming operations leaves the visitor to infer the connection. A page that names invoice approvals and shows the relevant workflow continues the original conversation.</p><p>Write down what the visitor is likely to know already and which questions remain. Use this to remove background material that delays the promised answer while preserving context the buyer actually needs.</p>"
+      },
+      {
+        "heading": "2. Put evidence beside the claim it supports",
+        "bodyHtml": "<p>Check every major assertion for a nearby explanation or source. If you claim compatibility with a system, explain the relevant integration and link to details. If you show a customer result, give enough context to understand what was measured and obtain the required permission.</p><p>Use product captures to show the experience rather than asking a decorative dashboard to stand in for evidence. Distinguish an illustrative example from an actual customer environment. Label the former plainly.</p><p>A useful review question is whether a skeptical but interested buyer could explain why the claim is credible. If the answer depends on a logo strip with no context, add evidence before adding more claims.</p>"
+      },
+      {
+        "heading": "3. Make the next action specific",
+        "bodyHtml": "<p>Read the call to action without the surrounding design. Does it describe what happens next? Requesting a workflow review, downloading a guide, and booking a product demo are different commitments. Give each an accurate label.</p><p>Beside the action, explain who the experience is for and what the visitor receives. State the duration, response window, or meeting format only when the team can honor it. Avoid implying immediate access when a person must manually approve the request.</p><p>A secondary action can serve someone who is still evaluating. Keep its role distinct, such as reading technical documentation before requesting a demonstration, rather than presenting several equally prominent destinations.</p>"
+      },
+      {
+        "heading": "4. Give every required field a job",
+        "bodyHtml": "<p>For each field, name the decision it enables. Does company size route the request? Does a product selection identify the right specialist? Is a phone number necessary for the promised response? Remove or make optional the fields nobody can connect to an actual use.</p><p>The shortest form is not automatically the best form. A relevant question may help the team prepare; an unexplained question may feel intrusive. Make the tradeoff deliberately and review what happens to the information after collection.</p><p><a href=\"https://www.w3.org/WAI/tutorials/forms/\">W3C's forms guidance</a> recommends clear labels, instructions, and feedback. Check that labels remain understandable while someone types and that required inputs are identified. Do not rely on placeholder text as the only explanation of a field.</p>"
+      },
+      {
+        "heading": "5. Test recovery as carefully as success",
+        "bodyHtml": "<p>Try submitting an empty required field, an invalid email address, and a valid request. Check that errors identify the relevant field and explain how to fix it. Retain usable information so the person does not have to start again.</p><p>The successful state should confirm the actual request and describe the next step. <a href=\"https://www.w3.org/WAI/tutorials/forms/notifications/\">W3C's form-notification guidance</a> covers both error and success feedback, including making dynamic messages available to assistive technologies. A temporary visual checkmark is not sufficient review evidence.</p><p>Also test a failed connection or service response with the implementation owner. The interface should avoid reporting success when the submission was not accepted. Provide a practical recovery route appropriate to the site.</p>"
+      },
+      {
+        "heading": "6. Verify the internal handoff",
+        "bodyHtml": "<p>Submit a clearly labeled test with the receiving team's agreement. Verify the record, its assigned owner, the notification, and any promised follow-up. Compare the information received with what was entered. Check that a second click does not create an unexplained duplicate.</p><p>Separate the visible button click from successful form acceptance and from a qualified inquiry. Your reporting should make those distinctions too. A visitor opening the form has not yet asked to speak with you.</p><p>Keep a short acceptance record: arrival source, tested URL, device, expected behavior, observed behavior, receiving owner, and date. This becomes a repeatable check after future releases. The <a href=\"/insights/b2b-website-launch-qa/\">launch QA guide</a> extends the review to navigation, accessibility, measurement, and mobile behavior.</p>"
+      }
+    ],
+    "takeaway": "Review a landing page through to the person who receives the inquiry. Clarity, truthful evidence, recovery, and ownership all belong in the conversion path.",
+    "sources": [
+      {
+        "title": "W3C WAI Forms Tutorial",
+        "url": "https://www.w3.org/WAI/tutorials/forms/"
+      },
+      {
+        "title": "W3C WAI: Form user notifications",
+        "url": "https://www.w3.org/WAI/tutorials/forms/notifications/"
+      }
+    ],
+    "relatedSlugs": [
+      "b2b-website-launch-qa",
+      "measure-low-traffic-b2b-website",
+      "b2b-website-project-brief"
+    ]
+  },
+  {
+    "slug": "b2b-seo-ai-search-priorities",
+    "title": "SEO and AI search: what a lean B2B team should prioritize",
+    "description": "Prioritize useful B2B content, technical access, truthful evidence, and defensible measurement using current Google guidance for search and generative AI.",
+    "category": "Search and discovery",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A lean team needs a search plan that produces useful pages and verifiable improvements. Start with the questions your buyers need answered, make those answers accessible, and measure what the available reports actually show. Treat promises of guaranteed AI mentions or a special ranking formula as claims that require evidence.",
+    "sections": [
+      {
+        "heading": "Use current platform guidance to set boundaries",
+        "bodyHtml": "<p>Google's <a href=\"https://developers.google.com/search/docs/fundamentals/ai-optimization-guide\">July 2026 guide to generative AI search</a> says its AI features build on core Search systems. It does not require special schema or an llms.txt file. Meeting its requirements also does not guarantee indexing or visibility.</p><p>For technical eligibility, the guide says pages must be indexed and eligible for a search snippet, and the site must be included in Search generative AI features through Search Console. Check the current settings and documentation for your own property.</p><p>That guidance describes Google. Do not assume every answer service uses identical controls or reports. When someone recommends a tactic, ask which platform it affects, what documentation supports it, and how a useful result would be observed.</p>"
+      },
+      {
+        "heading": "Choose a buyer question before choosing a keyword",
+        "bodyHtml": "<p>Build a small question inventory from sales conversations, support themes, product documentation, and the language prospects use. Keep the evidence beside each question. A repeated sales objection and a speculative keyword idea should not look equally validated in the backlog.</p><p>For each question, decide what an adequate answer requires. A feature definition might need a concise product page. A migration question could need a sequence, prerequisites, and limitations. A comparison needs explicit evaluation criteria and current sources.</p><p><strong>Hypothetical example:</strong> a buyer asks whether an approval tool replaces their accounting system. The useful page explains the boundary between the systems, shows the handoff, names supported connections, and describes what remains manual. Repeating the phrase accounting automation in several headings would not answer that question.</p>"
+      },
+      {
+        "heading": "Make a few pages complete enough to use",
+        "bodyHtml": "<p>Choose the questions closest to a real buying decision and assign an owner with access to the product facts. Provide a direct answer, the relevant evidence, an example, and the limitations. Link to the next resource a reader needs, even when that resource is documentation rather than a sales form.</p><p>Use original material you can support: a workflow explanation, a tested implementation note, a clearly labeled calculation, or a permissioned project account. Do not dress up a hypothetical example as client experience.</p><p>Google's <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\">helpful-content guidance</a> asks whether a page adds original value and satisfies its intended audience. It also rejects the idea of a preferred word count. Use completeness of the answer as your editorial stopping point.</p>"
+      },
+      {
+        "heading": "Fix technical obstacles with a specific diagnosis",
+        "bodyHtml": "<p>Ask the implementation owner to check the pages you want discovered. Confirm that they load at the intended address, contain the expected content, are linked from relevant parts of the site, and have deliberate indexing and canonical settings.</p><p>When something is missing from search, record the affected URL and the evidence before prescribing a fix. A reporting gap, an access restriction, duplicate addresses, and weak page content are different problems. A general score rarely tells you which change is justified.</p><p>Preserve useful addresses during a redesign when possible. If URLs must change, create an explicit mapping. <a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes\">Google's site-move guide</a> describes mapping old addresses to new ones, configuring redirects, and monitoring the move. Treat this as launch work with an owner.</p>"
+      },
+      {
+        "heading": "Keep publication and revision dates honest",
+        "bodyHtml": "<p>Use the date an article was actually first published. When you make a substantive revision, identify the update accurately. Do not create an invented history to make a new library appear established, or change dates merely to make unchanged advice appear current.</p><p>Google's helpful-content guidance specifically cautions against changing dates without meaningful changes. More fundamentally, a buyer should be able to understand whether a claim reflects today's product, an earlier version, or an illustrative scenario.</p><p>Keep a lightweight review record for material that changes: integration support, product comparisons, technical instructions, and platform guidance. Schedule review around known changes rather than rewriting useful pages without a reason.</p>"
+      },
+      {
+        "heading": "Report visibility separately from business outcomes",
+        "bodyHtml": "<p>As documented in October 2026, Search Console's <a href=\"https://support.google.com/webmasters/answer/16984139\">Generative AI performance report</a> includes impressions from AI Overviews and AI Mode, with page, country, date, and device views. Google says low impression volume can prevent the report from appearing.</p><p>An impression is evidence of visibility under that report's definition. It does not establish that someone visited, became a qualified lead, or bought because of the page. Keep those observations separate in your monthly review.</p><p>Choose the next action from the evidence: repair an access problem, strengthen an incomplete explanation, update a factual claim, or investigate a buyer question. Use the <a href=\"/insights/measure-low-traffic-b2b-website/\">low-traffic measurement framework</a> when the available numbers cannot support a reliable performance conclusion.</p>"
+      }
+    ],
+    "takeaway": "Publish answers worth finding, remove specific technical obstacles, preserve truthful provenance, and distinguish search visibility from commercial impact.",
+    "sources": [
+      {
+        "title": "Google: Optimizing for generative AI features on Search",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+      },
+      {
+        "title": "Google: Creating helpful, reliable, people-first content",
+        "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      },
+      {
+        "title": "Google: How to move a site",
+        "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+      },
+      {
+        "title": "Search Console: Generative AI performance report",
+        "url": "https://support.google.com/webmasters/answer/16984139"
+      }
+    ],
+    "relatedSlugs": [
+      "honest-b2b-comparison-pages",
+      "measure-low-traffic-b2b-website",
+      "first-30-days-inherited-b2b-website"
+    ]
+  },
+  {
+    "slug": "measure-low-traffic-b2b-website",
+    "title": "How to measure a low-traffic B2B website without inventing an A/B-test winner",
+    "description": "Use counts, qualified inquiries, usability evidence, and clear decision rules to improve a low-traffic B2B website without overstating small-sample results.",
+    "category": "Conversion and measurement",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A website can matter to the business before it receives enough traffic for a useful conversion experiment. You still need to detect broken journeys, judge lead quality, and decide what to improve. The discipline is to match each decision to evidence strong enough to support it, while making the uncertainty visible.",
+    "sections": [
+      {
+        "heading": "Separate three questions that need different evidence",
+        "bodyHtml": "<p><strong>Does the experience work?</strong> Test whether links, forms, integrations, and measurement behave as intended. A reproducible failure can justify a repair without waiting for a statistical experiment.</p><p><strong>Can the intended buyer understand it?</strong> Observe people completing relevant tasks and ask them to explain the offer. Their confusion can identify a design problem, but a few sessions do not estimate its prevalence across all visitors.</p><p><strong>Did the change improve a business outcome?</strong> That requires a credible comparison and enough information to distinguish the change from other influences. Keep this question separate from whether the new page looks better or passed QA.</p><p>Label the evidence accordingly in your report: verified behavior, observed usability issue, descriptive trend, or experiment result.</p>"
+      },
+      {
+        "heading": "Define the outcome before opening the dashboard",
+        "bodyHtml": "<p>Pick a business-relevant outcome and specify how it is counted. For example, a qualified inquiry might require a relevant organization, a need the company serves, and acceptance by the sales owner. Apply the same definition across the period being compared.</p><p>Build a short sequence around it: eligible visits, inquiry starts, accepted submissions, qualified inquiries, and opportunities. The numbers will not necessarily match because each describes a different event.</p><p>Document exclusions such as internal tests, obvious spam, or duplicate records. Do not quietly change the rules after seeing results. When the available tools cannot join the stages reliably, show separate counts and describe the gap rather than manufacturing a precise funnel.</p>"
+      },
+      {
+        "heading": "Show counts before percentages",
+        "bodyHtml": "<p><strong>Hypothetical example:</strong> one version receives 8 inquiries from 400 eligible visitors; another receives 12 from 400. The observed rates are 2% and 3%. That is a one-percentage-point difference and a 50% relative increase. The relative figure alone hides how little information the comparison contains.</p><p>For illustration, 95% Wilson intervals for those individual proportions are approximately 1.0%–3.9% and 1.7%–5.2%, assuming independent observations with a stable probability within each group. The method is described in the <a href=\"https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm\">NIST statistical handbook</a>. These intervals describe uncertainty in each rate; they are not a complete test of the difference.</p><p>A before-and-after comparison adds another problem: the visitors may differ. A launch, campaign, or change in sales activity can alter the audience. A larger observed rate does not isolate the page's effect.</p>"
+      },
+      {
+        "heading": "Run experiments only when the decision can wait for the evidence",
+        "bodyHtml": "<p>Before an A/B test, define the target population, random assignment, primary outcome, smallest useful effect, required sample, and stopping rule. Have someone qualified check the design when the decision carries meaningful cost.</p><p>Estimate how long the test would take at your actual eligible traffic and outcome rate. If the required period is longer than the page or campaign will remain stable, choose a different way to learn. There is no universal visitor threshold that makes every test informative.</p><p>Avoid splitting a small audience across many variants and metrics. Do not declare success simply because a dashboard briefly shows a favorable result. If the test ends without resolving the decision, report that uncertainty explicitly.</p>"
+      },
+      {
+        "heading": "Build a practical learning loop between experiments",
+        "bodyHtml": "<p>Interview sales about recent inquiry quality. Observe a few relevant buyers attempting the primary task. Review pages against actual product questions. Fix reproducible failures and obvious content inaccuracies. These activities answer narrower questions that can still support useful action.</p><p>Release a focused change with a written expectation: which problem it addresses, what behavior should become possible, and what you will inspect afterward. Keep a dated change log alongside campaigns and other events that could affect traffic.</p><p>Validate instrumentation before interpreting a trend. For GA4 sites, <a href=\"https://support.google.com/analytics/answer/7201382\">DebugView</a> can display collected events during an enabled debugging session. Seeing an event arrive confirms collection for that test; it does not prove accurate qualification or complete coverage of all visitors.</p>"
+      },
+      {
+        "heading": "Use a monthly note that separates observation from inference",
+        "bodyHtml": "<ul><li><strong>What changed:</strong> the page, journey, or measurement correction and its release date.</li><li><strong>What was verified:</strong> the tested behavior, including receiving-system checks where relevant.</li><li><strong>What was observed:</strong> counts, denominators, qualification rules, and the reporting period.</li><li><strong>What remains uncertain:</strong> audience differences, missing data, small samples, and competing explanations.</li><li><strong>What happens next:</strong> maintain, investigate, revise, or run a sufficiently designed experiment.</li></ul><p>This reporting format lets the team act without turning every useful improvement into an unsupported growth claim. Start with the <a href=\"/insights/b2b-landing-page-inquiry-checklist/\">inquiry-path checklist</a> if you have not yet verified what your conversion events represent.</p>"
+      }
+    ],
+    "takeaway": "Verify behavior, investigate understanding, and measure outcomes separately. Small samples can inform decisions without supporting a confident claim of uplift.",
+    "sources": [
+      {
+        "title": "NIST: Confidence intervals for proportions",
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm"
+      },
+      {
+        "title": "Google Analytics: Monitor events in DebugView",
+        "url": "https://support.google.com/analytics/answer/7201382"
+      }
+    ],
+    "relatedSlugs": [
+      "b2b-landing-page-inquiry-checklist",
+      "b2b-seo-ai-search-priorities",
+      "website-retainer-scope"
+    ]
+  },
+  {
+    "slug": "website-retainer-scope",
+    "title": "What a B2B website retainer should include",
+    "description": "Define a website retainer with clear capacity, priorities, response expectations, maintenance duties, and acceptance criteria for manageable recurring work.",
+    "category": "Planning and delivery",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A website retainer should make recurring work easier to plan. The agreement needs to explain what capacity is available, how priorities are chosen, and who owns the site between requests. A broad promise to handle everything leaves both the marketing team and its partner guessing when a launch collides with routine maintenance.",
+    "sections": [
+      {
+        "heading": "Separate maintenance from new delivery",
+        "bodyHtml": "<p>List the work required to keep the existing site operating: agreed platform updates, defect investigation, publishing support, form checks, and the relevant account responsibilities. Then list new delivery, such as campaign pages, product explanations, content templates, and measurement improvements.</p><p>Specify which maintenance activities are scheduled and which happen only when requested. A monthly fee does not, by itself, establish monitoring or an emergency response service. If those are included, name the systems covered and the person responsible for reviewing alerts.</p><p>Make it clear whether routine maintenance consumes the same capacity as new work. Otherwise the team may plan a month of pages while the provider plans to spend part of that month maintaining the platform.</p>"
+      },
+      {
+        "heading": "Define capacity in terms both sides can use",
+        "bodyHtml": "<p>A retainer can reserve hours, a defined set of deliverables, or a managed queue with explicit limits. Each model needs an explanation of what fits and what happens when the work exceeds it.</p><p>For an hourly arrangement, explain what counts toward the allocation, how estimates are shared, and how unused time is handled. For deliverables, define complexity and revision boundaries. For a queue, state how many items can be active and how larger requests are estimated.</p><p>Include meetings, QA, deployment, and documentation in the planning assumptions. Hiding those activities makes delivery estimates look faster while leaving necessary work without time.</p>"
+      },
+      {
+        "heading": "Give the backlog one decision maker",
+        "bodyHtml": "<p>Use one place for incoming requests and one internal owner who orders them. Each request should describe the audience, the problem, the desired change, required assets, and any real deadline.</p><p>Do not require every stakeholder to become an expert ticket writer. The web partner can help turn a rough request into a scoped task. The marketing owner still needs to resolve competing priorities.</p><p>Review the queue regularly and identify what is ready, blocked, or waiting for a decision. A request lacking approved copy should not silently hold up an unrelated fix that is ready to ship. Record the tradeoff when an urgent item displaces planned work.</p>"
+      },
+      {
+        "heading": "Distinguish response time from completion time",
+        "bodyHtml": "<p>An acknowledgment says the request has been received. A diagnosis explains the issue and proposed next step. A delivery estimate says when an agreed change is expected to be ready. Those are different commitments and should have separate expectations.</p><p>Define urgency with concrete examples. A failed primary inquiry form might qualify; a new idea for a headline usually does not. Set the contact route and coverage hours for urgent issues, including what happens outside those hours.</p><p>Ask about planned absences and backup arrangements. If the engagement depends on one specialist, document an escalation path and preserve company access to the systems someone else would need.</p>"
+      },
+      {
+        "heading": "Write a short operating agreement",
+        "bodyHtml": "<p><strong>Hypothetical example:</strong> a software company's monthly web engagement reserves a defined block of delivery capacity, with one substantial item active at a time. The marketing director sets priorities. The partner estimates each request before starting, and the product marketer supplies approved content.</p><ul><li><strong>Included:</strong> existing-site page work, agreed technical maintenance, form-path verification after relevant changes, release QA, and a brief monthly delivery note.</li><li><strong>Separately estimated:</strong> a platform migration, extensive new copy, a complex calculator, or a major visual redesign.</li><li><strong>Review:</strong> one consolidated feedback round at each agreed milestone, with additional changes assessed against remaining capacity.</li><li><strong>Urgent work:</strong> a defined route for serious live-site failures; any displaced work is replanned visibly.</li><li><strong>Handoff:</strong> company-owned accounts, accessible source files, and updated publishing instructions.</li></ul><p>The quantities and coverage should match the actual agreement. This example is a scoping pattern, not a claim about a standard package or market price.</p>"
+      },
+      {
+        "heading": "Judge the engagement on observable work and useful decisions",
+        "bodyHtml": "<p>A monthly note should identify what shipped, why it mattered, what was verified, and what evidence is available afterward. It should also show blocked items, used or remaining capacity where applicable, and the next priority.</p><p>Reliable delivery and repaired measurement can be legitimate early outcomes. Conversion or revenue claims need a defensible comparison, as the <a href=\"/insights/measure-low-traffic-b2b-website/\">low-traffic measurement guide</a> explains. Avoid making the partner responsible for results that also depend on the offer, traffic, sales process, and other work outside the engagement.</p><p>Agree on periodic scope review and an orderly exit. The website should remain operable if either side ends the arrangement. A good recurring relationship is easier to continue when continuity comes from useful work rather than inaccessible files or undocumented dependencies.</p>"
+      }
+    ],
+    "takeaway": "A useful retainer reserves defined capacity, assigns priorities and ownership, explains urgent support, and makes completed work inspectable.",
+    "sources": [],
+    "relatedSlugs": [
+      "b2b-website-agency-contractor-in-house",
+      "b2b-website-project-brief",
+      "measure-low-traffic-b2b-website"
+    ]
+  },
+  {
+    "slug": "honest-b2b-comparison-pages",
+    "title": "How to write a B2B comparison page a buyer can actually use",
+    "description": "Create a credible B2B comparison page with buyer-led criteria, current sources, qualified claims, explicit tradeoffs, and a practical evaluation plan.",
+    "category": "Product storytelling",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "A comparison page should help a buyer understand which option fits a particular situation. Start by defining that situation and the criteria that matter. If every row is designed to award your product a checkmark, the page may explain your positioning, but it gives the reader little help making a defensible choice.",
+    "sections": [
+      {
+        "heading": "Compare the decision, not just the feature names",
+        "bodyHtml": "<p>Identify who is choosing, what they need to accomplish, and what constraints could change the answer. A small operations team and a regulated enterprise may reasonably prefer different products.</p><p>Build criteria from those requirements. Instead of a row labeled automation, ask what can trigger a workflow, which exceptions require manual work, and who can change the rules. Replace an integration checkmark with the specific connection and the scope it supports.</p><p>Keep the evaluation symmetrical. If setup effort matters for one product, investigate it for both. If your product needs an add-on or a higher plan for a capability, give that qualification the same prominence you would give a competitor's limitation.</p>"
+      },
+      {
+        "heading": "Maintain a source record before drafting the claims",
+        "bodyHtml": "<p>For each factual comparison, save the public source URL, access date, relevant plan or version, and a concise note about what the source supports. Prefer the provider's current documentation, product pages, and published plan details for statements about its own offering.</p><p>Distinguish documented capability from something you tested directly. If a vendor describes a feature, attribute the claim appropriately. If you ran a test, describe the setup and scope before generalizing from it.</p><p>Absence from a page is not proof that a capability does not exist. When you cannot establish an answer, write that the available documentation did not resolve it and suggest what the buyer should confirm. Do not turn an unknown into a negative mark.</p>"
+      },
+      {
+        "heading": "Show the conditions behind an advantage",
+        "bodyHtml": "<p><strong>Hypothetical example:</strong> Tool A offers a tightly defined approval workflow with a short configuration path. Tool B allows more extensive process customization but asks the buyer to make more setup decisions. Neither description establishes a universal winner.</p><p>A useful comparison explains that a team with a stable, standard process may value Tool A's narrower configuration. A team with unusual approval rules may prefer Tool B's flexibility and accept the setup work. These are illustrative tradeoffs, not claims about real products.</p><p>Use the same discipline for price. State the relevant plan, billing basis, included quantity, and any necessary add-ons. If actual cost depends on a quote or usage you do not know, say so rather than presenting a false total.</p>"
+      },
+      {
+        "heading": "Write a recommendation that admits who should choose differently",
+        "bodyHtml": "<p>Summarize the conditions under which your product is a sensible choice. Then identify cases where another approach deserves consideration. A buyer should be able to locate a real boundary in the recommendation.</p><p>A page published by one of the vendors should make that relationship obvious. Use an accountable author or reviewer and describe the basis of the evaluation. Avoid presenting a vendor-authored sales page as an independent testing organization.</p><p>Keep adjectives subordinate to evidence. A claim such as easier needs a defined task and supporting observation. Without that, describe the actual workflow difference and let the reader judge which version would be easier for their team.</p>"
+      },
+      {
+        "heading": "Give the reader an evaluation plan",
+        "bodyHtml": "<p>End the comparison with a small set of tasks the buyer can run using the same scenario in each product. This is more useful than another list of broad advantages.</p><ol><li><strong>Prepare one representative workflow.</strong> Include a normal case, an exception, and the roles that need access.</li><li><strong>Complete the workflow in each option.</strong> Record required setup, manual steps, and any unanswered questions.</li><li><strong>Check the handoff.</strong> Inspect what reaches the connected system and what a receiving colleague can understand.</li><li><strong>Review operating responsibilities.</strong> Identify who maintains rules, manages access, and investigates failures.</li><li><strong>Confirm the commercial scope.</strong> Match the tested capabilities to the quoted plan and required services.</li></ol><p>Invite the buyer to bring that scenario to a demonstration. The call to action then continues the evaluation rather than asking them to abandon it for a generic sales conversation.</p>"
+      },
+      {
+        "heading": "Assign maintenance before publishing",
+        "bodyHtml": "<p>Comparison pages need an owner who can check product changes and correct stale claims. Record when the evidence was reviewed, and revisit high-change material when plans or capabilities change. Update the page when the substance changes, not simply to refresh a date.</p><p>Keep the source record even if the public page only includes the most useful citations. It gives future reviewers a way to understand why a statement was made and whether it remains supportable.</p><p>Before launch, ask someone outside the drafting process to challenge the strongest claims and locate the qualifications. If the page still helps a buyer who does not choose your product, it is doing meaningful comparison work. The broader <a href=\"/insights/b2b-seo-ai-search-priorities/\">search-priority guide</a> explains where this kind of decision content belongs in a lean publishing plan.</p>"
+      }
+    ],
+    "takeaway": "Compare products against a real buying situation, apply the same evidence standard to every option, and help readers verify the fit themselves.",
+    "sources": [],
+    "relatedSlugs": [
+      "b2b-seo-ai-search-priorities",
+      "interactive-product-demos",
+      "b2b-landing-page-inquiry-checklist"
+    ]
+  },
+  {
+    "slug": "b2b-website-launch-qa",
+    "title": "A website launch QA guide for B2B marketing leaders",
+    "description": "Plan a practical B2B website launch review covering forms, analytics, accessibility, mobile behavior, content accuracy, release ownership, and recovery.",
+    "category": "Planning and delivery",
+    "readMinutes": 4,
+    "datePublished": "2026-10-05",
+    "intro": "Launch approval should mean that the important journeys have been checked and someone owns the remaining issues. A final glance at the homepage cannot establish that. Give the team a short set of representative tasks, a record of what happened, and clear rules for deciding which defects block release.",
+    "sections": [
+      {
+        "heading": "Build the review around complete journeys",
+        "bodyHtml": "<p>Select the paths most important to the launch: reaching a product page, understanding the offer, requesting a demo, accessing a promised resource, or moving from a comparison into technical information. Include the entry points used by active campaigns.</p><p>For each journey, record the starting URL, expected result, test conditions, owner, and observed result. Attach a screenshot or reproduction note when something fails. Confirm that the person fixing it can repeat the problem.</p><p>Agree on release blockers in advance. A failed inquiry, inaccessible essential control, or materially inaccurate claim deserves a different response from a minor spacing issue. Give accepted nonblocking issues an owner and a follow-up date.</p>"
+      },
+      {
+        "heading": "Verify forms beyond the confirmation screen",
+        "bodyHtml": "<p>Test required fields, invalid input, successful submission, duplicate actions, and the agreed failure behavior. Check that the page describes the actual next step and does not promise a response the receiving team cannot provide.</p><p>With the receiving owner's agreement, submit a clearly labeled test and inspect the resulting record, assignment, and notification. If a resource is promised, verify access to that resource. Review what happens when a form service or connection fails with the implementation owner.</p><p>Keep error messages understandable and make successful completion apparent. The <a href=\"/insights/b2b-landing-page-inquiry-checklist/\">inquiry-path checklist</a> covers the content and handoff details that belong in this review.</p>"
+      },
+      {
+        "heading": "Verify what analytics actually records",
+        "bodyHtml": "<p>List the events needed for the launch and define their triggers. A button click, an accepted form submission, and a confirmed booking should not all be reported as the same outcome.</p><p>Test the intended consent states and inspect event names, timing, and relevant parameters. Keep personal form values out of analytics event payloads. Check whether retrying, refreshing, or navigating back produces duplicate outcome events.</p><p>For GA4, <a href=\"https://support.google.com/analytics/answer/7201382\">Google's DebugView documentation</a> explains how to inspect events collected during a debugging session and notes that privacy controls can affect their visibility. Verify collection under the agreed conditions, then separately confirm the business-system result. Neither test substitutes for the other.</p>"
+      },
+      {
+        "heading": "Do a focused accessibility review",
+        "bodyHtml": "<p>Move through the important paths with a keyboard. Check that the current control is visible, the order makes sense, menus and dialogs can be closed, and focus does not disappear behind an overlay. Inspect headings, image descriptions, form labels, contrast, and the layout when text is enlarged.</p><p><a href=\"https://www.w3.org/WAI/test-evaluate/preliminary/\">W3C's Easy Checks</a> offers a first-review structure for these areas and explicitly distinguishes that initial review from a comprehensive accessibility evaluation. Passing a short checklist or automated scan does not establish full conformance.</p><p>Assign specialist review when the scope requires it. For interactive content, include meaningful text alternatives and the planned motion controls. Fix issues in the shared component where appropriate so the correction reaches every affected page.</p>"
+      },
+      {
+        "heading": "Test mobile tasks and loading behavior",
+        "bodyHtml": "<p>Use a real phone as well as responsive browser views. Complete the primary journey with the on-screen keyboard open. Check navigation, form controls, long labels, dismissible overlays, and any fixed elements that might cover content or actions.</p><p>Inspect the page while it loads, not only after it settles. Look for delayed images moving important controls, text appearing too late, and embeds preventing the visitor from reaching the task. Test a slower connection appropriate to the intended audience.</p><p><a href=\"https://web.dev/articles/vitals\">Web Vitals</a> covers loading, responsiveness, and visual stability, while explaining the role of field and lab measurements. Use diagnostics to find causes. Record available real-user evidence separately and avoid treating one favorable local score as a universal result.</p>"
+      },
+      {
+        "heading": "Release with an owner and a recovery path",
+        "bodyHtml": "<p>Review approved copy, product claims, destinations, contact details, downloads, and metadata. If addresses change, test the planned redirects from the old URLs. Confirm that production indexing settings are intentional and that test-only material is not part of the release.</p><p><strong>Hypothetical release record:</strong> the marketing owner approves content; the delivery owner publishes; operations verifies receipt of a test inquiry; analytics is checked under the approved consent conditions; a named person can restore the previous version if a critical journey fails.</p><p>Repeat the key checks on the live site because staging success does not establish production behavior. Record the release time, the version or change description, remaining issues, and who monitors the first period after launch.</p><p>Keep the checklist small enough to repeat after relevant changes. A page template, navigation update, or form modification should bring its affected journeys back into review, even when the site is not being relaunched.</p>"
+      }
+    ],
+    "takeaway": "Approve a launch using verified journeys, explicit blockers, a production check, and a named recovery owner.",
+    "sources": [
+      {
+        "title": "Google Analytics: Monitor events in DebugView",
+        "url": "https://support.google.com/analytics/answer/7201382"
+      },
+      {
+        "title": "W3C WAI: Easy Checks for Web Accessibility",
+        "url": "https://www.w3.org/WAI/test-evaluate/preliminary/"
+      },
+      {
+        "title": "Web Vitals",
+        "url": "https://web.dev/articles/vitals"
+      }
+    ],
+    "relatedSlugs": [
+      "b2b-landing-page-inquiry-checklist",
+      "b2b-website-project-brief",
+      "interactive-product-demos"
+    ]
+  }
+]

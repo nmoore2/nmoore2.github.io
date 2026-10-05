@@ -44,7 +44,7 @@
   sync();
 
   const projects = {
-    recurly: { image: '../../assets/recurly/subscription-page.jpg', alt: "Recurly's Annual Subscription Billing Metrics Report website", category: 'Research experience / UI development', description: 'Detailed UI development, animated charts, graphs, and maps, plus thoughtful mobile layouts.', link: '../../assets/recurly/subscription-page.jpg', name: 'Recurly' },
+    recurly: { image: '../../assets/recurly/subscription-page.jpg', alt: "Recurly's Annual Subscription Billing Metrics Report website", category: 'Research experience / UI development', description: 'Detailed UI development, animated charts, graphs, and maps, plus thoughtful mobile layouts.', link: '/work/recurly/', name: 'Recurly' },
     fwi: { image: '../../assets/fwi/fwi-01.jpg', alt: 'Four Winds Interactive enterprise product website', category: 'Enterprise software / Development', description: 'Website development in close collaboration with designers, presenting a wide range of digital signage products.', link: 'https://www.fourwindsinteractive.com/', name: 'Four Winds Interactive' },
     mathews: { image: '../../assets/mathews/mathews-home.jpg', alt: 'Mathews website with outdoor imagery and product presentation', category: 'Brand experience / Development', description: 'Working alongside the design team to translate a carefully crafted outdoor brand into a detailed website.', link: 'https://mathewsinc.com/', name: 'Mathews' }
   };
@@ -63,7 +63,7 @@
     document.getElementById('project-description').textContent = project.description;
     const link = document.getElementById('project-link');
     link.href = project.link;
-    link.setAttribute('aria-label', key === 'recurly' ? 'View archived Recurly project image' : `Visit ${project.name} project`);
+    link.setAttribute('aria-label', key === 'recurly' ? 'Explore the Recurly motion study' : `Visit ${project.name} project`);
     rows.forEach(row => {
       const active = row.dataset.project === key;
       row.classList.toggle('is-active', active);

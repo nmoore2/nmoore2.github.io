@@ -1,0 +1,20 @@
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:90px}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+button,a,input,select{touch-action:manipulation}
+button{cursor:pointer}
+img,svg{max-width:100%}
+img{height:auto}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid currentColor;outline-offset:5px}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip-link{position:fixed;top:-100px;left:16px;padding:12px 18px;z-index:1000;background:white;color:#101a21}
+.skip-link:focus{top:12px}
+.study-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px max(24px,calc((100vw - 1320px)/2));border-bottom:1px solid #ffffff24}
+.study-nav a{color:inherit;text-decoration:none}
+.study-nav nav{display:flex;gap:24px;align-items:center}
+.study-nav [data-motion-toggle]{border:1px solid currentColor;border-radius:30px;background:transparent;color:inherit;padding:9px 14px;font-size:12px;white-space:nowrap}
+html[data-motion=reduced] *,html[data-motion=reduced] *::before,html[data-motion=reduced] *::after{animation-play-state:paused!important;transition-duration:0s!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){html:not([data-motion=full]) *,html:not([data-motion=full]) *::before,html:not([data-motion=full]) *::after{animation-play-state:paused!important;transition-duration:0s!important;scroll-behavior:auto!important}}
+@media(max-width:640px){.study-nav{gap:14px;padding:16px 20px;flex-wrap:wrap}.study-nav nav{gap:16px;font-size:12px}}

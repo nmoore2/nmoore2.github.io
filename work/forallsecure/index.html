@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102e31">
+  <title>ForAllSecure — A motion study by Nathan Moore</title>
+  <meta name="description" content="A modern, interactive motion study based on Nathan Moore’s earlier ForAllSecure website UI and animation work.">
+  <link rel="canonical" href="https://nmoore.net/work/forallsecure/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ForAllSecure — A motion study by Nathan Moore">
+  <meta property="og:description" content="A modern, interactive motion study based on Nathan Moore’s earlier ForAllSecure website UI and animation work.">
+  <meta property="og:url" content="https://nmoore.net/work/forallsecure/">
+  <meta property="og:image" content="https://nmoore.net/work/forallsecure/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../motion.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="study-nav fas-nav">
+    <a class="wordmark" href="/">Nathan Moore</a>
+    <nav aria-label="Portfolio navigation">
+      <a href="/#work-studies">All studies <span aria-hidden="true">↗</span></a>
+      <button type="button" data-motion-toggle><span class="motion-icon" aria-hidden="true"></span><span data-motion-label>Pause motion</span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="intro page-width" aria-labelledby="page-title">
+      <div class="intro-eyebrow"><span class="client-mark" aria-hidden="true">∀</span><span>ForAllSecure</span><span class="eyebrow-divider" aria-hidden="true"></span><span class="study-type">Website motion study</span></div>
+      <div class="intro-grid">
+        <h1 id="page-title">Make the<br>invisible <span>visible.</span></h1>
+        <div class="intro-aside">
+          <div class="orbit-glyph" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+          <p>Complex technology.<br>A story you can follow.</p>
+          <a class="text-link" href="#interactive-study">Explore the animation <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="intro-bottom"><p>Modern motion study based on my earlier ForAllSecure website work.</p><a href="#the-context">Original work + today’s take <span aria-hidden="true">↘</span></a></div>
+    </section>
+
+    <section class="experience page-width" id="interactive-study" aria-labelledby="experience-title" data-stage="explore" data-branch="a" data-arrived="false">
+      <div class="experience-topline"><span><i class="status-dot" aria-hidden="true"></i> A story in three moves</span><span class="simulation-label">Illustrative simulation</span></div>
+      <div class="experience-heading">
+        <div><p class="overline">Follow the unexpected</p><h2 id="experience-title">Every input opens a possibility.</h2></div>
+        <p class="experience-deck">Vary an input. Follow the paths it opens. Turn an unexpected result into something you can reproduce.</p>
+      </div>
+      <div class="stage-toolbar">
+        <div class="stage-controls" role="group" aria-label="Choose a story stage">
+          <button class="stage-button is-active" data-stage-select="explore" type="button" aria-pressed="true"><span>01</span> Explore</button>
+          <button class="stage-button" data-stage-select="find" type="button" aria-pressed="false"><span>02</span> Find</button>
+          <button class="stage-button" data-stage-select="replay" type="button" aria-pressed="false"><span>03</span> Replay</button>
+        </div>
+        <div class="playback-actions"><button class="scene-motion-toggle" type="button" data-motion-toggle><span class="motion-icon" aria-hidden="true"></span><span data-motion-label>Pause motion</span></button><button class="replay-story" id="replay-story" type="button"><span aria-hidden="true">↻</span> Replay story</button></div>
+      </div>
+
+      <div class="simulation-grid">
+        <div class="map-panel">
+          <div class="map-caption"><span id="map-caption">A small change. A different path.</span><span class="map-coordinate" aria-hidden="true">INPUT → OUTCOME</span></div>
+          <div class="execution-map" role="img" aria-label="An illustrative execution map. A sample input branches into routine, empty, and oversized inputs. Select a path below to inspect its result.">
+            <svg class="map-svg" viewBox="0 0 720 430" fill="none" aria-hidden="true">
+              <defs>
+                <radialGradient id="map-glow"><stop stop-color="#42c7b0" stop-opacity=".17"/><stop offset="1" stop-color="#42c7b0" stop-opacity="0"/></radialGradient>
+                <filter id="packet-glow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="5"/></filter>
+                <pattern id="map-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#9ebbb2" opacity=".15"/></pattern>
+              </defs>
+              <rect width="720" height="430" fill="url(#map-dots)"/>
+              <ellipse cx="345" cy="215" rx="270" ry="205" fill="url(#map-glow)"/>
+              <g class="ghost-routes"><path d="M88 216H184L260 100H355L425 62H525"/><path d="M355 100H425L464 138H625"/><path d="M184 216H355L425 178H545"/><path d="M355 216H464L515 254H625"/><path d="M184 216L260 332H355L425 294H540"/><path d="M355 332H464L515 370H625"/></g>
+              <g class="route-endpoints"><circle cx="525" cy="62" r="4"/><circle cx="625" cy="138" r="4"/><circle cx="545" cy="178" r="4"/><circle cx="625" cy="254" r="4"/><circle cx="540" cy="294" r="4"/><circle cx="625" cy="370" r="4"/></g>
+              <path id="route-a" class="active-route route-a" d="M88 216H184L260 100H355L425 62H525"/>
+              <path id="route-b" class="active-route route-b" d="M88 216H184H355L425 178H545"/>
+              <path id="route-c" class="active-route route-c" d="M88 216H184L260 332H355L425 294H540"/>
+              <g class="junctions"><circle cx="184" cy="216" r="5"/><circle cx="355" cy="100" r="5"/><circle cx="355" cy="216" r="5"/><circle cx="355" cy="332" r="5"/></g>
+              <g class="input-node"><rect x="65" y="193" width="46" height="46" rx="12"/><path d="m83 207-7 9 7 9m10-18 7 9-7 9"/><text x="88" y="271" text-anchor="middle">SAMPLE INPUT</text></g>
+              <g class="map-labels"><text x="270" y="82">A</text><text x="285" y="82">Routine input</text><text x="270" y="199">B</text><text x="285" y="199">Empty input</text><text x="270" y="314">C</text><text x="285" y="314">Oversized input</text></g>
+              <g class="end-label label-a"><circle cx="525" cy="62" r="12"/><path d="m521 62 3 3 6-6"/><text x="548" y="67">Expected</text></g>
+              <g class="end-label label-b"><circle cx="545" cy="178" r="12"/><path d="M541 178h8"/><text x="568" y="183">Handled</text></g>
+              <g class="end-label label-c"><circle class="finding-halo" cx="540" cy="294" r="23"/><circle cx="540" cy="294" r="12"/><path d="M540 288v7m0 4v1"/><text x="564" y="299" id="outcome-label">Unexpected</text></g>
+              <circle id="packet-halo" cx="184" cy="216" r="10" fill="#b8ffe0" opacity=".5" filter="url(#packet-glow)"/>
+              <circle id="packet" cx="184" cy="216" r="4.5" fill="#defff2"/>
+              <g class="ambient-particles"><circle cx="130" cy="105" r="2"/><circle cx="470" cy="344" r="2"/><circle cx="621" cy="207" r="1.5"/></g>
+            </svg>
+          </div>
+          <div class="branch-controls" role="group" aria-label="Inspect an input path">
+            <button type="button" data-branch-select="a" class="branch-button is-selected" aria-pressed="true"><span>A</span><span>Routine input</span><i aria-hidden="true">↗</i></button>
+            <button type="button" data-branch-select="b" class="branch-button" aria-pressed="false"><span>B</span><span>Empty input</span><i aria-hidden="true">↗</i></button>
+            <button type="button" data-branch-select="c" class="branch-button" aria-pressed="false"><span>C</span><span>Oversized input</span><i aria-hidden="true">↗</i></button>
+          </div>
+          <p class="interaction-hint"><span aria-hidden="true">↖</span> Select an input to follow its path.</p>
+        </div>
+
+        <aside class="detail-panel" aria-labelledby="detail-title">
+          <div class="detail-kicker"><span id="detail-step">01 / EXPLORE</span><span class="detail-mode" id="detail-mode">Example A</span></div>
+          <h3 id="detail-title">Start with the expected.</h3>
+          <p id="detail-description">A routine input follows a familiar path. It gives the story a starting point.</p>
+          <div class="input-card"><span class="input-card-label">Illustrative input</span><div><span class="input-key">message</span><code id="input-value">“Hello, world”</code></div></div>
+          <div class="result-card"><span class="result-icon" id="result-icon" aria-hidden="true">✓</span><div><span class="result-label">Observed in this illustration</span><strong id="result-title">Expected response</strong></div></div>
+          <div class="detail-footer"><span class="detail-rule"></span><p id="detail-takeaway">Make the starting point clear before the story gets interesting.</p></div>
+        </aside>
+      </div>
+      <div class="experience-bottom"><div class="story-progress" aria-hidden="true"><span id="story-progress-bar"></span></div><p id="playback-status">Story playing · select a stage to explore at your own pace</p><p>Conceptual paths and sample inputs. No live testing.</p></div>
+      <p id="story-announcement" class="sr-only" role="status" aria-live="polite"></p>
+      <noscript><p class="no-script">This is the first frame of the story. Enable JavaScript to explore the paths and animation controls.</p></noscript>
+    </section>
+
+    <section class="story-principles page-width" aria-label="The motion approach">
+      <div class="section-label"><span>Designed to explain</span><span aria-hidden="true">↓</span></div>
+      <div class="principles-grid">
+        <article><div class="principle-icon icon-explore" aria-hidden="true"><i></i><i></i><i></i></div><span class="principle-number">01 — EXPLORE</span><h2>Give complexity<br>a shape.</h2><p>A branching map makes an abstract process tangible. Each new input has somewhere to go.</p></article>
+        <article><div class="principle-icon icon-find" aria-hidden="true"><i></i><i></i><i></i></div><span class="principle-number">02 — FIND</span><h2>Make the important<br>moment stand out.</h2><p>One change in color turns exploration into discovery. The animation tells you where to look.</p></article>
+        <article><div class="principle-icon icon-replay" aria-hidden="true"><i></i><i></i></div><span class="principle-number">03 — REPLAY</span><h2>Leave people with<br>an understanding.</h2><p>Trace the same path again. Connect the input to the outcome, and make the product idea memorable.</p></article>
+      </div>
+    </section>
+
+    <section class="context-wrap" id="the-context" aria-labelledby="context-title">
+      <div class="context-grid page-width">
+        <div class="context-copy"><p class="overline">The work behind the study</p><h2 id="context-title">From a moving line<br>to a story you can follow.</h2><p>My earlier ForAllSecure work brought the website to life through UI development and animation. The original experience paired a teal-to-blue gradient, glowing particles, and a rising line with prominent product counters.</p><p>This new study revisits that visual language. A traveling point becomes a guide through a focused, interactive product story.</p><dl class="project-facts"><div><dt>Original contribution</dt><dd>Website UI development &amp; animation</dd></div><div><dt>Today’s interpretation</dt><dd>Interactive motion &amp; product storytelling</dd></div></dl></div>
+        <div class="context-visual"><div class="lineage-card"><div class="lineage-header"><img src="assets/forallsecure-original.svg" alt="ForAllSecure" width="178" height="40"><span>VISUAL LINEAGE</span></div><div class="lineage-art" aria-hidden="true"><div class="lineage-orb orb-one"></div><div class="lineage-orb orb-two"></div><svg viewBox="0 0 500 240" fill="none"><path class="lineage-shadow" d="M0 215 64 195 83 170 145 144 155 122 224 101 270 94 283 65 357 42 384 38 394 23 500 10"/><path class="lineage-line" d="M0 215 64 195 83 170 145 144 155 122 224 101 270 94 283 65 357 42 384 38 394 23 500 10"/><circle cx="270" cy="94" r="5"/></svg><div class="lineage-words"><span>Explore.</span><span>Discover.</span><span>Understand.</span></div></div><div class="lineage-caption"><span class="small-cross" aria-hidden="true">+</span><p>A new interpretation of the original motion language, informed by archived source and recordings.</p></div></div><details class="archive-reference"><summary>View original recording frame <span aria-hidden="true">+</span></summary><figure><div class="archive-crop"><img src="assets/forallsecure-archive-frame.png" alt="Archived ForAllSecure website showing the original teal gradient, glowing blue particles, white rising line, and historical product counters." width="1598" height="978" loading="lazy"></div><figcaption>Archived original website · supplied recording. The product counts shown are historical website content, not current results or measures of my work.</figcaption></figure></details></div>
+      </div>
+      <div class="scope-note page-width"><span>Portfolio context</span><p>This is an independent portfolio recreation, not the current ForAllSecure website or product interface. All examples are illustrative; historical product counts are not presented as current results. My role here is website development and animation.</p></div>
+    </section>
+
+    <section class="next-study page-width" aria-label="Continue exploring"><div><span class="overline">Keep exploring</span><a href="../recurly/">A different kind of flow.<span aria-hidden="true">↗</span></a><p>Recurly · subscription storytelling</p></div><a class="next-study-badge" href="../recurly/" aria-label="View the Recurly study"><span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="study-footer page-width"><a class="wordmark" href="/">Nathan Moore</a><p>Thoughtful websites. Ideas in motion.</p><a href="mailto:nate@nmoore.net">Let’s talk <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24152f">
+  <title>Recurly — Motion &amp; interaction study · Nathan Moore</title>
+  <meta name="description" content="A modern motion study based on Nathan Moore’s earlier Recurly website work: subscription billing, interactive research, and responsive UI development.">
+  <link rel="canonical" href="https://nmoore.net/work/recurly/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Recurly — Motion &amp; interaction study · Nathan Moore">
+  <meta property="og:description" content="A modern motion study based on Nathan Moore’s earlier Recurly website work: subscription billing, interactive research, and responsive UI development.">
+  <meta property="og:url" content="https://nmoore.net/work/recurly/">
+  <meta property="og:image" content="https://nmoore.net/work/recurly/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../motion.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="recurly-study">
+  <a class="rc-skip" href="#main">Skip to content</a>
+  <header class="rc-nav">
+    <a href="/#work-studies" class="rc-name">Nathan Moore<span>Independent developer</span></a>
+    <nav aria-label="Portfolio navigation">
+      <a href="/#work-studies">All work <span aria-hidden="true">↗</span></a>
+      <button class="rc-motion" type="button" data-motion-toggle><span class="rc-motion-icon" aria-hidden="true"></span><span data-motion-label>Pause motion</span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="rc-hero" aria-labelledby="hero-heading">
+      <div class="rc-project-line"><img src="../../assets/recurly/recurly-logo-white.svg" width="134" height="39" alt="Recurly"><span>Digital experience / Motion study</span><span class="rc-edition">Revisited, 2026</span></div>
+      <div class="rc-hero-grid">
+        <div class="rc-hero-copy">
+          <p class="rc-eyebrow"><span></span>Subscription stories, in motion</p>
+          <h1 id="hero-heading">Complex billing.<br><em>Clear movement.</em></h1>
+          <p class="rc-lead">Turning the invisible work of subscriptions into something you can see, follow, and feel.</p>
+          <a class="rc-explore" href="#research">Explore the interactions <span aria-hidden="true">↓</span></a>
+          <p class="rc-study-note">A modern motion study based on my earlier Recurly website work.</p>
+        </div>
+
+        <div class="rc-billing" aria-label="Interactive subscription billing demonstration" data-stage="2">
+          <div class="rc-orbit rc-orbit-one" aria-hidden="true"></div><div class="rc-orbit rc-orbit-two" aria-hidden="true"></div>
+          <div class="rc-stage-label"><span class="rc-signal" aria-hidden="true"></span>THE SUBSCRIPTION LIFECYCLE<span class="rc-stage-counter" id="stage-counter">03 / 04</span></div>
+          <div class="rc-invoice-wrap">
+            <div class="rc-invoice-shadow" aria-hidden="true"></div>
+            <article class="rc-invoice" aria-label="Sample invoice">
+              <div class="rc-invoice-head"><span class="rc-invoice-symbol" aria-hidden="true">r</span><span>Studio subscription<small>MONTHLY BILLING</small></span><span class="rc-status" id="invoice-status">Upgraded</span></div>
+              <div class="rc-total-label"><span id="total-label">Your next invoice</span><span id="invoice-date">Day 21</span></div>
+              <div class="rc-total"><span class="rc-currency">$</span><span id="invoice-total">89</span><span class="rc-decimal">.00</span><span class="rc-total-period">/ month</span></div>
+              <div class="rc-invoice-rows">
+                <div class="rc-invoice-row"><span><i class="rc-row-dot"></i>Studio plan</span><span id="plan-amount">$49.00</span></div>
+                <div class="rc-invoice-row" id="addon-row"><span><i class="rc-row-dot rc-row-dot-purple"></i>Team add-on</span><span id="addon-amount">$40.00</span></div>
+                <div class="rc-invoice-row rc-invoice-row-credit" id="credit-row"><span><i class="rc-row-dot rc-row-dot-yellow"></i>Trial credit</span><span id="credit-amount">—</span></div>
+              </div>
+              <div class="rc-invoice-footer"><span class="rc-check" aria-hidden="true">✓</span><span id="invoice-footnote">Plan updated. Everything in sync.</span><span class="rc-card-dots" aria-hidden="true">•••• 2048</span></div>
+            </article>
+            <div class="rc-event-chip"><span class="rc-chip-icon" id="event-icon" aria-hidden="true">↗</span><span id="event-label">Room to grow<small>TEAM ADD-ON ACTIVATED</small></span></div>
+          </div>
+          <div class="rc-timeline" role="group" aria-label="Choose a subscription stage">
+            <div class="rc-timeline-rail" aria-hidden="true"><span id="timeline-progress"></span></div>
+            <button type="button" class="rc-stage-button" data-stage-button="0" aria-pressed="false"><span class="rc-stage-dot"></span><strong>Trial</strong><small>Day 01</small></button>
+            <button type="button" class="rc-stage-button" data-stage-button="1" aria-pressed="false"><span class="rc-stage-dot"></span><strong>Subscribe</strong><small>Day 14</small></button>
+            <button type="button" class="rc-stage-button is-active" data-stage-button="2" aria-pressed="true"><span class="rc-stage-dot"></span><strong>Upgrade</strong><small>Day 21</small></button>
+            <button type="button" class="rc-stage-button" data-stage-button="3" aria-pressed="false"><span class="rc-stage-dot"></span><strong>Renew</strong><small>Day 44</small></button>
+          </div>
+          <div class="rc-scene-caption"><span id="stage-description">A growing team. One seamless plan change.</span></div>
+          <div class="rc-scene-playback"><button class="rc-motion rc-scene-motion" type="button" data-motion-toggle><span class="rc-motion-icon" aria-hidden="true"></span><span data-motion-label>Pause motion</span></button><span>Illustrative billing</span></div>
+          <p class="rc-sr-only" id="stage-announcement" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="rc-hero-bottom"><span>01 — Product in motion</span><span>Choose any stage to explore <span aria-hidden="true">↗</span></span></div>
+    </section>
+
+    <section class="rc-practice" aria-label="Project disciplines"><span>My original role</span><p>UI development</p><p>Chart &amp; map animation</p><p>Creative mobile solutions</p></section>
+
+    <section class="rc-research rc-container" id="research" aria-labelledby="research-heading">
+      <div class="rc-section-intro">
+        <div><p class="rc-eyebrow">02 — Interactive research</p><h2 id="research-heading">Every number<br>has a <em>story.</em></h2></div>
+        <div class="rc-intro-copy"><p>The original Recurly Research experience turned dense subscription data into an explorable story.</p><p>This interpretation keeps that spirit: change the view, select a group, and let the data explain itself.</p></div>
+      </div>
+
+      <div class="rc-research-panel">
+        <div class="rc-chart-header"><div><p class="rc-eyebrow">The subscription picture</p><h3 id="chart-heading">Recovery, in perspective.</h3></div><div class="rc-metric-switch" role="group" aria-label="Choose a metric"><button type="button" data-metric="recovery" aria-pressed="true">Recovery</button><button type="button" data-metric="churn" aria-pressed="false">Churn</button></div></div>
+        <div class="rc-chart-layout">
+          <div class="rc-chart-main">
+            <div class="rc-chart-toolbar"><span id="chart-unit">Recovered payments (%)</span><div class="rc-dimension-switch" role="group" aria-label="Group chart data"><button type="button" data-dimension="industry" aria-pressed="true">By industry</button><button type="button" data-dimension="arpc" aria-pressed="false">By ARPC <span title="Average revenue per customer">ⓘ</span></button></div></div>
+            <div class="rc-chart-plot"><div class="rc-grid-lines" aria-hidden="true"><span id="axis-max">80%</span><span id="axis-mid">40%</span><span>0%</span></div><div class="rc-chart-bars" id="chart-bars" role="group" aria-label="Select a group to inspect its sample value"><noscript><p class="rc-nojs">Sample recovery rates: Software 54%, Media 47%, Retail 38%, and Education 61%. Enable JavaScript to explore the chart filters.</p></noscript></div></div>
+            <p class="rc-chart-instruction">Select a bar to look closer. <span>ARPC = average revenue per customer.</span></p>
+          </div>
+          <aside class="rc-chart-insight" aria-live="polite" aria-atomic="true"><p class="rc-eyebrow">A closer look</p><h4 id="insight-label">Software</h4><div class="rc-insight-value"><span id="insight-value">54</span><span>%</span></div><p class="rc-insight-unit" id="insight-unit">of failed payments recovered</p><div class="rc-insight-line"></div><p id="insight-description">Of 100 failed payments, 54 are recovered in this sample group.</p><p class="rc-sample-badge"><span aria-hidden="true"></span>Illustrative dataset</p></aside>
+        </div>
+        <div class="rc-chart-note"><span>Made to explore.</span><p>Sample values demonstrate the interaction. They are not Recurly benchmarks or client results.</p></div>
+      </div>
+    </section>
+
+    <section class="rc-approach rc-container" aria-label="Interaction approach">
+      <div class="rc-approach-item"><span>01</span><h3>Motion with a job.</h3><p>The invoice changes as a subscription changes. Every transition explains a piece of the lifecycle.</p></div>
+      <div class="rc-approach-item"><span>02</span><h3>Details within reach.</h3><p>Filters and direct selection turn a chart into a conversation. No hidden hover-only information.</p></div>
+      <div class="rc-approach-item"><span>03</span><h3>A smaller canvas.<br> The whole story.</h3><p>On mobile, the same data and controls take a more compact shape. The meaning stays intact.</p></div>
+    </section>
+
+    <section class="rc-archive" aria-labelledby="archive-heading"><div class="rc-container rc-archive-grid">
+      <figure class="rc-archive-image"><div class="rc-browser-top" aria-hidden="true"><i></i><i></i><i></i><span>From the project archive</span></div><img src="../../assets/recurly/subscription-page.jpg" width="700" height="467" loading="lazy" alt="Archived Recurly Research page featuring a dark editorial layout with purple, yellow, and teal subscription charts."><figcaption>The original Annual Subscription Billing Metrics Report.</figcaption></figure>
+      <div class="rc-archive-copy"><p class="rc-eyebrow">03 — From the archive</p><h2 id="archive-heading">A new look.<br>A familiar <em>rhythm.</em></h2><p>My earlier Recurly work included detailed UI development, animated charts, graphs and maps, and creative solutions for mobile layouts.</p><p>The sequential billing animation and interactive research charts are the starting point for this new study. The page you’re exploring is a present-day interpretation, created for my portfolio.</p><a href="../../assets/recurly/subscription-page.jpg" class="rc-text-link">View the original capture <span aria-hidden="true">↗</span></a></div>
+    </div></section>
+
+    <section class="rc-next rc-container"><span class="rc-eyebrow">Keep exploring</span><a href="../forallsecure/"><span>ForAllSecure<small>Making invisible threats visible.</small></span><span class="rc-next-arrow" aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="rc-footer rc-container"><a href="/#work-studies">Nathan Moore <span>© 2026</span></a><a href="mailto:nate@nmoore.net">Let’s make something move. <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

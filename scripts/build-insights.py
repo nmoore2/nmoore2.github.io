@@ -60,7 +60,7 @@ index = '''<main id="main"><section class="index-hero"><div><p class="eyebrow">N
 
 ET.register_namespace('', 'http://www.sitemaps.org/schemas/sitemap/0.9')
 urlset = ET.Element('{http://www.sitemaps.org/schemas/sitemap/0.9}urlset')
-for route in ['/','/insights/'] + ['/insights/'+p['slug']+'/' for p in POSTS]:
+for route in ['/','/insights/','/work/recurly/','/work/forallsecure/'] + ['/insights/'+p['slug']+'/' for p in POSTS]:
     url = ET.SubElement(urlset,'url'); ET.SubElement(url,'loc').text=BASE+route
     ET.SubElement(url,'lastmod').text='2026-10-05'
 ET.ElementTree(urlset).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)

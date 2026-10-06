@@ -1,0 +1,21 @@
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start;margin:55px 0 65px}
+.contact .contact-title{font-size:clamp(85px,10.5vw,165px);margin:0 0 28px}
+.contact-intro>p{max-width:330px;line-height:1.65;font-size:15px}
+.contact-intro>a{display:inline-block;margin-top:12px;font-size:13px;text-decoration:underline;text-underline-offset:4px}
+#contact-form{min-width:0;padding-top:8px}
+#contact-form label{display:block;font-size:13px;font-weight:600;margin:0 0 9px}
+#contact-form label span{font-weight:400;opacity:.75}
+#contact-form input:not([type=hidden]),#contact-form select,#contact-form textarea{display:block;width:100%;min-width:0;border:1px solid #17201c80;border-radius:3px;background:#ffffff30;color:var(--ink);padding:13px 14px;font:400 16px/1.4 'DM Sans',sans-serif;margin:0 0 22px}
+#contact-form textarea{resize:vertical;min-height:120px}
+#contact-form input::placeholder,#contact-form textarea::placeholder{color:#17201c;opacity:.65}
+#contact-form :is(input,textarea,select):focus-visible{outline:2px solid var(--ink);outline-offset:3px;background:#ffffff50}
+.contact-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#contact-form button[type=submit]{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;border-radius:3px;background:var(--ink);color:#fff;padding:17px 20px;font:600 16px 'DM Sans',sans-serif;cursor:pointer}
+#contact-form button[type=submit]:hover{background:#293c31}
+#contact-form button[type=submit]:disabled{opacity:.7;cursor:wait}
+.contact-privacy{font-size:11px;line-height:1.6;max-width:360px;margin:16px 0}
+#contact-status{font-size:14px;line-height:1.6;margin:14px 0 0;min-height:24px}
+#contact-status[data-state=error]{font-weight:600}
+@media(max-width:760px){.contact-layout{grid-template-columns:1fr;gap:32px;margin:35px 0 40px}.contact .contact-title{font-size:clamp(80px,19vw,140px)}.contact-intro>p{max-width:440px}.contact-fields{grid-template-columns:1fr;gap:0}}
+
+#contact-form[hidden]{display:none}.contact-email-only{grid-template-columns:1fr}.contact-email-only .contact-title{font-size:clamp(85px,13vw,195px)}

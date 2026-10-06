@@ -60,9 +60,10 @@ index = '''<main id="main"><section class="index-hero"><div><p class="eyebrow">N
 
 ET.register_namespace('', 'http://www.sitemaps.org/schemas/sitemap/0.9')
 urlset = ET.Element('{http://www.sitemaps.org/schemas/sitemap/0.9}urlset')
-for route in ['/','/insights/','/work/recurly/','/work/forallsecure/'] + ['/insights/'+p['slug']+'/' for p in POSTS]:
+archive_routes = ['/archive/'] + ['/archive/'+p['slug']+'/' for p in json.loads((ROOT/'archive/projects.json').read_text())]
+for route in ['/','/insights/','/work/recurly/','/work/forallsecure/'] + archive_routes + ['/insights/'+p['slug']+'/' for p in POSTS]:
     url = ET.SubElement(urlset,'url'); ET.SubElement(url,'loc').text=BASE+route
-    ET.SubElement(url,'lastmod').text='2026-10-05'
+    ET.SubElement(url,'lastmod').text='2026-10-06' if route in ['/', '/work/recurly/'] or route in archive_routes else '2026-10-05'
 ET.ElementTree(urlset).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://nmoore.net/sitemap.xml\n')
 rss=ET.Element('rss',version='2.0');channel=ET.SubElement(rss,'channel')

@@ -1,0 +1,359 @@
+[
+  {
+    "title": "Recurly",
+    "slug": "recurly",
+    "roles": [
+      "Detailed UI Development",
+      "Animations for charts, graphs and maps",
+      "Creative solutions for mobile layouts"
+    ],
+    "images": [
+      {
+        "src": "/assets/recurly/subscription-page.jpg",
+        "width": 700,
+        "height": 467,
+        "name": "subscription-page.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/recurly/homepage.jpg",
+        "width": 700,
+        "height": 467,
+        "name": "homepage.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/recurly/solutions.jpg",
+        "width": 700,
+        "height": 467,
+        "name": "solutions.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/recurly/subscription-page.png",
+        "width": 1490,
+        "height": 893,
+        "name": "subscription-page.png",
+        "cover": false
+      }
+    ]
+  },
+  {
+    "title": "Ideaison",
+    "slug": "ideaison",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom CMS Development"
+    ],
+    "images": [
+      {
+        "src": "/assets/ideaison/ideaison.jpg",
+        "width": 1334,
+        "height": 749,
+        "name": "ideaison.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/ideaison/ideaison-2.jpg",
+        "width": 1313,
+        "height": 739,
+        "name": "ideaison-2.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/ideaison/ideaison-3.jpg",
+        "width": 1208,
+        "height": 717,
+        "name": "ideaison-3.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/ideaison/ideaison-4.jpg",
+        "width": 1238,
+        "height": 696,
+        "name": "ideaison-4.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/ideaison/ideaison-thumb.jpg",
+        "width": 600,
+        "height": 400,
+        "name": "ideaison-thumb.jpg",
+        "cover": true
+      }
+    ]
+  },
+  {
+    "title": "Mathews, Inc",
+    "slug": "mathews",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom CMS Development"
+    ],
+    "images": [
+      {
+        "src": "/assets/mathews/mathews-home.jpg",
+        "width": 1121,
+        "height": 747,
+        "name": "mathews-home.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/mathews/mathews-bb.jpg",
+        "width": 2000,
+        "height": 1357,
+        "name": "mathews-bb.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/mathews/mathews-triax.jpg",
+        "width": 2000,
+        "height": 1336,
+        "name": "mathews-triax.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/mathews/mathews-blog.jpg",
+        "width": 1500,
+        "height": 1021,
+        "name": "mathews-blog.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/mathews/mathews-hunting.jpg",
+        "width": 2000,
+        "height": 1195,
+        "name": "mathews-hunting.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/mathews/mathews-thumb.jpg",
+        "width": 600,
+        "height": 400,
+        "name": "mathews-thumb.jpg",
+        "cover": true
+      }
+    ]
+  },
+  {
+    "title": "SeriesFest",
+    "slug": "seriesfest",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom CMS Development"
+    ],
+    "images": [
+      {
+        "src": "/assets/seriesfest/sf-05.jpg",
+        "width": 1232,
+        "height": 740,
+        "name": "sf-05.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-03.jpg",
+        "width": 1240,
+        "height": 749,
+        "name": "sf-03.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-02.jpg",
+        "width": 1305,
+        "height": 747,
+        "name": "sf-02.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-01.jpg",
+        "width": 1249,
+        "height": 736,
+        "name": "sf-01.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-06.jpg",
+        "width": 1301,
+        "height": 745,
+        "name": "sf-06.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-04.jpg",
+        "width": 1235,
+        "height": 736,
+        "name": "sf-04.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/seriesfest/sf-thumb.jpg",
+        "width": 1067,
+        "height": 711,
+        "name": "sf-thumb.jpg",
+        "cover": true
+      }
+    ]
+  },
+  {
+    "title": "Four Winds Interactive",
+    "slug": "four-winds-interactive",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom CMS Development"
+    ],
+    "images": [
+      {
+        "src": "/assets/fwi/fwi-01.jpg",
+        "width": 1204,
+        "height": 720,
+        "name": "fwi-01.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/fwi/fwi-02.jpg",
+        "width": 1253,
+        "height": 691,
+        "name": "fwi-02.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/fwi/fwi-03.jpg",
+        "width": 1149,
+        "height": 724,
+        "name": "fwi-03.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/fwi/fwi-04.jpg",
+        "width": 1154,
+        "height": 648,
+        "name": "fwi-04.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/fwi/fwi-thumb.jpg",
+        "width": 1046,
+        "height": 697,
+        "name": "fwi-thumb.jpg",
+        "cover": true
+      }
+    ]
+  },
+  {
+    "title": "Freebird Boots",
+    "slug": "freebird-boots",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom Integrations"
+    ],
+    "images": [
+      {
+        "src": "/assets/freebird/fb-8.jpg",
+        "width": 1100,
+        "height": 700,
+        "name": "fb-8.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/freebird/fb-7.jpg",
+        "width": 1700,
+        "height": 1020,
+        "name": "fb-7.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/freebird/fb-6.jpg",
+        "width": 2000,
+        "height": 1200,
+        "name": "fb-6.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/freebird/Screen-Shot-2018-10-19-at-4.38.32-PM.jpg",
+        "width": 1100,
+        "height": 700,
+        "name": "Screen-Shot-2018-10-19-at-4.38.32-PM.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/freebird/fb-4.jpg",
+        "width": 1500,
+        "height": 900,
+        "name": "fb-4.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/freebird/fb-thumb.jpg",
+        "width": 1000,
+        "height": 666,
+        "name": "fb-thumb.jpg",
+        "cover": true
+      }
+    ]
+  },
+  {
+    "title": "Punch Bowl Social",
+    "slug": "punch-bowl-social",
+    "roles": [
+      "Web Development",
+      "User Experience Design",
+      "Custom Integrations"
+    ],
+    "images": [
+      {
+        "src": "/assets/pbs/pbs-7.jpg",
+        "width": 2000,
+        "height": 1081,
+        "name": "pbs-7.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-4.jpg",
+        "width": 2836,
+        "height": 1594,
+        "name": "pbs-4.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-3.jpg",
+        "width": 1500,
+        "height": 841,
+        "name": "pbs-3.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-5.jpg",
+        "width": 2848,
+        "height": 1592,
+        "name": "pbs-5.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-1.jpg",
+        "width": 2000,
+        "height": 1123,
+        "name": "pbs-1.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-2.jpg",
+        "width": 2000,
+        "height": 1118,
+        "name": "pbs-2.jpg",
+        "cover": false
+      },
+      {
+        "src": "/assets/pbs/pbs-thumb.jpg",
+        "width": 1000,
+        "height": 666,
+        "name": "pbs-thumb.jpg",
+        "cover": true
+      }
+    ]
+  }
+]

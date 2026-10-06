@@ -40,7 +40,7 @@
     byId('detail-description').textContent = replay ? 'Send the same illustrative input down the same path. The repeated result connects cause and effect in the story.' : finding ? 'The oversized input reveals an unexpected response. A small visual change brings the important moment into focus.' : copy.description;
     byId('input-value').textContent = copy.input;
     byId('result-title').textContent = replay ? 'Same response, same path' : copy.result;
-    byId('result-icon').textContent = replay ? '↻' : copy.icon;
+    byId('result-icon').textContent = replay ? '=' : copy.icon;
     byId('detail-takeaway').textContent = replay ? 'Repetition turns a surprising moment into an understandable sequence.' : finding ? 'A single coral accent makes the finding easy to follow.' : copy.takeaway;
     byId('map-caption').textContent = replay ? 'The same input. The same unexpected path.' : finding ? 'A different outcome comes into focus.' : 'A small change. A different path.';
     byId('outcome-label').textContent = replay ? 'Reproduced' : 'Unexpected';

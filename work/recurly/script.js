@@ -6,8 +6,8 @@
   const stages = [
     { total: 0, day: 'Day 01', status: 'Free trial', label: 'Due during your trial', plan: '$49.00', addon: '—', credit: '−$49.00', footer: 'Your next chapter starts here.', icon: '✦', event: 'A little room to explore', eventSub: '14-DAY TRIAL STARTED', description: 'Try the experience. The first chapter is on us.' },
     { total: 49, day: 'Day 14', status: 'Active', label: 'Your monthly invoice', plan: '$49.00', addon: '—', credit: '—', footer: 'Subscription active. You’re all set.', icon: '✓', event: 'Welcome aboard', eventSub: 'STUDIO PLAN ACTIVATED', description: 'From trying it out to making it part of the day.' },
-    { total: 89, day: 'Day 21', status: 'Upgraded', label: 'Your next invoice', plan: '$49.00', addon: '$40.00', credit: '—', footer: 'Plan updated. Everything in sync.', icon: '↗', event: 'Room to grow', eventSub: 'TEAM ADD-ON ACTIVATED', description: 'A growing team. One seamless plan change.' },
-    { total: 89, day: 'Day 44', status: 'Renewed', label: 'Your renewed subscription', plan: '$49.00', addon: '$40.00', credit: '—', footer: 'Payment received. Keep creating.', icon: '↻', event: 'And the story continues', eventSub: 'MONTHLY RENEWAL COMPLETE', description: 'The next month begins. No extra steps needed.' }
+    { total: 89, day: 'Day 21', status: 'Upgraded', label: 'Your next invoice', plan: '$49.00', addon: '$40.00', credit: '—', footer: 'Plan updated. Everything in sync.', icon: '+', event: 'Room to grow', eventSub: 'TEAM ADD-ON ACTIVATED', description: 'A growing team. One seamless plan change.' },
+    { total: 89, day: 'Day 44', status: 'Renewed', label: 'Your renewed subscription', plan: '$49.00', addon: '$40.00', credit: '—', footer: 'Payment received. Keep creating.', icon: '✓', event: 'And the story continues', eventSub: 'MONTHLY RENEWAL COMPLETE', description: 'The next month begins. No extra steps needed.' }
   ];
 
   let stage = 2;

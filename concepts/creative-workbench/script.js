@@ -73,7 +73,7 @@
     const tidy = desk.classList.toggle('is-tidy');
     cards.forEach(card => { offsets.set(card, { x: 0, y: 0 }); card.style.removeProperty('--drag-x'); card.style.removeProperty('--drag-y'); });
     arrange.replaceChildren(document.createTextNode(tidy ? 'Mix it up ' : 'Tidy up '));
-    const icon = document.createElement('span'); icon.setAttribute('aria-hidden', 'true'); icon.textContent = tidy ? '↝' : '▦'; arrange.append(icon);
+    const icon = document.createElement('span'); icon.setAttribute('aria-hidden', 'true'); icon.textContent = tidy ? '' : '▦'; arrange.append(icon);
     benchStatus.textContent = tidy ? 'Project cards arranged neatly.' : 'Project cards returned to their original composition.';
   });
   const resizeObserver = new ResizeObserver(() => {
@@ -110,7 +110,7 @@
   function finishLoop() {
     cancelAnimationFrame(frame); running = false;
     drawProgress(1); scene.classList.add('is-complete');
-    setPlayLabel('Replay the idea', '↻');
+    setPlayLabel('Replay the idea', '');
     loopStatus.textContent = 'The loop is complete: a change, a contextual review, learning, and the next iteration.';
   }
   play.addEventListener('click', () => {
@@ -118,7 +118,7 @@
     scene.classList.remove('is-complete');
     if (reduced) { finishLoop(); return; }
     running = true;
-    setPlayLabel('Finish the idea', '→');
+    setPlayLabel('Finish the idea', '');
     loopStatus.textContent = 'Following a change through review and learning.';
     const started = performance.now();
     function tick(now) {

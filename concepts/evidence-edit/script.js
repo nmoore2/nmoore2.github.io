@@ -45,7 +45,7 @@
     document.querySelector('[data-demo-copy]').textContent = copy[state].body;
     const cta = document.querySelector('[data-demo-cta]');
     cta.replaceChildren(document.createTextNode(copy[state].cta + ' '));
-    const arrow = document.createElement('span'); arrow.setAttribute('aria-hidden', 'true'); arrow.textContent = '↗'; cta.append(arrow);
+    const arrow = document.createElement('span'); arrow.setAttribute('aria-hidden', 'true'); arrow.textContent = ''; cta.append(arrow);
     document.querySelectorAll('[data-layout]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.layout === state)));
     updateNote();
     document.querySelector('.comparison-status').textContent = copy[state].status;

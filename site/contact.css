@@ -19,3 +19,5 @@
 @media(max-width:760px){.contact-layout{grid-template-columns:1fr;gap:32px;margin:35px 0 40px}.contact .contact-title{font-size:clamp(80px,19vw,140px)}.contact-intro>p{max-width:440px}.contact-fields{grid-template-columns:1fr;gap:0}}
 
 #contact-form[hidden]{display:none}.contact-email-only{grid-template-columns:1fr}.contact-email-only .contact-title{font-size:clamp(85px,13vw,195px)}
+
+#contact-inputs{border:0;margin:0;padding:0;min-width:0}#contact-availability{font-size:13px;line-height:1.5;margin:0 0 22px}#contact-inputs:disabled{opacity:.65}#contact-form button:disabled{cursor:not-allowed}

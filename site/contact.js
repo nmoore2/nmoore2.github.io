@@ -1,10 +1,15 @@
 (() => {
   const form = document.querySelector('#contact-form');
   if (!form) return;
-  // Keep email as the public contact path until a verified form key is configured.
-  if (!form.elements.access_key.value.trim()) return;
-  form.hidden = false;
-  form.closest('.contact-layout').classList.remove('contact-email-only');
+  // Keep unconfigured submissions disabled, while showing the requested layout.
+  if (!form.elements.access_key.value.trim()) {
+    form.addEventListener('submit', event => event.preventDefault());
+    return;
+  }
+  form.querySelector('#contact-inputs').disabled = false;
+  form.querySelector('button[type="submit"]').disabled = false;
+  form.querySelector('button[type="submit"]').textContent = 'Send inquiry';
+  document.querySelector('#contact-availability').hidden = true;
   const captchaScript = document.createElement('script');
   captchaScript.src = 'https://web3forms.com/client/script.js';
   captchaScript.async = true;
@@ -21,11 +26,11 @@
     if (pending || !form.reportValidity()) return;
     const data = new FormData(form);
     if (!String(data.get('access_key') || '').trim()) {
-      report('Please email nate@nmoore.net while the form is being connected.', 'error');
+      report('Please use the LinkedIn contact link while the form is being connected.', 'error');
       return;
     }
     if (!data.get('h-captcha-response')) {
-      report('Please complete the verification above. If it is unavailable, email nate@nmoore.net.', 'error');
+      report('Please complete the verification above. If it is unavailable, use the LinkedIn contact link.', 'error');
       return;
     }
     pending = true;
@@ -48,8 +53,8 @@
       report('Thanks! Your inquiry has been sent. I’ll reply to the email address you provided.', 'success');
     } catch (error) {
       report(error.name === 'AbortError'
-        ? 'The connection timed out, so I couldn’t confirm delivery. Your details are still here. You can retry or email nate@nmoore.net.'
-        : 'I couldn’t confirm delivery. Your details are still here. Please complete verification again and retry, or email nate@nmoore.net.', 'error');
+        ? 'The connection timed out, so I couldn’t confirm delivery. Your details are still here. You can retry or use the LinkedIn contact link.'
+        : 'I couldn’t confirm delivery. Your details are still here. Please complete verification again and retry, or use the LinkedIn contact link.', 'error');
     } finally {
       clearTimeout(timeout);
       pending = false;

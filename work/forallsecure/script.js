@@ -64,7 +64,7 @@
 
   function updatePlayback() {
     byId('playback-status').textContent = isReduced()
-      ? 'Motion paused · every stage is available below the heading'
+      ? 'Reduced motion · select a stage to explore'
       : automatic ? 'Story playing · select a stage to explore at your own pace' : 'Your exploration · choose a path or replay the story';
   }
 
@@ -133,7 +133,7 @@
     automatic = true;
     storyTime = 0;
     select('explore', 'a');
-    byId('story-announcement').textContent = isReduced() ? 'Story reset to Explore. Motion remains paused. Use Play motion to animate, or select each stage.' : 'Story restarted. Explore, find, then replay.';
+    byId('story-announcement').textContent = isReduced() ? 'Story reset to Explore. Select each stage to explore with reduced motion.' : 'Story restarted. Explore, find, then replay.';
     syncPlayback();
   });
   document.addEventListener('motionchange', syncPlayback);

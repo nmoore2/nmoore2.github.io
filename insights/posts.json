@@ -161,7 +161,7 @@
       },
       {
         "heading": "Evaluate understanding before celebrating engagement",
-        "bodyHtml": "<p>Watch a few people from the intended audience use the demonstration. Ask them to explain the workflow and identify its limits in their own words. Record where they hesitate and what they misunderstand. These sessions can uncover problems; they do not establish a population-wide success rate.</p><p>After launch, distinguish loading, starting, completing, and taking a next step. A play count does not demonstrate understanding, and a longer session can mean either interest or confusion. Pair behavioral observations with relevant follow-up questions.</p><p>Decide in advance what would justify revision or removal. If the demonstration adds maintenance and loading cost without explaining the buyer's question, replace it with a clearer format. Use the <a href=\"/insights/measure-low-traffic-b2b-website/\">low-traffic measurement guide</a> to keep the evaluation proportionate to the evidence available.</p>"
+        "bodyHtml": "<p>Watch a few people from the intended audience use the demonstration. Ask them to explain the workflow and identify its limits in their own words. Record where they hesitate and what they misunderstand. These sessions can uncover problems; they do not establish a population-wide success rate.</p><p>After launch, distinguish loading, starting, completing, and taking a next step. A play count does not demonstrate understanding, and a longer session can mean either interest or confusion. Pair behavioral observations with relevant follow-up questions.</p><p>Decide in advance what would justify revision or removal. If the demonstration adds maintenance and loading cost without explaining the buyer's question, replace it with a clearer format. Use the <a href=\"/insights/measure-low-traffic-b2b-website/\">low-traffic measurement guide</a> to keep the evaluation proportionate to the evidence available.</p><p>For a concrete example, explore my <a href=\"/work/forallsecure/\">ForAllSecure interactive motion study</a>. It reinterprets my earlier website UI and animation work as selectable input paths, an unexpected response, and a replay. The <a href=\"/work/recurly/\">Recurly study</a> uses subscription stages and interactive charts to make a different product story tangible. Both are modern portfolio studies, not current client websites or evidence of conversion lift.</p>"
       }
     ],
     "takeaway": "Build an interaction around one buyer question, synchronize visual changes to their meaning, and verify understanding before claiming a business effect.",
@@ -175,7 +175,8 @@
       "b2b-website-project-brief",
       "measure-low-traffic-b2b-website",
       "b2b-website-launch-qa"
-    ]
+    ],
+    "dateModified": "2026-10-07"
   },
   {
     "slug": "b2b-landing-page-inquiry-checklist",
@@ -411,7 +412,7 @@
       },
       {
         "heading": "Assign maintenance before publishing",
-        "bodyHtml": "<p>Comparison pages need an owner who can check product changes and correct stale claims. Record when the evidence was reviewed, and revisit high-change material when plans or capabilities change. Update the page when the substance changes, not simply to refresh a date.</p><p>Keep the source record even if the public page only includes the most useful citations. It gives future reviewers a way to understand why a statement was made and whether it remains supportable.</p><p>Before launch, ask someone outside the drafting process to challenge the strongest claims and locate the qualifications. If the page still helps a buyer who does not choose your product, it is doing meaningful comparison work. The broader <a href=\"/insights/b2b-seo-ai-search-priorities/\">search-priority guide</a> explains where this kind of decision content belongs in a lean publishing plan.</p>"
+        "bodyHtml": "<p>Comparison pages need an owner who can check product changes and correct stale claims. Record when the evidence was reviewed, and revisit high-change material when plans or capabilities change. Update the page when the substance changes, not simply to refresh a date.</p><p>Keep the source record even if the public page only includes the most useful citations. It gives future reviewers a way to understand why a statement was made and whether it remains supportable.</p><p>Before launch, ask someone outside the drafting process to challenge the strongest claims and locate the qualifications. If the page still helps a buyer who does not choose your product, it is doing meaningful comparison work. The broader <a href=\"/insights/b2b-seo-ai-search-priorities/\">search-priority guide</a> explains where this kind of decision content belongs in a lean publishing plan.</p><p>My work on the <a href=\"https://baz.ai/baz-vs-bugbot\">Baz comparison experience</a> is a practical example of the page format discussed here. See <a href=\"/#work\">my selected work</a> for the scope of that contribution. Product claims on a comparison page still need current sources and review; the existence of the page alone does not establish a conversion result.</p>"
       }
     ],
     "takeaway": "Compare products against a real buying situation, apply the same evidence standard to every option, and help readers verify the fit themselves.",
@@ -420,7 +421,8 @@
       "b2b-seo-ai-search-priorities",
       "interactive-product-demos",
       "b2b-landing-page-inquiry-checklist"
-    ]
+    ],
+    "dateModified": "2026-10-07"
   },
   {
     "slug": "b2b-website-launch-qa",

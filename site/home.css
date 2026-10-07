@@ -12,3 +12,5 @@
 .review-card i{font:400 11px/1.4 monospace;letter-spacing:.08em;opacity:.65}
 .contact-bottom>span{display:flex;align-items:center;gap:4px}
 @media(max-width:600px){.hero-bottom{flex-wrap:wrap}.hero-bottom .hero-name{display:block;flex-basis:100%;text-align:left;margin-top:12px;font-size:12px}.hero-bottom .hero-name span{display:none}}
+/* Reserve a stable mobile row before web fonts finish loading. */
+@media(max-width:600px){.hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;align-items:center}.hero-bottom>p:first-child{min-height:68px}.hero-bottom .hero-name{grid-column:1/-1;margin-top:0}.hero-bottom .circle-link{grid-column:2;grid-row:1}}

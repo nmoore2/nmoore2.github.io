@@ -2,7 +2,6 @@
   const lab = document.querySelector('.lab');
   const buttons = [...document.querySelectorAll('[data-mode-select]')];
   const media = matchMedia('(prefers-reduced-motion: reduce)');
-  const toggle = document.querySelector('.motion-toggle');
   const modes = {
     explain: {
       caption: '01 / EXPLAIN', title: ['Less decoding.', 'More understanding.'], description: 'Bring the important ideas together in a story your buyers can see, explore, and remember.',
@@ -71,13 +70,9 @@
   function syncMotion() {
     const isPaused = reduced() || document.hidden;
     lab.classList.toggle('is-paused', isPaused);
-    toggle.setAttribute('aria-pressed', String(isPaused));
-    toggle.disabled = false;
-    toggle.innerHTML = reduced() ? 'Play motion <span aria-hidden="true">▷</span>' : 'Pause motion <span aria-hidden="true">Ⅱ</span>';
     if (isPaused) { cancelAnimationFrame(frame); draw(modes[active].paths.map(path => [...path])); }
   }
   buttons.forEach(button => button.addEventListener('click', () => setMode(button.dataset.modeSelect)));
-  toggle.addEventListener('click', () => window.nmMotion.toggle());
   document.addEventListener('motionchange', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   media.addEventListener('change', syncMotion);

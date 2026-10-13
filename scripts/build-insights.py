@@ -2,20 +2,27 @@
 """Build the static Insights section for GitHub Pages from the reviewed article source."""
 import json
 import re
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from html import escape
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://nmoore.net'
-POSTS = json.loads((ROOT / 'insights/posts.json').read_text())
-assert len(POSTS) == 10, 'This release contains ten reviewed articles.'
+ALL_POSTS = json.loads((ROOT / 'insights/posts.json').read_text())
+TODAY = datetime.now(ZoneInfo('America/Denver')).date()
+POSTS = [p for p in ALL_POSTS if p.get('status', 'published') != 'draft' and date.fromisoformat(p['datePublished']) <= TODAY]
+assert POSTS, 'At least one published article is required.'
 SLUGS = {p['slug'] for p in POSTS}
 assert len(SLUGS) == len(POSTS), 'Article slugs must be unique.'
 for post in POSTS:
     assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', post['slug'])
-    assert post['datePublished'] == '2026-10-05', 'Use the actual release date.'
+    published = date.fromisoformat(post['datePublished'])
+    assert published <= TODAY, 'Do not expose future publication dates.'
+    assert published <= date.fromisoformat(post.get('dateModified', post['datePublished'])) <= TODAY
+    assert set(post['relatedSlugs']).issubset({p['slug'] for p in ALL_POSTS}), 'Unknown related article.'
+    post['relatedSlugs'] = [slug for slug in post['relatedSlugs'] if slug in SLUGS]
     assert set(post['relatedSlugs']).issubset(SLUGS)
 
 def e(text):
@@ -48,7 +55,7 @@ for post in POSTS:
     source_section = '<section class="sources"><h2>Sources and further reading</h2><ol>'+source_html+'</ol></section>' if source_html else ''
     related = [next(p for p in POSTS if p['slug'] == rs) for rs in post['relatedSlugs']]
     related_html = ''.join(f'<a href="/insights/{p["slug"]}/"><span>{e(p["category"])}</span>{e(p["title"])}</a>' for p in related)
-    body = f'''<main id="main"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/insights/">Insights</a><span>/</span><span>{e(post['category'])}</span></div><article><header class="article-head"><p class="eyebrow">{e(post['category'])}</p><h1>{e(post['title'])}</h1><div class="article-meta"><a href="/#about">By Nathan Moore</a><time datetime="{post['datePublished']}">{short_date(post['datePublished'])}</time><span>{post['readMinutes']} min read</span>{('<span>Updated '+short_date(post['dateModified'])+'</span>') if post.get('dateModified') else ''}</div><p class="article-intro">{e(post['intro'])}</p></header><div class="article-layout"><aside class="toc" aria-label="In this article"><p>IN THIS ARTICLE</p><ol>{toc}</ol></aside><div class="article-body">{sections}<div class="takeaway"><p class="eyebrow">THE PRACTICAL TAKEAWAY</p><p>{e(post['takeaway'])}</p></div>{source_section}<div class="author"><img src="/assets/nate-medellin.jpg" alt="Nathan Moore" width="65" height="65" loading="lazy"><div><h2>Nathan Moore</h2><p>Colorado-based web designer and developer. Building websites since 2014, with a focus on thoughtful interactions and practical support for marketing teams.</p></div></div><p class="editorial-note">Prepared with AI-assisted research and drafting. Examples are illustrative unless identified otherwise. External factual claims link to their sources.</p></div></div></article><section class="related"><h2>Keep exploring.</h2><div class="related-grid">{related_html}</div></section></main>'''
+    body = f'''<main id="main"><div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/insights/">Insights</a><span>/</span><span>{e(post['category'])}</span></div><article><header class="article-head"><p class="eyebrow">{e(post['category'])}</p><h1>{e(post['title'])}</h1><div class="article-meta"><a href="/#about">By Nathan Moore</a><span>Published <time datetime="{post['datePublished']}">{short_date(post['datePublished'])}</time></span><span>{post['readMinutes']} min read</span>{('<span>Updated '+short_date(post['dateModified'])+'</span>') if post.get('dateModified') else ''}</div><p class="article-intro">{e(post['intro'])}</p></header><div class="article-layout"><aside class="toc" aria-label="In this article"><p>IN THIS ARTICLE</p><ol>{toc}</ol></aside><div class="article-body">{sections}<div class="takeaway"><p class="eyebrow">THE PRACTICAL TAKEAWAY</p><p>{e(post['takeaway'])}</p></div>{source_section}<div class="author"><img src="/assets/nate-medellin.jpg" alt="Nathan Moore" width="65" height="65" loading="lazy"><div><h2>Nathan Moore</h2><p>Colorado-based web designer and developer. Building websites since 2014, with a focus on thoughtful interactions and practical support for marketing teams.</p></div></div><p class="editorial-note">Prepared with AI-assisted research and drafting. Examples are illustrative unless identified otherwise. External factual claims link to their sources.</p></div></div></article><section class="related"><h2>Keep exploring.</h2><div class="related-grid">{related_html}</div></section></main>'''
     schema = {'@context':'https://schema.org','@type':'BlogPosting','headline':post['title'],'description':post['description'],'datePublished':post['datePublished'],'dateModified':post.get('dateModified',post['datePublished']),'author':{'@type':'Person','name':'Nathan Moore','url':BASE+'/#about','@id':BASE+'/#person'},'publisher':{'@type':'Person','name':'Nathan Moore','url':BASE+'/'},'mainEntityOfPage':{'@type':'WebPage','@id':BASE+route},'image':BASE+'/insights/social-card.png','inLanguage':'en-US'}
     breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':BASE+'/'},{'@type':'ListItem','position':2,'name':'Insights','item':BASE+'/insights/'},{'@type':'ListItem','position':3,'name':post['title'],'item':BASE+route}]}
     body += '<script type="application/ld+json">'+json.dumps(breadcrumb).replace('<','\\u003c')+'</script>'
@@ -61,11 +68,12 @@ index = '''<main id="main"><section class="index-hero"><div><p class="eyebrow">N
 (ROOT/'insights/index.html').write_text(shell('Website design, development & marketing insights | Nathan Moore','Practical guides for B2B marketing leaders: website projects, interactive product stories, SEO, lead capture, measurement, and ongoing website support.','/insights/',index))
 
 ET.register_namespace('', 'http://www.sitemaps.org/schemas/sitemap/0.9')
+existing_dates = {u.find('{*}loc').text: u.findtext('{*}lastmod') for u in ET.parse(ROOT/'sitemap.xml').getroot()}
 urlset = ET.Element('{http://www.sitemaps.org/schemas/sitemap/0.9}urlset')
 archive_routes = ['/archive/'] + ['/archive/'+p['slug']+'/' for p in json.loads((ROOT/'archive/projects.json').read_text())]
 for route in ['/','/insights/','/work/recurly/','/work/forallsecure/'] + archive_routes + ['/insights/'+p['slug']+'/' for p in POSTS]:
     url = ET.SubElement(urlset,'url'); ET.SubElement(url,'loc').text=BASE+route
-    ET.SubElement(url,'lastmod').text=next((p.get('dateModified',p['datePublished']) for p in POSTS if route=='/insights/'+p['slug']+'/'), '2026-10-07' if route=='/' else '2026-10-06')
+    ET.SubElement(url,'lastmod').text=next((p.get('dateModified',p['datePublished']) for p in POSTS if route=='/insights/'+p['slug']+'/'), existing_dates.get(BASE+route) or TODAY.isoformat())
 ET.ElementTree(urlset).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://nmoore.net/sitemap.xml\n')
 rss=ET.Element('rss',version='2.0');channel=ET.SubElement(rss,'channel')

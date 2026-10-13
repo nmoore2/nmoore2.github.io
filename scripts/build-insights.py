@@ -10,7 +10,7 @@ from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://nmoore.net'
-ALL_POSTS = json.loads((ROOT / 'insights/posts.json').read_text())
+ALL_POSTS = json.loads((ROOT / '_data/insights.json').read_text())
 TODAY = datetime.now(ZoneInfo('America/Denver')).date()
 POSTS = [p for p in ALL_POSTS if p.get('status', 'published') != 'draft' and date.fromisoformat(p['datePublished']) <= TODAY]
 assert POSTS, 'At least one published article is required.'

@@ -128,7 +128,8 @@
     display: block; margin-top: .6rem; max-width: 52ch;
     align-self: auto; padding-bottom: 0;
   }
-  #cases { gap: 1.75rem; }
+  #cases { position: relative; gap: 1.75rem; }
+  .anchor-alias { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
   /* ── Hero ───────────────────────────────────────────────────────────
      Three quarters of the viewport, not all of it: the top edge of the
@@ -328,6 +329,9 @@
   </section>
 
   <section class="band" id="cases" data-frame data-label="Selected work">
+    <span class="anchor-alias" id="work" aria-hidden="true"></span>
+    <span class="anchor-alias" id="work-studies" aria-hidden="true"></span>
+    <span class="anchor-alias" id="portfolio" aria-hidden="true"></span>
     <header class="stacked">
       <h2>Selected work</h2>
       <p>A few products and websites I've helped build.</p>
@@ -348,7 +352,7 @@
         2014. I focus on front end, UX, and the details that make a product easy to use.</p>
         <p>I'm comfortable shaping the design, building the interface, and working through
         the technical decisions behind it.</p>
-        <div class="contact">
+        <div class="contact" id="contact">
           <a class="mail" href="mailto:hello@nmoore.net">hello@nmoore.net</a>
           <a class="alt" href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a>
           <a class="alt" href="https://github.com/nmoore2">GitHub</a>

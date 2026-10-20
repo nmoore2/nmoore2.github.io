@@ -150,6 +150,12 @@ html[data-motion="reduced"] .sp[data-needs-motion] .sp-static { display: grid; }
   border-block: 1px solid var(--line);
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
 }
+/* Cap at four across. Left to auto-fill, a wide display packs five or six
+   tracks and the last row is left holding two tiles and a hole. Eight
+   pieces over four columns is two clean rows. */
+@media (min-width: 86rem) {
+  .sp-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 .sp-grid .sp { border: 0; border-radius: 0; }
 
 /* Captions are bottom-anchored inside each tile, so unequal caption lengths

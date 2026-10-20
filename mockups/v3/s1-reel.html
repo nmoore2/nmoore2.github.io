@@ -13,10 +13,10 @@
     : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full');
   d.dataset.theme = t || 'reel';
 })();</script>
-<link rel="stylesheet" href="shared/base.css?v=51">
-<link rel="stylesheet" href="shared/themes.css?v=51">
-<link rel="stylesheet" href="shared/showpiece.css?v=51">
-<link rel="stylesheet" href="shared/morph.css?v=51">
+<link rel="stylesheet" href="shared/base.css?v=52">
+<link rel="stylesheet" href="shared/themes.css?v=52">
+<link rel="stylesheet" href="shared/showpiece.css?v=52">
+<link rel="stylesheet" href="shared/morph.css?v=52">
 <style>
   /* ═══ S1 · REEL ══════════════════════════════════════════════════════
      Hero → the motion studies, all together → a short note about them →
@@ -111,6 +111,7 @@
      whatever follows. The inline arrangement needs an eyebrow to anchor it;
      without one, three items on three optical levels just read as drift. */
   .band > header.stacked { display: block; }
+  .band > header.stacked .idx { display: block; margin-bottom: .5rem; }
   .band > header.stacked h2 { display: block; }
   .band > header.stacked p {
     display: block; margin-top: .6rem; max-width: 52ch;
@@ -290,7 +291,7 @@
   </section>
 
   <section class="band" id="motion" data-frame data-label="Motion studies">
-    <header>
+    <header class="stacked">
       <span class="idx">MOTION</span>
       <h2>Motion playground</h2>
       <p>Small interactions with personality. Click, drag, explore.</p>
@@ -366,10 +367,10 @@
     <a href="https://github.com/nmoore2">GitHub</a></span>
 </footer>
 
-<script src="shared/motion.js?v=51" defer></script>
-<script src="shared/theme.js?v=51" defer></script>
-<script src="shared/showpiece.js?v=51" defer></script>
-<script src="shared/morph.js?v=51" defer></script>
+<script src="shared/motion.js?v=52" defer></script>
+<script src="shared/theme.js?v=52" defer></script>
+<script src="shared/showpiece.js?v=52" defer></script>
+<script src="shared/morph.js?v=52" defer></script>
 <script>
 addEventListener('DOMContentLoaded', () => {
   const sp = window.nmShowpieces;

@@ -205,14 +205,15 @@
   @media (max-width: 46rem) {
     .hero { padding-block: clamp(4rem, 13vw, 6rem) clamp(3rem, 10vw, 5rem);
             padding-inline: clamp(1.5rem, 5vw, 2.5rem); }
-    .hero .inner { gap: 1.5rem; }
+    /* Keep the name and tagline close; space the intro and actions as groups. */
+    .hero .inner { gap: 0; }
     .hero h1 { font-size: clamp(2.25rem, 9.5vw, 3.25rem);
                line-height: 1.05; letter-spacing: -.045em; }
-    .hero .tagline { margin-top: 0; font-size: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
+    .hero .tagline { margin-top: .5rem; font-size: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
                     line-height: 1.25; }
-    .hero p.say { max-width: 32ch; font-size: 1rem; line-height: 1.65; }
+    .hero p.say { margin-top: 1.5rem; max-width: 32ch; font-size: 1rem; line-height: 1.65; }
     .hero .actions { flex-direction: column; align-items: flex-start;
-                     gap: .75rem; margin-top: 1rem; }
+                     gap: .75rem; margin-top: 1.5rem; }
     .hero .lead { min-height: 3.5rem; gap: .65rem; padding: .65rem 1.1rem .65rem .75rem; }
     .hero .lead .spool { width: 2rem; height: 2rem; }
     .hero .secondary { display: inline-flex; align-items: center;

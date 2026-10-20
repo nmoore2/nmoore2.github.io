@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="Mockup 01 — Plain Text. Senior front-end engineer portfolio.">
+<style>
+  /* ── 01 PLAIN TEXT ──────────────────────────────────────────────────────
+     The bet: confidence is the signal. Near-zero chrome, executed with
+     typographic precision. Nothing to hide behind.
+     ------------------------------------------------------------------- */
+
+  :root {
+    color-scheme: light dark;
+
+    --paper:    #fbfaf7;
+    --ink:      #16150f;
+    --ink-soft: #55534a;
+    --ink-faint:#8d8a7e;
+    --rule:     #e3e0d6;
+    --accent:   #b4441a;
+    --focus:    #1a5fb4;
+
+    --measure: 34rem;
+    --step--1: clamp(.8125rem, .78rem + .17vw, .875rem);
+    --step-0:  clamp(1rem, .96rem + .2vw, 1.0625rem);
+    --step-1:  clamp(1.25rem, 1.17rem + .4vw, 1.4375rem);
+    --step-2:  clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:    #121211;
+      --ink:      #eceae3;
+      --ink-soft: #a3a097;
+      --ink-faint:#6c6a62;
+      --rule:     #2b2a27;
+      --accent:   #ef8354;
+      --focus:    #7ab0ff;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: var(--step-0)/1.65 var(--serif);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    padding: clamp(2.5rem, 2rem + 6vw, 7rem) clamp(1.25rem, .6rem + 3vw, 2rem)
+             clamp(4rem, 3rem + 6vw, 8rem);
+  }
+
+  .page { max-width: var(--measure); margin-inline: auto; }
+
+  /* ── Links: an underline you'd actually design ──────────────────────── */
+  a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: .18em;
+    text-decoration-color: color-mix(in oklab, currentColor 28%, transparent);
+    transition: text-decoration-color .14s ease, color .14s ease;
+  }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  a:focus-visible,
+  summary:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ── Masthead ───────────────────────────────────────────────────────── */
+  header.masthead { margin-bottom: 3.25rem; }
+
+  h1 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -.012em;
+    margin: 0 0 .15rem;
+  }
+
+  .role {
+    margin: 0;
+    font: 500 var(--step--1)/1.5 var(--sans);
+    letter-spacing: .065em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .lede {
+    margin: 1.75rem 0 0;
+    font-size: var(--step-0);
+    text-wrap: pretty;
+  }
+  .lede + .lede { margin-top: 1rem; }
+
+  /* ── Section headings: a rule that aligns to the baseline ───────────── */
+  section { margin-top: 3.25rem; }
+
+  h2 {
+    display: flex;
+    align-items: baseline;
+    gap: .9rem;
+    margin: 0 0 1.15rem;
+    font: 600 var(--step--1)/1 var(--sans);
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    translate: 0 -.22em;
+  }
+
+  /* ── The work list ──────────────────────────────────────────────────── */
+  .entries { margin: 0; }
+
+  .entry {
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry:first-child { border-top: 1px solid var(--rule); }
+
+  .entry > summary {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: .5rem 1rem;
+    padding: .85rem 0;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color .15s ease;
+  }
+  .entry > summary::-webkit-details-marker { display: none; }
+  .entry > summary:hover .name { color: var(--accent); }
+
+  .name {
+    font-weight: 600;
+    letter-spacing: -.004em;
+    transition: color .15s ease;
+  }
+  .name .mark {
+    display: inline-block;
+    width: .5em;
+    margin-left: .35em;
+    color: var(--ink-faint);
+    translate: 0 -.04em;
+    rotate: 0deg;
+    transition: rotate .22s cubic-bezier(.3,.8,.4,1), color .15s ease;
+  }
+  .entry[open] .name .mark { rotate: 90deg; color: var(--accent); }
+
+  .year {
+    font: var(--step--1)/1 var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .entry .body {
+    padding: 0 0 1.15rem;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    line-height: 1.6;
+  }
+  .entry .body p { margin: 0 0 .7rem; max-width: 46ch; }
+  .entry .body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem .4rem;
+  }
+  .entry .body li {
+    font: var(--step--1)/1 var(--sans);
+    font-size: .78rem;
+    letter-spacing: .02em;
+    padding: .32em .55em;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    color: var(--ink-faint);
+  }
+
+  /* Height animation that degrades honestly where unsupported */
+  @supports (interpolate-size: allow-keywords) {
+    :root { interpolate-size: allow-keywords; }
+    .entry::details-content {
+      block-size: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: block-size .28s cubic-bezier(.33,.9,.3,1),
+                  content-visibility .28s allow-discrete,
+                  opacity .22s ease;
+    }
+    .entry[open]::details-content { block-size: auto; opacity: 1; }
+  }
+
+  /* ── Plain lists (writing, elsewhere) ───────────────────────────────── */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: .4rem 1rem;
+    padding: .55rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .rows li:first-child { border-top: 1px solid var(--rule); }
+  .rows .meta {
+    font: var(--step--1)/1 var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .inline-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1.4rem;
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+  }
+
+  .skip {
+    position: absolute;
+    left: -9999px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: .6rem 1rem;
+    border-radius: 4px;
+  }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: .01ms !important; }
+  }
+
+  /* Mockup chrome — not part of the design */
+  .mockup-tag {
+    position: fixed; bottom: 0; right: 0;
+    font: 600 .625rem/1 var(--mono);
+    letter-spacing: .1em;
+    padding: .45rem .6rem;
+    background: var(--ink); color: var(--paper);
+    border-top-left-radius: 4px;
+    z-index: 9;
+  }
+</style>
+</head>
+<body>
+<span class="mockup-tag">01 · PLAIN TEXT</span>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="page">
+  <header class="masthead">
+    <h1>Nathan Moore</h1>
+    <p class="role">Front-End Engineer · Colorado</p>
+
+    <p class="lede">I build interfaces. Twelve years of it — design systems, data
+    visualization, animation, and the unglamorous accessibility and performance work that
+    decides whether any of it actually lands.</p>
+
+    <p class="lede">Most of my career has been the seam between design and engineering:
+    taking a layout that only exists as an idea and making it real, responsive, fast, and
+    operable by keyboard.</p>
+  </header>
+
+  <main id="main">
+    <section aria-labelledby="work-h">
+      <h2 id="work-h">Selected work</h2>
+      <div class="entries">
+
+        <details class="entry" name="work" open>
+          <summary>
+            <span class="name">Recurly<span class="mark">›</span></span>
+            <span class="year">2021—2023</span>
+          </summary>
+          <div class="body">
+            <p>Subscription-billing platform. I owned front-end implementation for the
+            marketing site and product-story pages — including the animated charts, graphs,
+            and maps that carry the pricing and revenue narrative.</p>
+            <p>The hard part was mobile: dense multi-series data that had to stay readable
+            and interactive at 360px without becoming a second codebase.</p>
+            <ul>
+              <li>SVG/Canvas charting</li><li>Scroll-linked animation</li>
+              <li>Responsive data viz</li><li>Design-system CSS</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="entry" name="work">
+          <summary>
+            <span class="name">ForAllSecure<span class="mark">›</span></span>
+            <span class="year">2022</span>
+          </summary>
+          <div class="body">
+            <p>Security tooling for a deeply technical audience. Built the product
+            storytelling experience — sequenced animation explaining fuzzing to engineers
+            who would notice immediately if the metaphor was wrong.</p>
+            <ul><li>Motion sequencing</li><li>IntersectionObserver</li><li>Reduced-motion paths</li></ul>
+          </div>
+        </details>
+
+        <details class="entry" name="work">
+          <summary>
+            <span class="name">Four Winds Interactive<span class="mark">›</span></span>
+            <span class="year">2019—2021</span>
+          </summary>
+          <div class="body">
+            <p>Digital-signage platform. Component library and templating work across a
+            large marketing surface, with a CMS that non-engineers had to operate safely.</p>
+            <ul><li>Component architecture</li><li>CMS integration</li><li>Template systems</li></ul>
+          </div>
+        </details>
+
+        <details class="entry" name="work">
+          <summary>
+            <span class="name">Mathews Inc.<span class="mark">›</span></span>
+            <span class="year">2017—2019</span>
+          </summary>
+          <div class="body">
+            <p>Product configurator and catalog for a precision-manufacturing brand. Heavy
+            imagery, heavy interaction, and a strict performance budget on rural connections.</p>
+            <ul><li>Image performance</li><li>Configurator UI</li><li>Custom CMS</li></ul>
+          </div>
+        </details>
+
+        <details class="entry" name="work">
+          <summary>
+            <span class="name">SeriesFest<span class="mark">›</span></span>
+            <span class="year">2016—2018</span>
+          </summary>
+          <div class="body">
+            <p>Festival site with scheduling, submissions, and ticketing — traffic that
+            arrives in a single spike and cannot fall over.</p>
+            <ul><li>Scheduling UI</li><li>Third-party integrations</li><li>UX design</li></ul>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="studies-h">
+      <h2 id="studies-h">Interactive studies</h2>
+      <ul class="rows">
+        <li><a href="/work/recurly/">Recurly — billing data, in motion</a>
+            <span class="meta">live</span></li>
+        <li><a href="/work/forallsecure/">ForAllSecure — explaining fuzzing visually</a>
+            <span class="meta">live</span></li>
+        <li><a href="/concepts/">Five interface prototypes</a>
+            <span class="meta">live</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="writing-h">
+      <h2 id="writing-h">Writing</h2>
+      <ul class="rows">
+        <li><a href="/insights/interactive-product-demos/">When an interactive product demo earns its place</a>
+            <span class="meta"><time datetime="2026-10">Oct ’26</time></span></li>
+        <li><a href="/insights/b2b-website-launch-qa/">A launch QA guide that actually catches things</a>
+            <span class="meta"><time datetime="2026-10">Oct ’26</time></span></li>
+        <li><a href="/insights/measure-low-traffic-b2b-website/">Measuring a low-traffic site without inventing a winner</a>
+            <span class="meta"><time datetime="2026-10">Oct ’26</time></span></li>
+        <li><a href="/insights/">All writing</a><span class="meta">10</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="contact-h">
+      <h2 id="contact-h">Elsewhere</h2>
+      <ul class="inline-links">
+        <li><a href="mailto:hello@nmoore.net">hello@nmoore.net</a></li>
+        <li><a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a></li>
+        <li><a href="https://github.com/nmoore2">GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>Nathan Moore</span>
+    <span>Open to senior front-end roles</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="Mockup 02 — The Split.">
+<style>
+  /* ── 02 THE SPLIT ───────────────────────────────────────────────────────
+     The bet: structure is the signal. A sticky identity rail against a
+     scrolling index, with scroll-spy that actually tracks correctly.
+     ------------------------------------------------------------------- */
+
+  :root {
+    --bg:        #0c1118;
+    --bg-raise:  #121a24;
+    --text:      #d6e0ec;
+    --text-dim:  #8599ad;
+    --text-mute: #5b6e82;
+    --line:      #1e2a38;
+    --accent:    #7ee0c3;
+    --accent-dim:#1d4d41;
+    --focus:     #7ee0c3;
+
+    --sans: Inter, ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+    --s-0: clamp(.9375rem, .9rem + .18vw, 1rem);
+    --s--1: .8125rem;
+    --s-1: clamp(1.0625rem, 1rem + .3vw, 1.1875rem);
+    --s-3: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:#fcfdfe; --bg-raise:#f1f5f9; --text:#101b26; --text-dim:#475a6c;
+      --text-mute:#7a8ca0; --line:#dde5ed; --accent:#0f7b63; --accent-dim:#cdeee5;
+      --focus:#0f7b63;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-dim);
+    font: var(--s-0)/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Pointer-tracked wash. Pure decoration, so it is the first thing cut
+     for reduced motion and it never intercepts a click. */
+  .wash {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(
+      36rem 36rem at var(--mx, 50%) var(--my, 0%),
+      color-mix(in oklab, var(--accent) 9%, transparent), transparent 70%);
+    transition: opacity .4s ease;
+  }
+  @media (prefers-reduced-motion: reduce) { .wash { display: none; } }
+
+  .shell {
+    position: relative;
+    z-index: 1;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding: clamp(1.5rem, 1rem + 3vw, 3rem) clamp(1.25rem, .8rem + 2.4vw, 3rem);
+    display: grid;
+    gap: clamp(2rem, 1rem + 5vw, 4rem);
+  }
+  @media (min-width: 62rem) {
+    .shell { grid-template-columns: minmax(0,.86fr) minmax(0,1fr); }
+  }
+
+  /* ── Left rail ──────────────────────────────────────────────────────── */
+  .rail { }
+  @media (min-width: 62rem) {
+    .rail {
+      position: sticky; top: 0;
+      height: 100vh; height: 100svh;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding-block: clamp(3rem, 2rem + 5vw, 6rem) 3rem;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-size: var(--s-3);
+    font-weight: 700;
+    letter-spacing: -.03em;
+    line-height: 1.04;
+    color: var(--text);
+  }
+  .rail .title {
+    margin: .6rem 0 0;
+    font-size: var(--s-1);
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -.01em;
+  }
+  .rail .blurb {
+    margin: 1.1rem 0 0;
+    max-width: 32ch;
+    text-wrap: pretty;
+  }
+
+  /* ── Scroll-spy nav ─────────────────────────────────────────────────── */
+  .spy { margin-top: 3rem; }
+  @media (max-width: 61.999rem) { .spy { display: none; } }
+  .spy ul { list-style: none; margin: 0; padding: 0; }
+  .spy a {
+    display: flex; align-items: center; gap: .85rem;
+    padding: .5rem 0;
+    text-decoration: none;
+    font: 600 var(--s--1)/1 var(--sans);
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    transition: color .2s ease;
+  }
+  .spy .bar {
+    display: block; height: 1px; width: 2rem;
+    background: currentColor;
+    transition: width .22s cubic-bezier(.3,.9,.3,1), background-color .2s ease;
+  }
+  .spy a:hover, .spy a:focus-visible { color: var(--text); }
+  .spy a:hover .bar, .spy a:focus-visible .bar { width: 3.25rem; }
+  .spy a[aria-current="true"] { color: var(--text); }
+  .spy a[aria-current="true"] .bar { width: 4rem; background: var(--accent); }
+
+  .socials {
+    display: flex; gap: 1rem; margin-top: 2.5rem;
+    list-style: none; padding: 0;
+  }
+  .socials a { color: var(--text-mute); transition: color .18s ease; display:inline-flex; }
+  .socials a:hover { color: var(--accent); }
+  .socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* ── Right column ───────────────────────────────────────────────────── */
+  .feed { padding-block: clamp(1rem, .5rem + 3vw, 6rem) 0; }
+  .feed section { margin-bottom: clamp(3.5rem, 2rem + 6vw, 6rem); scroll-margin-top: 5rem; }
+
+  .feed h2 {
+    position: sticky; top: 0;
+    margin: 0 0 1.5rem;
+    padding: 1rem 0;
+    font: 700 var(--s--1)/1 var(--sans);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text);
+    background: color-mix(in oklab, var(--bg) 82%, transparent);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+  }
+  @media (min-width: 62rem) { .feed h2 { position: static; background: none; backdrop-filter: none; padding: 0; } }
+
+  .feed p { margin: 0 0 1rem; text-wrap: pretty; }
+  .feed strong { color: var(--text); font-weight: 600; }
+  .feed a { color: var(--text); text-decoration: none; }
+
+  /* ── Cards: the hover lift is one transform, not five ───────────────── */
+  .card {
+    position: relative;
+    display: grid;
+    gap: .5rem 1.25rem;
+    padding: 1rem;
+    margin: 0 0 .5rem -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 8px;
+    transition: background-color .2s ease, box-shadow .2s ease;
+  }
+  @media (min-width: 42rem) { .card { grid-template-columns: 7.5rem 1fr; } }
+
+  .card:hover, .card:focus-within {
+    background: color-mix(in oklab, var(--bg-raise) 70%, transparent);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .card .when {
+    font: 500 var(--s--1)/1.8 var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-mute);
+    letter-spacing: .02em;
+  }
+  .card h3 {
+    margin: 0 0 .4rem;
+    font-size: var(--s-0);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  /* Whole card clickable, one real link for screen readers & keyboard */
+  .card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 8px; }
+  .card h3 a:hover { color: var(--accent); }
+  .card h3 .arrow {
+    display: inline-block; translate: 0 0;
+    transition: translate .2s cubic-bezier(.3,.9,.3,1);
+  }
+  .card:hover h3 .arrow { translate: .25rem -.25rem; }
+  .card p { font-size: var(--s--1); line-height: 1.65; margin: 0 0 .65rem; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
+  .tags li {
+    font: 500 .72rem/1 var(--mono);
+    letter-spacing: .02em;
+    padding: .38em .6em;
+    border-radius: 999px;
+    color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 12%, transparent);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  .colophon {
+    font-size: var(--s--1);
+    color: var(--text-mute);
+    max-width: 48ch;
+    padding-bottom: 4rem;
+  }
+
+  .skip { position: absolute; left: -9999px; background: var(--accent); color: var(--bg); padding: .6rem 1rem; border-radius: 4px; }
+  .skip:focus { left: 1rem; top: 1rem; z-index: 50; }
+
+  .mockup-tag {
+    position: fixed; bottom: 0; right: 0; z-index: 40;
+    font: 600 .625rem/1 var(--mono); letter-spacing: .1em;
+    padding: .45rem .6rem; background: var(--accent); color: #06231c;
+    border-top-left-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<span class="mockup-tag">02 · THE SPLIT</span>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wash" aria-hidden="true"></div>
+
+<div class="shell">
+  <header class="rail">
+    <div>
+      <h1>Nathan Moore</h1>
+      <p class="title">Senior Front-End Engineer</p>
+      <p class="blurb">I build interfaces that hold up — accessible, fast, and precise down
+      to the focus ring. Twelve years between design and engineering.</p>
+
+      <nav class="spy" aria-label="Sections">
+        <ul>
+          <li><a href="#about"><span class="bar"></span>About</a></li>
+          <li><a href="#experience"><span class="bar"></span>Experience</a></li>
+          <li><a href="#projects"><span class="bar"></span>Projects</a></li>
+          <li><a href="#writing"><span class="bar"></span>Writing</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <ul class="socials">
+      <li><a href="https://github.com/nmoore2" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.57.69.48A10 10 0 0 0 12 2Z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/nateisgreat/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.73H9.53V9.2h2.83v1.3h.04c.39-.74 1.35-1.52 2.78-1.52 2.98 0 3.57 1.96 3.57 4.5v5.27Z"/></svg></a></li>
+      <li><a href="mailto:hello@nmoore.net" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6v2.24Z"/></svg></a></li>
+    </ul>
+  </header>
+
+  <main class="feed" id="main">
+    <section id="about" aria-label="About">
+      <h2>About</h2>
+      <p>I'm a front-end engineer in Colorado. Since 2014 I've worked at the seam where
+      design hands off to engineering — and mostly, I've tried to remove the handoff.</p>
+      <p>What I'm actually good at: making complex interfaces feel inevitable. Data
+      visualization that stays readable at 360px. Motion that carries meaning and gets out
+      of the way. Component systems other engineers can extend without asking me first.
+      And the parts nobody demos — <strong>keyboard paths, focus management, reduced-motion
+      alternates, layout stability</strong>.</p>
+      <p>Currently open to senior front-end and design-engineering roles.</p>
+    </section>
+
+    <section id="experience" aria-label="Experience">
+      <h2>Experience</h2>
+
+      <article class="card">
+        <span class="when">2021 — 2023</span>
+        <div>
+          <h3><a href="/work/recurly/">Front-End Engineer · Recurly <span class="arrow">↗</span></a></h3>
+          <p>Owned front-end implementation across the marketing and product-story surface
+          for a subscription-billing platform. Built the animated charts, graphs, and maps
+          that carry the revenue narrative — and solved the harder half of that problem:
+          keeping dense multi-series data legible and interactive on a phone.</p>
+          <ul class="tags"><li>SVG</li><li>Canvas</li><li>Scroll animation</li><li>Design systems</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="when">2019 — 2021</span>
+        <div>
+          <h3><a href="/archive/">Front-End Engineer · Four Winds Interactive <span class="arrow">↗</span></a></h3>
+          <p>Component library and templating across a large marketing surface for a
+          digital-signage platform, with a CMS that non-engineers had to drive safely.</p>
+          <ul class="tags"><li>Component architecture</li><li>CMS</li><li>Templating</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="when">2014 — 2019</span>
+        <div>
+          <h3><a href="/archive/">Web Engineer · Independent <span class="arrow">↗</span></a></h3>
+          <p>Design and build for Mathews Inc., SeriesFest, Freebird Boots, Punch Bowl
+          Social, and Ideaison — configurators, scheduling systems, and commerce, each with
+          a real performance budget and a non-technical team operating it afterward.</p>
+          <ul class="tags"><li>UX design</li><li>Custom CMS</li><li>Integrations</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects" aria-label="Projects">
+      <h2>Projects</h2>
+
+      <article class="card">
+        <span class="when">Live demo</span>
+        <div>
+          <h3><a href="/work/recurly/">Billing data, in motion <span class="arrow">↗</span></a></h3>
+          <p>An interactive study of subscription metrics — chart transitions that stay
+          interruptible, and a reduced-motion path that still tells the story.</p>
+          <ul class="tags"><li>SVG</li><li>Web Animations API</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="when">Live demo</span>
+        <div>
+          <h3><a href="/work/forallsecure/">Explaining fuzzing visually <span class="arrow">↗</span></a></h3>
+          <p>Sequenced animation that teaches a security concept to an audience that would
+          spot a wrong metaphor instantly.</p>
+          <ul class="tags"><li>IntersectionObserver</li><li>Motion sequencing</li></ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="when">5 prototypes</span>
+        <div>
+          <h3><a href="/concepts/">Interface concepts <span class="arrow">↗</span></a></h3>
+          <p>Small, complete prototypes exploring one interaction problem each.</p>
+          <ul class="tags"><li>CSS</li><li>Vanilla JS</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="writing" aria-label="Writing">
+      <h2>Writing</h2>
+      <article class="card">
+        <span class="when"><time datetime="2026-10">Oct 2026</time></span>
+        <div><h3><a href="/insights/interactive-product-demos/">When an interactive product demo earns its place <span class="arrow">↗</span></a></h3>
+        <p>Most product demos are animation looking for a reason. A test for whether yours has one.</p></div>
+      </article>
+      <article class="card">
+        <span class="when"><time datetime="2026-10">Oct 2026</time></span>
+        <div><h3><a href="/insights/b2b-website-launch-qa/">A launch QA guide that catches real things <span class="arrow">↗</span></a></h3>
+        <p>The checklist I actually run before a site goes live.</p></div>
+      </article>
+      <article class="card">
+        <span class="when">Archive</span>
+        <div><h3><a href="/insights/">All ten pieces <span class="arrow">↗</span></a></h3></div>
+      </article>
+
+      <p class="colophon">Built by hand in HTML and CSS. No framework, no build step.
+      Type set in Inter. Scroll position tracked with IntersectionObserver; every motion
+      on this page has a <code>prefers-reduced-motion</code> alternate.</p>
+    </section>
+  </main>
+</div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Pointer wash — rAF-throttled so it never beats the compositor up. */
+  if (!reduce.matches) {
+    const wash = document.querySelector('.wash');
+    let x = 0, y = 0, queued = false;
+    addEventListener('pointermove', e => {
+      x = e.clientX; y = e.clientY;
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        wash.style.setProperty('--mx', x + 'px');
+        wash.style.setProperty('--my', y + 'px');
+        queued = false;
+      });
+    }, { passive: true });
+  }
+
+  /* Scroll-spy. Tracking the *topmost visible* section beats "last one that
+     fired", which is what makes most of these feel wrong near the bottom. */
+  const links = [...document.querySelectorAll('.spy a')];
+  const sections = links
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+
+  const visible = new Set();
+  const paint = () => {
+    let current = null;
+    for (const s of sections) if (visible.has(s)) { current = s; break; }
+    if (!current) return;
+    links.forEach(a =>
+      a.setAttribute('aria-current', a.getAttribute('href') === '#' + current.id));
+  };
+
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+    paint();
+  }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
+
+  sections.forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>

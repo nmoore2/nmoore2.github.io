@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="Mockup 05 — One Big Demo.">
+<style>
+  /* ── 05 ONE BIG DEMO ────────────────────────────────────────────────────
+     The bet: one undeniable artifact. The hero is a real component you can
+     resize; it reflows through four layouts using container queries, not
+     viewport media queries. Everything below it is deliberately plain.
+     ------------------------------------------------------------------- */
+
+  :root {
+    --bg:#ffffff; --raise:#f7f8fa; --sunk:#eef0f4;
+    --ink:#0c1016; --dim:#4d5765; --mute:#8b94a3;
+    --line:#e2e6ec; --line-2:#cdd4de;
+    --accent:#3b5bfd; --accent-soft:#eaeeff;
+    --sans: Inter, ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+    --ease: cubic-bezier(.3,.9,.3,1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0a0c10; --raise:#12151b; --sunk:#171b23;
+      --ink:#eef1f6; --dim:#9aa5b5; --mute:#6a7484;
+      --line:#1e232c; --line-2:#2c333f;
+      --accent:#8aa0ff; --accent-soft:#1a2142;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+    padding: clamp(1.25rem,.8rem+2vw,2.5rem);
+  }
+  .wrap { max-width: 62rem; margin-inline: auto; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* ── Intro ──────────────────────────────────────────────────────────── */
+  .intro { padding: clamp(1.5rem,1rem+4vw,4rem) 0 clamp(1.5rem,1rem+2vw,2.5rem); max-width: 42rem; }
+  .intro h1 {
+    margin: 0; font-size: clamp(1.625rem,1.2rem+1.8vw,2.375rem);
+    font-weight: 650; letter-spacing: -.03em; line-height: 1.12;
+  }
+  .intro h1 span { color: var(--mute); }
+  .intro p { margin: 1rem 0 0; color: var(--dim); font-size: clamp(1rem,.96rem+.2vw,1.0625rem); text-wrap: pretty; }
+  .intro .links { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; font-size: .875rem; }
+  .intro .links a { color: var(--ink); text-underline-offset: .22em;
+    text-decoration-color: var(--line-2); transition: text-decoration-color .15s ease, color .15s ease; }
+  .intro .links a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+  /* ── The demo frame ─────────────────────────────────────────────────── */
+  .demo {
+    border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden;
+    background: var(--raise);
+  }
+  .demo-bar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+    padding: .6rem .75rem; border-bottom: 1px solid var(--line);
+    font: 500 .75rem/1 var(--mono); letter-spacing: .04em; color: var(--mute);
+  }
+  .demo-bar .label { text-transform: uppercase; letter-spacing: .12em; margin-right: auto; }
+  .presets { display: flex; gap: 2px; background: var(--sunk); padding: 2px; border-radius: 7px; }
+  .presets button {
+    border: 0; background: none; color: var(--mute); cursor: pointer;
+    font: 500 .72rem/1 var(--mono); padding: .35rem .55rem; border-radius: 5px;
+    transition: background-color .18s ease, color .18s ease;
+  }
+  .presets button:hover { color: var(--ink); }
+  .presets button[aria-pressed="true"] { background: var(--bg); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / .12); }
+  .readout {
+    font-variant-numeric: tabular-nums; color: var(--ink);
+    background: var(--accent-soft); border-radius: 5px; padding: .35rem .5rem;
+  }
+  .readout b { color: var(--accent); }
+
+  .demo-stage {
+    position: relative;
+    padding: clamp(1rem,.7rem+1.5vw,2rem);
+    background:
+      repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 2rem),
+      var(--sunk);
+    display: flex; justify-content: center;
+  }
+
+  .resizer {
+    position: relative;
+    width: var(--w, 100%);
+    max-width: 100%;
+    min-width: 17rem;
+    transition: width .35s var(--ease);
+  }
+  .resizer[data-dragging] { transition: none; }
+
+  .handle {
+    position: absolute; top: 0; bottom: 0; right: -.75rem; width: 1.5rem;
+    display: grid; place-items: center;
+    cursor: ew-resize; touch-action: none;
+    background: none; border: 0; padding: 0;
+    z-index: 2;
+  }
+  .handle i {
+    width: 5px; height: 2.75rem; border-radius: 99px;
+    background: var(--line-2);
+    transition: background-color .18s ease, height .22s var(--ease), scale .18s var(--ease);
+  }
+  .handle:hover i, .handle:focus-visible i { background: var(--accent); height: 4rem; }
+  .resizer[data-dragging] .handle i { background: var(--accent); scale: 1.15 1; }
+
+  /* ── The component that actually responds ───────────────────────────── */
+  .card {
+    position: relative;
+    container-type: inline-size;
+    container-name: card;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-inner { display: grid; gap: 0; }
+  .shot {
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(60% 80% at 20% 10%, color-mix(in oklab, var(--accent) 34%, transparent), transparent 70%),
+      radial-gradient(50% 60% at 90% 80%, color-mix(in oklab, #22d3ee 30%, transparent), transparent 70%),
+      linear-gradient(145deg, var(--sunk), var(--raise));
+    display: grid; place-items: center;
+  }
+  .shot svg { width: 46%; max-width: 11rem; height: auto; opacity: .85; }
+  .body { padding: 1.1rem; display: grid; gap: .55rem; align-content: start; }
+  .eyebrow {
+    font: 600 .6875rem/1 var(--mono); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .card h2 { margin: 0; font-size: 1.125rem; font-weight: 650; letter-spacing: -.02em; line-height: 1.25; }
+  .card p { margin: 0; color: var(--dim); font-size: .875rem; text-wrap: pretty; }
+  .meta { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: .2rem 0 0; padding: 0; }
+  .meta li {
+    font: 500 .6875rem/1 var(--mono); padding: .35em .5em; border-radius: 99px;
+    color: var(--dim); background: var(--sunk);
+  }
+  .cta {
+    justify-self: start; margin-top: .35rem;
+    display: inline-flex; align-items: center; gap: .4rem;
+    font: 600 .8125rem/1 var(--sans); text-decoration: none;
+    color: var(--bg); background: var(--ink);
+    padding: .6rem .85rem; border-radius: 7px;
+    transition: translate .2s var(--ease), background-color .2s ease;
+  }
+  .cta:hover { translate: 0 -1px; background: var(--accent); }
+
+  /* ── Four layouts, driven by the CARD's width, not the viewport's ───── */
+  @container card (min-width: 26rem) {
+    .card-inner { grid-template-columns: 15rem 1fr; }
+    .shot { aspect-ratio: auto; height: 100%; }
+    .body { padding: 1.35rem; gap: .6rem; }
+    .card h2 { font-size: 1.3rem; }
+  }
+  @container card (min-width: 40rem) {
+    .card-inner { grid-template-columns: 21rem 1fr; }
+    .body { padding: 2rem; gap: .75rem; align-content: center; }
+    .card h2 { font-size: 1.75rem; letter-spacing: -.03em; }
+    .card p { font-size: .9375rem; max-width: 46ch; }
+  }
+  @container card (min-width: 54rem) {
+    .card-inner { grid-template-columns: 28rem 1fr; }
+    .body { padding: 2.75rem; }
+    .card h2 { font-size: 2.125rem; }
+    .card p { font-size: 1rem; }
+  }
+
+  /* The breakpoint badge is drawn by the same container queries, so what it
+     says can never drift from what the layout is actually doing. */
+  .bp { position: absolute; top: .6rem; left: .6rem; z-index: 1;
+        font: 600 .625rem/1 var(--mono); letter-spacing: .1em;
+        padding: .35rem .5rem; border-radius: 5px;
+        background: var(--ink); color: var(--bg); }
+  .bp::after { content: "STACKED"; }
+  @container card (min-width: 26rem) { .bp::after { content: "SPLIT"; } }
+  @container card (min-width: 40rem) { .bp::after { content: "WIDE"; } }
+  @container card (min-width: 54rem) { .bp::after { content: "FEATURE"; } }
+
+  .demo-note {
+    padding: .75rem clamp(.75rem,.6rem+1vw,1rem);
+    border-top: 1px solid var(--line);
+    font-size: .8125rem; color: var(--dim); background: var(--raise);
+    text-wrap: pretty;
+  }
+  .demo-note code { font: .78em/1 var(--mono); background: var(--sunk); padding: .25em .4em; border-radius: 4px; }
+
+  /* ── Everything below is on purpose unremarkable ────────────────────── */
+  section.plain { margin-top: clamp(2.5rem,1.5rem+4vw,4.5rem); }
+  section.plain h2 {
+    margin: 0 0 1rem; font: 600 .75rem/1 var(--mono);
+    letter-spacing: .13em; text-transform: uppercase; color: var(--mute);
+  }
+  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .rows li { border-bottom: 1px solid var(--line); }
+  .rows a {
+    display: grid; grid-template-columns: 1fr auto; gap: .3rem 1rem; align-items: baseline;
+    padding: .85rem .25rem; text-decoration: none; color: var(--ink);
+    transition: padding-left .22s var(--ease), color .18s ease;
+  }
+  .rows a:hover { padding-left: .85rem; color: var(--accent); }
+  .rows small { font: 500 .75rem/1 var(--mono); color: var(--mute); white-space: nowrap; }
+  .rows .desc { display: block; color: var(--dim); font-size: .8125rem; margin-top: .2rem; }
+
+  footer.end {
+    margin-top: 3rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem;
+    font-size: .8125rem; color: var(--mute);
+  }
+
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { transition-duration: .01ms !important; } }
+
+  .mockup-tag {
+    position: fixed; bottom: 0; right: 0; z-index: 40;
+    font: 600 .625rem/1 var(--mono); letter-spacing: .1em;
+    padding: .45rem .6rem; background: var(--accent); color: #fff;
+    border-top-left-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<span class="mockup-tag">05 · ONE BIG DEMO</span>
+
+<div class="wrap">
+  <header class="intro">
+    <h1>Nathan Moore<br><span>senior front-end engineer</span></h1>
+    <p>Twelve years building interfaces. Here is one, running. Drag its right edge — the
+    card reflows through four layouts because it responds to <em>its own</em> width, not the
+    window's. That difference is most of what makes a component reusable.</p>
+    <p class="links">
+      <a href="mailto:hello@nmoore.net">hello@nmoore.net</a>
+      <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a>
+      <a href="https://github.com/nmoore2">GitHub</a>
+      <a href="/insights/">Writing</a>
+    </p>
+  </header>
+
+  <div class="demo">
+    <div class="demo-bar">
+      <span class="label">Live component</span>
+      <div class="presets" role="group" aria-label="Preset widths">
+        <button type="button" data-w="360" aria-pressed="false">360</button>
+        <button type="button" data-w="480" aria-pressed="false">480</button>
+        <button type="button" data-w="700" aria-pressed="false">700</button>
+        <button type="button" data-w="max" aria-pressed="true">Full</button>
+      </div>
+      <span class="readout">container <b id="px">—</b>px</span>
+    </div>
+
+    <div class="demo-stage">
+      <div class="resizer" id="resizer" style="--w:100%">
+        <article class="card">
+          <span class="bp" aria-hidden="true"></span>
+          <div class="card-inner">
+            <div class="shot" aria-hidden="true">
+              <svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" style="color:var(--bg)">
+                <path d="M12 96 52 60l30 22 38-52 34 40 22-16" opacity=".9"/>
+                <circle cx="52" cy="60" r="5" fill="currentColor"/>
+                <circle cx="120" cy="30" r="5" fill="currentColor"/>
+                <path d="M12 108h176" opacity=".35"/>
+              </svg>
+            </div>
+            <div class="body">
+              <span class="eyebrow">Case study</span>
+              <h2>Subscription data that still reads on a phone</h2>
+              <p>Recurly's revenue story depended on multi-series charts. The desktop
+              version was the easy half; keeping it interactive and legible at 360px
+              without forking the component was the work.</p>
+              <ul class="meta"><li>SVG</li><li>Container queries</li><li>WAAPI</li></ul>
+              <a class="cta" href="/work/recurly/">Open the study →</a>
+            </div>
+          </div>
+        </article>
+
+        <button class="handle" id="handle" aria-label="Resize component"
+                role="slider" aria-valuemin="280" aria-valuemax="1000" aria-valuenow="0"
+                aria-valuetext="full width" tabindex="0"><i></i></button>
+      </div>
+    </div>
+
+    <p class="demo-note">The badge, the layout, and the breakpoint all come from the same
+    <code>@container card (min-width: …)</code> rules — so the label can never disagree with
+    what you're looking at. Drag with a mouse or touch, or focus the handle and use the
+    arrow keys. Honours <code>prefers-reduced-motion</code>.</p>
+  </div>
+
+  <section class="plain">
+    <h2>Work</h2>
+    <ul class="rows">
+      <li><a href="/work/recurly/"><span>Recurly<span class="desc">Front-end engineering · animated charts, graphs and maps</span></span><small>2021—23</small></a></li>
+      <li><a href="/work/forallsecure/"><span>ForAllSecure<span class="desc">Technical storytelling and motion for a security-engineer audience</span></span><small>2022</small></a></li>
+      <li><a href="/archive/"><span>Four Winds Interactive<span class="desc">Component library and templating across a large marketing surface</span></span><small>2019—21</small></a></li>
+      <li><a href="/archive/"><span>Mathews, SeriesFest, Freebird, Punch Bowl, Ideaison<span class="desc">Configurators, scheduling, commerce, custom CMS</span></span><small>2014—19</small></a></li>
+    </ul>
+  </section>
+
+  <section class="plain">
+    <h2>Writing</h2>
+    <ul class="rows">
+      <li><a href="/insights/interactive-product-demos/"><span>When an interactive product demo earns its place</span><small>Oct ’26</small></a></li>
+      <li><a href="/insights/b2b-website-launch-qa/"><span>A launch QA guide that catches real things</span><small>Oct ’26</small></a></li>
+      <li><a href="/insights/"><span>All writing</span><small>10</small></a></li>
+    </ul>
+  </section>
+
+  <footer class="end">
+    <span>Nathan Moore · Colorado</span>
+    <span>Open to senior front-end roles</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+'use strict';
+const resizer = document.getElementById('resizer');
+const handle  = document.getElementById('handle');
+const px      = document.getElementById('px');
+const presets = [...document.querySelectorAll('.presets button')];
+
+const MIN = 280;
+const maxWidth = () => {
+  const stage = resizer.parentElement;
+  const cs = getComputedStyle(stage);
+  return stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+};
+
+const report = w => {
+  px.textContent = Math.round(w);
+  handle.setAttribute('aria-valuenow', Math.round(w));
+  handle.setAttribute('aria-valuemax', Math.round(maxWidth()));
+  handle.setAttribute('aria-valuetext', Math.round(w) + ' pixels');
+};
+
+const apply = (w, { animate = true } = {}) => {
+  const max = maxWidth();
+  const clamped = Math.max(MIN, Math.min(max, w));
+  if (!animate) resizer.setAttribute('data-dragging', '');
+  resizer.style.setProperty('--w', clamped + 'px');
+  if (!animate) requestAnimationFrame(() => {});
+  report(clamped);
+  // A preset stays lit only while the width still matches it.
+  presets.forEach(b => b.setAttribute('aria-pressed',
+    b.dataset.w === 'max' ? Math.abs(clamped - max) < 2
+                          : Math.abs(clamped - Number(b.dataset.w)) < 2));
+};
+
+/* Pointer drag — pointer capture means the drag survives leaving the handle. */
+handle.addEventListener('pointerdown', e => {
+  e.preventDefault();
+  handle.setPointerCapture(e.pointerId);
+  resizer.setAttribute('data-dragging', '');
+});
+handle.addEventListener('pointermove', e => {
+  if (!handle.hasPointerCapture(e.pointerId)) return;
+  apply(e.clientX - resizer.getBoundingClientRect().left, { animate: false });
+});
+const endDrag = () => resizer.removeAttribute('data-dragging');
+handle.addEventListener('pointerup', endDrag);
+handle.addEventListener('pointercancel', endDrag);
+
+/* Keyboard — the same control, fully operable without a pointer. */
+handle.addEventListener('keydown', e => {
+  const cur = resizer.getBoundingClientRect().width;
+  const big = e.shiftKey ? 100 : 20;
+  let next = cur;
+  if (e.key === 'ArrowRight') next = cur + big;
+  else if (e.key === 'ArrowLeft') next = cur - big;
+  else if (e.key === 'Home') next = MIN;
+  else if (e.key === 'End') next = maxWidth();
+  else return;
+  e.preventDefault();
+  apply(next);
+});
+
+presets.forEach(b => b.addEventListener('click', () =>
+  apply(b.dataset.w === 'max' ? maxWidth() : Number(b.dataset.w))));
+
+/* Keep the readout truthful when the window changes under us. */
+const ro = new ResizeObserver(entries => report(entries[0].contentRect.width));
+ro.observe(resizer);
+
+apply(maxWidth(), { animate: false });
+requestAnimationFrame(endDrag);
+})();
+</script>
+</body>
+</html>

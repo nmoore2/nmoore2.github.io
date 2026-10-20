@@ -1,0 +1,172 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   THEMES
+   Seven palettes lifted from the other mockups, expressed purely as token
+   overrides. Nothing in any component knows a theme exists — switching is
+   one attribute on <html>, which is the whole case for tokenising colour
+   in the first place.
+   ═══════════════════════════════════════════════════════════════════════ */
+/* Reel */
+:root[data-theme="reel"] {
+  --bg: #07070a;
+  --bg-2: #0e0f14;
+  --bg-3: #15171f;
+  --ink: #f4f5f8;
+  --dim: #9ba2b2;
+  --mute: #5f6676;
+  --line: #1a1c25;
+  --line-2: #2a2d39;
+  --accent: #ff5c35;
+  --accent-2: #ffd166;
+  --on-accent: #140502;
+  --lt-bg: #f3f1ec;
+  --lt-bg-2: #e6e2d8;
+  --lt-ink: #101014;
+  --lt-dim: #4b4a55;
+  --lt-line: #d5d0c4;
+  --lt-accent: #b02a00;
+}
+
+/* Contact sheet */
+:root[data-theme="sheet"] {
+  --bg: #0b0a10;
+  --bg-2: #131220;
+  --bg-3: #1b1930;
+  --ink: #f2effc;
+  --dim: #a39eb8;
+  --mute: #6c6788;
+  --line: #1e1c30;
+  --line-2: #2f2c48;
+  --accent: #a78bfa;
+  --accent-2: #5eead4;
+  --on-accent: #120b22;
+  --lt-bg: #f6f3ff;
+  --lt-bg-2: #e9e3fb;
+  --lt-ink: #140d22;
+  --lt-dim: #4e4663;
+  --lt-line: #ded5f2;
+  --lt-accent: #5b21b6;
+}
+
+/* Console */
+:root[data-theme="console"] {
+  --bg: #0c0e0d;
+  --bg-2: #131614;
+  --bg-3: #1b201d;
+  --ink: #eef3ef;
+  --dim: #99a79f;
+  --mute: #637068;
+  --line: #1b201e;
+  --line-2: #2a322e;
+  --accent: #4ade80;
+  --accent-2: #fbbf24;
+  --on-accent: #041009;
+  --lt-bg: #f1f3ef;
+  --lt-bg-2: #e3e7df;
+  --lt-ink: #0b0f0c;
+  --lt-dim: #444d47;
+  --lt-line: #cfd6cc;
+  --lt-accent: #15803d;
+}
+
+/* Stage */
+:root[data-theme="stage"] {
+  --bg: #08080a;
+  --bg-2: #101014;
+  --bg-3: #17171d;
+  --ink: #f5f5f7;
+  --dim: #9d9da8;
+  --mute: #64646f;
+  --line: #1a1a20;
+  --line-2: #2b2b34;
+  --accent: #e4ff3f;
+  --accent-2: #7c8cff;
+  --on-accent: #111300;
+  --lt-bg: #eceae4;
+  --lt-bg-2: #dedbd2;
+  --lt-ink: #0d0d10;
+  --lt-dim: #4a4a52;
+  --lt-line: #cbc7bc;
+  --lt-accent: #4a5a00;
+}
+
+/* Control room */
+:root[data-theme="control"] {
+  --bg: #0a0c0f;
+  --bg-2: #10141a;
+  --bg-3: #161c24;
+  --ink: #eaf0f6;
+  --dim: #93a3b4;
+  --mute: #5c6b7c;
+  --line: #171d25;
+  --line-2: #242e3a;
+  --accent: #00d3f2;
+  --accent-2: #ff8a3d;
+  --on-accent: #001317;
+  --lt-bg: #eef2f5;
+  --lt-bg-2: #dfe6eb;
+  --lt-ink: #0a0e12;
+  --lt-dim: #44525f;
+  --lt-line: #c8d2da;
+  --lt-accent: #006275;
+}
+
+/* Ember */
+:root[data-theme="ember"] {
+  --bg: #15100c;
+  --bg-2: #1e1712;
+  --bg-3: #281f18;
+  --ink: #f8f1e8;
+  --dim: #b7a797;
+  --mute: #857465;
+  --line: #2b231b;
+  --line-2: #3d3126;
+  --accent: #ff7a2f;
+  --accent-2: #edc86d;
+  --on-accent: #1a1008;
+  --lt-bg: #f6eee2;
+  --lt-bg-2: #ece0cd;
+  --lt-ink: #18110a;
+  --lt-dim: #564737;
+  --lt-line: #ded1bb;
+  --lt-accent: #a63c00;
+}
+
+/* Cyanotype */
+:root[data-theme="cyanotype"] {
+  --bg: #060d18;
+  --bg-2: #0b1726;
+  --bg-3: #102235;
+  --ink: #e8f2fc;
+  --dim: #93aac2;
+  --mute: #5d768f;
+  --line: #13273a;
+  --line-2: #1e3d58;
+  --accent: #36d2ff;
+  --accent-2: #8affd8;
+  --on-accent: #031019;
+  --lt-bg: #e9f2f9;
+  --lt-bg-2: #d5e5f2;
+  --lt-ink: #05121d;
+  --lt-dim: #3a5468;
+  --lt-line: #b9d2e4;
+  --lt-accent: #005a74;
+}
+
+/* ── The switcher itself ─────────────────────────────────────────────── */
+.theme-pick { display: flex; gap: .3rem; }
+.theme-pick button {
+  position: relative;
+  width: 1.15rem; height: 1.15rem; padding: 0;
+  border-radius: 999px; border: 1px solid var(--line-2);
+  background: var(--sw-bg); cursor: pointer;
+  transition: scale .2s var(--spring), border-color .2s var(--ease);
+}
+.theme-pick button::after {
+  content: ""; position: absolute; inset: 3px;
+  border-radius: 999px; background: var(--sw-acc);
+  transition: inset .2s var(--ease);
+}
+.theme-pick button:hover { scale: 1.18; }
+.theme-pick button[aria-pressed="true"] { border-color: var(--sw-acc); scale: 1.22; }
+.theme-pick button[aria-pressed="true"]::after { inset: 2px; }
+.theme-pick button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

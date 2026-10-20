@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Control room</title>
+<meta name="description" content="Demo layout D3 — Control room.">
+<script>(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion = (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full'); })();</script>
+<link rel="stylesheet" href="shared/base.css?v=16">
+<link rel="stylesheet" href="shared/showpiece.css?v=16">
+<link rel="stylesheet" href="shared/process.css?v=16">
+<link rel="stylesheet" href="shared/morph.css?v=16">
+<style>
+  /* ═══ D3 · CONTROL ROOM ═══════════════════════════════════════════════
+     A fixed instrument panel on the left that never scrolls — identity,
+     readouts, contact — against a working surface on the right that does.
+     Everything is bezelled and labelled like equipment. The demo is pinned
+     at the top of the surface so it is always one scroll away.            */
+  :root {
+    --bg:#0a0c0f; --bg-2:#10141a; --bg-3:#161c24;
+    --ink:#eaf0f6; --dim:#93a3b4; --mute:#5c6b7c;
+    --line:#171d25; --line-2:#242e3a;
+    --accent:#00d3f2; --accent-2:#ff8a3d; --on-accent:#001317;
+    --lt-bg:#eef2f5; --lt-bg-2:#dfe6eb; --lt-ink:#0a0e12;
+    --lt-dim:#44525f; --lt-line:#c8d2da; --lt-accent:#006275;
+    --sp-radius: 6px;
+    --panel: 21rem;
+  }
+  body { display: grid; grid-template-columns: var(--panel) 1fr; }
+  @media (max-width: 62rem) { body { grid-template-columns: 1fr; } }
+
+  /* ── Instrument panel ───────────────────────────────────────────── */
+  .panel-l {
+    position: sticky; top: 0; align-self: start;
+    height: 100svh; overflow-y: auto;
+    border-right: 1px solid var(--line); background: var(--bg-2);
+    display: grid; grid-template-rows: auto auto 1fr auto; gap: 0;
+  }
+  @media (max-width: 62rem) { .panel-l { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); } }
+  .panel-l section { padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--line); }
+  .panel-l .ttl { font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--mute); margin-bottom: .7rem; }
+  .panel-l h1 { font-size: clamp(1.5rem,1.3rem+.7vw,1.875rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.02; color: var(--ink); }
+  .panel-l h1 span { display: block; font-size: var(--fs--1); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-top: .5rem; font-family: var(--font-mono); }
+  .panel-l p.bio { margin-top: .8rem; font-size: var(--fs--1); line-height: 1.6; color: var(--dim); }
+
+  .gauges { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .gauges div { background: var(--bg-3); padding: .6rem .7rem; display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+  .gauges dt { font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+  .gauges dd { margin: 0; font: 700 var(--fs--1)/1 var(--font-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .gauges dd.on { color: var(--accent); }
+
+  .panel-l nav { display: grid; gap: .1rem; }
+  .panel-l nav a {
+    display: flex; justify-content: space-between; align-items: center; gap: .6rem;
+    padding: .5rem .6rem; border-radius: 5px; text-decoration: none;
+    font: 500 var(--fs--1)/1.3 var(--font-sans); color: var(--dim);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  .panel-l nav a:hover { background: var(--bg-3); color: var(--ink); }
+  .panel-l nav a[aria-current="true"] { background: var(--bg-3); color: var(--ink); }
+  .panel-l nav a .n { font: 600 var(--fs--2)/1 var(--font-mono); color: var(--mute); }
+  .panel-l nav a[aria-current="true"] .n { color: var(--accent); }
+  .panel-l > footer { padding: 1rem 1.2rem; display: grid; gap: .6rem; }
+  .panel-l > footer a { font-size: var(--fs--1); color: var(--dim); }
+
+  /* ── Working surface ────────────────────────────────────────────── */
+  .surface { min-width: 0; }
+  .bay { border-bottom: 1px solid var(--line); padding: clamp(1.25rem,1rem+1.6vw,2.25rem); scroll-margin-top: 1rem; }
+  .bay > header {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem;
+    padding-bottom: .75rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line);
+  }
+  .bay > header .tag {
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .16em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+    padding: .3rem .5rem; border-radius: 4px;
+  }
+  .bay > header h2 { font-size: var(--fs-2); font-weight: 700; letter-spacing: -.03em; color: var(--ink); }
+  .bay > header p { flex: 1 1 18rem; max-width: 58ch; font-size: var(--fs--1); color: var(--dim); }
+  .bay.light { border-radius: 0; }
+  .bay.light .cols { display: grid; gap: 1.5rem; }
+  @media (min-width: 60rem) { .bay.light .cols { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#surface">Skip to content</a>
+<a class="variant-tag" href="index.html">D3 · CONTROL ROOM</a>
+
+<aside class="panel-l">
+  <section>
+    <p class="ttl">Operator</p>
+    <h1>Nathan Moore<span>Front-end engineer</span></h1>
+    <p class="bio">Twelve years building interfaces that have to keep working when the data
+    gets messy, the connection gets slow and the screen gets small.</p>
+  </section>
+
+  <section>
+    <p class="ttl">Readouts</p>
+    <dl class="gauges">
+      <div><dt>Status</dt><dd class="on">Open</dd></div>
+      <div><dt>Base</dt><dd>Colorado</dd></div>
+      <div><dt>Since</dt><dd>2014</dd></div>
+      <div><dt>Deps on page</dt><dd>0</dd></div>
+      <div><dt>Motion paths</dt><dd>2</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <p class="ttl">Bays</p>
+    <nav id="nav" aria-label="Sections">
+      <a href="#bay-motion"><span>Motion studies</span><span class="n">01</span></a>
+      <a href="#bay-notes"><span>Operating notes</span><span class="n">02</span></a>
+      <a href="#bay-clients"><span>Case studies</span><span class="n">03</span></a>
+      <a href="#bay-work"><span>Service record</span><span class="n">04</span></a>
+    </nav>
+  </section>
+
+  <footer>
+    <a href="mailto:hello@nmoore.net">hello@nmoore.net</a>
+    <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a>
+    <button class="motion-toggle" type="button" data-motion-toggle disabled aria-pressed="true" aria-label="Pause motion" style="justify-self:start">
+      <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+      <span data-motion-label>Motion</span>
+    </button>
+  </footer>
+</aside>
+
+<main class="surface" id="surface">
+  <!-- HIDDEN FOR NOW — "How I get it done". Uncomment to bring it back;
+       shared/process.{css,js} are still loaded and intact. -->
+  <!--
+  <section class="bay" id="bay-process">
+    <header>
+      <span class="tag">Bay 01</span>
+      <h2>How I get it done</h2>
+      <p>Five stages, ten treatments. Shared chrome, swappable stage renderer.</p>
+    </header>
+    <div data-process="blueprint" data-pick></div>
+  </section>
+
+  -->
+
+  <section class="bay" id="bay-motion">
+    <header>
+      <span class="tag">Bay 01</span>
+      <h2>Motion studies</h2>
+      <p>Canvas 2D, SVG filter stacks and CSS 3D. No animation library anywhere on this page.</p>
+    </header>
+    <div class="sp-grid" data-showpieces></div>
+  </section>
+
+  <section class="bay light register-light" id="bay-notes">
+    <header>
+      <span class="tag">Bay 02</span>
+      <h2>Operating notes</h2>
+    </header>
+    <div class="cols">
+      <div>
+        <p style="max-width:56ch;line-height:1.72">Most front-end work is pleasant until the
+        edges arrive: the long string, the empty state, the third concurrent request, the
+        person navigating with a keyboard. Those edges are where interfaces earn their
+        reputation, and they are most of what I do.</p>
+        <p style="max-width:56ch;line-height:1.72;margin-top:1rem">I came up through design,
+        so I can own the look when there isn't one yet — and I've been in implementation
+        long enough to know which beautiful ideas cost a team a year.</p>
+      </div>
+      <div>
+        <p style="max-width:56ch;line-height:1.72"><strong>Everything on this page degrades.</strong>
+        Each animation pauses off screen and in a background tab, and has a static state
+        that still communicates when motion is switched off in the panel to your left.</p>
+        <p style="max-width:56ch;line-height:1.72;margin-top:1rem">That isn't a caveat on the
+        work. On a page arguing that I'm good at motion, it <em>is</em> the work — anyone
+        can make something move.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bay" id="bay-clients">
+    <header>
+      <span class="tag">Bay 03</span>
+      <h2>Case studies</h2>
+      <p>Each selection re-themes the panel into that client's own palette.</p>
+    </header>
+    <div data-morph></div>
+  </section>
+
+  <section class="bay" id="bay-work" style="border-bottom:0">
+    <header><span class="tag">Bay 04</span><h2>Service record</h2></header>
+    <ul class="work-list">
+      <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+      <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+      <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span><span class="when">2019—21</span></a></li>
+      <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews, SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Configurators, scheduling, commerce, custom CMS</span></span><span class="when">2014—19</span></a></li>
+    </ul>
+    <p class="mono" style="margin-top:1.5rem;font-size:var(--fs--2);color:var(--mute)">
+      NATHAN MOORE · COLORADO · HAND-WRITTEN HTML, CSS &amp; JS · 0 DEPENDENCIES</p>
+  </section>
+</main>
+
+<script src="shared/motion.js?v=16" defer></script>
+<script src="shared/showpiece.js?v=16" defer></script>
+<script src="shared/process.js?v=16" defer></script>
+<script src="shared/morph.js?v=16" defer></script>
+<script>
+/* Which bay is live — topmost visible wins, so it never flips to the one
+   below while you are still reading this one. */
+addEventListener('DOMContentLoaded', () => {
+  const links = [...document.querySelectorAll('#nav a')];
+  const bays = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if (!bays.length || !('IntersectionObserver' in window)) return;
+  const visible = new Set();
+  const paint = () => {
+    const cur = bays.find(b => visible.has(b));
+    if (!cur) return;
+    links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + cur.id));
+  };
+  const io = new IntersectionObserver(es => {
+    for (const e of es) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+    paint();
+  }, { rootMargin: '-10% 0px -60% 0px' });
+  bays.forEach(b => io.observe(b));
+});
+</script>
+</body>
+</html>

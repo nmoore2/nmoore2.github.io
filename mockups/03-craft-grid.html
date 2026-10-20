@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Craft</title>
+<meta name="description" content="Mockup 03 — Craft Grid. Every tile is a live component.">
+<style>
+  /* ── 03 CRAFT GRID ──────────────────────────────────────────────────────
+     The bet: volume of built things is the signal. The homepage is a wall of
+     components that are actually running. Nothing here is a screenshot.
+     ------------------------------------------------------------------- */
+
+  :root {
+    --bg:#08090b; --tile:#101216; --tile-hi:#15181e;
+    --line:#1e222a; --line-hi:#2b313b;
+    --text:#f2f4f7; --dim:#9aa4b2; --mute:#616b7a;
+    --accent:#d8ff3e; --accent-ink:#13170a;
+    --ok:#4ade80;
+    --sans: Inter, ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+    --spring: cubic-bezier(.34,1.56,.42,1);
+    --ease: cubic-bezier(.3,.9,.3,1);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:#f6f7f9; --tile:#fff; --tile-hi:#fff; --line:#e4e7ec; --line-hi:#cfd5dd;
+      --text:#0b0d10; --dim:#51596a; --mute:#8a93a3; --accent:#5b21b6; --accent-ink:#fff;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+    padding: clamp(1.25rem,.8rem+2vw,2rem);
+  }
+  .wrap { max-width: 78rem; margin-inline: auto; }
+
+  /* ── Masthead ───────────────────────────────────────────────────────── */
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: flex-end;
+    justify-content: space-between; gap: 1.5rem;
+    padding: clamp(2rem,1rem+5vw,5rem) 0 clamp(1.5rem,1rem+2vw,2.5rem);
+  }
+  h1 { margin: 0; font-size: clamp(1.75rem,1.2rem+2.2vw,2.75rem); font-weight: 700;
+       letter-spacing: -.035em; line-height: 1.05; }
+  h1 em { font-style: normal; color: var(--mute); }
+  .top p { margin: .75rem 0 0; max-width: 42ch; color: var(--dim); text-wrap: pretty; }
+  .top nav { display: flex; gap: 1.25rem; font: 600 .8125rem/1 var(--sans);
+             letter-spacing: .09em; text-transform: uppercase; }
+  .top nav a { color: var(--mute); text-decoration: none; transition: color .18s ease; }
+  .top nav a:hover { color: var(--accent); }
+
+  .bar {
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between;
+    padding: .8rem 0; border-block: 1px solid var(--line);
+    font: 500 .75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* ── The grid ───────────────────────────────────────────────────────── */
+  .grid {
+    display: grid; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    margin-top: 1px;
+  }
+
+  .tile {
+    background: var(--tile);
+    padding: 1.1rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    min-height: 13.5rem;
+    transition: background-color .2s ease;
+  }
+  .tile:hover { background: var(--tile-hi); }
+  .tile.span2 { grid-column: span 2; }
+  @media (max-width: 36rem) { .tile.span2 { grid-column: span 1; } }
+
+  .tile h2 {
+    margin: 0; font: 600 .75rem/1 var(--mono);
+    letter-spacing: .1em; text-transform: uppercase; color: var(--mute);
+    display: flex; justify-content: space-between; gap: 1rem;
+  }
+  .tile h2 span { font-weight: 400; font-variant-numeric: tabular-nums; }
+  .stage { display: grid; place-items: center; }
+  .tile footer { font-size: .8125rem; color: var(--dim); text-wrap: pretty; }
+
+  /* ── Shared control resets ──────────────────────────────────────────── */
+  button, input { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* 1 · Spring toggle ────────────────────────────────────────────────── */
+  .sw {
+    --on: 0;
+    appearance: none; -webkit-appearance: none;
+    width: 4.25rem; height: 2.375rem; border-radius: 999px;
+    border: 1px solid var(--line-hi); background: var(--bg);
+    position: relative; cursor: pointer; padding: 0;
+    transition: background-color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .sw::after {
+    content: ""; position: absolute; inset: 4px auto 4px 4px;
+    width: 1.75rem; border-radius: 999px; background: var(--dim);
+    translate: 0; transition: translate .42s var(--spring), background-color .3s var(--ease), width .2s var(--ease);
+  }
+  .sw:active::after { width: 2.1rem; }
+  .sw[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+  .sw[aria-pressed="true"]::after { translate: 1.875rem 0; background: var(--accent-ink); }
+
+  /* 2 · Segmented control ────────────────────────────────────────────── */
+  .seg {
+    position: relative; display: inline-flex; padding: 4px; gap: 2px;
+    background: var(--bg); border: 1px solid var(--line-hi); border-radius: 10px;
+  }
+  .seg .thumb {
+    position: absolute; top: 4px; bottom: 4px; left: 0;
+    border-radius: 7px; background: var(--tile-hi);
+    box-shadow: inset 0 0 0 1px var(--line-hi);
+    translate: var(--x,0) 0; width: var(--w,0);
+    transition: translate .32s var(--ease), width .32s var(--ease);
+  }
+  .seg button {
+    position: relative; z-index: 1; border: 0; background: none; cursor: pointer;
+    padding: .45rem .8rem; border-radius: 7px;
+    font: 500 .8125rem/1 var(--sans); color: var(--mute);
+    transition: color .2s ease;
+  }
+  .seg button[aria-selected="true"] { color: var(--text); }
+
+  /* 3 · Copy button ──────────────────────────────────────────────────── */
+  .copy {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid var(--line-hi); background: var(--bg);
+    padding: .55rem .9rem; border-radius: 8px; cursor: pointer;
+    font: 500 .8125rem/1 var(--mono); letter-spacing: .01em;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .copy:hover { border-color: var(--mute); }
+  .copy[data-state="done"] { color: var(--ok); border-color: color-mix(in oklab, var(--ok) 45%, transparent); }
+  .copy .ico { position: relative; width: 14px; height: 14px; flex: none; }
+  .copy .ico svg {
+    position: absolute; inset: 0; width: 14px; height: 14px; fill: none;
+    stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    transition: opacity .18s ease, scale .3s var(--spring), rotate .3s var(--ease);
+  }
+  .copy .ico .check { opacity: 0; scale: .4; rotate: -25deg; }
+  .copy[data-state="done"] .ico .clip { opacity: 0; scale: .4; }
+  .copy[data-state="done"] .ico .check { opacity: 1; scale: 1; rotate: 0deg; }
+
+  /* 4 · Odometer digits ──────────────────────────────────────────────── */
+  .odo { display: flex; align-items: baseline; gap: .1em;
+         font: 700 2.5rem/1 var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .odo .col { height: 1em; overflow: hidden; }
+  .odo .col .reel {
+    display: block;
+    transition: translate .55s var(--ease);
+  }
+  .odo .col .reel span { display: block; height: 1em; }
+  .odo .unit { font-size: .9rem; color: var(--mute); font-weight: 500; }
+  .odo-ctl { display: flex; gap: .4rem; }
+  .odo-ctl button {
+    border: 1px solid var(--line-hi); background: var(--bg); color: var(--dim);
+    width: 2rem; height: 2rem; border-radius: 6px; cursor: pointer; line-height: 1;
+    transition: color .18s ease, border-color .18s ease;
+  }
+  .odo-ctl button:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* 5 · Detented slider ──────────────────────────────────────────────── */
+  .sld { width: 100%; max-width: 16rem; }
+  .sld .track {
+    position: relative; height: 2.25rem; display: grid; align-items: center; cursor: grab;
+    touch-action: none;
+  }
+  .sld .track:active { cursor: grabbing; }
+  .sld .rail { height: 3px; border-radius: 3px; background: var(--line-hi); }
+  .sld .fill {
+    position: absolute; left: 0; height: 3px; border-radius: 3px; background: var(--accent);
+    width: var(--p, 50%);
+  }
+  .sld .knob {
+    position: absolute; left: var(--p, 50%); top: 50%;
+    width: 1.1rem; height: 1.1rem; border-radius: 999px; background: var(--accent);
+    translate: -50% -50%;
+    transition: scale .18s var(--spring), box-shadow .2s ease;
+  }
+  .sld .track:active .knob { scale: 1.3; box-shadow: 0 0 0 7px color-mix(in oklab, var(--accent) 18%, transparent); }
+  .sld .ticks { display: flex; justify-content: space-between; margin-top: .35rem; }
+  .sld .ticks span {
+    font: 500 .6875rem/1 var(--mono); color: var(--mute);
+    transition: color .18s ease;
+  }
+  .sld .ticks span[data-on] { color: var(--accent); }
+
+  /* 6 · Tooltip ──────────────────────────────────────────────────────── */
+  .tipwrap { display: flex; gap: .5rem; }
+  .tip { position: relative; }
+  .tip > button {
+    width: 2.5rem; height: 2.5rem; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--line-hi); background: var(--bg); color: var(--dim);
+    display: grid; place-items: center;
+    transition: color .18s ease, border-color .18s ease;
+  }
+  .tip > button:hover { color: var(--accent); border-color: var(--accent); }
+  .tip .bubble {
+    position: absolute; bottom: calc(100% + .5rem); left: 50%;
+    translate: -50% 4px; opacity: 0; pointer-events: none;
+    background: var(--text); color: var(--bg);
+    font: 500 .75rem/1 var(--sans); white-space: nowrap;
+    padding: .4rem .55rem; border-radius: 6px;
+    transition: opacity .16s ease, translate .22s var(--ease);
+  }
+  .tipwrap[data-warm] .tip .bubble { transition-delay: 0s; }
+  .tip:hover .bubble, .tip:focus-within .bubble { opacity: 1; translate: -50% 0; }
+
+  /* 7 · Submit morph ─────────────────────────────────────────────────── */
+  .morph {
+    position: relative; overflow: hidden;
+    border: 0; cursor: pointer; border-radius: 8px;
+    background: var(--accent); color: var(--accent-ink);
+    font: 600 .8125rem/1 var(--sans); letter-spacing: .01em;
+    padding: .7rem 1.2rem; min-width: 8.5rem;
+    transition: background-color .25s var(--ease), min-width .35s var(--ease);
+  }
+  .morph .lbl { display: inline-block; transition: opacity .18s ease, translate .25s var(--ease); }
+  .morph[data-state="busy"] { min-width: 3rem; background: var(--line-hi); color: var(--dim); }
+  .morph[data-state="busy"] .lbl { opacity: 0; translate: 0 -.5rem; }
+  .morph[data-state="done"] { background: var(--ok); color: #06240f; }
+  .morph .spin {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    opacity: 0; transition: opacity .18s ease;
+  }
+  .morph[data-state="busy"] .spin { opacity: 1; }
+  .morph .spin i {
+    width: 14px; height: 14px; border-radius: 999px;
+    border: 2px solid currentColor; border-top-color: transparent;
+    animation: spin .7s linear infinite;
+  }
+  @keyframes spin { to { rotate: 360deg; } }
+
+  /* 8 · Accordion ────────────────────────────────────────────────────── */
+  .acc { width: 100%; }
+  .acc details { border-bottom: 1px solid var(--line); }
+  .acc summary {
+    list-style: none; cursor: pointer; padding: .6rem 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    font-size: .875rem;
+  }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary i {
+    width: 10px; height: 10px; flex: none; position: relative;
+  }
+  .acc summary i::before, .acc summary i::after {
+    content: ""; position: absolute; inset: 50% 0 auto; height: 1.5px; background: var(--mute);
+    transition: rotate .3s var(--ease), opacity .2s ease;
+  }
+  .acc summary i::after { rotate: 90deg; }
+  .acc details[open] summary i::after { rotate: 0deg; opacity: 0; }
+  .acc .inner { padding-bottom: .7rem; font-size: .8125rem; color: var(--dim); }
+  @supports (interpolate-size: allow-keywords) {
+    :root { interpolate-size: allow-keywords; }
+    .acc details::details-content {
+      block-size: 0; overflow: hidden; opacity: 0;
+      transition: block-size .3s var(--ease), content-visibility .3s allow-discrete, opacity .25s ease;
+    }
+    .acc details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+
+  /* ── Work strip under the grid ──────────────────────────────────────── */
+  .work { margin-top: 3.5rem; }
+  .work h2 {
+    font: 600 .75rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--mute); margin: 0 0 1rem;
+  }
+  .work ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .work li { border-bottom: 1px solid var(--line); }
+  .work a {
+    display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem;
+    align-items: baseline; padding: .9rem .25rem; text-decoration: none;
+    color: var(--text); transition: padding-left .22s var(--ease), color .2s ease;
+  }
+  .work a:hover { padding-left: .9rem; color: var(--accent); }
+  .work a small { color: var(--mute); font: 500 .75rem/1 var(--mono); }
+
+  footer.end {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem;
+    font-size: .8125rem; color: var(--mute);
+  }
+  footer.end a { color: var(--dim); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: .01ms !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  .mockup-tag {
+    position: fixed; bottom: 0; right: 0; z-index: 40;
+    font: 600 .625rem/1 var(--mono); letter-spacing: .1em;
+    padding: .45rem .6rem; background: var(--accent); color: var(--accent-ink);
+    border-top-left-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<span class="mockup-tag">03 · CRAFT GRID</span>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Nathan Moore<br><em>front-end engineer</em></h1>
+      <p>Twelve years building interfaces. Everything below is running right now — click it,
+      drag it, tab through it. None of these are screenshots.</p>
+    </div>
+    <nav aria-label="Main">
+      <a href="#work">Work</a><a href="/insights/">Writing</a>
+      <a href="mailto:hello@nmoore.net">Email</a>
+    </nav>
+  </header>
+
+  <div class="bar">
+    <span>Colorado · remote</span>
+    <span>Open to senior roles</span>
+    <span>No framework on this page</span>
+  </div>
+
+  <main class="grid">
+
+    <!-- 1 -->
+    <article class="tile">
+      <h2>Spring toggle <span>01</span></h2>
+      <div class="stage">
+        <button class="sw" type="button" aria-pressed="false" aria-label="Enable setting"></button>
+      </div>
+      <footer>Overshoot on the thumb, squash while held. One transition, no library.</footer>
+    </article>
+
+    <!-- 2 -->
+    <article class="tile span2">
+      <h2>Segmented control <span>02</span></h2>
+      <div class="stage">
+        <div class="seg" role="tablist" aria-label="View">
+          <span class="thumb" aria-hidden="true"></span>
+          <button role="tab" aria-selected="true">Overview</button>
+          <button role="tab" aria-selected="false">Activity</button>
+          <button role="tab" aria-selected="false">Settings</button>
+        </div>
+      </div>
+      <footer>Indicator measures the real button box, so it stays correct when the labels
+      or the font change. Arrow keys move between tabs.</footer>
+    </article>
+
+    <!-- 3 -->
+    <article class="tile">
+      <h2>Copy state <span>03</span></h2>
+      <div class="stage">
+        <button class="copy" type="button" data-state="idle">
+          <span class="ico" aria-hidden="true">
+            <svg class="clip" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <svg class="check" viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+          </span>
+          <span class="txt">hello@nmoore.net</span>
+        </button>
+      </div>
+      <footer>Icon crossfades and springs; the label announces the change politely rather
+      than stealing focus.</footer>
+      <span class="sr" aria-live="polite" id="copy-live" style="position:absolute;left:-9999px"></span>
+    </article>
+
+    <!-- 4 -->
+    <article class="tile">
+      <h2>Odometer <span>04</span></h2>
+      <div class="stage" style="gap:.9rem;grid-auto-flow:row">
+        <div class="odo" id="odo" aria-hidden="true"></div>
+        <span class="sr" aria-live="polite" id="odo-live" style="position:absolute;left:-9999px"></span>
+        <div class="odo-ctl">
+          <button type="button" data-step="-7" aria-label="Decrease">−</button>
+          <button type="button" data-step="7" aria-label="Increase">+</button>
+        </div>
+      </div>
+      <footer>Per-digit reels on tabular numerals. Only digits that change actually move.</footer>
+    </article>
+
+    <!-- 5 -->
+    <article class="tile span2">
+      <h2>Detented slider <span>05</span></h2>
+      <div class="stage" style="width:100%">
+        <div class="sld">
+          <div class="track" role="slider" tabindex="0"
+               aria-valuemin="0" aria-valuemax="4" aria-valuenow="2"
+               aria-label="Density" aria-valuetext="Comfortable">
+            <div class="rail"></div><div class="fill"></div><div class="knob"></div>
+          </div>
+          <div class="ticks">
+            <span>XS</span><span>S</span><span data-on>M</span><span>L</span><span>XL</span>
+          </div>
+        </div>
+      </div>
+      <footer>Pointer capture, snap-to-detent, and full keyboard support — arrows, Home,
+      End, PageUp/Down — on a correct <code>role="slider"</code>.</footer>
+    </article>
+
+    <!-- 6 -->
+    <article class="tile">
+      <h2>Tooltip group <span>06</span></h2>
+      <div class="stage">
+        <div class="tipwrap">
+          <span class="tip"><button type="button" aria-describedby="t1">⌘</button>
+            <span class="bubble" id="t1" role="tooltip">Command palette</span></span>
+          <span class="tip"><button type="button" aria-describedby="t2">⇧</button>
+            <span class="bubble" id="t2" role="tooltip">Multi-select</span></span>
+          <span class="tip"><button type="button" aria-describedby="t3">⌥</button>
+            <span class="bubble" id="t3" role="tooltip">Duplicate</span></span>
+        </div>
+      </div>
+      <footer>Warm-up delay on the first, instant on the rest — the behaviour good desktop
+      apps have and most websites miss.</footer>
+    </article>
+
+    <!-- 7 -->
+    <article class="tile">
+      <h2>Submit morph <span>07</span></h2>
+      <div class="stage">
+        <button class="morph" type="button" data-state="idle">
+          <span class="lbl">Send inquiry</span>
+          <span class="spin" aria-hidden="true"><i></i></span>
+        </button>
+      </div>
+      <footer>Width animates to the spinner and back out to the result. Disabled while
+      busy, with the state announced.</footer>
+    </article>
+
+    <!-- 8 -->
+    <article class="tile span2">
+      <h2>Disclosure <span>08</span></h2>
+      <div class="stage" style="align-items:start;width:100%">
+        <div class="acc">
+          <details open><summary>What I do best <i aria-hidden="true"></i></summary>
+            <div class="inner">Data visualization that survives a phone. Motion with a
+            reduced-motion path. Component systems other engineers extend without asking me.</div></details>
+          <details><summary>What I use <i aria-hidden="true"></i></summary>
+            <div class="inner">TypeScript, React, modern CSS — container queries, cascade
+            layers, <code>:has()</code>. And plain HTML when that is the right answer.</div></details>
+          <details><summary>How I work <i aria-hidden="true"></i></summary>
+            <div class="inner">Close to design, early. Prototype in the browser rather than
+            arguing in a comment thread.</div></details>
+        </div>
+      </div>
+      <footer>Height animated with <code>interpolate-size</code> and
+      <code>::details-content</code> — no JS measuring, and it still opens without script.</footer>
+    </article>
+
+  </main>
+
+  <section class="work" id="work">
+    <h2>Selected work</h2>
+    <ul>
+      <li><a href="/work/recurly/">Recurly — animated billing & revenue data <small>UI engineering</small></a></li>
+      <li><a href="/work/forallsecure/">ForAllSecure — explaining fuzzing visually <small>Motion</small></a></li>
+      <li><a href="/archive/">Four Winds, Mathews, SeriesFest, Freebird, Punch Bowl <small>Archive</small></a></li>
+      <li><a href="/concepts/">Five interface prototypes <small>Concepts</small></a></li>
+    </ul>
+  </section>
+
+  <footer class="end">
+    <span>Nathan Moore · Colorado</span>
+    <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* 1 · toggle */
+document.querySelector('.sw').addEventListener('click', e => {
+  const b = e.currentTarget;
+  b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+});
+
+/* 2 · segmented control — measure the real box, support arrow keys */
+(() => {
+  const seg = document.querySelector('.seg');
+  const thumb = seg.querySelector('.thumb');
+  const tabs = [...seg.querySelectorAll('[role="tab"]')];
+  const move = el => {
+    thumb.style.setProperty('--x', (el.offsetLeft - 4) + 'px');
+    thumb.style.setProperty('--w', el.offsetWidth + 'px');
+  };
+  const select = el => {
+    tabs.forEach(t => { t.setAttribute('aria-selected', t === el); t.tabIndex = t === el ? 0 : -1; });
+    move(el); el.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      select(tabs[(i + d + tabs.length) % tabs.length]);
+    });
+  });
+  // Position without animating on first paint, and re-measure on resize.
+  const init = () => {
+    const prev = thumb.style.transition;
+    thumb.style.transition = 'none';
+    move(tabs.find(t => t.getAttribute('aria-selected') === 'true'));
+    thumb.offsetHeight;            // flush
+    thumb.style.transition = prev;
+  };
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(init); else init();
+  init();
+  addEventListener('resize', init, { passive: true });
+})();
+
+/* 3 · copy */
+(() => {
+  const btn = document.querySelector('.copy');
+  const txt = btn.querySelector('.txt');
+  const live = document.getElementById('copy-live');
+  let t;
+  btn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(txt.textContent.trim()); } catch {}
+    btn.dataset.state = 'done';
+    live.textContent = 'Email address copied';
+    clearTimeout(t);
+    t = setTimeout(() => { btn.dataset.state = 'idle'; live.textContent = ''; }, 1800);
+  });
+})();
+
+/* 4 · odometer */
+(() => {
+  const el = document.getElementById('odo');
+  const live = document.getElementById('odo-live');
+  let value = 2014, digits = [];
+  const build = n => {
+    el.innerHTML = '';
+    digits = String(n).split('').map(() => {
+      const col = document.createElement('span'); col.className = 'col';
+      const reel = document.createElement('span'); reel.className = 'reel';
+      for (let i = 0; i <= 9; i++) { const s = document.createElement('span'); s.textContent = i; reel.append(s); }
+      col.append(reel); el.append(col);
+      return reel;
+    });
+    const unit = document.createElement('span'); unit.className = 'unit';
+    unit.textContent = 'value'; el.append(unit);
+  };
+  const render = n => {
+    String(n).padStart(digits.length, '0').split('').forEach((d, i) => {
+      digits[i].style.translate = `0 ${-d}em`;
+    });
+    live.textContent = 'Value ' + n;
+  };
+  build(value); render(value);
+  document.querySelectorAll('.odo-ctl button').forEach(b =>
+    b.addEventListener('click', () => {
+      value = Math.max(0, Math.min(9999, value + Number(b.dataset.step)));
+      render(value);
+    }));
+})();
+
+/* 5 · detented slider */
+(() => {
+  const track = document.querySelector('.sld .track');
+  const fill = track.querySelector('.fill');
+  const knob = track.querySelector('.knob');
+  const ticks = [...document.querySelectorAll('.sld .ticks span')];
+  const names = ['Compact','Snug','Comfortable','Roomy','Spacious'];
+  const MAX = ticks.length - 1;
+  let v = 2;
+
+  const paint = () => {
+    const p = (v / MAX) * 100 + '%';
+    fill.style.width = p; knob.style.left = p;
+    track.setAttribute('aria-valuenow', v);
+    track.setAttribute('aria-valuetext', names[v]);
+    ticks.forEach((t, i) => i === v ? t.setAttribute('data-on','') : t.removeAttribute('data-on'));
+  };
+  const fromX = clientX => {
+    const r = track.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    return Math.round(ratio * MAX);           // snap to detent
+  };
+  const set = n => { if (n !== v) { v = n; paint(); } };
+
+  track.addEventListener('pointerdown', e => {
+    track.setPointerCapture(e.pointerId);
+    set(fromX(e.clientX));
+  });
+  track.addEventListener('pointermove', e => {
+    if (track.hasPointerCapture(e.pointerId)) set(fromX(e.clientX));
+  });
+  track.addEventListener('keydown', e => {
+    const map = { ArrowLeft:-1, ArrowDown:-1, ArrowRight:1, ArrowUp:1 };
+    let n = v;
+    if (e.key in map) n = v + map[e.key];
+    else if (e.key === 'Home') n = 0;
+    else if (e.key === 'End') n = MAX;
+    else if (e.key === 'PageUp') n = v + 2;
+    else if (e.key === 'PageDown') n = v - 2;
+    else return;
+    e.preventDefault();
+    set(Math.max(0, Math.min(MAX, n)));
+  });
+  paint();
+})();
+
+/* 6 · tooltip warm-up group */
+(() => {
+  const wrap = document.querySelector('.tipwrap');
+  let cool;
+  const delay = '.45s';
+  wrap.querySelectorAll('.bubble').forEach(b => b.style.transitionDelay = delay + ', ' + delay);
+  wrap.addEventListener('pointerenter', () => { clearTimeout(cool); }, true);
+  wrap.addEventListener('pointerover', () => {
+    clearTimeout(cool);
+    setTimeout(() => wrap.setAttribute('data-warm',''), 500);
+  });
+  wrap.addEventListener('pointerleave', () => {
+    cool = setTimeout(() => wrap.removeAttribute('data-warm'), 900);
+  });
+})();
+
+/* 7 · submit morph */
+(() => {
+  const btn = document.querySelector('.morph');
+  const lbl = btn.querySelector('.lbl');
+  btn.addEventListener('click', () => {
+    if (btn.dataset.state !== 'idle') return;
+    btn.dataset.state = 'busy'; btn.disabled = true;
+    setTimeout(() => {
+      btn.dataset.state = 'done'; lbl.textContent = 'Sent ✓'; btn.disabled = false;
+      setTimeout(() => { btn.dataset.state = 'idle'; lbl.textContent = 'Send inquiry'; }, 1800);
+    }, 1200);
+  });
+})();
+
+})();
+</script>
+</body>
+</html>

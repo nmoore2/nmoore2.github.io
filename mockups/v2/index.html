@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>nmoore.net — round two</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg:#0a0b0d; --card:#121419; --line:#1f232b; --ink:#f0f2f6;
+    --dim:#99a2b0; --mute:#636c7a; --accent:#c8ff2e;
+    --sans: Inter, ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.65 var(--sans);
+         -webkit-font-smoothing:antialiased; padding:clamp(1.25rem,.8rem+3vw,3.5rem); }
+  .wrap { max-width:62rem; margin-inline:auto; }
+  h1 { margin:0; font-size:clamp(1.5rem,1.1rem+1.8vw,2.25rem); font-weight:660; letter-spacing:-.03em; }
+  .lede { color:var(--dim); max-width:62ch; margin:.9rem 0 0; text-wrap:pretty; }
+  .lede a { color:var(--ink); }
+  .note { margin-top:1.25rem; padding:.85rem 1rem; border-left:2px solid var(--accent);
+          background:color-mix(in oklab, var(--accent) 8%, transparent);
+          font-size:.875rem; color:var(--dim); max-width:64ch; border-radius:0 6px 6px 0; }
+  .note strong { color:var(--ink); }
+
+  h2 { margin:2.75rem 0 .35rem; font:600 .75rem/1 var(--mono); letter-spacing:.15em;
+       text-transform:uppercase; color:var(--accent); }
+  h2 + p { margin:0 0 1rem; color:var(--mute); font-size:.875rem; max-width:62ch; }
+
+  ol { list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line);
+       border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  li { background:var(--card); }
+  a.row { display:grid; grid-template-columns:4.5rem 1fr auto; gap:.4rem 1.25rem; align-items:start;
+          padding:1.05rem 1.2rem; text-decoration:none; color:inherit; transition:background-color .18s ease; }
+  a.row:hover, a.row:focus-visible { background:color-mix(in oklab, var(--accent) 7%, var(--card)); }
+  a.row:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  .swatch { display:flex; gap:3px; padding-top:.3rem; }
+  .swatch i { width:.85rem; height:.85rem; border-radius:3px; display:block; }
+  .name { font-size:1.0625rem; font-weight:620; letter-spacing:-.015em; }
+  .desc { display:block; color:var(--dim); font-size:.875rem; margin-top:.2rem; text-wrap:pretty; }
+  .go { font:500 .75rem/1.9 var(--mono); color:var(--mute); white-space:nowrap; }
+  a.row:hover .go { color:var(--accent); }
+  @media (max-width:36rem) { a.row { grid-template-columns:4.5rem 1fr; } .go { display:none; } }
+
+  .pieces { margin-top:2.75rem; display:grid; gap:1px; background:var(--line);
+            border:1px solid var(--line); border-radius:10px; overflow:hidden;
+            grid-template-columns:repeat(auto-fit,minmax(14rem,1fr)); }
+  .pieces div { background:var(--card); padding:1rem 1.1rem; }
+  .pieces dt { font:600 .6875rem/1 var(--mono); letter-spacing:.13em; text-transform:uppercase; color:var(--accent); }
+  .pieces dd { margin:.45rem 0 0; font-size:.8125rem; color:var(--dim); text-wrap:pretty; }
+  .pieces dd b { color:var(--ink); font-weight:620; display:block; margin-bottom:.15rem; }
+  footer { margin-top:2.5rem; font-size:.8125rem; color:var(--mute); }
+  footer a { color:var(--dim); }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+             overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>nmoore.net — round two</h1>
+  <p class="lede">Craft Grid and One Big Demo, built out properly: three variants each,
+  six live pages. Five signature animations are shared across all of them and re-skinned by
+  CSS custom properties — the pages don't fork the code, which is part of the point. The
+  reasoning is in <a href="BRIEF.md">BRIEF.md</a>; round one is in
+  <a href="../index.html">../mockups</a>.</p>
+
+  <p class="note" style="border-left-color:#e4ff3f;background:color-mix(in oklab,#e4ff3f 10%,transparent)">
+  <strong>Round three is live.</strong> Five structurally different sites, ten showpiece
+  animations replacing the components wall, and ten treatments of the process diagram:
+  <a href="../v3/index.html">open round three →</a></p>
+
+  <p class="note"><strong>Placeholder content.</strong> Job titles, date ranges, client blurbs
+  and the self-assessed levels in variant C are plausible reconstructions, not facts. Correct
+  them before any of this ships.</p>
+
+  <h2>Craft Grid</h2>
+  <p>The homepage is a wall of live components. The bet: breadth of built things.</p>
+  <ol>
+    <li><a class="row" href="craft-a-acid.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#0a0b0a"></i><i style="background:#c8ff2e"></i><i style="background:#54e7c0"></i><i style="background:#f2f2ec"></i></span>
+      <span><span class="name">A · Acid Lab</span><span class="desc">Clinical, squared-off and high-contrast. Graphite and acid lime, hairline rules, numbered instrument panels. Light register: a bone-white working-notes band.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="craft-b-ember.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#15100c"></i><i style="background:#ff7a2f"></i><i style="background:#edc86d"></i><i style="background:#f6eee2"></i></span>
+      <span><span class="name">B · Ember</span><span class="desc">Warm and printerly. Fraunces headlines, soft corners, generous rhythm. Light register: a full cream spread with a drop cap and three columns.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="craft-c-cyanotype.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#060d18"></i><i style="background:#36d2ff"></i><i style="background:#8affd8"></i><i style="background:#e9f2f9"></i></span>
+      <span><span class="name">C · Cyanotype</span><span class="desc">A blueprint. Real drawing grid, crop marks, a dimensioned masthead and a title block. Light register: the printed capability specification.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+  </ol>
+
+  <h2>One Big Demo</h2>
+  <p>One undeniable artifact up front — a component you resize — over an otherwise calm page.</p>
+  <ol>
+    <li><a class="row" href="demo-d-dusk.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#0f0a1b"></i><i style="background:#bb8eff"></i><i style="background:#ffd68e"></i><i style="background:#f8f2e9"></i></span>
+      <span><span class="name">D · Dusk</span><span class="desc">Editorial and soft-edged. The demo sits inside the masthead, so the first thing on screen is something you can grab. Light register: warm paper essay.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="demo-e-signal.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#111110"></i><i style="background:#ff3d2e"></i><i style="background:#ffb52e"></i><i style="background:#f4efe3"></i></span>
+      <span><span class="name">E · Signal</span><span class="desc">Newsprint energy. Heavy uppercase headline, hard rules, a seamless ticker. Light register: an oat-paper opinion column set in a serif, two up.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="demo-f-deepwater.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#05100e"></i><i style="background:#5ae8b9"></i><i style="background:#ffd9a0"></i><i style="background:#f2ece0"></i></span>
+      <span><span class="name">F · Deepwater</span><span class="desc">Calm and wide. Deep teal, mint, long line-height, and a tidal divider instead of a rule. Light register: sand.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+  </ol>
+
+  <h2>The five signature pieces</h2>
+  <p>Built once in <code>shared/</code>, themed per variant. No dependencies, no build step.</p>
+  <dl class="pieces">
+    <div><dt>01</dt><dd><b>How I get it done</b>Five stages, nine rectangles that survive all of them. Each stage is a state, not a timeline position, so it interrupts cleanly on any frame.</dd></div>
+    <div><dt>02</dt><dd><b>Company morph</b>Selecting a client re-themes the panel into their real palette, animated through <code>@property</code> colours, while the chart and counter morph with it.</dd></div>
+    <div><dt>03</dt><dd><b>Masthead field</b>Per-character reveal that restores the string as an <code>aria-label</code>, over a drifting gradient mesh with pointer parallax.</dd></div>
+    <div><dt>04</dt><dd><b>Reflow</b>Container queries, pointer capture and a keyboard-operable resize. Badge, layout and the quoted rule all come from the same query set.</dd></div>
+    <div><dt>05</dt><dd><b>Craft wall</b>Ten complete components — including a FLIP reorder and a magnetic target that goes inert under reduced motion.</dd></div>
+  </dl>
+
+  <footer><strong style="color:var(--ink)">Motion toggle.</strong> Every variant has a
+  pause/play control in its header. It starts from your saved choice, falls back to your
+  system <code>prefers-reduced-motion</code> setting, and is seeded before first paint so
+  nothing animates on its way to being told not to — and because the choice outranks the
+  system preference in <em>both</em> directions, someone with Reduce Motion on can still
+  turn the animation on to see it. Paused holds each piece at its fullest state rather than
+  a blank one. Nothing here needs a framework, a bundler, or a network request beyond one
+  webfont in variant B.</footer>
+</div>
+</body>
+</html>

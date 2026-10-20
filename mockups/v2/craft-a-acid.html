@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="Craft Grid variant A — Acid Lab.">
+<script>/* Seed the motion switch before first paint, so nothing animates on the
+   way to being told not to. shared/motion.js takes over from here. */
+(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion =
+    (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full');
+})();</script>
+<link rel="stylesheet" href="shared/base.css?v=5">
+<link rel="stylesheet" href="shared/masthead.css?v=5">
+<link rel="stylesheet" href="shared/craft.css?v=5">
+<link rel="stylesheet" href="shared/process.css?v=5">
+<link rel="stylesheet" href="shared/morph.css?v=5">
+<style>
+  /* ═══ VARIANT A · ACID LAB ═══════════════════════════════════════════
+     Clinical and high-contrast. Everything is squared off, every label is
+     monospaced and numbered, rules are hairlines. The light register is a
+     bone-white lab-notebook band — a deliberate drop in voltage after the
+     wall of components.                                                  */
+  :root {
+    --bg:#0a0b0a;  --bg-2:#111311;  --bg-3:#181b18;
+    --ink:#f3f6f1; --dim:#9aa297;   --mute:#626a5e;
+    --line:#1d211c; --line-2:#2e342b;
+    --accent:#c8ff2e; --accent-2:#54e7c0; --on-accent:#0a0b0a;
+
+    --lt-bg:#f2f2ec; --lt-bg-2:#e5e6dc; --lt-ink:#0e100d;
+    --lt-dim:#474c42; --lt-line:#d2d3c8; --lt-accent:#3c6a00;
+
+    --fs-4: clamp(2.5rem, 1.5rem + 4.4vw, 5.5rem);
+  }
+  /* Squared off: a lab instrument, not a consumer app. */
+  .btn, .tile, .reflow, .process-stage, .process-steps, .morph-panel,
+  .morph-tabs button, .c-seg, .c-copy, .c-morph, .c-odo-ctl button,
+  .c-flip li, .c-acc, .pill { border-radius: 2px !important; }
+  .c-mag { border-radius: 2px; }
+
+  .display { font-weight: 760; letter-spacing: -.045em; }
+  .site-head .mark { letter-spacing: .22em; }
+
+  /* Numbered section headings, instrument-panel style. */
+  .sec-head .eyebrow { color: var(--accent); }
+  .sec-head h2 { font-size: var(--fs-2); }
+
+  .specimen {
+    display: grid; gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  }
+  .specimen div { background: var(--bg-2); padding: .9rem 1rem; }
+  .specimen dt {
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--mute);
+  }
+  .specimen dd { margin: .4rem 0 0; font-size: var(--fs-1); color: var(--ink); font-weight: 600; }
+
+  /* Light register — the notebook */
+  .notebook { border-top: 1px solid var(--lt-line); }
+  .notebook .grid2 { display: grid; gap: clamp(1.5rem, 1rem + 3vw, 3.5rem); }
+  @media (min-width: 52rem) { .notebook .grid2 { grid-template-columns: 1fr 1.15fr; } }
+  .notebook blockquote {
+    margin: 0; font-size: clamp(1.25rem, 1rem + 1.4vw, 1.875rem);
+    line-height: 1.22; letter-spacing: -.025em; color: var(--lt-ink); font-weight: 560;
+    text-wrap: pretty;
+  }
+  .notebook blockquote em { font-style: normal; color: var(--lt-accent); }
+  .notebook ol { counter-reset: n; display: grid; gap: .9rem; }
+  .notebook ol li {
+    counter-increment: n; display: grid; grid-template-columns: 2rem 1fr; gap: 1rem;
+    padding-bottom: .9rem; border-bottom: 1px solid var(--lt-line); font-size: var(--fs--1);
+  }
+  .notebook ol li::before {
+    content: counter(n, decimal-leading-zero);
+    font: 600 var(--fs--2)/1.5 var(--font-mono); color: var(--lt-accent); letter-spacing: .1em;
+  }
+  .notebook ol b { color: var(--lt-ink); font-weight: 650; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<a class="variant-tag" href="index.html">A · ACID LAB</a>
+
+<header class="site-head">
+  <a class="mark" href="#top">N<b>/</b>M</a>
+  <nav aria-label="Main">
+    <a href="#craft">Craft</a>
+    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a class="opt" href="/insights/">Writing</a>
+  </nav>
+  <button class="motion-toggle" type="button" data-motion-toggle disabled
+          aria-pressed="true" aria-label="Pause motion" title="Pause all animations on this page">
+    <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    <span data-motion-label>Motion</span>
+  </button>
+</header>
+
+<main id="main">
+
+  <!-- ── Masthead ─────────────────────────────────────────────────── -->
+  <section class="masthead" id="top">
+    <div class="field" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="shell">
+      <p class="pill reveal-sibling" style="opacity:0;translate:0 10px">
+        <span class="live" aria-hidden="true"></span> Open to senior front-end roles
+      </p>
+      <h1 class="display" data-split style="margin-top:1.25rem">Nathan Moore<br>builds <span class="mark">interfaces.</span></h1>
+      <p class="sub reveal-sibling">Senior front-end engineer, twelve years in. Everything below this
+      line is running in your browser right now — no screenshots, no video, no framework.
+      Click it, drag it, tab through it.</p>
+      <p class="row reveal-sibling sub" style="--s:.75rem;margin-top:1.75rem;max-width:none">
+        <a class="btn" href="#craft">See the components</a>
+        <a class="btn btn-ghost" href="mailto:hello@nmoore.net">hello@nmoore.net</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Specimen bar ─────────────────────────────────────────────── -->
+  <section class="shell" style="padding-bottom:var(--rhythm)">
+    <dl class="specimen">
+      <div><dt>Discipline</dt><dd>Front-end / UI / UX</dd></div>
+      <div><dt>Experience</dt><dd class="num">12 years</dd></div>
+      <div><dt>Base</dt><dd>Colorado, remote</dd></div>
+      <div><dt>Dependencies here</dt><dd class="num">0</dd></div>
+    </dl>
+  </section>
+
+  <!-- ── LEAD: the craft wall ─────────────────────────────────────── -->
+  <section id="craft" class="band" style="padding-top:0">
+    <div class="shell sec-head">
+      <p class="eyebrow">01 / Specimens</p>
+      <h2 class="h2">Ten live components</h2>
+    </div>
+    <div data-craft></div>
+    <div class="shell" style="padding-top:1.25rem">
+      <p class="muted" style="font-size:var(--fs--1);max-width:62ch">Each one is complete —
+      keyboard path, ARIA, reduced-motion behaviour included. The parts that are invisible
+      in a screenshot are most of the work.</p>
+    </div>
+  </section>
+
+  <!-- ── Process ──────────────────────────────────────────────────── -->
+  <section id="process" class="band">
+    <div class="shell">
+      <div class="sec-head">
+        <p class="eyebrow">02 / Method</p>
+        <h2 class="h2">How I get it done</h2>
+      </div>
+      <div data-process></div>
+    </div>
+  </section>
+
+  <!-- ── Clients (light register, client-themed) ──────────────────── -->
+  <section id="clients" class="band">
+    <div class="shell">
+      <div class="sec-head">
+        <p class="eyebrow">03 / Field work</p>
+        <h2 class="h2">Case studies, in their own colours</h2>
+      </div>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <!-- ── Notebook: the light band ─────────────────────────────────── -->
+  <section class="band register-light notebook">
+    <div class="shell grid2">
+      <div>
+        <p class="eyebrow">04 / Working notes</p>
+        <blockquote style="margin-top:1rem">I'd rather ship something <em>correct at 360px</em>
+        than something impressive at 1440.</blockquote>
+      </div>
+      <ol>
+        <li><span><b>Design and engineering are one job.</b> The interesting decisions happen
+        where they meet, and they get made badly when there's a handoff in between.</span></li>
+        <li><span><b>Prototype in the browser.</b> A day of real code settles arguments that
+        three weeks of comments won't.</span></li>
+        <li><span><b>Accessibility is not a pass.</b> It's the same pass. Retrofitting focus
+        order costs more than building it.</span></li>
+        <li><span><b>Motion earns its place or leaves.</b> If deleting it loses nothing, it
+        was never doing anything.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Work ─────────────────────────────────────────────────────── -->
+  <section id="work" class="band">
+    <div class="shell">
+      <div class="sec-head">
+        <p class="eyebrow">05 / Record</p>
+        <h2 class="h2">Selected work</h2>
+      </div>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span>
+          <span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span>
+          <span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span>
+          <span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Mathews Inc.<span class="what">Product configurator under a hard image budget</span></span>
+          <span class="when">2017—19</span></a></li>
+        <li class="work-row" style="--client:#e8356d"><a href="/archive/">
+          <span class="dot" aria-hidden="true"></span>
+          <span>SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Scheduling, commerce, custom CMS</span></span>
+          <span class="when">2014—18</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> · <a href="https://github.com/nmoore2">GitHub</a></span>
+  <span class="mono">Hand-written · 0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=5" defer></script>
+<script src="shared/masthead.js?v=5" defer></script>
+<script src="shared/craft.js?v=5" defer></script>
+<script src="shared/process.js?v=5" defer></script>
+<script src="shared/morph.js?v=5" defer></script>
+</body>
+</html>

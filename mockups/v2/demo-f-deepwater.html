@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="One Big Demo variant F — Deepwater.">
+<script>/* Seed the motion switch before first paint, so nothing animates on the
+   way to being told not to. shared/motion.js takes over from here. */
+(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion =
+    (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full');
+})();</script>
+<link rel="stylesheet" href="shared/base.css?v=5">
+<link rel="stylesheet" href="shared/masthead.css?v=5">
+<link rel="stylesheet" href="shared/reflow.css?v=5">
+<link rel="stylesheet" href="shared/process.css?v=5">
+<link rel="stylesheet" href="shared/morph.css?v=5">
+<link rel="stylesheet" href="shared/craft.css?v=5">
+<style>
+  /* ═══ VARIANT F · DEEPWATER ══════════════════════════════════════════
+     Calm and wide. Generous line-height, low-contrast chrome, mint on a
+     deep teal that reads closer to ink than to black. Sections are
+     separated by a slow tidal divider rather than a rule, and the light
+     register is sand — the beach at the end of the swim.                  */
+  :root {
+    --bg:#05100e;  --bg-2:#0b1b18;  --bg-3:#112924;
+    --ink:#eaf5f1; --dim:#95b0a9;   --mute:#5f7d76;
+    --line:#11211e; --line-2:#1c3833;
+    --accent:#5ae8b9; --accent-2:#ffd9a0; --on-accent:#03120e;
+
+    --lt-bg:#f2ece0; --lt-bg-2:#e5dccb; --lt-ink:#06130f;
+    --lt-dim:#485851; --lt-line:#d9ceba; --lt-accent:#00684f;
+
+    --rhythm: clamp(3.5rem, 2rem + 7vw, 9rem);
+    --fs-4: clamp(2.25rem, 1.4rem + 3.8vw, 4.75rem);
+  }
+  body { line-height: 1.72; }
+  .btn, .tile, .reflow, .rf-card, .process-stage, .process-steps,
+  .morph-panel, .c-seg, .c-copy, .c-morph, .pill, .morph-tabs button { border-radius: 18px; }
+  .display { font-weight: 600; letter-spacing: -.032em; line-height: 1.02; }
+  .lede, .sub { line-height: 1.7; }
+  .sec-head { gap: 1.5rem; }
+  .sec-head::after { background: linear-gradient(90deg, var(--line-2), transparent); }
+
+  /* ── Tidal divider ───────────────────────────────────────────────── */
+  .tide { display: block; width: 100%; height: clamp(44px, 6vw, 86px); }
+  .tide path { fill: none; stroke-linecap: round; }
+  .tide .w1 { stroke: color-mix(in oklab, var(--accent) 40%, transparent); stroke-width: 1.5;
+              animation: tide 22s var(--ease-in-out) infinite alternate; }
+  .tide .w2 { stroke: color-mix(in oklab, var(--accent-2) 26%, transparent); stroke-width: 1.5;
+              animation: tide 17s var(--ease-in-out) -6s infinite alternate-reverse; }
+  .tide .w3 { stroke: color-mix(in oklab, var(--accent) 16%, transparent); stroke-width: 1;
+              animation: tide 29s var(--ease-in-out) -11s infinite alternate; }
+  @keyframes tide {
+    from { transform: translateX(-4%) scaleY(1); }
+    to   { transform: translateX(4%)  scaleY(1.35); }
+  }
+
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  .hero-wide { display: grid; gap: clamp(1.75rem, 1rem + 3.5vw, 3.5rem); }
+  .hero-wide .intro { max-width: 40rem; }
+
+  .marks { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin-top: 1.75rem; }
+  .marks div { min-width: 7rem; }
+  .marks dt { font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em;
+              text-transform: uppercase; color: var(--mute); }
+  .marks dd { margin: .35rem 0 0; color: var(--ink); font-weight: 600; }
+
+  /* ── Light register: sand ────────────────────────────────────────── */
+  .sand { border-block: 1px solid var(--lt-line); }
+  .sand .inner { display: grid; gap: clamp(1.75rem, 1rem + 4vw, 4.5rem); align-items: start; }
+  @media (min-width: 56rem) { .sand .inner { grid-template-columns: 1.1fr 1fr; } }
+  .sand h2 { font-size: clamp(1.5rem, 1.15rem + 1.8vw, 2.5rem); max-width: 16ch; text-wrap: balance; }
+  .sand p { font-size: var(--fs-0); line-height: 1.75; max-width: 54ch; text-wrap: pretty; }
+  .sand p + p { margin-top: 1rem; }
+  .sand strong { color: var(--lt-ink); font-weight: 650; }
+  .sand .checks { display: grid; gap: .85rem; margin-top: .5rem; }
+  .sand .checks li {
+    display: grid; grid-template-columns: 1.4rem 1fr; gap: .8rem; align-items: start;
+    font-size: var(--fs--1); line-height: 1.6;
+  }
+  .sand .checks li::before {
+    content: ""; margin-top: .42em; width: 1.4rem; height: .5rem; border-radius: 99px;
+    background: var(--lt-accent); opacity: .85;
+  }
+  .sand .checks b { color: var(--lt-ink); font-weight: 650; }
+
+    /* Motion off — driven by the switch so a visitor can opt back in. */
+  html[data-motion="reduced"] .tide path { animation: none; }
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<a class="variant-tag" href="index.html">F · DEEPWATER</a>
+
+<header class="site-head">
+  <a class="mark" href="#top">N<b>~</b>M</a>
+  <nav aria-label="Main">
+    <a href="#demo">Demo</a><a href="#process">Process</a>
+    <a href="#clients">Case studies</a><a class="opt" href="#work">Work</a>
+  </nav>
+  <button class="motion-toggle" type="button" data-motion-toggle disabled
+          aria-pressed="true" aria-label="Pause motion" title="Pause all animations on this page">
+    <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    <span data-motion-label>Motion</span>
+  </button>
+</header>
+
+<main id="main">
+
+  <section class="masthead" id="top">
+    <div class="field" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="shell hero-wide">
+      <div class="intro">
+        <p class="pill reveal-sibling" style="opacity:0;translate:0 10px">
+          <span class="live" aria-hidden="true"></span> Open to senior front-end roles
+        </p>
+        <h1 class="display" data-split style="margin-top:1.25rem">Interfaces that<br>stay <span class="mark">calm</span> under load.</h1>
+        <p class="sub reveal-sibling">Nathan Moore — senior front-end engineer, twelve years in.
+        I build the parts that have to keep working when the data gets messy, the connection
+        gets slow and the screen gets small.</p>
+        <dl class="marks reveal-sibling sub" style="max-width:none">
+          <div><dt>Based</dt><dd>Colorado</dd></div>
+          <div><dt>Since</dt><dd class="num">2014</dd></div>
+          <div><dt>Focus</dt><dd>UI · UX · motion</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE demo ─────────────────────────────────────────────────── -->
+  <section id="demo" class="band" style="padding-top:0">
+    <div class="shell">
+      <div class="sec-head">
+        <p class="eyebrow">The demo</p>
+        <h2 class="h2">One component, four layouts</h2>
+      </div>
+      <p class="dimmed" style="max-width:60ch;margin-bottom:1.5rem">Drag the right-hand edge.
+      It reflows because it responds to its own width rather than the window's — which is the
+      difference between a component you can reuse and one you can only place in one spot.</p>
+      <div data-reflow></div>
+    </div>
+  </section>
+
+  <svg class="tide" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path class="w1" d="M-100 52 C 150 18, 330 82, 580 48 S 1010 14, 1300 56"/>
+    <path class="w2" d="M-100 62 C 190 34, 400 88, 640 58 S 1040 30, 1300 66"/>
+    <path class="w3" d="M-100 42 C 220 70, 420 16, 660 44 S 1060 72, 1300 38"/>
+  </svg>
+
+  <section id="process" class="band" style="padding-top:0">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Method</p><h2 class="h2">How I get it done</h2></div>
+      <div data-process></div>
+    </div>
+  </section>
+
+  <!-- ── Light register: sand ─────────────────────────────────────── -->
+  <section class="band register-light sand">
+    <div class="shell inner">
+      <div>
+        <p class="eyebrow">What you'd be hiring</p>
+        <h2 class="h2" style="margin:.75rem 0 1.25rem">Someone who finishes the unglamorous half</h2>
+        <p>Most front-end work is pleasant until the edges arrive: the long string, the empty
+        state, the third concurrent request, the person navigating with a keyboard. Those edges
+        are where interfaces earn their reputation, and they are most of what I do.</p>
+        <p>I came up through design, so I'm comfortable owning the look when there isn't one
+        yet — and I've spent enough years in implementation to know which beautiful ideas will
+        quietly cost a team a year. <strong>The useful skill is telling those apart early.</strong></p>
+      </div>
+      <ul class="checks">
+        <li><span><b>Component systems</b> other engineers extend without asking me first — which
+        is the only real test of whether a system works.</span></li>
+        <li><span><b>Data visualisation</b> that stays interactive and legible at 360px, not just
+        a desktop chart with a smaller font.</span></li>
+        <li><span><b>Motion that means something</b>, with a reduced-motion path that teaches the
+        same thing without moving.</span></li>
+        <li><span><b>Accessibility in the same pass</b> as the layout. Retrofitting focus order
+        costs several times what building it does.</span></li>
+        <li><span><b>Performance budgets</b> someone actually measures, and layout that doesn't
+        move after it paints.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="clients" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Case studies</p><h2 class="h2">Each in its own colours</h2></div>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <section id="work" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Record</p><h2 class="h2">Selected work</h2></div>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span><span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews Inc.<span class="what">Product configurator under a hard image budget</span></span><span class="when">2017—19</span></a></li>
+        <li class="work-row" style="--client:#e8356d"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Scheduling, commerce, custom CMS</span></span><span class="when">2014—18</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Also live here</p><h2 class="h2">A few details</h2></div>
+    </div>
+    <div class="shell"><div data-craft data-only="flip,slider,toggle,magnet"></div></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> · <a href="https://github.com/nmoore2">GitHub</a></span>
+  <span class="mono">Hand-written · 0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=5" defer></script>
+<script src="shared/masthead.js?v=5" defer></script>
+<script src="shared/reflow.js?v=5" defer></script>
+<script src="shared/process.js?v=5" defer></script>
+<script src="shared/morph.js?v=5" defer></script>
+<script src="shared/craft.js?v=5" defer></script>
+</body>
+</html>

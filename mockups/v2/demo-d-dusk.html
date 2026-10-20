@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="One Big Demo variant D — Dusk.">
+<script>/* Seed the motion switch before first paint, so nothing animates on the
+   way to being told not to. shared/motion.js takes over from here. */
+(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion =
+    (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full');
+})();</script>
+<link rel="stylesheet" href="shared/base.css?v=5">
+<link rel="stylesheet" href="shared/masthead.css?v=5">
+<link rel="stylesheet" href="shared/reflow.css?v=5">
+<link rel="stylesheet" href="shared/process.css?v=5">
+<link rel="stylesheet" href="shared/morph.css?v=5">
+<link rel="stylesheet" href="shared/craft.css?v=5">
+<style>
+  /* ═══ VARIANT D · DUSK ═══════════════════════════════════════════════
+     Editorial and soft-edged. The demo sits inside the masthead, so the
+     first thing on screen is something you can grab. Warm paper carries
+     the quiet half.                                                       */
+  :root {
+    --bg:#0f0a1b;  --bg-2:#181127;  --bg-3:#221836;
+    --ink:#f1edfb; --dim:#ada3c7;   --mute:#7a7097;
+    --line:#241a3a; --line-2:#372a55;
+    --accent:#bb8eff; --accent-2:#ffd68e; --on-accent:#11081f;
+
+    --lt-bg:#f8f2e9; --lt-bg-2:#eee5d7; --lt-ink:#180e27;
+    --lt-dim:#564963; --lt-line:#ded2c1; --lt-accent:#6a3fb0;
+
+    --fs-4: clamp(2.25rem, 1.5rem + 3.4vw, 4.25rem);
+  }
+  .btn, .tile, .process-stage, .process-steps, .morph-panel, .reflow,
+  .rf-card, .c-seg, .c-copy, .c-morph, .pill, .morph-tabs button { border-radius: 14px; }
+  .reflow-presets, .reflow-read { border-radius: 10px; }
+
+  .display { font-weight: 640; letter-spacing: -.035em; }
+  .display .mark { color: var(--accent-2); }
+
+  /* Hero grid: copy beside the live component once there's room. */
+  .hero-grid { display: grid; gap: clamp(1.5rem, 1rem + 3vw, 3rem); align-items: center; }
+  @media (min-width: 64rem) { .hero-grid { grid-template-columns: minmax(0, 23rem) minmax(0, 1fr); } }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent-2);
+  }
+  .kicker::before { content: ""; width: 1.75rem; height: 1px; background: currentColor; }
+
+  /* Light register: the paper essay */
+  .paper { border-block: 1px solid var(--lt-line); }
+  .paper .inner { display: grid; gap: clamp(1.5rem, 1rem + 3vw, 4rem); }
+  @media (min-width: 54rem) { .paper .inner { grid-template-columns: 15rem 1fr; } }
+  .paper h2 { font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem); }
+  .paper .body { max-width: 62ch; }
+  .paper .body p { margin-bottom: 1rem; font-size: var(--fs-0); line-height: 1.72; text-wrap: pretty; }
+  .paper .body p:last-child { margin-bottom: 0; }
+  .paper .body strong { color: var(--lt-ink); font-weight: 650; }
+  .paper .pull {
+    margin: 1.75rem 0; padding-left: 1.25rem;
+    border-left: 3px solid var(--lt-accent);
+    font-size: clamp(1.125rem, 1rem + .7vw, 1.4375rem); line-height: 1.3;
+    letter-spacing: -.02em; color: var(--lt-ink); font-weight: 560; text-wrap: pretty;
+  }
+  .paper .side { font-size: var(--fs--1); }
+  .paper .side dt { font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .13em;
+                    text-transform: uppercase; color: var(--lt-accent); margin-top: 1rem; }
+  .paper .side dt:first-child { margin-top: 0; }
+  .paper .side dd { margin: .3rem 0 0; color: var(--lt-dim); }
+
+  .strip { border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<a class="variant-tag" href="index.html">D · DUSK</a>
+
+<header class="site-head">
+  <a class="mark" href="#top">N<b>/</b>M</a>
+  <nav aria-label="Main">
+    <a href="#process">Process</a><a href="#clients">Case studies</a>
+    <a href="#work">Work</a><a class="opt" href="/insights/">Writing</a>
+  </nav>
+  <button class="motion-toggle" type="button" data-motion-toggle disabled
+          aria-pressed="true" aria-label="Pause motion" title="Pause all animations on this page">
+    <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    <span data-motion-label>Motion</span>
+  </button>
+</header>
+
+<main id="main">
+
+  <!-- ── Masthead carries the demo ───────────────────────────────── -->
+  <section class="masthead" id="top">
+    <div class="field" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="shell hero-grid">
+      <div>
+        <p class="kicker reveal-sibling" style="opacity:0;translate:0 10px">Senior front-end engineer</p>
+        <h1 class="display" data-split style="margin-top:.9rem">Nathan Moore.<br>Try the <span class="mark">work.</span></h1>
+        <p class="sub reveal-sibling">Twelve years building interfaces. Rather than describe that,
+        here is one running — drag its right edge. It reflows through four layouts because it
+        responds to <em>its own</em> width, not the window's. That difference is most of what
+        makes a component reusable.</p>
+        <p class="row reveal-sibling sub" style="--s:.65rem;margin-top:1.5rem;max-width:none">
+          <a class="btn" href="mailto:hello@nmoore.net">hello@nmoore.net</a>
+          <a class="btn btn-ghost" href="#process">See how I work</a>
+        </p>
+      </div>
+      <div data-reflow></div>
+    </div>
+  </section>
+
+  <section id="process" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Method</p><h2 class="h2">How I get it done</h2></div>
+      <div data-process></div>
+    </div>
+  </section>
+
+  <section id="clients" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Case studies</p><h2 class="h2">Each one in its own colours</h2></div>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <!-- ── Light register ───────────────────────────────────────────── -->
+  <section class="band register-light paper">
+    <div class="shell inner">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 class="h2" style="margin-top:.6rem">The short version</h2>
+        <dl class="side" style="margin-top:1.5rem">
+          <dt>Based</dt><dd>Colorado · remote, US hours</dd>
+          <dt>Building since</dt><dd>2014</dd>
+          <dt>Reaching for</dt><dd>TypeScript, React, modern CSS, SVG &amp; Canvas</dd>
+          <dt>Status</dt><dd>Open to senior front-end roles</dd>
+        </dl>
+      </div>
+      <div class="body">
+        <p>I'm a front-end engineer who came up through design, which means I've spent twelve
+        years on the side of the handoff where the interesting decisions actually get made —
+        what happens at 360px, what the empty state says, where focus lands when the dialog
+        closes. Those never appear in a mock. They get decided by whoever notices last.</p>
+        <p class="pull">The best compliment my work gets is that nobody mentions it. Nothing
+        jumped, nothing trapped focus, nothing took four seconds.</p>
+        <p>Most recently that has meant <strong>data visualisation</strong> — multi-series billing
+        charts that had to stay interactive and legible on a phone without forking into a second
+        component — and <strong>motion that teaches</strong>, like a scroll-sequenced explainer
+        for an audience of security engineers who would have spotted a wrong metaphor instantly.</p>
+        <p>The rest is the part that doesn't demo well and matters most: component systems other
+        engineers can extend without asking me first, accessibility built in the same pass rather
+        than retrofitted, and performance budgets that someone actually measures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Record</p><h2 class="h2">Selected work</h2></div>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span><span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews Inc.<span class="what">Product configurator under a hard image budget</span></span><span class="when">2017—19</span></a></li>
+        <li class="work-row" style="--client:#e8356d"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Scheduling, commerce, custom CMS</span></span><span class="when">2014—18</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── A short craft strip, as evidence rather than headline ────── -->
+  <section class="band strip">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Also live on this page</p><h2 class="h2">Details, if you want them</h2></div>
+    </div>
+    <div class="shell"><div data-craft data-only="flip,magnet,slider,copy"></div></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> · <a href="https://github.com/nmoore2">GitHub</a></span>
+  <span class="mono">Hand-written · 0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=5" defer></script>
+<script src="shared/masthead.js?v=5" defer></script>
+<script src="shared/reflow.js?v=5" defer></script>
+<script src="shared/process.js?v=5" defer></script>
+<script src="shared/morph.js?v=5" defer></script>
+<script src="shared/craft.js?v=5" defer></script>
+</body>
+</html>

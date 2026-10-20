@@ -1,0 +1,224 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SIGNATURE 5 — Craft wall
+   Ten live components. Not screenshots, not a video: the page is the demo
+   reel. Each tile is small enough to read in one sitting and complete
+   enough to ship — including the keyboard path and the ARIA, which is the
+   part that separates a component from a trick.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.craft {
+  display: grid; gap: 1px;
+  background: var(--line);
+  border-block: 1px solid var(--line);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+}
+.tile {
+  background: var(--bg-2);
+  padding: 1.1rem;
+  display: grid; grid-template-rows: auto 1fr auto; gap: 1rem;
+  min-height: 14rem;
+  transition: background-color .25s var(--ease);
+}
+.tile:hover { background: var(--bg-3); }
+.tile.w2 { grid-column: span 2; }
+@media (max-width: 38rem) { .tile.w2 { grid-column: span 1; } }
+
+.tile h3 {
+  display: flex; justify-content: space-between; gap: 1rem;
+  font: 600 var(--fs--2)/1 var(--font-mono);
+  letter-spacing: .13em; text-transform: uppercase; color: var(--mute);
+}
+.tile h3 span { font-weight: 400; font-variant-numeric: tabular-nums; }
+.tile .stage { display: grid; place-items: center; gap: .9rem; }
+.tile footer { font-size: var(--fs--1); color: var(--dim); text-wrap: pretty; }
+
+/* 1 · spring toggle */
+.c-sw {
+  appearance: none; width: 4.25rem; height: 2.375rem; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--bg); position: relative; padding: 0;
+  transition: background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.c-sw::after {
+  content: ""; position: absolute; inset: 4px auto 4px 4px; width: 1.75rem;
+  border-radius: 999px; background: var(--mute);
+  transition: translate .44s var(--spring), background-color .3s var(--ease), width .2s var(--ease);
+}
+.c-sw:active::after { width: 2.15rem; }
+.c-sw[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+.c-sw[aria-pressed="true"]::after { translate: 1.875rem 0; background: var(--on-accent); }
+
+/* 2 · segmented control */
+.c-seg {
+  position: relative; display: inline-flex; padding: 4px; gap: 2px;
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 10px;
+}
+.c-seg .thumb {
+  position: absolute; inset-block: 4px; left: 0; border-radius: 7px;
+  background: var(--bg-3); box-shadow: inset 0 0 0 1px var(--line-2);
+  translate: var(--x, 0) 0; width: var(--w, 0);
+  transition: translate .34s var(--ease), width .34s var(--ease);
+}
+.c-seg button {
+  position: relative; z-index: 1; border: 0; background: none;
+  padding: .45rem .8rem; border-radius: 7px;
+  font: 500 var(--fs--1)/1 var(--font-sans); color: var(--mute);
+  transition: color .2s var(--ease);
+}
+.c-seg button[aria-selected="true"] { color: var(--ink); }
+
+/* 3 · copy */
+.c-copy {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1px solid var(--line-2); background: var(--bg);
+  padding: .55rem .9rem; border-radius: 8px;
+  font: 500 var(--fs--1)/1 var(--font-mono);
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.c-copy:hover { border-color: var(--mute); }
+.c-copy[data-state="done"] { color: var(--accent); border-color: color-mix(in oklab, var(--accent) 50%, transparent); }
+.c-copy .ico { position: relative; width: 14px; height: 14px; flex: none; }
+.c-copy .ico svg {
+  position: absolute; inset: 0; width: 14px; height: 14px; fill: none;
+  stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  transition: opacity .18s var(--ease), scale .32s var(--spring), rotate .3s var(--ease);
+}
+.c-copy .check { opacity: 0; scale: .4; rotate: -25deg; }
+.c-copy[data-state="done"] .clip { opacity: 0; scale: .4; }
+.c-copy[data-state="done"] .check { opacity: 1; scale: 1; rotate: 0deg; }
+
+/* 4 · odometer */
+.c-odo {
+  display: flex; align-items: baseline; gap: .08em;
+  font: 700 2.5rem/1 var(--font-mono); font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em; color: var(--ink);
+}
+.c-odo .col { height: 1em; overflow: hidden; }
+.c-odo .reel { display: block; transition: translate .6s var(--ease); }
+.c-odo .reel span { display: block; height: 1em; }
+.c-odo .uom { font-size: .85rem; font-weight: 500; color: var(--mute); margin-left: .3em; }
+.c-odo-ctl { display: flex; gap: .4rem; }
+.c-odo-ctl button {
+  border: 1px solid var(--line-2); background: var(--bg); color: var(--mute);
+  width: 2rem; height: 2rem; border-radius: 6px; line-height: 1;
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.c-odo-ctl button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* 5 · detented slider */
+.c-sld { width: 100%; max-width: 17rem; }
+.c-sld .track { position: relative; height: 2.25rem; display: grid; align-items: center; cursor: grab; touch-action: none; }
+.c-sld .track:active { cursor: grabbing; }
+.c-sld .rail { height: 3px; border-radius: 3px; background: var(--line-2); }
+.c-sld .fill { position: absolute; left: 0; height: 3px; border-radius: 3px; background: var(--accent); width: var(--p, 50%); transition: width .3s var(--spring); }
+.c-sld .knob {
+  position: absolute; left: var(--p, 50%); top: 50%; width: 1.1rem; height: 1.1rem;
+  border-radius: 999px; background: var(--accent); translate: -50% -50%;
+  transition: scale .2s var(--spring), box-shadow .2s var(--ease), left .3s var(--spring);
+}
+.c-sld .track:active .fill, .c-sld .track:active .knob { transition: none; }
+.c-sld .track:active .knob { scale: 1.35; box-shadow: 0 0 0 7px color-mix(in oklab, var(--accent) 20%, transparent); }
+.c-sld .ticks { display: flex; justify-content: space-between; margin-top: .35rem; }
+.c-sld .ticks span { font: 500 var(--fs--2)/1 var(--font-mono); color: var(--mute); transition: color .2s var(--ease); }
+.c-sld .ticks span[data-on] { color: var(--accent); }
+
+/* 6 · tooltip group */
+.c-tips { display: flex; gap: .5rem; }
+.c-tip { position: relative; }
+.c-tip > button {
+  width: 2.5rem; height: 2.5rem; border-radius: 8px;
+  border: 1px solid var(--line-2); background: var(--bg); color: var(--mute);
+  display: grid; place-items: center;
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.c-tip > button:hover { color: var(--accent); border-color: var(--accent); }
+.c-tip .bubble {
+  position: absolute; bottom: calc(100% + .5rem); left: 50%;
+  translate: -50% 4px; opacity: 0; pointer-events: none;
+  background: var(--ink); color: var(--bg);
+  font: 500 var(--fs--2)/1 var(--font-sans); white-space: nowrap;
+  padding: .4rem .55rem; border-radius: 6px;
+  transition: opacity .16s var(--ease) .45s, translate .24s var(--ease) .45s;
+}
+.c-tips[data-warm] .c-tip .bubble { transition-delay: 0s; }
+.c-tip > button:hover + .bubble, .c-tip > button:focus-visible + .bubble { opacity: 1; translate: -50% 0; }
+
+/* 7 · submit morph */
+.c-morph {
+  position: relative; overflow: hidden; border: 0; border-radius: 8px;
+  background: var(--accent); color: var(--on-accent);
+  font: 620 var(--fs--1)/1 var(--font-sans); padding: .7rem 1.2rem; min-width: 8.5rem;
+  transition: background-color .25s var(--ease), min-width .36s var(--ease), color .25s var(--ease);
+}
+.c-morph .lbl { display: inline-block; transition: opacity .18s var(--ease), translate .25s var(--ease); }
+.c-morph[data-state="busy"] { min-width: 3rem; background: var(--line-2); color: var(--mute); }
+.c-morph[data-state="busy"] .lbl { opacity: 0; translate: 0 -.5rem; }
+.c-morph[data-state="done"] { background: var(--accent-2); color: var(--bg); }
+.c-morph .spin { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: opacity .18s var(--ease); }
+.c-morph[data-state="busy"] .spin { opacity: 1; }
+.c-morph .spin i { width: 14px; height: 14px; border-radius: 999px; border: 2px solid currentColor; border-top-color: transparent; animation: c-spin .7s linear infinite; }
+@keyframes c-spin { to { rotate: 360deg; } }
+
+/* 8 · disclosure */
+.c-acc { width: 100%; }
+.c-acc details { border-bottom: 1px solid var(--line); }
+.c-acc summary {
+  list-style: none; cursor: pointer; padding: .55rem 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  font-size: var(--fs--1); color: var(--ink);
+}
+.c-acc summary::-webkit-details-marker { display: none; }
+.c-acc summary i { width: 10px; height: 10px; flex: none; position: relative; }
+.c-acc summary i::before, .c-acc summary i::after {
+  content: ""; position: absolute; inset: 50% 0 auto; height: 1.5px; background: var(--mute);
+  transition: rotate .3s var(--ease), opacity .2s var(--ease);
+}
+.c-acc summary i::after { rotate: 90deg; }
+.c-acc details[open] summary i::after { rotate: 0deg; opacity: 0; }
+.c-acc .inner { padding-bottom: .65rem; font-size: var(--fs--2); line-height: 1.6; color: var(--dim); }
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .c-acc details::details-content {
+    block-size: 0; overflow: hidden; opacity: 0;
+    transition: block-size .32s var(--ease), content-visibility .32s allow-discrete, opacity .26s var(--ease);
+  }
+  .c-acc details[open]::details-content { block-size: auto; opacity: 1; }
+}
+
+/* 9 · FLIP reorder */
+.c-flip { width: 100%; display: grid; gap: .4rem; }
+.c-flip li {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem .65rem; border-radius: 8px;
+  border: 1px solid var(--line-2); background: var(--bg);
+  font: 500 var(--fs--1)/1 var(--font-sans); color: var(--ink);
+}
+.c-flip li b { font: 600 var(--fs--2)/1 var(--font-mono); color: var(--accent); }
+.c-flip li span.bar { margin-left: auto; height: 4px; border-radius: 2px; background: var(--accent); width: var(--b); opacity: .6; }
+.c-flip-ctl { display: flex; gap: .5rem; }
+.c-flip-ctl button {
+  border: 1px solid var(--line-2); background: var(--bg); color: var(--dim);
+  padding: .45rem .75rem; border-radius: 7px; font: 500 var(--fs--2)/1 var(--font-mono);
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.c-flip-ctl button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* 10 · magnetic button */
+.c-mag {
+  position: relative; border: 1px solid var(--line-2); background: var(--bg);
+  color: var(--ink); border-radius: 999px; padding: .85rem 1.5rem;
+  font: 620 var(--fs--1)/1 var(--font-sans);
+  translate: var(--mx, 0) var(--my, 0);
+  transition: translate .45s var(--spring), border-color .25s var(--ease), color .25s var(--ease);
+}
+.c-mag:hover { border-color: var(--accent); color: var(--accent); }
+.c-mag[data-pull] { transition: translate .08s linear, border-color .25s var(--ease), color .25s var(--ease); }
+.c-mag-field { display: grid; place-items: center; width: 100%; min-height: 5.5rem; }
+
+/* ── Motion off ──────────────────────────────────────────────────────
+   Driven by the switch, not by the media query directly: an inline
+   <head> script seeds data-motion from the saved choice or the system
+   preference before first paint, and shared/motion.js owns it after.
+   That is what lets a visitor opt back INTO the animation.
+   ------------------------------------------------------------------- */
+html[data-motion="reduced"] .c-mag { translate: 0 !important; }
+

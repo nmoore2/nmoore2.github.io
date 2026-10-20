@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Console</title>
+<meta name="description" content="Showcase layout S3 — Console.">
+<script>(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion = (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full'); })();</script>
+<link rel="stylesheet" href="shared/base.css?v=16">
+<link rel="stylesheet" href="shared/showpiece.css?v=16">
+<link rel="stylesheet" href="shared/process.css?v=16">
+<link rel="stylesheet" href="shared/morph.css?v=16">
+<style>
+  /* ═══ S3 · CONSOLE ════════════════════════════════════════════════════
+     Not a page — an app shell. A fixed left rail indexes everything, a
+     single stage on the right swaps content, and the swap is a camera move
+     rather than a fade. The layout is itself the argument: I build tools,
+     not just pages.                                                       */
+  :root {
+    --bg:#0c0e0d; --bg-2:#131614; --bg-3:#1b201d;
+    --ink:#eef3ef; --dim:#99a79f; --mute:#637068;
+    --line:#1b201e; --line-2:#2a322e;
+    --accent:#4ade80; --accent-2:#fbbf24; --on-accent:#041009;
+    --lt-bg:#f1f3ef; --lt-bg-2:#e3e7df; --lt-ink:#0b0f0c;
+    --lt-dim:#444d47; --lt-line:#cfd6cc; --lt-accent:#15803d;
+    --sp-radius: 10px;
+    --rail: 17rem;
+  }
+  body { height: 100svh; overflow: hidden; display: grid; grid-template-columns: var(--rail) 1fr; }
+  @media (max-width: 58rem) {
+    body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; overflow: auto; }
+  }
+
+  .console-rail {
+    border-right: 1px solid var(--line); background: var(--bg-2);
+    display: grid; grid-template-rows: auto 1fr auto; min-height: 0;
+  }
+  .console-rail > header { padding: 1rem 1.1rem; border-bottom: 1px solid var(--line); }
+  .console-rail .who { font: 700 var(--fs-0)/1.2 var(--font-sans); letter-spacing: -.02em; color: var(--ink); }
+  .console-rail .role { margin-top: .25rem; font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .console-rail nav { overflow-y: auto; padding: .6rem; min-height: 0; }
+  .console-rail .grp { font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); padding: .9rem .6rem .45rem; }
+  .console-rail button.item {
+    width: 100%; display: flex; align-items: center; gap: .6rem;
+    border: 0; background: none; color: var(--dim); text-align: left;
+    padding: .5rem .6rem; border-radius: 7px;
+    font: 500 var(--fs--1)/1.3 var(--font-sans);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+  }
+  .console-rail button.item .k { font: 600 var(--fs--2)/1 var(--font-mono); color: var(--mute); min-width: 1.4rem; }
+  .console-rail button.item:hover { background: var(--bg-3); color: var(--ink); }
+  .console-rail button.item[aria-current="true"] { background: var(--bg-3); color: var(--ink); }
+  .console-rail button.item[aria-current="true"] .k { color: var(--accent); }
+  .console-rail > footer { padding: .75rem 1.1rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+  @media (max-width: 58rem) { .console-rail nav { max-height: 12rem; } }
+
+  .console-stage { min-height: 0; overflow-y: auto; display: grid; grid-template-rows: auto 1fr; }
+  .console-bar {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem 1rem;
+    padding: .85rem 1.25rem; border-bottom: 1px solid var(--line);
+    background: color-mix(in oklab, var(--bg) 86%, transparent); backdrop-filter: blur(10px);
+  }
+  .console-bar h1 { font-size: var(--fs-1); font-weight: 650; letter-spacing: -.02em; color: var(--ink); }
+  .console-bar p { flex: 1 1 18rem; font-size: var(--fs--1); color: var(--dim); max-width: 64ch; }
+  .console-body { padding: 1.25rem; }
+
+  /* The swap arrives from the direction you moved, which is what makes it
+     read as a camera move instead of a crossfade. */
+  .panel { display: none; }
+  .panel[data-on] { display: block; animation: cam .45s var(--ease); }
+  @keyframes cam {
+    from { opacity: 0; transform: translateX(var(--from, 18px)) scale(.985); }
+    to { opacity: 1; transform: none; }
+  }
+  html[data-motion="reduced"] .panel[data-on] { animation: none; }
+  .panel .sp { height: min(62vh, 34rem); }
+  .hint { font: 500 var(--fs--2)/1 var(--font-mono); color: var(--mute); }
+  kbd { font: 600 var(--fs--2)/1 var(--font-mono); background: var(--bg-3);
+        border: 1px solid var(--line-2); border-radius: 4px; padding: .2em .4em; color: var(--dim); }
+</style>
+</head>
+<body>
+<a class="skip" href="#stage">Skip to content</a>
+<a class="variant-tag" href="index.html">S3 · CONSOLE</a>
+
+<aside class="console-rail">
+  <header>
+    <p class="who">Nathan Moore</p>
+    <p class="role">Front-end engineer</p>
+  </header>
+  <nav id="rail" aria-label="Sections"></nav>
+  <footer>
+    <span class="hint"><kbd>J</kbd> <kbd>K</kbd> to move</span>
+    <button class="motion-toggle" type="button" data-motion-toggle disabled aria-pressed="true" aria-label="Pause motion">
+      <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    </button>
+  </footer>
+</aside>
+
+<main class="console-stage" id="stage">
+  <div class="console-bar">
+    <h1 id="c-title">Overview</h1>
+    <p id="c-sub">Twelve years of front-end engineering, laid out like the tool it is.</p>
+  </div>
+  <div class="console-body" id="c-body">
+    <div class="panel" data-panel="about" data-on>
+      <div style="display:grid;gap:1.25rem;max-width:64rem">
+        <p style="font-size:var(--fs-2);font-weight:650;letter-spacing:-.025em;color:var(--ink);max-width:24ch;line-height:1.1">
+          I build the interfaces that have to keep working when the data gets messy.</p>
+        <p style="max-width:58ch;line-height:1.7">Senior front-end engineer in Colorado,
+        twelve years in. Design systems, data visualisation, motion, and the accessibility
+        and performance work that decides whether any of it lands. Everything in the rail is
+        live code, not a screenshot.</p>
+        <ul class="work-list" style="max-width:64rem">
+          <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+          <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+          <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating</span></span><span class="when">2019—21</span></a></li>
+          <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews, SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Configurators, scheduling, commerce, CMS</span></span><span class="when">2014—19</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  <!-- HIDDEN FOR NOW — "How I get it done". Uncomment to bring it back;
+       shared/process.{css,js} are still loaded and intact. -->
+    <!--
+    <div class="panel" data-panel="process">
+      <div data-process="terminal" data-pick></div>
+    </div>
+
+    -->
+
+    <div class="panel" data-panel="clients">
+      <div data-morph></div>
+    </div>
+
+    <div class="panel register-light" data-panel="notes"
+         style="border-radius:14px;padding:clamp(1.25rem,1rem+2vw,2.5rem)">
+      <p class="eyebrow">Working notes</p>
+      <h2 class="h2" style="margin:.75rem 0 1rem;max-width:18ch">Why a portfolio that behaves like a tool</h2>
+      <div style="display:grid;gap:1rem;max-width:68rem">
+        <p style="max-width:62ch;line-height:1.72">Because that is the job. Most of what I
+        have shipped is not a page you read top to bottom — it is a surface somebody works
+        in all day, where the hierarchy has to survive real data and the keyboard path has
+        to be as good as the mouse one.</p>
+        <p style="max-width:62ch;line-height:1.72">So this layout is the argument. A
+        persistent index, one stage, state in the URL, full keyboard control, and
+        transitions that tell you which direction you moved. If a portfolio is a work
+        sample, it may as well sample the work I actually do.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="shared/motion.js?v=16" defer></script>
+<script src="shared/showpiece.js?v=16" defer></script>
+<script src="shared/process.js?v=16" defer></script>
+<script src="shared/morph.js?v=16" defer></script>
+<script>
+addEventListener('DOMContentLoaded', () => {
+  const rail = document.getElementById('rail');
+  const body = document.getElementById('c-body');
+  const title = document.getElementById('c-title');
+  const sub = document.getElementById('c-sub');
+  const sp = window.nmShowpieces;
+
+  const ITEMS = [
+    { id: 'about', label: 'Overview', group: 'Nathan',
+      sub: 'Twelve years of front-end engineering, laid out like the tool it is.' },
+    { id: 'clients', label: 'Case studies', group: 'Nathan',
+      sub: 'Each one re-themes the panel into that client’s own palette.' },
+    { id: 'notes', label: 'Working notes', group: 'Nathan',
+      sub: 'Why a portfolio built as an app shell.' }
+  ];
+  const PIECES = sp ? sp.ORDER.map((id, i) =>
+    ({ id: 'sp-' + id, piece: id, index: i, label: id, group: 'Motion studies' })) : [];
+  const all = [...ITEMS, ...PIECES];
+
+  let current = 'about', lastIndex = 0;
+  const buttons = new Map();
+  [...new Set(all.map(i => i.group))].forEach(g => {
+    const h = document.createElement('p');
+    h.className = 'grp'; h.textContent = g;
+    rail.append(h);
+    all.filter(i => i.group === g).forEach(item => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'item';
+      const k = document.createElement('span');
+      k.className = 'k';
+      k.textContent = item.piece ? String(item.index + 1).padStart(2, '0') : '—';
+      const l = document.createElement('span');
+      l.className = 'l'; l.textContent = item.label;
+      b.append(k, l);
+      b.addEventListener('click', () => show(item.id));
+      rail.append(b);
+      buttons.set(item.id, b);
+    });
+  });
+
+  /* Build the showpiece panels up front so the rail carries real titles. */
+  PIECES.forEach(item => {
+    const p = document.createElement('div');
+    p.className = 'panel';
+    p.dataset.panel = item.id;
+    body.append(p);
+    const fig = sp.mount(p, item.piece, item.index);
+    item.label = fig.querySelector('.sp-cap .n b').textContent;
+    item.sub = fig.querySelector('.sp-cap p').textContent;
+    buttons.get(item.id).querySelector('.l').textContent = item.label;
+  });
+  body.querySelectorAll('.panel').forEach(p => p.removeAttribute('data-on'));
+
+  function show(id) {
+    const item = all.find(i => i.id === id);
+    if (!item) return;
+    const idx = all.indexOf(item);
+    const panel = body.querySelector('[data-panel="' + id + '"]');
+    if (!panel) return;
+    body.querySelectorAll('.panel').forEach(p => p.removeAttribute('data-on'));
+    panel.style.setProperty('--from', (idx > lastIndex ? 22 : -22) + 'px');
+    panel.setAttribute('data-on', '');
+    buttons.forEach((b, key) => b.setAttribute('aria-current', key === id));
+    title.textContent = item.label;
+    sub.textContent = item.sub || '';
+    lastIndex = idx; current = id;
+    history.replaceState(null, '', '#' + id);
+  }
+
+  show(location.hash.slice(1) || 'about');
+
+  addEventListener('keydown', e => {
+    if (e.target.closest('input, textarea, [contenteditable], button')) return;
+    const d = (e.key === 'ArrowDown' || e.key === 'j') ? 1
+            : (e.key === 'ArrowUp' || e.key === 'k') ? -1 : 0;
+    if (!d) return;
+    e.preventDefault();
+    const i = all.findIndex(x => x.id === current);
+    show(all[(i + d + all.length) % all.length].id);
+  });
+});
+</script>
+</body>
+</html>

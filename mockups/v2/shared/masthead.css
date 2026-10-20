@@ -1,0 +1,148 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SIGNATURE 3 — Masthead field
+   A name that arrives instead of simply existing, over a slow generative
+   field. Two techniques worth the space:
+
+   · per-character reveal from behind a clipped line box — the letters rise
+     out of the baseline rather than fading, which is what makes it read as
+     type setting itself rather than a fade-in;
+   · a mesh of drifting gradients plus a turbulence grain, all CSS, with one
+     registered angle property doing the rotation. No canvas, no RAF.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@property --field-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+.masthead {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(3rem, 2rem + 7vw, 8rem) clamp(2rem, 1.5rem + 3vw, 4rem);
+  overflow: clip;
+}
+
+/* ── The field ───────────────────────────────────────────────────────── */
+.field {
+  position: absolute; inset: -20% -10%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 46% at calc(22% + var(--px, 0) * 18px) calc(26% + var(--py, 0) * 14px),
+      color-mix(in oklab, var(--accent) 42%, transparent), transparent 62%),
+    radial-gradient(34% 40% at calc(78% + var(--px, 0) * -22px) calc(34% + var(--py, 0) * -16px),
+      color-mix(in oklab, var(--accent-2) 46%, transparent), transparent 60%),
+    radial-gradient(44% 50% at calc(52% + var(--px, 0) * 10px) calc(86% + var(--py, 0) * 10px),
+      color-mix(in oklab, var(--accent) 24%, transparent), transparent 64%);
+  filter: blur(42px) saturate(130%);
+  opacity: .5;
+  animation: field-drift 34s var(--ease-in-out) infinite alternate;
+}
+@keyframes field-drift {
+  0%   { transform: scale(1)    translate3d(0, 0, 0); }
+  50%  { transform: scale(1.12) translate3d(-2.5%, 1.5%, 0); }
+  100% { transform: scale(1.04) translate3d(2%, -2%, 0); }
+}
+
+/* A conic sweep gives the field a direction so it doesn't read as a blob. */
+.field::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: conic-gradient(from var(--field-a),
+    transparent 0turn,
+    color-mix(in oklab, var(--accent-2) 26%, transparent) .18turn,
+    transparent .42turn,
+    color-mix(in oklab, var(--accent) 22%, transparent) .7turn,
+    transparent 1turn);
+  mix-blend-mode: screen;
+  opacity: .5;
+  animation: field-spin 48s linear infinite;
+}
+@keyframes field-spin { to { --field-a: 360deg; } }
+
+/* Grain, so the gradients don't band on wide displays. */
+.grain {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: .32; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* ── Per-character reveal ────────────────────────────────────────────── */
+.reveal { display: block; }
+.reveal .line {
+  display: block;
+  overflow: hidden;
+  padding-block: .08em;      /* room for descenders inside the clip */
+  margin-block: -.08em;
+}
+.reveal .w { display: inline-block; white-space: nowrap; }
+.reveal .ch {
+  display: inline-block;
+  translate: 0 110%;
+  rotate: 2deg;
+  opacity: 0;
+  will-change: translate;
+}
+.reveal[data-in] .ch {
+  animation: ch-rise .9s var(--spring) forwards;
+  animation-delay: calc(var(--i) * 26ms + var(--line-d, 0ms));
+}
+@keyframes ch-rise {
+  from { translate: 0 110%; rotate: 2deg; opacity: 0; }
+  to   { translate: 0 0;    rotate: 0deg; opacity: 1; }
+}
+.reveal .ch.sp { width: .3em; }
+
+/* The accent word gets a wipe underline that draws after the letters land. */
+.reveal .mark { position: relative; color: var(--accent); white-space: nowrap; }
+.reveal .mark::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: .07em;
+  background: currentColor; transform-origin: left; scale: 0 1;
+}
+.reveal[data-in] .mark::after { animation: wipe .7s var(--ease) 1s forwards; }
+@keyframes wipe { to { scale: 1 1; } }
+
+/* ── Supporting furniture ────────────────────────────────────────────── */
+.masthead .sub {
+  margin-top: clamp(1rem, .8rem + 1vw, 1.75rem);
+  max-width: 48ch;
+  font-size: var(--fs-1);
+  color: var(--dim);
+  text-wrap: pretty;
+  opacity: 0; translate: 0 10px;
+}
+.reveal-sibling[data-in] { animation: fade-up .8s var(--ease) .55s forwards; }
+@keyframes fade-up { to { opacity: 1; translate: 0 0; } }
+
+.pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  border: 1px solid var(--line-2); border-radius: 999px;
+  padding: .4rem .8rem .4rem .6rem;
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--dim); background: color-mix(in oklab, var(--bg-2) 70%, transparent);
+  backdrop-filter: blur(8px);
+}
+.pill .live {
+  position: relative; width: .5rem; height: .5rem; border-radius: 999px;
+  background: var(--accent);
+}
+.pill .live::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: inherit; animation: ping 2.4s var(--ease) infinite;
+}
+@keyframes ping {
+  0%   { scale: 1;   opacity: .8; }
+  70%  { scale: 3.4; opacity: 0; }
+  100% { scale: 3.4; opacity: 0; }
+}
+
+/* ── Motion off ──────────────────────────────────────────────────────
+   Driven by the switch, not by the media query directly: an inline
+   <head> script seeds data-motion from the saved choice or the system
+   preference before first paint, and shared/motion.js owns it after.
+   That is what lets a visitor opt back INTO the animation.
+   ------------------------------------------------------------------- */
+html[data-motion="reduced"] .field,
+html[data-motion="reduced"] .field::after    { animation: none; }
+html[data-motion="reduced"] .reveal .ch      { translate: 0; rotate: 0deg; opacity: 1; animation: none; }
+html[data-motion="reduced"] .reveal .mark::after { scale: 1 1; animation: none; }
+html[data-motion="reduced"] .masthead .sub   { opacity: 1; translate: 0; }
+html[data-motion="reduced"] .pill .live::after { animation: none; opacity: 0; }
+

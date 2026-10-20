@@ -1,0 +1,268 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SHOWPIECES — ten animations whose job is to be hard
+   Canvas 2D, SVG filters and modern CSS only. No GSAP, no Three.js, no
+   scroll library. Several of these are normally reached for with WebGL;
+   doing them in a few KB by hand is part of the argument.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.sp {
+  margin: 0;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 18rem;
+  overflow: hidden;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--sp-radius, 12px);
+}
+.sp-stage {
+  position: relative;
+  cursor: zoom-in;
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+  min-height: 13.5rem;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.sp-stage canvas { display: block; width: 100%; height: 100%; }
+.sp-stage > svg { display: block; width: 100%; height: 100%; }
+
+.sp-cap {
+  display: grid; gap: .3rem;
+  padding: .85rem 1rem 1rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.sp-cap .n {
+  display: flex; align-items: baseline; gap: .6rem;
+  font: 600 var(--fs--2)/1 var(--font-mono);
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+}
+.sp-cap .n b { color: var(--mute); font-weight: 500; }
+.sp-cap h3 { font-size: var(--fs-0); font-weight: 640; letter-spacing: -.015em; color: var(--ink); }
+.sp-cap p { font-size: var(--fs--1); line-height: 1.55; color: var(--dim); text-wrap: pretty; }
+.sp-cap code { font-size: .82em; }
+
+/* A nudge for the pieces that only come alive when you touch them. It sits
+   near the thing it is talking about — bottom right by default, and for the
+   one piece with a scrubber, directly above that bar instead. A hint in a
+   corner nobody is looking at is not a hint. */
+.sp-hint {
+  position: absolute; z-index: 3; inset: auto .7rem .7rem auto;
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .35rem .6rem; border-radius: 999px;
+  background: color-mix(in oklab, var(--bg) 72%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line-2);
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--mute);
+  opacity: 1; transition: opacity .4s var(--ease);
+}
+.sp[data-touched] .sp-hint { opacity: 0; }
+
+/* When motion is off, say so inside the frame rather than showing a dead box. */
+.sp-static {
+  position: absolute; inset: 0; z-index: 4; display: none;
+  place-items: center; text-align: center; padding: 1.5rem;
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  font: 500 var(--fs--1)/1.5 var(--font-sans); color: var(--dim);
+}
+html[data-motion="reduced"] .sp[data-needs-motion] .sp-static { display: grid; }
+
+/* ── 01 Gooey ──────────────────────────────────────────────────────── */
+.sp-goo {
+  position: absolute; inset: 0;
+  filter: url(#sp-goo-filter);
+  /* Only the artwork is filtered — a gooey "paused" overlay would be a
+     lovely bug but an unreadable one. */
+}
+.sp-goo canvas { position: absolute; inset: 0; }
+.sp-goo-word {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font: 800 clamp(2rem, 7cqi, 5rem)/1 var(--font-sans); letter-spacing: -.05em;
+  /* Knocked out of the liquid rather than sitting on it — same colour as the
+     blobs would simply disappear once the filter merges them. */
+  color: var(--bg-2);
+}
+
+/* ── 03 Grid displacement ──────────────────────────────────────────── */
+.sp-tiles { position: absolute; inset: 0; display: grid; }
+.sp-tiles i {
+  display: block;
+  background: var(--tile-bg);
+  will-change: transform;
+}
+
+/* ── 04 Kinetic type ───────────────────────────────────────────────── */
+.sp-kin {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+  gap: 0 .1em; padding: 1.5rem 1rem;
+  font: 800 clamp(1.75rem, 9cqi, 4.5rem)/0.95 var(--font-sans);
+  letter-spacing: -.05em; color: var(--ink);
+}
+.sp-kin b { display: inline-block; font-weight: inherit; transform-origin: 50% 85%; will-change: transform; }
+.sp-kin .hot { color: var(--accent); }
+.sp[data-sp="kinetic"] .sp-hint { inset: auto auto 2.55rem 1.25rem; }
+
+.sp-scrub {
+  position: absolute; inset: auto 1.25rem 1.1rem; z-index: 3;
+  height: 3px; border-radius: 3px; background: var(--line-2); cursor: ew-resize;
+  touch-action: none;
+}
+.sp-scrub i {
+  position: absolute; inset: 0 auto 0 0; width: var(--p, 0%);
+  background: var(--accent); border-radius: 3px;
+}
+.sp-scrub b {
+  position: absolute; top: 50%; left: var(--p, 0%); width: .95rem; height: .95rem;
+  translate: -50% -50%; border-radius: 999px; background: var(--accent);
+  transition: scale .18s var(--spring);
+}
+.sp-scrub:active b { scale: 1.4; }
+
+/* ── 07 Type drum ──────────────────────────────────────────────────── */
+.sp-drum { perspective: 900px; width: 100%; height: 100%; display: grid; place-items: center;
+           touch-action: none; cursor: grab; }
+.sp-drum:active { cursor: grabbing; }
+.sp-drum-inner { transform-style: preserve-3d; position: relative; width: 100%; height: 1px; }
+.sp-drum-inner span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font: 800 clamp(1.1rem, 4.4cqi, 2.25rem)/1 var(--font-sans);
+  letter-spacing: -.03em; white-space: nowrap; color: var(--ink);
+  backface-visibility: hidden;
+}
+.sp-drum-inner span.lit { color: var(--accent); }
+
+/* ── Shared: a thin progress/label readout some pieces use ─────────── */
+.sp-read {
+  position: absolute; z-index: 3; inset: .7rem .7rem auto auto;
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em;
+  padding: .3rem .5rem; border-radius: 5px;
+  background: color-mix(in oklab, var(--bg) 70%, transparent);
+  color: var(--mute);
+}
+
+/* ── Gallery containers used by the layouts ────────────────────────── */
+.sp-grid {
+  display: grid; gap: 1px; background: var(--line);
+  border-block: 1px solid var(--line);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+}
+.sp-grid .sp { border: 0; border-radius: 0; }
+
+/* Captions are bottom-anchored inside each tile, so unequal caption lengths
+   leave their first lines at different heights across a row. Subgrid hands
+   the stage and the caption their own shared tracks, which lines every
+   caption up at the top no matter how long the text runs. */
+/* Caption alignment across a row.
+
+   The tile is `1fr auto`, so the stage absorbs the slack and the caption is
+   pushed to the bottom — which means a short caption and a long one in the
+   same row start at different heights. Flipping to `auto 1fr` in the grid
+   pins the stage to a fixed height at the top, so every caption begins on
+   the same line by construction and the slack falls harmlessly below the
+   text instead of above it. */
+.sp-grid .sp { grid-template-rows: auto 1fr; min-height: 0; }
+.sp-grid .sp-stage { height: clamp(11.5rem, 21vw, 15rem); min-height: 0; }
+.sp-grid .sp-cap { align-content: start; }
+
+.sp-bento { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 52rem) { .sp-bento { grid-template-columns: repeat(6, 1fr); } }
+
+@media (min-width: 52rem) {
+  .sp-bento .sp:nth-child(1)  { grid-column: span 4; grid-row: span 2; min-height: 26rem; }
+  .sp-bento .sp:nth-child(2)  { grid-column: span 2; }
+  .sp-bento .sp:nth-child(3)  { grid-column: span 2; }
+  .sp-bento .sp:nth-child(4)  { grid-column: span 3; min-height: 20rem; }
+  .sp-bento .sp:nth-child(5)  { grid-column: span 3; min-height: 20rem; }
+  .sp-bento .sp:nth-child(6)  { grid-column: span 2; }
+  .sp-bento .sp:nth-child(7)  { grid-column: span 4; min-height: 20rem; }
+  .sp-bento .sp:nth-child(8)  { grid-column: span 3; }
+  .sp-bento .sp:nth-child(9)  { grid-column: span 3; }
+  .sp-bento .sp:nth-child(10) { grid-column: span 6; min-height: 22rem; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LARGE VIEW
+   The figure itself is moved into a <dialog> and moved back on close, so
+   there is only ever one running instance of each piece — the one you were
+   already playing with. <dialog> brings the focus trap, the inert
+   background and Escape for free; writing those by hand is how modals end
+   up uncloseable by keyboard.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.sp-expand {
+  position: absolute; z-index: 4; inset: .6rem .6rem auto auto;
+  width: 2rem; height: 2rem; display: grid; place-items: center;
+  border: 1px solid var(--line-2); border-radius: 7px;
+  background: color-mix(in oklab, var(--bg) 72%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--dim); cursor: pointer;
+  opacity: .5;
+  transition: opacity .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), scale .2s var(--spring);
+}
+.sp-expand svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.sp:hover .sp-expand, .sp-expand:focus-visible { opacity: 1; color: var(--ink); border-color: var(--mute); }
+.sp-expand:hover { color: var(--accent); border-color: var(--accent); scale: 1.08; }
+@media (hover: none) { .sp-expand { opacity: .9; } }
+.sp[data-expanded] .sp-expand { display: none; }
+
+/* The gap the figure left behind, so the page doesn't jump while it's out. */
+.sp-slot { background: var(--bg-2); }
+
+.sp-modal {
+  width: min(96vw, 94rem); max-width: none;
+  height: min(92svh, 62rem); max-height: none;
+  padding: 0; border: 1px solid var(--line-2); border-radius: 14px;
+  background: var(--bg-2); color: var(--dim);
+  overflow: hidden;
+}
+.sp-modal::backdrop { background: color-mix(in oklab, #000 76%, transparent); backdrop-filter: blur(4px); }
+.sp-modal[open] { display: grid; grid-template-rows: auto 1fr; }
+
+.sp-modal-bar {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.25rem;
+  padding: .85rem 1rem; border-bottom: 1px solid var(--line);
+}
+.sp-modal-bar .t { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem; flex: 1 1 18rem; margin: 0; }
+.sp-modal-bar .t b {
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent);
+}
+.sp-modal-bar .t span { font-size: var(--fs--1); color: var(--dim); max-width: 64ch; text-wrap: pretty; }
+.sp-modal-bar .t .tech {
+  flex-basis: 100%; font-style: normal;
+  font: 500 var(--fs--2)/1.5 var(--font-mono); color: var(--mute);
+  max-width: 86ch; text-wrap: pretty;
+}
+.sp-modal-bar .nav { display: flex; align-items: center; gap: .4rem; margin-left: auto; }
+.sp-modal-bar .nav button {
+  display: grid; place-items: center; min-width: 2rem; height: 2rem;
+  border: 1px solid var(--line-2); border-radius: 7px;
+  background: var(--bg-3); color: var(--dim); cursor: pointer;
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.sp-modal-bar .nav button:hover { color: var(--accent); border-color: var(--accent); }
+.sp-modal-bar .nav button svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.sp-modal-bar .cnt { font: 500 var(--fs--2)/1 var(--font-mono); color: var(--mute); padding-inline: .35rem; }
+.sp-modal-bar .close { padding-inline: .7rem; gap: .45rem; grid-auto-flow: column; font: 600 var(--fs--2)/1 var(--font-sans); }
+.sp-modal-bar .close kbd {
+  font: 500 .64rem/1 var(--font-mono); color: var(--mute);
+  border: 1px solid var(--line-2); border-radius: 4px; padding: .2em .35em;
+}
+
+.sp-modal-body { min-height: 0; display: grid; }
+.sp-modal-body .sp {
+  height: 100%; min-height: 0; border: 0; border-radius: 0;
+  grid-template-rows: 1fr auto; background: var(--bg-2);
+}
+.sp-modal-body .sp-stage { height: auto; min-height: 0; cursor: auto; }
+.sp-modal-body .sp-cap { display: none; }   /* the bar above already says it */
+
+@media (max-width: 40rem) {
+  .sp-modal { width: 100vw; height: 100svh; border-radius: 0; border: 0; }
+  .sp-modal-bar .t span { display: none; }
+}

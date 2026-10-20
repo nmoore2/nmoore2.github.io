@@ -1,0 +1,263 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SIGNATURE 1 — "How I get it done"
+   Five stages. Nine rectangles survive all of them: they scatter, snap into
+   a wireframe, break into tokens, recompose as one component at three sizes,
+   then flatten into a chart. Because the same nodes persist, the thing reads
+   as transformation rather than a slideshow — and it can be interrupted on
+   any frame, because every stage is a *state*, not a timeline position.
+
+   Geometry animates through SVG2 CSS geometry properties (x / y / width /
+   height / rx), driven by custom properties that JS sets per stage.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.process {
+  --stage-dur: 5200ms;
+  display: grid;
+  gap: clamp(1rem, .7rem + 1.4vw, 1.75rem);
+}
+
+/* ── Stage frame ─────────────────────────────────────────────────────── */
+.process-stage {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 85% 5%, color-mix(in oklab, var(--accent) 11%, transparent), transparent 62%),
+    radial-gradient(90% 80% at 5% 95%, color-mix(in oklab, var(--accent-2) 13%, transparent), transparent 60%),
+    var(--bg-2);
+}
+.process-stage svg { display: block; width: 100%; height: auto; }
+
+/* The grid that the wireframe snaps to — only visible while it matters. */
+.pr-grid line {
+  stroke: color-mix(in oklab, var(--mute) 45%, transparent);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity .5s var(--ease);
+}
+[data-step="1"] .pr-grid line,
+[data-step="2"] .pr-grid line { opacity: 1; }
+
+/* ── Treatment 01 · the nine persistent units ────────────────────────── */
+.unit rect {
+  x: calc(var(--x) * 1px);
+  y: calc(var(--y) * 1px);
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+  rx: calc(var(--r, 3) * 1px);
+  fill: var(--f, var(--line-2));
+  opacity: var(--o, 1);
+  transition:
+    x      var(--t, 820ms) var(--spring) var(--d, 0ms),
+    y      var(--t, 820ms) var(--spring) var(--d, 0ms),
+    width  var(--t, 820ms) var(--ease)   var(--d, 0ms),
+    height var(--t, 820ms) var(--ease)   var(--d, 0ms),
+    rx     420ms var(--ease) var(--d, 0ms),
+    fill   560ms var(--ease) var(--d, 0ms),
+    opacity 420ms var(--ease) var(--d, 0ms);
+}
+
+/* ── Stepper ─────────────────────────────────────────────────────────── */
+.process-steps {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+.process-steps button {
+  display: grid; gap: .3rem; justify-items: start;
+  text-align: left; border: 0; background: var(--bg-2);
+  padding: .85rem .9rem;
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+.process-steps button:hover { background: var(--bg-3); }
+.process-steps button .n {
+  display: flex; align-items: center; gap: .45rem;
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .12em; color: var(--mute);
+}
+.process-steps button .t { font: 620 var(--fs--1)/1.25 var(--font-sans); color: var(--dim); }
+.process-steps button[aria-current="true"] { background: var(--bg-3); }
+.process-steps button[aria-current="true"] .n { color: var(--accent); }
+.process-steps button[aria-current="true"] .t { color: var(--ink); }
+
+/* The progress ring doubles as the autoplay clock. */
+.ring { width: 14px; height: 14px; flex: none; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 2.5; }
+.ring .bg { stroke: var(--line-2); }
+.ring .fg {
+  stroke: var(--accent);
+  stroke-dasharray: 34; stroke-dashoffset: 34;
+  stroke-linecap: round;
+}
+button[aria-current="true"] .ring .fg { stroke-dashoffset: 0; transition: stroke-dashoffset 120ms linear; }
+.process[data-playing] button[aria-current="true"] .ring .fg {
+  animation: ring-fill var(--stage-dur) linear forwards;
+}
+@keyframes ring-fill { from { stroke-dashoffset: 34; } to { stroke-dashoffset: 0; } }
+
+/* ── Caption + transport ─────────────────────────────────────────────── */
+.process-foot {
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: .75rem 1.5rem;
+  justify-content: space-between;
+}
+.process-caption { max-width: 54ch; color: var(--dim); font-size: var(--fs--1); text-wrap: pretty; }
+.process-caption b { color: var(--ink); font-weight: 620; }
+.process-transport {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1px solid var(--line-2); border-radius: 999px; padding: .3rem .35rem;
+  background: var(--bg-2);
+}
+.process-transport button {
+  border: 0; background: none; color: var(--mute);
+  width: 2rem; height: 2rem; border-radius: 999px;
+  display: grid; place-items: center;
+  transition: color .18s var(--ease), background-color .18s var(--ease);
+}
+.process-transport button:hover { color: var(--ink); background: var(--bg-3); }
+.process-transport svg { width: 13px; height: 13px; fill: currentColor; }
+.process-transport .state { font: 500 var(--fs--2)/1 var(--font-mono); color: var(--mute); padding-inline: .35rem; }
+
+/* ── Reduced motion: hold the final, fullest state and say so ────────── */
+/* ── Motion off ──────────────────────────────────────────────────────
+   Driven by the switch, not by the media query directly: an inline
+   <head> script seeds data-motion from the saved choice or the system
+   preference before first paint, and shared/motion.js owns it after.
+   That is what lets a visitor opt back INTO the animation.
+   ------------------------------------------------------------------- */
+html[data-motion="reduced"] .pr-scan,
+html[data-motion="reduced"] .pr-cursor-g,
+html[data-motion="reduced"] .pr-pulse      { display: none; }
+html[data-motion="reduced"] .pr-trend      { stroke-dashoffset: 0; animation: none; }
+html[data-motion="reduced"] .pr-loop       { opacity: .8; animation: none; }
+html[data-motion="reduced"] .pr-badge      { opacity: 1; transform: none; animation: none; }
+html[data-motion="reduced"] .pr-code rect  { opacity: .85; animation: none; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TEN TREATMENTS
+   The chrome above is shared by all of them. Only the stage changes — the
+   stepper, the autoplay clock, the transport and the motion behaviour are
+   written once, which is the point.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.process-stage canvas { display: block; width: 100%; height: 100%; }
+.process-stage svg { display: block; width: 100%; height: auto; }
+
+/* Shared stage primitives used across several treatments */
+.pr-ink   { fill: var(--ink); }
+.pr-acc   { fill: var(--accent); }
+.pr-acc2  { fill: var(--accent-2); }
+.pr-neu   { fill: var(--line-2); }
+.pr-s-acc { stroke: var(--accent); fill: none; }
+.pr-s-neu { stroke: var(--line-2); fill: none; }
+.pr-lbl {
+  font: 600 11px/1 var(--font-mono); letter-spacing: .14em;
+  text-transform: uppercase; fill: var(--mute);
+}
+.pr-lbl-s { font: 500 10px/1 var(--font-mono); letter-spacing: .1em; fill: var(--mute); }
+
+/* 01 blocks — geometry properties interpolate, so each stage is a state */
+.unit rect {
+  x: calc(var(--x) * 1px); y: calc(var(--y) * 1px);
+  width: calc(var(--w) * 1px); height: calc(var(--h) * 1px);
+  rx: calc(var(--r, 3) * 1px);
+  fill: var(--f, var(--line-2)); opacity: var(--o, 1);
+  transition:
+    x var(--t, 820ms) var(--spring) var(--d, 0ms),
+    y var(--t, 820ms) var(--spring) var(--d, 0ms),
+    width var(--t, 820ms) var(--ease) var(--d, 0ms),
+    height var(--t, 820ms) var(--ease) var(--d, 0ms),
+    rx 420ms var(--ease) var(--d, 0ms),
+    fill 560ms var(--ease) var(--d, 0ms),
+    opacity 420ms var(--ease) var(--d, 0ms);
+}
+
+/* 03 isometric — plates rise into place */
+.iso-plate {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .5s var(--ease), transform .7s var(--spring);
+}
+.iso-plate[data-on] { opacity: 1; transform: none; }
+.iso-plate[data-on][data-live] .iso-top { fill: var(--accent); }
+
+/* 04 blueprint — the plotter draws, then dimensions arrive */
+.bp-draw {
+  fill: none; stroke: var(--accent); stroke-width: 1.75;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: var(--len, 1200); stroke-dashoffset: var(--len, 1200);
+  transition: stroke-dashoffset 1.5s var(--ease);
+}
+.bp-draw[data-on] { stroke-dashoffset: 0; }
+.bp-dim { stroke: var(--accent-2); stroke-width: 1; opacity: 0; transition: opacity .5s var(--ease) .9s; }
+.bp-dim[data-on] { opacity: .85; }
+.bp-pen { fill: var(--accent); opacity: 0; transition: opacity .3s var(--ease); }
+.process[data-playing] .bp-pen[data-on] { opacity: 1; }
+
+/* 05 conveyor */
+.cv-belt { stroke: var(--line-2); stroke-width: 2; stroke-dasharray: 9 11; }
+.process[data-playing] .cv-belt { animation: cv-run 1.1s linear infinite; }
+@keyframes cv-run { to { stroke-dashoffset: -20; } }
+.cv-station { transition: opacity .4s var(--ease); opacity: .35; }
+.cv-station[data-on] { opacity: 1; }
+.cv-station[data-on] .cv-ring { stroke: var(--accent); }
+.cv-work { transition: transform .9s var(--spring); }
+
+/* 06 orbit */
+.orb-ring { fill: none; stroke: var(--line-2); stroke-width: 1.5; opacity: .5;
+            transition: stroke .5s var(--ease), stroke-width .5s var(--ease), opacity .5s var(--ease); }
+.orb-ring[data-on] { stroke: var(--accent); stroke-width: 2.5; opacity: 1; }
+.orb-sat { transform-box: fill-box; transform-origin: center; }
+.orb-spin { transform-origin: 360px 200px; }
+.process[data-playing] .orb-spin[data-on] { animation: orb 9s linear infinite; }
+.process[data-playing] .orb-spin[data-on].rev { animation-direction: reverse; animation-duration: 13s; }
+@keyframes orb { to { rotate: 360deg; } }
+.orb-core { transition: r .6s var(--spring), fill .5s var(--ease); }
+
+/* 07 film strip */
+.fs-track { transition: transform .85s var(--ease); }
+.fs-frame rect.fs-card { fill: var(--bg-3); stroke: var(--line-2); }
+.fs-frame[data-on] rect.fs-card { stroke: var(--accent); }
+.fs-frame { opacity: .4; transition: opacity .5s var(--ease); }
+.fs-frame[data-on] { opacity: 1; }
+.fs-hole { fill: var(--bg); }
+.fs-gate { fill: none; stroke: var(--accent); stroke-width: 2; opacity: .9; }
+
+/* 08 terminal */
+.tm-line rect { fill: var(--line-2); opacity: 0; }
+.tm-line[data-on] rect { animation: tm-in .3s var(--ease) forwards; animation-delay: calc(var(--i) * 90ms); }
+@keyframes tm-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: .9; transform: none; } }
+.tm-caret { fill: var(--accent); }
+.process[data-playing] .tm-caret { animation: tm-blink 1s steps(2) infinite; }
+@keyframes tm-blink { 50% { opacity: 0; } }
+.tm-prev { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .6s var(--spring); }
+.tm-prev[data-on] { opacity: 1; transform: none; transition-delay: calc(var(--i) * 140ms); }
+
+/* 10 graph */
+.gr-edge { stroke: var(--line-2); stroke-width: 1.5; transition: opacity .5s var(--ease), stroke .5s var(--ease); }
+.gr-edge[data-on] { stroke: var(--accent); opacity: 1; }
+.gr-node { transition: transform .85s var(--spring), fill .5s var(--ease), r .5s var(--spring); }
+.gr-ping { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0; }
+.process[data-playing] .gr-ping { animation: gr-ping 2.2s var(--ease) infinite; }
+@keyframes gr-ping { 0% { r: 6; opacity: .9; } 70% { r: 44; opacity: 0; } 100% { opacity: 0; } }
+
+/* ── Treatment picker ────────────────────────────────────────────────── */
+.pr-pick { display: flex; flex-wrap: wrap; gap: .35rem; }
+.pr-pick button {
+  border: 1px solid var(--line-2); background: var(--bg-2); color: var(--mute);
+  padding: .4rem .65rem; border-radius: 7px;
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .08em;
+  transition: color .2s var(--ease), border-color .2s var(--ease), background-color .2s var(--ease);
+}
+.pr-pick button:hover { color: var(--ink); border-color: var(--mute); }
+.pr-pick button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* Motion off — every treatment settles on its fullest stage. */
+html[data-motion="reduced"] .process-stage * { animation: none !important; }
+html[data-motion="reduced"] .bp-draw { stroke-dashoffset: 0; }
+html[data-motion="reduced"] .bp-dim,
+html[data-motion="reduced"] .tm-line rect { opacity: .85; }
+html[data-motion="reduced"] .tm-prev { opacity: 1; transform: none; }

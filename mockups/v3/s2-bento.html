@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Contact sheet</title>
+<meta name="description" content="Showcase layout S2 — Bento.">
+<script>(() => { let v; try { v = localStorage.getItem("nm-motion"); } catch {}
+  document.documentElement.dataset.motion = (v === "full" || v === "reduced") ? v
+    : (matchMedia("(prefers-reduced-motion: reduce)").matches ? "reduced" : "full"); })();</script>
+<link rel="stylesheet" href="shared/base.css?v=16">
+<link rel="stylesheet" href="shared/masthead.css?v=16">
+<link rel="stylesheet" href="shared/showpiece.css?v=16">
+<link rel="stylesheet" href="shared/process.css?v=16">
+<link rel="stylesheet" href="shared/morph.css?v=16">
+<style>
+  /* ═══ S2 · CONTACT SHEET ══════════════════════════════════════════════
+     The opposite of the reel: everything at once. A huge kinetic masthead
+     over an asymmetric bento of all ten pieces at wildly different sizes,
+     so the page reads as a contact sheet you scan rather than a sequence
+     you're walked through.                                               */
+  :root {
+    --bg:#0b0a10; --bg-2:#131220; --bg-3:#1b1930;
+    --ink:#f2effc; --dim:#a39eb8; --mute:#6c6788;
+    --line:#1e1c30; --line-2:#2f2c48;
+    --accent:#a78bfa; --accent-2:#5eead4; --on-accent:#120b22;
+    --lt-bg:#f6f3ff; --lt-bg-2:#e9e3fb; --lt-ink:#140d22;
+    --lt-dim:#4e4663; --lt-line:#ded5f2; --lt-accent:#5b21b6;
+    --sp-radius: 16px;
+  }
+  .masthead { padding-block: clamp(2.5rem,1.5rem+5vw,6rem) clamp(1.5rem,1rem+2vw,2.5rem); }
+  .display { font-size: clamp(2.75rem, 1rem + 9vw, 9rem); font-weight: 800; letter-spacing: -.055em; line-height: .88; }
+  .display .mark { color: var(--accent-2); }
+
+  .marquee-strip {
+    border-block: 1px solid var(--line); overflow: hidden; display: flex;
+    background: var(--bg-2);
+  }
+  .marquee-strip div { display: flex; flex: none; animation: mq 30s linear infinite; }
+  .marquee-strip:hover div { animation-play-state: paused; }
+  @keyframes mq { to { transform: translateX(-50%); } }
+  .marquee-strip span {
+    display: inline-flex; align-items: center; gap: 1rem; padding: .7rem 1.1rem;
+    font: 700 var(--fs--1)/1 var(--font-sans); letter-spacing: .02em;
+    text-transform: uppercase; color: var(--mute); white-space: nowrap;
+  }
+  .marquee-strip span::after { content: "◆"; color: var(--accent); font-size: .6em; }
+  html[data-motion="reduced"] .marquee-strip div { animation: none; }
+
+  .sheet-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .6rem 1.5rem; margin-bottom: 1.25rem; }
+  .sheet-head h2 { font-size: var(--fs-2); font-weight: 700; letter-spacing: -.03em; color: var(--ink); }
+  .sheet-head p { flex: 1 1 20rem; max-width: 52ch; font-size: var(--fs--1); color: var(--dim); }
+
+  .duo { display: grid; gap: clamp(1rem,.8rem+1.5vw,2rem); }
+  @media (min-width: 58rem) { .duo { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+  .note-card {
+    border: 1px solid var(--lt-line); border-radius: 16px;
+    padding: clamp(1.25rem,1rem+1.5vw,2rem);
+  }
+  .note-card h3 { font-size: var(--fs-1); font-weight: 650; color: var(--lt-ink); margin-bottom: .5rem; }
+  .note-card p { font-size: var(--fs--1); line-height: 1.7; }
+  .note-card + .note-card { margin-top: 1rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<a class="variant-tag" href="index.html">S2 · CONTACT SHEET</a>
+
+<header class="site-head">
+  <a class="mark" href="#top">N<b>◆</b>M</a>
+  <nav aria-label="Main"><a href="#sheet">Sheet</a><a href="#process">Method</a><a class="opt" href="#work">Work</a></nav>
+  <button class="motion-toggle" type="button" data-motion-toggle disabled aria-pressed="true" aria-label="Pause motion">
+    <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    <span data-motion-label>Motion</span>
+  </button>
+</header>
+
+<main id="main">
+  <section class="masthead" id="top">
+    <div class="field" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="shell">
+      <h1 class="display" data-split>Ten things<br>that <span class="mark">move.</span></h1>
+      <p class="sub reveal-sibling">Nathan Moore, senior front-end engineer. Everything on
+      this page is running — canvas, SVG and CSS, written by hand, no animation library
+      anywhere. Poke at any of them.</p>
+    </div>
+  </section>
+
+  <div class="marquee-strip" aria-hidden="true"><div>
+    <span>Canvas 2D</span><span>SVG filters</span><span>Container queries</span><span>Spring physics</span>
+    <span>Scroll-driven CSS</span><span>Web Animations API</span><span>Zero dependencies</span>
+    <span>Canvas 2D</span><span>SVG filters</span><span>Container queries</span><span>Spring physics</span>
+    <span>Scroll-driven CSS</span><span>Web Animations API</span><span>Zero dependencies</span>
+  </div></div>
+
+  <section class="band" id="sheet">
+    <div class="shell">
+      <div class="sheet-head">
+        <h2>The contact sheet</h2>
+        <p>Ten techniques at ten different scales. The big ones are the ones worth standing
+        in front of; the small ones are there to show range.</p>
+      </div>
+      <div class="sp-bento" data-showpieces></div>
+    </div>
+  </section>
+
+  <section class="band register-light">
+    <div class="shell duo">
+      <div>
+        <p class="eyebrow">The point of all this</p>
+        <h2 class="h2" style="margin:.75rem 0 1rem">Motion is a language, and most sites only know two words</h2>
+        <p style="max-width:52ch;line-height:1.72">Fade and slide. They're fine. But an
+        interface that can <em>show</em> where something came from, how two things relate,
+        or that a system is thinking, explains itself without a sentence of copy — and
+        that's a product skill, not a decoration skill.</p>
+      </div>
+      <div>
+        <div class="note-card">
+          <h3>Everything here degrades</h3>
+          <p>Every piece on this page pauses off screen, pauses in a background tab, and has
+          a static state that still reads when motion is switched off in the header.</p>
+        </div>
+        <div class="note-card">
+          <h3>Everything here is small</h3>
+          <p>No GSAP, no Three.js, no scroll library. The whole animation layer is a few
+          kilobytes of hand-written canvas and CSS, which is the actual flex.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIDDEN FOR NOW — "How I get it done". Uncomment to bring it back;
+       shared/process.{css,js} are still loaded and intact. -->
+  <!--
+  <section class="band" id="process">
+    <div class="shell">
+      <div class="sheet-head"><h2>How I get it done</h2>
+        <p>Five stages, ten ways of drawing them. The chrome is shared; only the stage
+        renderer changes.</p></div>
+      <div data-process="oneline" data-pick></div>
+    </div>
+  </section>
+
+  -->
+
+  <section class="band">
+    <div class="shell">
+      <div class="sheet-head"><h2>Case studies, in their own colours</h2></div>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <section class="band" id="work">
+    <div class="shell">
+      <div class="sheet-head"><h2>Selected work</h2></div>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span><span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews, SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Configurators, scheduling, commerce, custom CMS</span></span><span class="when">2014—19</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> · <a href="https://github.com/nmoore2">GitHub</a></span>
+  <span class="mono">0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=16" defer></script>
+<script src="shared/masthead.js?v=16" defer></script>
+<script src="shared/showpiece.js?v=16" defer></script>
+<script src="shared/process.js?v=16" defer></script>
+<script src="shared/morph.js?v=16" defer></script>
+</body>
+</html>

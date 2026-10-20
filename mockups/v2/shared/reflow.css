@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SIGNATURE 4 — Reflow
+   One component, four layouts, driven by the component's own width. The
+   badge, the layout and the rule shown in the readout all come from the
+   same @container rules, so the label can never drift from the truth —
+   which is the only honest way to demo this.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.reflow {
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.reflow-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem;
+  padding: .6rem .75rem;
+  border-bottom: 1px solid var(--line);
+  font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .06em; color: var(--mute);
+}
+.reflow-bar .lbl { text-transform: uppercase; letter-spacing: .14em; margin-right: auto; }
+.reflow-presets { display: flex; gap: 2px; background: var(--bg-3); padding: 2px; border-radius: 8px; }
+.reflow-presets button {
+  border: 0; background: none; color: var(--mute);
+  font: 500 var(--fs--2)/1 var(--font-mono); padding: .4rem .6rem; border-radius: 6px;
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+}
+.reflow-presets button:hover { color: var(--ink); }
+.reflow-presets button[aria-pressed="true"] { background: var(--bg); color: var(--ink); }
+.reflow-read {
+  font-variant-numeric: tabular-nums; color: var(--ink);
+  background: color-mix(in oklab, var(--accent) 16%, transparent);
+  border-radius: 6px; padding: .4rem .55rem;
+}
+.reflow-read b { color: var(--accent); }
+
+/* ── Stage ───────────────────────────────────────────────────────────── */
+.reflow-stage {
+  position: relative;
+  padding: clamp(1rem, .7rem + 1.6vw, 2rem);
+  display: flex; justify-content: center;
+  background:
+    repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 2rem),
+    var(--bg-3);
+}
+
+.reflow-resizer {
+  position: relative;
+  width: var(--w, 100%);
+  max-width: 100%;
+  min-width: 17rem;
+  transition: width .4s var(--ease);
+}
+.reflow-resizer[data-dragging] { transition: none; }
+
+.reflow-handle {
+  position: absolute; inset-block: 0; right: -.8rem; width: 1.6rem;
+  display: grid; place-items: center;
+  border: 0; background: none; padding: 0; z-index: 3;
+  cursor: ew-resize; touch-action: none;
+}
+.reflow-handle i {
+  width: 5px; height: 2.75rem; border-radius: 99px; background: var(--line-2);
+  transition: background-color .2s var(--ease), height .24s var(--spring), scale .2s var(--spring);
+}
+.reflow-handle:hover i, .reflow-handle:focus-visible i { background: var(--accent); height: 4.25rem; }
+.reflow-resizer[data-dragging] .reflow-handle i { background: var(--accent); scale: 1.25 1; }
+
+/* ── The component ───────────────────────────────────────────────────── */
+.rf-card {
+  position: relative;
+  container-type: inline-size;
+  container-name: rf;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.rf-inner { display: grid; }
+
+.rf-shot {
+  aspect-ratio: 16 / 9;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(62% 80% at 18% 8%, color-mix(in oklab, var(--accent) 48%, transparent), transparent 68%),
+    radial-gradient(52% 62% at 92% 86%, color-mix(in oklab, var(--accent-2) 46%, transparent), transparent 66%),
+    linear-gradient(150deg, var(--bg-3), var(--bg-2));
+}
+.rf-shot svg { width: 48%; max-width: 12rem; height: auto; }
+.rf-spark { fill: none; stroke: var(--bg); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 420; stroke-dashoffset: 420; animation: rf-draw 1.6s var(--ease) .3s forwards; }
+@keyframes rf-draw { to { stroke-dashoffset: 0; } }
+
+.rf-body { padding: 1.1rem; display: grid; gap: .55rem; align-content: start; }
+.rf-eyebrow { font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.rf-card h3 { font-size: 1.125rem; font-weight: 650; letter-spacing: -.02em; line-height: 1.25; color: var(--ink); }
+.rf-card p { font-size: var(--fs--1); color: var(--dim); text-wrap: pretty; }
+.rf-meta { display: flex; flex-wrap: wrap; gap: .35rem; }
+.rf-meta li {
+  font: 500 var(--fs--2)/1 var(--font-mono); padding: .35em .5em;
+  border-radius: 999px; color: var(--dim); background: var(--bg-3);
+}
+.rf-cta {
+  justify-self: start; margin-top: .25rem;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font: 620 var(--fs--1)/1 var(--font-sans); text-decoration: none;
+  color: var(--on-accent); background: var(--accent);
+  padding: .6rem .85rem; border-radius: 8px;
+  transition: translate .2s var(--ease);
+}
+.rf-cta:hover { translate: 0 -2px; }
+
+/* ── Four tiers ──────────────────────────────────────────────────────── */
+@container rf (min-width: 26rem) {
+  .rf-inner { grid-template-columns: 14rem 1fr; }
+  .rf-shot { aspect-ratio: auto; height: 100%; }
+  .rf-body { padding: 1.3rem; }
+  .rf-card h3 { font-size: 1.3rem; }
+}
+@container rf (min-width: 40rem) {
+  .rf-inner { grid-template-columns: 20rem 1fr; }
+  .rf-body { padding: 1.9rem; gap: .7rem; align-content: center; }
+  .rf-card h3 { font-size: 1.7rem; letter-spacing: -.03em; }
+  .rf-card p { font-size: .9375rem; max-width: 46ch; }
+}
+@container rf (min-width: 54rem) {
+  .rf-inner { grid-template-columns: 27rem 1fr; }
+  .rf-body { padding: 2.6rem; }
+  .rf-card h3 { font-size: 2.125rem; }
+  .rf-card p { font-size: 1rem; }
+}
+
+/* Badge and rule readout are drawn by the same queries as the layout. */
+.rf-badge {
+  position: absolute; top: .6rem; left: .6rem; z-index: 2;
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em;
+  padding: .4rem .55rem; border-radius: 6px;
+  background: var(--ink); color: var(--bg);
+}
+.rf-badge::after { content: "STACKED"; }
+@container rf (min-width: 26rem) { .rf-badge::after { content: "SPLIT"; } }
+@container rf (min-width: 40rem) { .rf-badge::after { content: "WIDE"; } }
+@container rf (min-width: 54rem) { .rf-badge::after { content: "FEATURE"; } }
+
+.rf-rule::after { content: "base"; }
+@container rf (min-width: 26rem) { .rf-rule::after { content: "@container rf (min-width: 26rem)"; } }
+@container rf (min-width: 40rem) { .rf-rule::after { content: "@container rf (min-width: 40rem)"; } }
+@container rf (min-width: 54rem) { .rf-rule::after { content: "@container rf (min-width: 54rem)"; } }
+
+.reflow-note {
+  padding: .8rem clamp(.75rem, .6rem + 1vw, 1.1rem);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs--1); color: var(--dim); text-wrap: pretty;
+}
+.reflow-note .rf-rule {
+  color: var(--accent); font-family: var(--font-mono); font-size: .92em;
+}
+
+/* ── Motion off ──────────────────────────────────────────────────────
+   Driven by the switch, not by the media query directly: an inline
+   <head> script seeds data-motion from the saved choice or the system
+   preference before first paint, and shared/motion.js owns it after.
+   That is what lets a visitor opt back INTO the animation.
+   ------------------------------------------------------------------- */
+html[data-motion="reduced"] .rf-spark { stroke-dashoffset: 0; animation: none; }
+

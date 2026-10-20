@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Spec</title>
+<meta name="description" content="Mockup 04 — Spec Sheet.">
+<style>
+  /* ── 04 SPEC SHEET ──────────────────────────────────────────────────────
+     The bet: rigor is the signal. An engineering document, not a brochure.
+     The "This page" panel reports real measurements taken at runtime —
+     the page is its own benchmark.
+     ------------------------------------------------------------------- */
+
+  :root {
+    --bg:#fcfcfa; --panel:#f4f4f0; --ink:#17170f; --dim:#5d5d52; --mute:#92928a;
+    --line:#dededa; --line-2:#c9c9c3; --accent:#0046d5; --ok:#047857;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, monospace;
+  }
+  :root[data-theme="dark"],
+  :root[data-theme="auto"] { color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root[data-theme="auto"] {
+      --bg:#0d0e0c; --panel:#151613; --ink:#e9eae3; --dim:#9b9d93; --mute:#64665e;
+      --line:#242622; --line-2:#36382f; --accent:#7fa6ff; --ok:#4ade80;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0d0e0c; --panel:#151613; --ink:#e9eae3; --dim:#9b9d93; --mute:#64665e;
+    --line:#242622; --line-2:#36382f; --accent:#7fa6ff; --ok:#4ade80;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] { color-scheme: light; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 13.5px/1.6 var(--mono);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    padding: clamp(1rem,.6rem+2vw,2.5rem);
+  }
+  .sheet {
+    max-width: 58rem; margin-inline: auto;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+  }
+
+  /* ── Header block ───────────────────────────────────────────────────── */
+  .head {
+    display: grid; gap: 1rem;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    padding: clamp(1rem,.7rem+1.4vw,1.6rem);
+    border-bottom: 1px solid var(--line-2);
+    background: var(--panel);
+  }
+  .head h1 {
+    margin: 0; font-size: clamp(1.25rem,1rem+1.1vw,1.75rem); font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .head .sub { margin: .25rem 0 0; color: var(--dim); }
+  .head .rev { text-align: right; color: var(--mute); font-size: .75rem; line-height: 1.7; }
+
+  .theme {
+    border: 1px solid var(--line-2); background: var(--bg); color: var(--dim);
+    font: inherit; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+    padding: .35rem .6rem; cursor: pointer; margin-top: .5rem;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .theme:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Row blocks ─────────────────────────────────────────────────────── */
+  section { border-bottom: 1px solid var(--line-2); }
+  section:last-of-type { border-bottom: 0; }
+
+  .sec-head {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: .55rem clamp(1rem,.7rem+1.4vw,1.6rem);
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--mute);
+  }
+  .sec-body { padding: clamp(.85rem,.6rem+1vw,1.4rem) clamp(1rem,.7rem+1.4vw,1.6rem); }
+  .sec-body > p { margin: 0 0 .9rem; max-width: 70ch; color: var(--dim); text-wrap: pretty; }
+  .sec-body > p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); font-weight: 700; }
+
+  /* ── Key/value grid ─────────────────────────────────────────────────── */
+  dl.kv { margin: 0; display: grid; grid-template-columns: minmax(7rem,12rem) 1fr; }
+  dl.kv dt, dl.kv dd {
+    margin: 0; padding: .4rem 0; border-top: 1px dotted var(--line-2);
+  }
+  dl.kv > dt:first-of-type, dl.kv > dt:first-of-type + dd { border-top: 0; }
+  dl.kv dt { color: var(--mute); }
+  dl.kv dd { color: var(--ink); }
+  @media (max-width: 34rem) {
+    dl.kv { grid-template-columns: 1fr; }
+    dl.kv dd { padding-top: 0; border-top: 0; padding-bottom: .55rem; }
+  }
+
+  /* ── Tables ─────────────────────────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: .8125rem; }
+  caption { text-align: left; color: var(--mute); padding-bottom: .5rem; font-size: .75rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-top: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    border-top: 0; border-bottom: 1px solid var(--line-2);
+    font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mute);
+    font-weight: 500;
+  }
+  tbody tr { transition: background-color .14s ease; }
+  tbody tr:hover { background: var(--panel); }
+  td:first-child, th:first-child { padding-left: 0; }
+  td:last-child, th:last-child { padding-right: 0; text-align: right; color: var(--dim); white-space: nowrap; }
+  td.name { color: var(--ink); font-weight: 700; }
+  .wrapper { overflow-x: auto; margin-inline: calc(clamp(1rem,.7rem+1.4vw,1.6rem) * -1); padding-inline: clamp(1rem,.7rem+1.4vw,1.6rem); }
+
+  a { color: var(--accent); text-underline-offset: .2em;
+      text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ── Capability bars ────────────────────────────────────────────────── */
+  .caps { display: grid; gap: .5rem; }
+  .cap { display: grid; grid-template-columns: minmax(8rem,11rem) 1fr auto; gap: .75rem; align-items: center; }
+  .cap .meter {
+    height: .6rem; background: var(--panel); border: 1px solid var(--line);
+    display: flex; gap: 2px; padding: 2px;
+  }
+  .cap .meter i {
+    flex: 1; background: var(--line-2);
+    transition: background-color .3s ease;
+  }
+  .cap .meter i[data-on] { background: var(--accent); }
+  .cap small { color: var(--mute); font-size: .72rem; }
+  @media (max-width: 34rem) { .cap { grid-template-columns: 1fr; gap: .25rem; } }
+
+  /* ── Runtime panel ──────────────────────────────────────────────────── */
+  .runtime { display: grid; gap: 1px; background: var(--line);
+             grid-template-columns: repeat(auto-fit, minmax(8.5rem,1fr)); border: 1px solid var(--line); }
+  .runtime div { background: var(--bg); padding: .7rem .8rem; }
+  .runtime dt { color: var(--mute); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; }
+  .runtime dd { margin: .3rem 0 0; font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; }
+  .runtime dd small { font-size: .7rem; font-weight: 400; color: var(--mute); margin-left: .2em; }
+  .runtime dd[data-good] { color: var(--ok); }
+
+  footer.end {
+    padding: clamp(.85rem,.6rem+1vw,1.4rem) clamp(1rem,.7rem+1.4vw,1.6rem);
+    border-top: 1px solid var(--line-2); background: var(--panel);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem;
+    color: var(--mute); font-size: .75rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
+
+  .mockup-tag {
+    position: fixed; bottom: 0; right: 0; z-index: 40;
+    font: 600 .625rem/1 var(--mono); letter-spacing: .1em;
+    padding: .45rem .6rem; background: var(--ink); color: var(--bg);
+    border-top-left-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<span class="mockup-tag">04 · SPEC SHEET</span>
+
+<div class="sheet">
+
+  <header class="head">
+    <div>
+      <h1>NATHAN MOORE</h1>
+      <p class="sub">Senior Front-End Engineer — interface, interaction, accessibility</p>
+    </div>
+    <div class="rev">
+      REV 2026.10<br>
+      COLORADO / UTC−7<br>
+      <button class="theme" type="button" id="theme">Theme: auto</button>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head"><span>1.0 — Summary</span><span>Overview</span></div>
+    <div class="sec-body">
+      <p>Twelve years building interfaces for the web. My work sits where design stops being
+      a picture and starts being a system: <strong>component architecture, data
+      visualization, motion, and the accessibility and performance work that decides whether
+      any of it is actually usable.</strong></p>
+      <p>I prototype in the browser rather than arguing in a comment thread, and I'd rather
+      ship something correct at 360px than something impressive at 1440px.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>2.0 — Identification</span><span>Facts</span></div>
+    <div class="sec-body">
+      <dl class="kv">
+        <dt>Role</dt><dd>Senior Front-End / Design Engineer</dd>
+        <dt>Experience</dt><dd>12 yrs (since 2014)</dd>
+        <dt>Location</dt><dd>Colorado — remote, US hours</dd>
+        <dt>Status</dt><dd>Open to senior front-end roles</dd>
+        <dt>Core</dt><dd>TypeScript · React · modern CSS · SVG/Canvas · Web Animations API</dd>
+        <dt>Also</dt><dd>Design systems · CMS architecture · build &amp; perf tooling</dd>
+        <dt>Contact</dt><dd><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> ·
+          <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> ·
+          <a href="https://github.com/nmoore2">GitHub</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>3.0 — Capability</span><span>Self-assessed</span></div>
+    <div class="sec-body">
+      <div class="caps">
+        <div class="cap"><span>Interface implementation</span><span class="meter" data-level="5" aria-hidden="true"></span><small>Primary</small></div>
+        <div class="cap"><span>CSS architecture</span><span class="meter" data-level="5" aria-hidden="true"></span><small>Primary</small></div>
+        <div class="cap"><span>Motion &amp; interaction</span><span class="meter" data-level="5" aria-hidden="true"></span><small>Primary</small></div>
+        <div class="cap"><span>Accessibility</span><span class="meter" data-level="4" aria-hidden="true"></span><small>Strong</small></div>
+        <div class="cap"><span>Data visualization</span><span class="meter" data-level="4" aria-hidden="true"></span><small>Strong</small></div>
+        <div class="cap"><span>Performance</span><span class="meter" data-level="4" aria-hidden="true"></span><small>Strong</small></div>
+        <div class="cap"><span>Product &amp; UX design</span><span class="meter" data-level="4" aria-hidden="true"></span><small>Strong</small></div>
+        <div class="cap"><span>Back-end / API</span><span class="meter" data-level="2" aria-hidden="true"></span><small>Working</small></div>
+      </div>
+      <p style="margin-top:1rem">Scale is five steps. The honest one at the bottom is there
+      on purpose — a portfolio where everything is a five tells you nothing.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>4.0 — Deployments</span><span>Selected work</span></div>
+    <div class="sec-body">
+      <div class="wrapper">
+      <table>
+        <caption>Reverse chronological. Role describes what I personally built.</caption>
+        <thead><tr><th scope="col">Client</th><th scope="col">Role</th><th scope="col">Notable</th><th scope="col">Yr</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><a href="/work/recurly/">Recurly</a></td>
+              <td>Front-end engineering</td>
+              <td>Animated charts, graphs &amp; maps; dense data legible at 360px</td>
+              <td>2021—23</td></tr>
+          <tr><td class="name"><a href="/work/forallsecure/">ForAllSecure</a></td>
+              <td>Front-end + motion</td>
+              <td>Sequenced explainer for a security-engineer audience</td>
+              <td>2022</td></tr>
+          <tr><td class="name">Four Winds Interactive</td>
+              <td>Front-end engineering</td>
+              <td>Component library and templating across a large surface</td>
+              <td>2019—21</td></tr>
+          <tr><td class="name">Mathews Inc.</td>
+              <td>Design + build</td>
+              <td>Product configurator under a hard image-weight budget</td>
+              <td>2017—19</td></tr>
+          <tr><td class="name">SeriesFest</td>
+              <td>Design + build</td>
+              <td>Scheduling, submissions, ticketing; spiky traffic</td>
+              <td>2016—18</td></tr>
+          <tr><td class="name">Freebird Boots</td>
+              <td>Design + build</td>
+              <td>Commerce front end and custom integrations</td>
+              <td>2016</td></tr>
+          <tr><td class="name">Punch Bowl Social</td>
+              <td>Design + build</td>
+              <td>Multi-location site with per-venue content model</td>
+              <td>2015</td></tr>
+          <tr><td class="name">Ideaison</td>
+              <td>Design + build</td>
+              <td>Custom CMS and UX for an early-stage product</td>
+              <td>2014</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>5.0 — This page</span><span>Measured at runtime</span></div>
+    <div class="sec-body">
+      <p>Not claims — numbers this document took of itself when it loaded. Reload to
+      re-measure; throttle your network and watch them move.</p>
+      <dl class="runtime" id="runtime">
+        <div><dt>Transfer</dt><dd id="m-size">—</dd></div>
+        <div><dt>DOM nodes</dt><dd id="m-nodes">—</dd></div>
+        <div><dt>DOM ready</dt><dd id="m-dcl">—</dd></div>
+        <div><dt>LCP</dt><dd id="m-lcp">—</dd></div>
+        <div><dt>Layout shift</dt><dd id="m-cls">—</dd></div>
+        <div><dt>Requests</dt><dd id="m-req">—</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>6.0 — Demonstrations</span><span>Running code</span></div>
+    <div class="sec-body">
+      <div class="wrapper">
+      <table>
+        <thead><tr><th scope="col">Artifact</th><th scope="col">Subject</th><th scope="col">Type</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><a href="/work/recurly/">Billing data, in motion</a></td>
+              <td>Interruptible chart transitions with a reduced-motion path</td><td>Live</td></tr>
+          <tr><td class="name"><a href="/work/forallsecure/">Explaining fuzzing</a></td>
+              <td>Scroll-sequenced technical explainer</td><td>Live</td></tr>
+          <tr><td class="name"><a href="/concepts/">Interface concepts</a></td>
+              <td>Five prototypes, one interaction problem each</td><td>Live</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span>7.0 — Writing</span><span>10 entries</span></div>
+    <div class="sec-body">
+      <div class="wrapper">
+      <table>
+        <tbody>
+          <tr><td class="name"><a href="/insights/interactive-product-demos/">When an interactive product demo earns its place</a></td><td>Product storytelling</td><td><time datetime="2026-10">2026-10</time></td></tr>
+          <tr><td class="name"><a href="/insights/b2b-website-launch-qa/">A launch QA guide that catches real things</a></td><td>Delivery</td><td><time datetime="2026-10">2026-10</time></td></tr>
+          <tr><td class="name"><a href="/insights/measure-low-traffic-b2b-website/">Measuring a low-traffic site honestly</a></td><td>Measurement</td><td><time datetime="2026-10">2026-10</time></td></tr>
+          <tr><td class="name"><a href="/insights/">Full index</a></td><td>—</td><td>10</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="end">
+    <span>NATHAN MOORE · nmoore.net</span>
+    <span>Hand-written HTML/CSS/JS · 0 dependencies · 0 build steps</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* Capability meters — rendered from data-level so the markup stays honest. */
+document.querySelectorAll('.meter').forEach(m => {
+  const lvl = Number(m.dataset.level);
+  for (let i = 1; i <= 5; i++) {
+    const i2 = document.createElement('i');
+    if (i <= lvl) i2.setAttribute('data-on', '');
+    m.append(i2);
+  }
+});
+
+/* Theme cycle: auto → light → dark */
+(() => {
+  const btn = document.getElementById('theme');
+  const order = ['auto','light','dark'];
+  let i = 0;
+  btn.addEventListener('click', () => {
+    i = (i + 1) % order.length;
+    document.documentElement.dataset.theme = order[i];
+    btn.textContent = 'Theme: ' + order[i];
+  });
+})();
+
+/* ── Real measurements ──────────────────────────────────────────────── */
+const fmt = {
+  bytes: n => n < 1024 ? n + ' B' : (n / 1024).toFixed(1) + ' kB',
+  ms: n => Math.round(n) + ' ms'
+};
+const set = (id, text, good) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = text;
+  if (good) el.setAttribute('data-good', '');
+};
+
+addEventListener('load', () => {
+  const res = performance.getEntriesByType('resource');
+  const nav = performance.getEntriesByType('navigation')[0];
+
+  const bytes = (nav ? nav.transferSize || nav.encodedBodySize || 0 : 0) +
+                res.reduce((a, r) => a + (r.transferSize || 0), 0);
+  set('m-size', bytes ? fmt.bytes(bytes) : '—', bytes > 0 && bytes < 100 * 1024);
+
+  const nodes = document.getElementsByTagName('*').length;
+  set('m-nodes', String(nodes), nodes < 800);
+
+  if (nav) {
+    set('m-dcl', fmt.ms(nav.domContentLoadedEventEnd), nav.domContentLoadedEventEnd < 500);
+    set('m-req', String(res.length + 1), res.length + 1 <= 3);
+  }
+});
+
+/* LCP + CLS, guarded — these APIs are Chromium-only and must not throw. */
+try {
+  new PerformanceObserver(list => {
+    const e = list.getEntries().at(-1);
+    if (e) set('m-lcp', fmt.ms(e.startTime), e.startTime < 2500);
+  }).observe({ type: 'largest-contentful-paint', buffered: true });
+} catch { set('m-lcp', 'n/a'); }
+
+try {
+  let cls = 0;
+  new PerformanceObserver(list => {
+    for (const e of list.getEntries()) if (!e.hadRecentInput) cls += e.value;
+    set('m-cls', cls.toFixed(3), cls < 0.1);
+  }).observe({ type: 'layout-shift', buffered: true });
+  setTimeout(() => {
+    if (document.getElementById('m-cls').textContent === '—') set('m-cls', '0.000', true);
+  }, 1200);
+} catch { set('m-cls', 'n/a'); }
+
+})();
+</script>
+</body>
+</html>

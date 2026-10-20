@@ -1,0 +1,166 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   SIGNATURE 2 — Company morph
+   A project switcher that re-themes a whole panel into the client's own
+   palette, the way their case-study pages already are. Colours interpolate
+   because they are registered custom properties — without @property a colour
+   custom property is an unanimatable token string.
+
+   The panel is the page's light register: dark site, client's paper.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@property --client-core  { syntax: '<color>'; inherits: true; initial-value: #24152f; }
+@property --client-key   { syntax: '<color>'; inherits: true; initial-value: #9161c5; }
+@property --client-alt   { syntax: '<color>'; inherits: true; initial-value: #9de4cc; }
+@property --client-paper { syntax: '<color>'; inherits: true; initial-value: #f6f4ed; }
+
+.morph {
+  --swap: 760ms;
+  display: grid;
+  gap: 1rem;
+  --client-core: #24152f; --client-key: #9161c5;
+  --client-alt: #9de4cc;  --client-paper: #f6f4ed;
+  transition:
+    --client-core  var(--swap) var(--ease),
+    --client-key   var(--swap) var(--ease),
+    --client-alt   var(--swap) var(--ease),
+    --client-paper var(--swap) var(--ease);
+}
+
+/* ── Client tabs ─────────────────────────────────────────────────────── */
+.morph-tabs {
+  display: flex; flex-wrap: wrap; gap: .4rem;
+}
+.morph-tabs button {
+  position: relative;
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 1px solid var(--line-2); background: var(--bg-2); color: var(--mute);
+  padding: .5rem .8rem; border-radius: 999px;
+  font: 600 var(--fs--1)/1 var(--font-sans);
+  transition: color .3s var(--ease), border-color .3s var(--ease), background-color .3s var(--ease);
+}
+.morph-tabs button i {
+  width: .55rem; height: .55rem; border-radius: 999px; background: var(--k);
+  transition: scale .3s var(--spring);
+}
+.morph-tabs button:hover { color: var(--ink); border-color: var(--mute); }
+.morph-tabs button[aria-selected="true"] {
+  color: var(--client-core);
+  background: var(--client-paper);
+  border-color: var(--client-paper);
+}
+.morph-tabs button[aria-selected="true"] i { scale: 1.5; }
+
+/* ── The panel: light register, client-themed ────────────────────────── */
+.morph-panel {
+  --ink: var(--client-core);
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--client-paper);
+  color: color-mix(in oklab, var(--client-core) 74%, var(--client-paper));
+  display: grid;
+  gap: 0;
+  container-type: inline-size;
+  container-name: morphpanel;
+}
+@container morphpanel (min-width: 42rem) {
+  .morph-panel { grid-template-columns: 1.05fr .95fr; }
+}
+
+.morph-copy { padding: clamp(1.25rem, .9rem + 1.8vw, 2.25rem); display: grid; align-content: start; gap: .7rem; }
+.morph-copy .tagline {
+  font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--client-key);
+  transition: color var(--swap) var(--ease);
+}
+.morph-copy h3 {
+  font-size: clamp(1.375rem, 1.1rem + 1.2vw, 2rem);
+  font-weight: 660; letter-spacing: -.028em; line-height: 1.1;
+  color: var(--client-core);
+}
+.morph-copy p { font-size: var(--fs--1); line-height: 1.65; text-wrap: pretty; max-width: 44ch; }
+.morph-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .2rem; }
+.morph-tags li {
+  font: 500 var(--fs--2)/1 var(--font-mono);
+  padding: .4em .6em; border-radius: 999px;
+  color: var(--client-core);
+  background: color-mix(in oklab, var(--client-key) 24%, transparent);
+  transition: background-color var(--swap) var(--ease), color var(--swap) var(--ease);
+}
+.morph-copy .go {
+  justify-self: start; margin-top: .4rem;
+  display: inline-flex; align-items: center; gap: .45rem;
+  text-decoration: none; font: 620 var(--fs--1)/1 var(--font-sans);
+  padding: .65rem .9rem; border-radius: 8px;
+  background: var(--client-core); color: var(--client-paper);
+  transition: translate .2s var(--ease), background-color var(--swap) var(--ease);
+}
+.morph-copy .go:hover { translate: 0 -2px; }
+.morph-copy .go span { transition: translate .2s var(--ease); }
+.morph-copy .go:hover span { translate: .25rem 0; }
+
+/* ── The chart that morphs with the client ───────────────────────────── */
+.morph-viz {
+  position: relative;
+  padding: clamp(1.25rem, .9rem + 1.8vw, 2rem);
+  background:
+    radial-gradient(90% 70% at 90% 0%, color-mix(in oklab, var(--client-key) 30%, transparent), transparent 65%),
+    radial-gradient(70% 60% at 0% 100%, color-mix(in oklab, var(--client-alt) 34%, transparent), transparent 60%),
+    color-mix(in oklab, var(--client-core) 7%, var(--client-paper));
+  transition: background var(--swap) var(--ease);
+  display: grid; align-content: space-between; gap: 1rem;
+  min-height: 17rem;
+}
+
+.morph-stat { display: flex; align-items: baseline; gap: .5rem; }
+.morph-stat .v {
+  font: 700 clamp(2rem, 1.4rem + 2.6vw, 3.25rem)/1 var(--font-sans);
+  letter-spacing: -.04em; color: var(--client-core);
+  font-variant-numeric: tabular-nums;
+}
+.morph-stat .u { font: 600 var(--fs--1)/1 var(--font-mono); color: var(--client-key); }
+.morph-stat .l {
+  margin-left: auto; text-align: right; max-width: 14ch;
+  font: 500 var(--fs--2)/1.4 var(--font-mono); letter-spacing: .08em;
+  text-transform: uppercase; opacity: .75;
+}
+
+.morph-chart { position: relative; height: 8.5rem; }
+.morph-bars {
+  position: absolute; inset: 0;
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: clamp(3px, .6vw, 7px);
+  align-items: end;
+}
+.morph-bars i {
+  display: block; height: 100%; border-radius: 3px 3px 1px 1px;
+  background: color-mix(in oklab, var(--client-core) 26%, transparent);
+  transform-origin: bottom;
+  transform: scaleY(var(--v, .5));
+  transition: transform 700ms var(--spring) calc(var(--i) * 32ms),
+              background-color var(--swap) var(--ease);
+}
+.morph-bars i:nth-last-child(-n+3) { background: var(--client-key); }
+.morph-line {
+  position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;
+}
+.morph-line polyline {
+  fill: none; stroke: var(--client-core); stroke-width: 2.5;
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke var(--swap) var(--ease);
+}
+.morph-line circle { fill: var(--client-core); transition: fill var(--swap) var(--ease); }
+
+.morph-foot {
+  display: flex; flex-wrap: wrap; gap: .4rem 1rem; justify-content: space-between;
+  font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+  opacity: .7;
+}
+
+/* ── Motion off ──────────────────────────────────────────────────────
+   Driven by the switch, not by the media query directly: an inline
+   <head> script seeds data-motion from the saved choice or the system
+   preference before first paint, and shared/motion.js owns it after.
+   That is what lets a visitor opt back INTO the animation.
+   ------------------------------------------------------------------- */
+html[data-motion="reduced"] .morph-bars i { transition: none; }
+

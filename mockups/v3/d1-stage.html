@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Stage</title>
+<meta name="description" content="Demo layout D1 — Stage.">
+<script>(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion = (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full'); })();</script>
+<link rel="stylesheet" href="shared/base.css?v=16">
+<link rel="stylesheet" href="shared/showpiece.css?v=16">
+<link rel="stylesheet" href="shared/process.css?v=16">
+<link rel="stylesheet" href="shared/morph.css?v=16">
+<style>
+  /* ═══ D1 · STAGE ══════════════════════════════════════════════════════
+     No header, no hero block, no columns. The demo is the first viewport,
+     edge to edge, and the words are pinned into the corners around it like
+     titles on a frame. Everything else scrolls up underneath.             */
+  :root {
+    --bg:#08080a; --bg-2:#101014; --bg-3:#17171d;
+    --ink:#f5f5f7; --dim:#9d9da8; --mute:#64646f;
+    --line:#1a1a20; --line-2:#2b2b34;
+    --accent:#e4ff3f; --accent-2:#7c8cff; --on-accent:#111300;
+    --lt-bg:#eceae4; --lt-bg-2:#dedbd2; --lt-ink:#0d0d10;
+    --lt-dim:#4a4a52; --lt-line:#cbc7bc; --lt-accent:#4a5a00;
+    --sp-radius: 0px;
+  }
+
+  /* ── The stage ──────────────────────────────────────────────────── */
+  .stage {
+    position: relative;
+    min-height: 100svh;
+    display: grid; grid-template-rows: auto 1fr auto;
+    padding: clamp(1rem, .8rem + 1.5vw, 2rem);
+    gap: clamp(.75rem, .6rem + 1vw, 1.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .corner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; align-items: flex-start; }
+  .corner .id { font: 700 var(--fs--1)/1 var(--font-mono); letter-spacing: .2em; color: var(--ink); text-decoration: none; }
+  .corner .live {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .corner .live i { width: .45rem; height: .45rem; border-radius: 99px; background: currentColor; }
+  /* The centrepiece fills the frame; the corner copy is its caption, so the
+     piece's own one is suppressed here. */
+  .stage .demo-wrap { display: grid; min-height: 0; }
+  .stage .demo-wrap .sp { height: 100%; min-height: clamp(16rem, 42svh, 30rem);
+    border: 1px solid var(--line-2); border-radius: 0; }
+  .stage .demo-wrap .sp-cap { display: none; }
+
+  .corner.bottom { align-items: flex-end; }
+  .corner.bottom h1 {
+    font-size: clamp(1.75rem, 1rem + 3.6vw, 4.25rem); font-weight: 800;
+    letter-spacing: -.05em; line-height: .92; color: var(--ink); max-width: 13ch;
+  }
+  .corner.bottom h1 em { font-style: normal; color: var(--accent); }
+  .corner.bottom .say { max-width: 40ch; font-size: var(--fs--1); color: var(--dim); text-wrap: pretty; }
+  .corner.bottom .say a { color: var(--ink); }
+
+  .scrollcue {
+    position: absolute; left: 50%; bottom: .6rem; translate: -50% 0;
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .2em;
+    text-transform: uppercase; color: var(--mute);
+  }
+  .process[data-playing] ~ * { }
+  html[data-motion="full"] .scrollcue { animation: bob 2.6s var(--ease-in-out) infinite; }
+  @keyframes bob { 0%,100% { translate: -50% 0; } 50% { translate: -50% 6px; } }
+
+  /* ── Below the fold: a plain, confident stack ───────────────────── */
+  .strip { border-bottom: 1px solid var(--line); padding: var(--rhythm) 0; }
+  .strip .shell > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.5rem; margin-bottom: 1.5rem; }
+  .strip .shell > header h2 { font-size: var(--fs-3); font-weight: 720; letter-spacing: -.04em; color: var(--ink); }
+  .strip .shell > header p { flex: 1 1 20rem; max-width: 52ch; font-size: var(--fs--1); color: var(--dim); }
+
+  .pair { display: grid; gap: clamp(1rem,.8rem+1.5vw,2rem); }
+  @media (min-width: 56rem) { .pair { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#more">Skip to content</a>
+<a class="variant-tag" href="index.html">D1 · STAGE</a>
+
+<section class="stage">
+  <div class="corner">
+    <a class="id" href="#">NATHAN MOORE</a>
+    <span class="live"><i aria-hidden="true"></i>Live · stir it with the cursor</span>
+    <button class="motion-toggle" type="button" data-motion-toggle disabled aria-pressed="true" aria-label="Pause motion">
+      <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+      <span data-motion-label>Motion</span>
+    </button>
+  </div>
+
+  <div class="demo-wrap" data-showpieces data-only="flow"></div>
+
+  <div class="corner bottom">
+    <h1>Two thousand<br>particles.<br><em>One field.</em></h1>
+    <p class="say">Every heading sampled from a noise field that drifts as you watch; the
+    trails are compositing, not stored paths. Canvas 2D, no library. Nathan Moore, senior
+    front-end engineer, twelve years.
+    <a href="mailto:hello@nmoore.net">hello@nmoore.net</a></p>
+  </div>
+  <span class="scrollcue" aria-hidden="true">scroll</span>
+</section>
+
+<main id="more">
+  <!-- HIDDEN FOR NOW — "How I get it done". Uncomment to bring it back;
+       shared/process.{css,js} are still loaded and intact. -->
+  <!--
+  <section class="strip">
+    <div class="shell">
+      <header>
+        <h2>How I get it done</h2>
+        <p>Five stages, ten different ways of drawing them. The stepper, the clock and the
+        captions are shared code; only the stage renderer changes.</p>
+      </header>
+      <div data-process="iso" data-pick></div>
+    </div>
+  </section>
+
+  -->
+
+  <section class="strip">
+    <div class="shell">
+      <header>
+        <h2>Motion studies</h2>
+        <p>Four of ten, running live. Canvas, SVG filters and CSS — no animation library.</p>
+      </header>
+      <div class="sp-grid" data-showpieces data-only="reaction,shatter,flock,oneline"></div>
+    </div>
+  </section>
+
+  <section class="strip register-light">
+    <div class="shell pair">
+      <div>
+        <p class="eyebrow">What you'd be hiring</p>
+        <h2 class="h2" style="margin:.75rem 0 1rem;max-width:17ch">The half of the work that doesn't photograph</h2>
+      </div>
+      <div>
+        <p style="max-width:56ch;line-height:1.72">A component that survives a long German
+        compound noun, a slow connection and a screen reader is worth more than one that
+        looks good in a screenshot. Most of my best work is invisible: nothing jumped,
+        nothing trapped focus, nothing took four seconds.</p>
+        <p style="max-width:56ch;line-height:1.72;margin-top:1rem">I came up through design,
+        so I'm comfortable owning the look when there isn't one yet — and I've spent enough
+        years in implementation to know which beautiful ideas quietly cost a team a year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="shell">
+      <header><h2>Case studies</h2><p>Each one re-themes into the client's own palette.</p></header>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <section class="strip" style="border-bottom:0">
+    <div class="shell">
+      <header><h2>Selected work</h2></header>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating</span></span><span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews, SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Configurators, scheduling, commerce, CMS</span></span><span class="when">2014—19</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a></span>
+  <span class="mono">0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=16" defer></script>
+<script src="shared/showpiece.js?v=16" defer></script>
+<script src="shared/process.js?v=16" defer></script>
+<script src="shared/morph.js?v=16" defer></script>
+</body>
+</html>

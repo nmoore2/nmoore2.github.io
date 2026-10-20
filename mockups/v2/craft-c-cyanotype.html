@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Moore — Front-End Engineer</title>
+<meta name="description" content="Craft Grid variant C — Cyanotype.">
+<script>/* Seed the motion switch before first paint, so nothing animates on the
+   way to being told not to. shared/motion.js takes over from here. */
+(() => { let v; try { v = localStorage.getItem('nm-motion'); } catch {}
+  document.documentElement.dataset.motion =
+    (v === 'full' || v === 'reduced') ? v
+    : (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full');
+})();</script>
+<link rel="stylesheet" href="shared/base.css?v=5">
+<link rel="stylesheet" href="shared/masthead.css?v=5">
+<link rel="stylesheet" href="shared/craft.css?v=5">
+<link rel="stylesheet" href="shared/process.css?v=5">
+<link rel="stylesheet" href="shared/morph.css?v=5">
+<style>
+  /* ═══ VARIANT C · CYANOTYPE ══════════════════════════════════════════
+     A blueprint. The page carries a real drawing grid, the masthead is
+     dimensioned like a technical plate, and the light register is the
+     printed specification sheet that comes with the drawing.              */
+  :root {
+    --bg:#060d18;  --bg-2:#0b1726;  --bg-3:#102235;
+    --ink:#e8f2fc; --dim:#93aac2;   --mute:#5d768f;
+    --line:#13273a; --line-2:#1e3d58;
+    --accent:#36d2ff; --accent-2:#8affd8; --on-accent:#031019;
+
+    --lt-bg:#e9f2f9; --lt-bg-2:#d5e5f2; --lt-ink:#05121d;
+    --lt-dim:#3a5468; --lt-line:#b9d2e4; --lt-accent:#005a74;
+
+    --grid: color-mix(in oklab, var(--accent) 7%, transparent);
+  }
+
+  /* The drawing grid, behind everything, fixed so the page reads as a
+     plate the content is drawn on rather than a background that scrolls. */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -3; pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg,  var(--grid) 0 1px, transparent 1px 2rem),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 2rem);
+    mask-image: radial-gradient(120% 90% at 50% 10%, #000 30%, transparent 85%);
+  }
+
+  .site-head .mark { letter-spacing: .2em; }
+  .display { font-weight: 700; letter-spacing: -.04em; }
+  .btn, .tile, .process-stage, .process-steps, .morph-panel,
+  .c-seg, .c-copy, .c-morph, .pill, .morph-tabs button { border-radius: 4px; }
+
+  /* ── Dimensioned masthead ─────────────────────────────────────────── */
+  .plate { position: relative; }
+  .plate .crop {
+    position: absolute; width: 14px; height: 14px;
+    border: 1px solid var(--accent); opacity: .6;
+  }
+  .plate .crop.tl { top: -8px; left: -8px; border-right: 0; border-bottom: 0; }
+  .plate .crop.tr { top: -8px; right: -8px; border-left: 0; border-bottom: 0; }
+  .plate .crop.bl { bottom: -8px; left: -8px; border-right: 0; border-top: 0; }
+  .plate .crop.br { bottom: -8px; right: -8px; border-left: 0; border-top: 0; }
+
+  .dim {
+    position: absolute; display: flex; align-items: center; gap: .5rem;
+    font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em;
+    color: color-mix(in oklab, var(--accent) 78%, var(--bg));
+    white-space: nowrap;
+  }
+  .dim::before, .dim::after { content: ""; height: 1px; background: currentColor; flex: 1; min-width: 1.5rem; }
+  .dim.top { top: -1.6rem; left: 0; right: 0; }
+  @media (max-width: 46rem) { .dim { display: none; } }
+
+  .annot {
+    position: absolute; right: 0; bottom: -1.5rem;
+    font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .1em; color: var(--mute);
+  }
+
+  /* ── Title block, like a real drawing ─────────────────────────────── */
+  .titleblock {
+    display: grid; gap: 1px; background: var(--line-2);
+    border: 1px solid var(--line-2);
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  }
+  .titleblock div { background: var(--bg-2); padding: .75rem .9rem; }
+  .titleblock dt {
+    font: 500 var(--fs--2)/1 var(--font-mono); letter-spacing: .14em;
+    text-transform: uppercase; color: var(--mute);
+  }
+  .titleblock dd { margin: .35rem 0 0; font: 600 var(--fs--1)/1.3 var(--font-mono); color: var(--accent); }
+
+  /* ── Light register: the printed specification ────────────────────── */
+  .spec { border-block: 1px solid var(--lt-line); position: relative; }
+  .spec::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg, color-mix(in oklab, var(--lt-accent) 8%, transparent) 0 1px, transparent 1px 2rem),
+      repeating-linear-gradient(90deg, color-mix(in oklab, var(--lt-accent) 8%, transparent) 0 1px, transparent 1px 2rem);
+  }
+  .spec > * { position: relative; }
+  .spec table { width: 100%; border-collapse: collapse; font-size: var(--fs--1); }
+  .spec caption { text-align: left; color: var(--lt-dim); padding-bottom: .6rem; font-size: var(--fs--2);
+                  font-family: var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+  .spec th, .spec td { text-align: left; padding: .6rem .7rem; border-top: 1px solid var(--lt-line); vertical-align: top; }
+  .spec thead th {
+    border-top: 0; border-bottom: 2px solid var(--lt-accent);
+    font: 600 var(--fs--2)/1 var(--font-mono); letter-spacing: .12em;
+    text-transform: uppercase; color: var(--lt-accent);
+  }
+  .spec td:first-child, .spec th:first-child { padding-left: 0; font-weight: 650; color: var(--lt-ink); }
+  .spec td:last-child { text-align: right; padding-right: 0; font-family: var(--font-mono);
+                        font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .spec tbody tr:hover { background: color-mix(in oklab, var(--lt-accent) 7%, transparent); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<a class="variant-tag" href="index.html">C · CYANOTYPE</a>
+
+<header class="site-head">
+  <a class="mark" href="#top">N<b>·</b>M</a>
+  <nav aria-label="Main">
+    <a href="#craft">Craft</a><a href="#process">Process</a>
+    <a href="#spec">Spec</a><a class="opt" href="#work">Work</a>
+  </nav>
+  <button class="motion-toggle" type="button" data-motion-toggle disabled
+          aria-pressed="true" aria-label="Pause motion" title="Pause all animations on this page">
+    <span data-motion-icon aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg></span>
+    <span data-motion-label>Motion</span>
+  </button>
+</header>
+
+<main id="main">
+
+  <section class="masthead" id="top">
+    <div class="field" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="shell plate">
+      <span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span>
+      <span class="crop bl" aria-hidden="true"></span><span class="crop br" aria-hidden="true"></span>
+      <span class="dim top" aria-hidden="true">MEASURE 76REM MAX · GUTTER CLAMP(1.25, 3VW, 3)</span>
+
+      <p class="pill reveal-sibling" style="opacity:0;translate:0 10px">
+        <span class="live" aria-hidden="true"></span> Available for senior front-end work
+      </p>
+      <h1 class="display" data-split style="margin-top:1.25rem">Front-end<br><span class="mark">engineering,</span><br>drawn to spec.</h1>
+      <p class="sub reveal-sibling">Nathan Moore. Twelve years turning intent into interfaces that
+      hold their tolerances — at 320px, on a slow connection, with a keyboard, in a screen reader.</p>
+      <span class="annot" aria-hidden="true">PLATE 01 / 05</span>
+    </div>
+  </section>
+
+  <section class="shell" style="padding-bottom:var(--rhythm)">
+    <dl class="titleblock">
+      <div><dt>Drawn by</dt><dd>N. MOORE</dd></div>
+      <div><dt>Discipline</dt><dd>FRONT-END / UI / UX</dd></div>
+      <div><dt>In service</dt><dd>SINCE 2014</dd></div>
+      <div><dt>Location</dt><dd>COLORADO, REMOTE</dd></div>
+      <div><dt>Dependencies</dt><dd>NONE</dd></div>
+    </dl>
+  </section>
+
+  <section id="craft" class="band" style="padding-top:0">
+    <div class="shell sec-head">
+      <p class="eyebrow">Sheet 02 — details</p>
+      <h2 class="h2">Components, at full size</h2>
+    </div>
+    <div class="shell"><div data-craft></div></div>
+  </section>
+
+  <section id="process" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Sheet 03 — sequence</p><h2 class="h2">How I get it done</h2></div>
+      <div data-process></div>
+    </div>
+  </section>
+
+  <!-- ── Light register: the specification sheet ──────────────────── -->
+  <section id="spec" class="band register-light spec">
+    <div class="shell">
+      <p class="eyebrow">Sheet 04 — specification</p>
+      <h2 class="h2" style="margin:.75rem 0 1.75rem">What I'm good for</h2>
+      <table>
+        <caption>Self-assessed. The low score stays in on purpose — a sheet where everything is a five tells you nothing.</caption>
+        <thead><tr><th scope="col">Capability</th><th scope="col">What that means in practice</th><th scope="col">Level</th></tr></thead>
+        <tbody>
+          <tr><td>Interface implementation</td><td>Turning a design into a component system other engineers extend</td><td>5 / 5</td></tr>
+          <tr><td>CSS architecture</td><td>Cascade layers, container queries, token systems that survive a redesign</td><td>5 / 5</td></tr>
+          <tr><td>Motion &amp; interaction</td><td>WAAPI, FLIP, spring timing, and knowing when to stop</td><td>5 / 5</td></tr>
+          <tr><td>Accessibility</td><td>Keyboard paths, focus management, screen-reader semantics, reduced motion</td><td>4 / 5</td></tr>
+          <tr><td>Data visualisation</td><td>SVG and Canvas charting that stays legible and interactive on a phone</td><td>4 / 5</td></tr>
+          <tr><td>Performance</td><td>Budgets, layout stability, image strategy, measuring before guessing</td><td>4 / 5</td></tr>
+          <tr><td>Product &amp; UX design</td><td>Comfortable owning the design when there isn't one yet</td><td>4 / 5</td></tr>
+          <tr><td>Back end &amp; APIs</td><td>Can build and integrate one; wouldn't want to own the database</td><td>2 / 5</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="clients" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Sheet 05 — installations</p><h2 class="h2">Case studies, in their own colours</h2></div>
+      <div data-morph></div>
+    </div>
+  </section>
+
+  <section id="work" class="band">
+    <div class="shell">
+      <div class="sec-head"><p class="eyebrow">Index</p><h2 class="h2">Selected work</h2></div>
+      <ul class="work-list">
+        <li class="work-row" style="--client:#9161c5"><a href="/work/recurly/"><span class="dot" aria-hidden="true"></span><span>Recurly<span class="what">Front-end engineering · animated charts, graphs and maps</span></span><span class="when">2021—23</span></a></li>
+        <li class="work-row" style="--client:#94dfc4"><a href="/work/forallsecure/"><span class="dot" aria-hidden="true"></span><span>ForAllSecure<span class="what">Technical storytelling and motion for a security audience</span></span><span class="when">2022</span></a></li>
+        <li class="work-row" style="--client:#2fb6e8"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Four Winds Interactive<span class="what">Component library and templating across a large surface</span></span><span class="when">2019—21</span></a></li>
+        <li class="work-row" style="--client:#8a9a33"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>Mathews Inc.<span class="what">Product configurator under a hard image budget</span></span><span class="when">2017—19</span></a></li>
+        <li class="work-row" style="--client:#e8356d"><a href="/archive/"><span class="dot" aria-hidden="true"></span><span>SeriesFest, Freebird, Punch Bowl, Ideaison<span class="what">Scheduling, commerce, custom CMS</span></span><span class="when">2014—18</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <span>Nathan Moore · Colorado</span>
+  <span><a href="mailto:hello@nmoore.net">hello@nmoore.net</a> · <a href="https://www.linkedin.com/in/nateisgreat/">LinkedIn</a> · <a href="https://github.com/nmoore2">GitHub</a></span>
+  <span class="mono">Rev 2026.10 · 0 dependencies</span>
+</footer>
+
+<script src="shared/motion.js?v=5" defer></script>
+<script src="shared/masthead.js?v=5" defer></script>
+<script src="shared/craft.js?v=5" defer></script>
+<script src="shared/process.js?v=5" defer></script>
+<script src="shared/morph.js?v=5" defer></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>nmoore.net — round three</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg:#08090b; --card:#101216; --line:#1d2029; --ink:#f2f4f7;
+    --dim:#99a2b0; --mute:#636c7a; --accent:#e4ff3f;
+    --sans: Inter, ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.65 var(--sans);
+         -webkit-font-smoothing:antialiased; padding:clamp(1.25rem,.8rem+3vw,3.5rem); }
+  .wrap { max-width:64rem; margin-inline:auto; }
+  h1 { margin:0; font-size:clamp(1.5rem,1.1rem+2vw,2.5rem); font-weight:700; letter-spacing:-.035em; }
+  .lede { color:var(--dim); max-width:66ch; margin:.9rem 0 0; text-wrap:pretty; }
+  .lede a { color:var(--ink); }
+  .note { margin-top:1.25rem; padding:.85rem 1rem; border-left:2px solid var(--accent);
+          background:color-mix(in oklab, var(--accent) 8%, transparent);
+          font-size:.875rem; color:var(--dim); max-width:66ch; border-radius:0 6px 6px 0; }
+  .note strong { color:var(--ink); }
+  h2 { margin:2.75rem 0 .35rem; font:600 .75rem/1 var(--mono); letter-spacing:.16em;
+       text-transform:uppercase; color:var(--accent); }
+  h2 + p { margin:0 0 1rem; color:var(--mute); font-size:.875rem; max-width:64ch; }
+  ol { list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line);
+       border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  li { background:var(--card); }
+  a.row { display:grid; grid-template-columns:4.5rem 1fr auto; gap:.4rem 1.25rem; align-items:start;
+          padding:1.05rem 1.2rem; text-decoration:none; color:inherit; transition:background-color .18s ease; }
+  a.row:hover, a.row:focus-visible { background:color-mix(in oklab, var(--accent) 7%, var(--card)); }
+  a.row:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  .swatch { display:flex; gap:3px; padding-top:.3rem; }
+  .swatch i { width:.85rem; height:.85rem; border-radius:3px; display:block; }
+  .name { font-size:1.0625rem; font-weight:650; letter-spacing:-.015em; }
+  .desc { display:block; color:var(--dim); font-size:.875rem; margin-top:.2rem; text-wrap:pretty; }
+  .go { font:500 .75rem/1.9 var(--mono); color:var(--mute); white-space:nowrap; }
+  a.row:hover .go { color:var(--accent); }
+  @media (max-width:36rem) { a.row { grid-template-columns:4.5rem 1fr; } .go { display:none; } }
+  .cols { margin-top:2.75rem; display:grid; gap:1px; background:var(--line);
+          border:1px solid var(--line); border-radius:10px; overflow:hidden;
+          grid-template-columns:repeat(auto-fit,minmax(15rem,1fr)); }
+  .cols div { background:var(--card); padding:1rem 1.1rem; }
+  .cols dt { font:600 .6875rem/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+  .cols dd { margin:.45rem 0 0; font-size:.8125rem; color:var(--dim); text-wrap:pretty; }
+  .cols dd b { color:var(--ink); font-weight:650; display:block; margin-bottom:.15rem; }
+  footer { margin-top:2.5rem; font-size:.8125rem; color:var(--mute); max-width:70ch; }
+  footer a { color:var(--dim); }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+             overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>nmoore.net — round three</h1>
+  <p class="lede">Five structurally different sites, not five palettes. The components wall is
+  gone, replaced by <strong>ten showpiece animations</strong>; the process diagram now has
+  <strong>ten distinct treatments</strong> you can switch between on any page. Reasoning and
+  the list of studios studied: <a href="BRIEF.md">BRIEF.md</a>. Earlier rounds:
+  <a href="../index.html">one</a> · <a href="../v2/index.html">two</a>.</p>
+
+  <p class="note"><strong>Placeholder content.</strong> Job titles, date ranges and client
+  blurbs are plausible reconstructions, not facts. The motion toggle lives in every page's
+  chrome — if a page looks still, it's paused.</p>
+
+  <h2>Showcase — the animation gallery leads</h2>
+  <p>Three different answers to "put the work first".</p>
+  <ol>
+    <li><a class="row" href="s1-reel.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#07070a"></i><i style="background:#ff5c35"></i><i style="background:#ffd166"></i><i style="background:#f3f1ec"></i></span>
+      <span><span class="name">S1 · Reel</span><span class="desc">No hero, no grid. One piece per full screen, scroll-snapped, with a fixed rail counting them off. Scroll is the transport.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="s2-bento.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#0b0a10"></i><i style="background:#a78bfa"></i><i style="background:#5eead4"></i><i style="background:#f6f3ff"></i></span>
+      <span><span class="name">S2 · Contact sheet</span><span class="desc">The opposite: everything at once. A kinetic masthead over an asymmetric bento of all ten pieces at wildly different sizes.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="s3-console.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#0c0e0d"></i><i style="background:#4ade80"></i><i style="background:#fbbf24"></i><i style="background:#f1f3ef"></i></span>
+      <span><span class="name">S3 · Console</span><span class="desc">An app shell, not a page. Fixed index rail, one swapping stage, state in the URL, J/K navigation, camera-move transitions.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+  </ol>
+
+  <h2>Centrepiece — one artifact leads</h2>
+  <p>Two frames built around a single centrepiece rather than a gallery.</p>
+  <ol>
+    <li><a class="row" href="d1-stage.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#08080a"></i><i style="background:#e4ff3f"></i><i style="background:#7c8cff"></i><i style="background:#eceae4"></i></span>
+      <span><span class="name">D1 · Stage</span><span class="desc">No header. The flow field owns the first viewport edge to edge, with the words pinned into the corners like titles on a frame.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li><a class="row" href="d3-controlroom.html" target="_blank" rel="noopener">
+      <span class="swatch" aria-hidden="true"><i style="background:#0a0c0f"></i><i style="background:#00d3f2"></i><i style="background:#ff8a3d"></i><i style="background:#eef2f5"></i></span>
+      <span><span class="name">D3 · Control room</span><span class="desc">A fixed instrument panel that never scrolls against a working surface that does. Bezelled, labelled, numbered bays.</span></span>
+      <span class="go">open ↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+  </ol>
+
+  <h2>The ten showpieces</h2>
+  <p>All ten appear on S1, S2 and D3; subsets elsewhere. Canvas 2D, SVG filters and CSS, no library.</p>
+  <dl class="cols">
+    <div><dt>01</dt><dd><b>Kinetic type</b>Per-character springs toward a target you scrub. The bar parks at the halfway mark so it is easy to grab.</dd></div>
+    <div><dt>02</dt><dd><b>Flow field</b>Two thousand particles reading a value-noise field; the pointer cuts a vortex. Trails are compositing.</dd></div>
+    <div><dt>03</dt><dd><b>Reaction–diffusion</b>Gray–Scott solved on a coarse grid every frame, with a watchdog that restarts it if the reaction burns out.</dd></div>
+    <div><dt>04</dt><dd><b>Gooey morph</b>Blur plus a colour matrix that slams the alpha ramp back to a hard edge, so blobs merge like liquid.</dd></div>
+    <div><dt>05</dt><dd><b>Spotlight stage</b>Objects shaded by angle and distance to a light you carry, casting shadows away from it.</dd></div>
+    <div><dt>06</dt><dd><b>One line</b>Six drawings from the same 120 points, so the stroke redistributes instead of lifting.</dd></div>
+    <div><dt>07</dt><dd><b>Dot matrix</b>Inverse-square repulsion on a lattice; clicks send a wave that propagates by distance.</dd></div>
+    <div><dt>08</dt><dd><b>Shatter</b>Convex shards from repeated random cuts, kicked by proximity and released by distance so the break travels outward.</dd></div>
+    <div><dt>09</dt><dd><b>Ribbon</b>A spring-coupled chain extruded perpendicular to its direction of travel, tapering along its length.</dd></div>
+    <div><dt>10</dt><dd><b>Murmuration</b>No field at all. Agents drawn as velocity dashes, with a hairline between every pair currently influencing each other — the negotiation, not the birds.</dd></div>
+  </dl>
+
+  <h2>The ten "How I get it done" treatments</h2>
+  <p>Same five stages, ten visual arguments. Every page carries the picker, so you can switch between them anywhere.</p>
+  <dl class="cols">
+    <div><dt>01</dt><dd><b>Blocks</b>Nine rectangles survive all five stages, rearranging.</dd></div>
+    <div><dt>02</dt><dd><b>One line</b>A single unbroken stroke walks every stage's perimeters.</dd></div>
+    <div><dt>03</dt><dd><b>Isometric</b>A structure built plate by plate in axonometric projection.</dd></div>
+    <div><dt>04</dt><dd><b>Blueprint</b>A plotter draws each stage with dimension lines and construction marks.</dd></div>
+    <div><dt>05</dt><dd><b>Conveyor</b>The work travels through five stations on a running belt.</dd></div>
+    <div><dt>06</dt><dd><b>Orbit</b>Five rings; the live one energises and its artifacts orbit.</dd></div>
+    <div><dt>07</dt><dd><b>Film strip</b>Frames slide past a gate, each one a small scene.</dd></div>
+    <div><dt>08</dt><dd><b>Terminal</b>Code types on the left while the preview assembles on the right.</dd></div>
+    <div><dt>09</dt><dd><b>Swarm</b>Seven hundred canvas particles flock into five formations.</dd></div>
+    <div><dt>10</dt><dd><b>Graph</b>A node network rewires itself between stages.</dd></div>
+  </dl>
+
+  <footer>All five stage formations come from one shared description — the block treatment
+  draws the rectangles, the swarm fills them with particles, the single-line treatment walks
+  their perimeters. Three very different drawings, one source of truth. No GSAP, no
+  Three.js, no scroll library, no build step; the only network request beyond the page is a
+  webfont on D2.</footer>
+</div>
+</body>
+</html>

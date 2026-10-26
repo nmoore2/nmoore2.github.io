@@ -178,7 +178,7 @@
 
   /* ── Hero ───────────────────────────────────────────────────────────
      A greeting and one line. The name is the first motion study on the
-     page: each letter can be dragged and springs home, so the claim in the
+     page: each letter can be dragged into a new position, so the claim in the
      line underneath is demonstrated before anyone scrolls to the work.
      On a phone the greeting owns the first screen, centred above the bar. */
   .hero { min-height: 75svh; align-content: center; }
@@ -199,6 +199,10 @@
   }
   .grab { display: inline-block; white-space: nowrap; }
   .grab b { display: inline-block; font: inherit; cursor: grab; touch-action: none; }
+  .grab b:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  #reset-name { margin-left: 1rem; border: 0; border-bottom: 1px solid currentColor; background: none; color: var(--dim); font: inherit; cursor: pointer; padding: .4rem 0; }
+  #reset-name[hidden] { display: none; }
+  .grab b { position: relative; user-select: none; }
   .grab b:active { cursor: grabbing; color: var(--accent); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden;
         clip-path: inset(50%); white-space: nowrap; }
@@ -344,9 +348,9 @@
 
   <section class="band hero" id="top" data-frame data-label="Top">
     <div class="inner">
-      <h1>Hi, I'm <span class="sr">Nathan.</span><span class="grab" aria-hidden="true">Nathan.</span></h1>
+      <h1>Hi, I'm <span class="sr">Nathan.</span><span class="grab" role="group" aria-label="Rearrange the letters in Nathan" aria-describedby="name-help">Nathan.</span></h1>
       <p class="do">I make interfaces <em>feel right.</em></p>
-      <p class="hint" aria-hidden="true">go on, drag my name</p>
+      <div class="hint">go on, rearrange my name <button id="reset-name" type="button" hidden>Reset name</button></div><span class="sr" id="name-help">Drag a letter to a new position, or focus it and use the left and right arrow keys. Escape cancels a drag.</span><span class="sr" id="name-status" role="status"></span>
 
       <div class="actions">
         <a class="lead" href="#motion" id="lead">
@@ -443,7 +447,7 @@
 </footer>
 
 <script src="/mockups/v3/shared/motion.js?v=52" defer></script>
-<script src="/mockups/v3/shared/theme.js?v=52" defer></script>
+<script src="/mockups/v3/shared/theme.js?v=52" defer></script><script src="/site/name-reorder.js?v=1" defer></script>
 <script src="/mockups/v3/shared/showpiece.js?v=52" defer></script>
 <script src="/mockups/v3/shared/morph.js?v=52" defer></script>
 <script>
@@ -482,29 +486,6 @@ addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => { spin(); queued = false; });
   }, { passive: true });
   spin();
-
-  /* ── Draggable name ─────────────────────────────────────────────────
-     Each letter follows the pointer and, on release, returns on a damped
-     spring. Pointer capture keeps a fast drag from losing its letter. */
-  const grab = document.querySelector('.grab');
-  grab.innerHTML = [...grab.textContent].map(c => '<b>' + c + '</b>').join('');
-  for (const b of grab.children) {
-    let x = 0, y = 0, vx = 0, vy = 0, ox = 0, oy = 0, held = false, raf;
-    const place = () => b.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
-    const settle = () => {
-      vx = (vx - x * .12) * .78; vy = (vy - y * .12) * .78; x += vx; y += vy; place();
-      if (Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) > .2) raf = requestAnimationFrame(settle);
-      else { x = y = 0; b.style.translate = ''; }
-    };
-    b.addEventListener('pointerdown', e => {
-      held = true; cancelAnimationFrame(raf);
-      ox = e.clientX - x; oy = e.clientY - y; b.setPointerCapture(e.pointerId);
-    });
-    b.addEventListener('pointermove', e => { if (held) { x = e.clientX - ox; y = e.clientY - oy; place(); } });
-    const drop = () => { if (!held) return; held = false; vx = vy = 0; settle(); };
-    b.addEventListener('pointerup', drop);
-    b.addEventListener('pointercancel', drop);
-  }
 
   /* ── Theme tray (phones) ─────────────────────────────────────────── */
   const rail = document.querySelector('.rail');

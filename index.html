@@ -324,7 +324,39 @@
   .about .contact a.mail:hover { color: var(--accent); }
   .about .contact a.alt { font-size: var(--fs--1); color: var(--dim); }
 </style>
-</head>
+<style>
+.hero {min-height:90svh;padding-top:110px;padding-bottom:80px}.hero .inner{width:100%}.hero h1{font-size:30px;letter-spacing:-.04em;line-height:1.2}.hero .hint{font-size:9px;margin:10px 0 0}.hero .do{font-size:clamp(42px,5.4vw,78px);line-height:1.06;letter-spacing:-.045em;margin:48px 0 0;max-width:20ch}.hero .do em{display:block}.hero .intro{font-size:17px;max-width:50ch;margin-top:26px;line-height:1.7}.hero .actions{margin-top:34px}.hero .lead{padding:16px 26px}.hero .quiet{padding:14px 0}@media(max-width:736px){.hero{padding-top:70px;padding-bottom:110px;min-height:90svh}.hero h1{font-size:26px}.hero .do{font-size:42px;max-width:20ch;margin-top:35px}.hero .intro{font-size:16px}.hero .actions{display:flex;flex-wrap:wrap}.hero .lead{width:auto;min-height:0}.hero .quiet{margin-left:12px}}
+</style><style>
+/* Refined editorial proportions: name and positioning share the hierarchy. */
+.hero h1 { font-size: clamp(42px, 5vw, 68px); line-height: 1.05; }
+.hero .do { font-size: clamp(36px, 4.3vw, 62px); margin-top: 38px; }
+.hero .hint { margin-top: 14px; }
+@media (max-width: 736px) {
+  .hero h1 { font-size: clamp(36px, 8.8vw, 52px); }
+  .hero .do { font-size: clamp(32px, 7.8vw, 42px); margin-top: 32px; }
+}
+</style><style>
+/* Compact motion collection with a varied editorial rhythm. */
+#motion .sp-grid { grid-template-columns: repeat(12, minmax(0,1fr)); gap: 14px; background: transparent; border: 0; }
+#motion .sp-grid .sp { grid-column: span 3; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+#motion .sp-grid .sp.feature { grid-column: span 7; }
+#motion .sp-grid .sp:nth-child(2) { grid-column: span 5; }
+#motion .sp-grid .sp:nth-child(n+7) { grid-column: span 4; }
+#motion .sp-grid .sp-stage { height: 190px; }
+#motion .sp-grid .sp:nth-child(-n+2) .sp-stage { height: 240px; }
+#motion .sp-cap { padding: 16px; }
+#motion > header { margin-bottom: 22px; }
+@media(max-width:1100px) {
+ #motion .sp-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ #motion .sp-grid .sp,#motion .sp-grid .sp.feature,#motion .sp-grid .sp:nth-child(n) { grid-column:span 1; }
+ #motion .sp-grid .sp:last-child {grid-column:1/-1;}
+ #motion .sp-grid .sp-stage,#motion .sp-grid .sp:nth-child(-n+2) .sp-stage {height:210px;}
+}
+@media(max-width:600px) {
+ #motion .sp-grid {grid-template-columns:1fr;gap:12px;}
+ #motion .sp-grid .sp-stage,#motion .sp-grid .sp:nth-child(-n+2) .sp-stage {height:200px;}
+}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -350,21 +382,12 @@
   <section class="band hero" id="top" data-frame data-label="Top">
     <div class="inner">
       <h1>Hi, I'm <span class="sr">Nathan.</span><span class="grab" role="group" aria-label="Rearrange the letters in Nathan" aria-describedby="name-help">Nathan.</span></h1>
-      <p class="do">I put AI to work. <em>And ideas into market.</em></p>
-      <p class="intro">Backed by 12 years of software engineering, I connect product thinking, design, and search strategy from concept through launch.</p>
       <div class="hint">go on, rearrange my name <button id="reset-name" type="button" hidden>Reset name</button></div><span class="sr" id="name-help">Drag a letter to a new position, or focus it and use the left and right arrow keys. Escape cancels a drag.</span><span class="sr" id="name-status" role="status"></span>
+      <p class="do">I put AI to work. <em>And bring ideas to market.</em></p>
+      <p class="intro">12 years of software engineering. Product thinking, design, and search strategy, from concept to launch.</p>
 
-      <div class="actions">
-        <a class="lead" href="#motion" id="lead">
-          <svg class="spool" viewBox="0 0 120 120" aria-hidden="true">
-            <circle class="rim" cx="60" cy="60" r="50"/>
-            <g class="wheel" id="wheel"><g class="spokes"></g></g>
-            <circle class="hub" cx="60" cy="60" r="13"/>
-          </svg>
-          Explore motion <span class="arr" aria-hidden="true">↓</span>
-        </a>
-        <a class="quiet" href="#cases">Selected work <span aria-hidden="true">→</span></a>
-      </div>
+
+      <div class="actions"><a class="lead" href="#cases">Selected work</a><a class="quiet" href="#contact">Let's talk</a></div>
     </div>
   </section>
 
@@ -469,26 +492,6 @@ addEventListener('DOMContentLoaded', () => {
 
   /* The spool is part of the action it sits in: no separate label, no
      separate destination. Its rotation is bound to scroll position. */
-  const lead = document.getElementById('lead');
-  const spokes = document.querySelector('#wheel .spokes');
-  const NS = 'http://www.w3.org/2000/svg';
-  for (let i = 0; i < 6; i++) {
-    const r = document.createElementNS(NS, 'rect');
-    r.setAttribute('class', 'spoke');
-    r.setAttribute('x', '54'); r.setAttribute('y', '12');
-    r.setAttribute('width', '12'); r.setAttribute('height', '38'); r.setAttribute('rx', '6');
-    r.setAttribute('transform', 'rotate(' + (i * 60) + ' 60 60)');
-    spokes.append(r);
-  }
-  let queued = false;
-  const spin = () => lead.style.setProperty('--spin', (scrollY * .42).toFixed(1) + 'deg');
-  addEventListener('scroll', () => {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(() => { spin(); queued = false; });
-  }, { passive: true });
-  spin();
-
   /* ── Theme tray (phones) ─────────────────────────────────────────── */
   const rail = document.querySelector('.rail');
   const themeBtn = document.getElementById('theme-toggle');

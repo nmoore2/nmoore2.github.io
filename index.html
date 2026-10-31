@@ -46,6 +46,14 @@
 
   html { scroll-snap-type: y proximity; }
   html[data-motion="reduced"] { scroll-snap-type: none; }
+  /* No snapping on phones. iOS Safari re-snaps to the last snapped section
+     after a smooth in-page jump, so "Selected work" scrolled down and was
+     pulled straight back to the hero. Flick scrolling makes snap points
+     more nuisance than help at this size anyway. */
+  @media (max-width: 46rem), (pointer: coarse) { html { scroll-snap-type: none; } }
+  /* Set while an in-page link is scrolling, so no browser can snap the
+     jump back to where it started. */
+  html.jumping { scroll-snap-type: none; }
 
   /* ── Fixed rail ─────────────────────────────────────────────────── */
   .rail {
@@ -543,6 +551,19 @@ html[data-motion="reduced"] .hero .hint::after { animation: none; }
 <script src="/mockups/v3/shared/morph.js?v=52" defer></script>
 <script>
 addEventListener('DOMContentLoaded', () => {
+  /* In-page links: hold snapping off until the smooth scroll has landed. */
+  const root = document.documentElement;
+  let jumpTimer;
+  const landed = () => { clearTimeout(jumpTimer); root.classList.remove('jumping'); };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute('href').length < 2) return;
+    root.classList.add('jumping');
+    clearTimeout(jumpTimer);
+    jumpTimer = setTimeout(landed, 1500);   // browsers without scrollend
+  });
+  addEventListener('scrollend', () => { if (root.classList.contains('jumping')) landed(); });
+
   const sp = window.nmShowpieces;
   const FEATURE = 'flow';
   if (sp) {
